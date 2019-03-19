@@ -1,6 +1,7 @@
 {
   "require": {
     "craftcms/cms": "^3.0.0",
+    "fortrabbit/craft-copy": "^1.0.0-RC4",
     "nystudio107/craft-minify": "1.2.9",
     "vlucas/phpdotenv": "^2.4.0"
   },
@@ -11,10 +12,7 @@
   },
   "config": {
     "sort-packages": true,
-    "optimize-autoloader": true,
-    "platform": {
-      "php": "7.0"
-    }
+    "optimize-autoloader": true
   },
   "scripts": {
     "post-root-package-install": [
