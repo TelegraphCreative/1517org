@@ -1,4 +1,4 @@
-dateModified: 1552967416
+dateModified: 1552968416
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -6,6 +6,25 @@ email:
 fieldGroups:
   be195220-984a-4496-a3ec-b2db4bf7dbe2:
     name: Common
+fields:
+  0fec9112-8616-42d5-9d32-af51569d1dd9:
+    name: 'SuperTable Test'
+    handle: supertableTest
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_supertabletest}}'
+      localizeBlocks: false
+      staticField: ''
+      fieldLayout: table
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 plugins:
   minify:
     edition: standard
@@ -15,6 +34,41 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.10
+sections:
+  10cf0da7-001c-470b-983c-0e282a8e4830:
+    name: Home
+    handle: home
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: __home__
+        template: ''
+    entryTypes:
+      a3afaea9-2b5e-460c-9c03-5cfab4eb2909:
+        name: Home
+        handle: home
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          6fdb88bf-d327-494b-ad46-383c2f371293:
+            tabs:
+              -
+                name: Common
+                sortOrder: 1
+                fields:
+                  0fec9112-8616-42d5-9d32-af51569d1dd9:
+                    required: false
+                    sortOrder: 1
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
@@ -28,6 +82,37 @@ sites:
     primary: true
     siteGroup: f89694aa-dd36-4e72-9426-761baa648fa7
     sortOrder: 1
+superTableBlockTypes:
+  874804f0-917e-43f1-a02b-0a85ca4d32ac:
+    field: 0fec9112-8616-42d5-9d32-af51569d1dd9
+    fields:
+      78ae2195-acfd-436d-bd1a-29f2872e8c26:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      caa41e6e-527d-4587-bbc2-acaf2ed9c422:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              78ae2195-acfd-436d-bd1a-29f2872e8c26:
+                required: false
+                sortOrder: 1
 system:
   edition: solo
   name: '1517'
