@@ -1,0 +1,22 @@
+{% extends "_layouts/_base" %}
+
+{% block content %}
+    <h1>
+        Podcasts
+    </h1>
+        
+    {# Fetch all of the entries related to this category #}
+    {% set group = craft.categories.group('podcastShows').level(1) %}
+
+    <ul>
+        {% for category in group.all() %}
+            <li>
+                <a href="{{ category.url }}">
+                    {{ category.title }}
+                </a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

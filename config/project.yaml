@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1553624766
+dateModified: 1553626087
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -133,42 +133,6 @@ sections:
                   0fec9112-8616-42d5-9d32-af51569d1dd9:
                     required: false
                     sortOrder: 1
-  edc02712-d8c4-4a6a-a918-8e84138d1d03:
-    name: 'The Channel (scratch for now)'
-    handle: theChannel
-    type: structure
-    enableVersioning: false
-    propagateEntries: true
-    siteSettings:
-      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
-        enabledByDefault: true
-        hasUrls: false
-        uriFormat: null
-        template: null
-    structure:
-      uid: 266f892c-b1f3-4b1e-94d2-acd8cbf8276e
-      maxLevels: ''
-    entryTypes:
-      8ae42564-3ade-4c3c-80fd-013b3ab7cee8:
-        name: 'Podcast Episode'
-        handle: podcastEpisode
-        hasTitleField: true
-        titleLabel: Title
-        titleFormat: ''
-        sortOrder: 1
-        fieldLayouts:
-          9478ea59-9803-464e-84e8-9ec2f4598e2e:
-            tabs:
-              -
-                name: Common
-                sortOrder: 1
-                fields:
-                  8e7cd322-96ae-4173-9807-4a103598e9c9:
-                    required: false
-                    sortOrder: 1
-                  a8ddce4c-468a-4ff3-b531-c61d499863de:
-                    required: false
-                    sortOrder: 2
   6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1:
     name: Podcasts
     handle: podcasts
