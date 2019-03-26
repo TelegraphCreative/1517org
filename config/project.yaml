@@ -1,4 +1,27 @@
-dateModified: 1552968416
+categoryGroups:
+  8f5fdb8b-9210-4728-a9e2-9c50a543eac5:
+    name: 'Podcast Shows'
+    handle: podcastShows
+    structure:
+      uid: 9895d996-dcdd-4526-9f9e-5b2435ba4582
+      maxLevels: '2'
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        hasUrls: true
+        uriFormat: 'podcasts/{slug}'
+        template: podcasts/_category
+  cc2489d2-901a-44fa-abd8-7dae85d85495:
+    name: Topics
+    handle: topics
+    structure:
+      uid: 1669145e-7fda-479a-a721-10381691427e
+      maxLevels: null
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        hasUrls: true
+        uriFormat: 'topics/{slug}'
+        template: topics/_category
+dateModified: 1553624766
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -7,23 +30,60 @@ fieldGroups:
   be195220-984a-4496-a3ec-b2db4bf7dbe2:
     name: Common
 fields:
-  0fec9112-8616-42d5-9d32-af51569d1dd9:
-    name: 'SuperTable Test'
-    handle: supertableTest
+  8e7cd322-96ae-4173-9807-4a103598e9c9:
+    name: 'Podcast Show'
+    handle: podcastShow
     instructions: ''
     searchable: true
     translationMethod: site
     translationKeyFormat: null
-    type: verbb\supertable\fields\SuperTableField
+    type: craft\fields\Categories
     settings:
-      minRows: ''
-      maxRows: ''
-      contentTable: '{{%stc_supertabletest}}'
-      localizeBlocks: false
-      staticField: ''
-      fieldLayout: table
-      selectionLabel: ''
+      branchLimit: '1'
+      sources: '*'
+      source: 'group:8f5fdb8b-9210-4728-a9e2-9c50a543eac5'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: 'Show '
+      localizeRelations: false
     contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  a8ddce4c-468a-4ff3-b531-c61d499863de:
+    name: Topics
+    handle: topics
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      branchLimit: ''
+      sources: '*'
+      source: 'group:cc2489d2-901a-44fa-abd8-7dae85d85495'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: Topic
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
+    name: Description
+    handle: description
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 plugins:
   minify:
@@ -38,6 +98,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.10
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.6
 sections:
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
@@ -69,50 +133,124 @@ sections:
                   0fec9112-8616-42d5-9d32-af51569d1dd9:
                     required: false
                     sortOrder: 1
+  edc02712-d8c4-4a6a-a918-8e84138d1d03:
+    name: 'The Channel (scratch for now)'
+    handle: theChannel
+    type: structure
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: false
+        uriFormat: null
+        template: null
+    structure:
+      uid: 266f892c-b1f3-4b1e-94d2-acd8cbf8276e
+      maxLevels: ''
+    entryTypes:
+      8ae42564-3ade-4c3c-80fd-013b3ab7cee8:
+        name: 'Podcast Episode'
+        handle: podcastEpisode
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          9478ea59-9803-464e-84e8-9ec2f4598e2e:
+            tabs:
+              -
+                name: Common
+                sortOrder: 1
+                fields:
+                  8e7cd322-96ae-4173-9807-4a103598e9c9:
+                    required: false
+                    sortOrder: 1
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: false
+                    sortOrder: 2
+  6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1:
+    name: Podcasts
+    handle: podcasts
+    type: channel
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: '{podcastShow[0].uri}/{slug}'
+        template: podcasts/_entry
+    entryTypes:
+      920e5b84-c76c-4f17-92be-8456eee6e11d:
+        name: Podcast
+        handle: podcast
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          045b7ff7-4163-4ff5-83b4-cdaeae16f265:
+            tabs:
+              -
+                name: Common
+                sortOrder: 1
+                fields:
+                  1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
+                    required: false
+                    sortOrder: 1
+                  8e7cd322-96ae-4173-9807-4a103598e9c9:
+                    required: false
+                    sortOrder: 2
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: false
+                    sortOrder: 3
+  b0598134-0d64-4c98-9d73-351145a9c276:
+    name: Articles
+    handle: articles
+    type: channel
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: '{topics[0].uri}/{slug}'
+        template: articles/_entry
+    entryTypes:
+      74c20f3f-0b48-4025-8609-252b703a7ce0:
+        name: Article
+        handle: article
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          b8a6ebcc-9b05-4437-b3d2-ae3d43e983b2:
+            tabs:
+              -
+                name: Common
+                sortOrder: 1
+                fields:
+                  1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
+                    required: false
+                    sortOrder: 1
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: false
+                    sortOrder: 2
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
 sites:
   fb77e84e-92df-43ef-bf13-af2fe58f56fe:
-    baseUrl: $DEFAULT_SITE_URL
-    handle: default
-    hasUrls: true
-    language: en-US
-    name: '1517'
-    primary: true
     siteGroup: f89694aa-dd36-4e72-9426-761baa648fa7
+    name: '1517'
+    handle: default
+    language: en-US
+    hasUrls: true
+    baseUrl: '@web'
     sortOrder: 1
-superTableBlockTypes:
-  874804f0-917e-43f1-a02b-0a85ca4d32ac:
-    field: 0fec9112-8616-42d5-9d32-af51569d1dd9
-    fields:
-      78ae2195-acfd-436d-bd1a-29f2872e8c26:
-        name: Header
-        handle: header
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\PlainText
-        settings:
-          placeholder: ''
-          code: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: text
-        contentColumnType: text
-        fieldGroup: null
-    fieldLayouts:
-      caa41e6e-527d-4587-bbc2-acaf2ed9c422:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              78ae2195-acfd-436d-bd1a-29f2872e8c26:
-                required: false
-                sortOrder: 1
+    primary: true
 system:
   edition: solo
   name: '1517'

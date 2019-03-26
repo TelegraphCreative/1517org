@@ -1,0 +1,61 @@
+{% extends "_layouts/_base" %}
+
+{% block content %}
+    
+    <h1>
+        {{ entry.title }}
+    </h1>
+
+    <p>
+        {{ entry.description }}
+    </p>
+
+    {% if entry.podcastShow|length %}
+        <h2>Show</h2>
+        <ul>
+            {% for category in entry.podcastShow.level(1).all() %}
+                <li>
+                    <a href="{{ category.url }}">
+                        {{ category.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if entry.podcastShow.level(2)|length %}
+        <h2>Series</h2>
+        <ul>
+            {% for category in entry.podcastShow.level(2).all() %}
+                <li>
+                    <a href="{{ category.url }}">
+                        {{ category.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+
+    <h2>Topics</h2>
+    {% if entry.topics|length %}
+        <ul>
+            {% for category in entry.topics.all() %}
+                <li>
+                    {% if category.level == 2 %}
+                        <ul><li>
+                    {% endif %}
+
+                    <a href="{{ category.url }}">
+                        {{ category.title }}
+                    </a>
+                    {% if category.level == 2 %}
+                        </li></ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "_layouts/_base" %}
+
+{% block content %}
+    <h1>
+        Topics
+    </h1>
+        
+    {# Fetch all of the entries related to this category #}
+    {% set group = craft.categories.group('topics') %}
+
+    <ul>
+        {% for category in group.all() %}
+            <li>
+                {% if category.level == 2 %}
+                    <ul><li>
+                {% endif %}
+
+                <a href="{{ category.url }}">
+                    {{ category.title }}
+                </a>
+                
+                {% if category.level == 2 %}
+                    </li></ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

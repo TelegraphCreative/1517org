@@ -1,0 +1,21 @@
+{% extends "_layouts/_base" %}
+
+{% block content %}
+    <h1>
+        Topic: {{ category.title }}
+    </h1>
+        
+    {# Fetch all of the entries related to this category #}
+    {% set entries = craft.entries.relatedTo(category) %}
+
+    <ul>
+        {% for entry in entries.all() %}
+            <li>
+                <a href="{{ entry.url }}">
+                    {{ entry.title }} ( {{ entry.type }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

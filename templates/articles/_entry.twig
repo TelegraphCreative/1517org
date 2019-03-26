@@ -1,0 +1,25 @@
+{% extends "_layouts/_base" %}
+
+{% block content %}
+    <h1>
+        {{ entry.title }}
+    </h1>
+
+    <p>
+        {{ entry.description }}
+    </p>
+
+    <h2>Topics</h2>
+    {% if entry.topics|length %}
+        <ul>
+            {% for category in entry.topics.all() %}
+                <li>
+                    <a href="{{ category.url }}">
+                        {{ category.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}
