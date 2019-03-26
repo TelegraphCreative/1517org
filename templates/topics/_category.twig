@@ -4,6 +4,13 @@
     <h1>
         Topic: {{ category.title }}
     </h1>
+    <h4>
+        {% if category.level > 1 %}
+            (part of a group, <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
+            <br>
+        {% endif %}
+        see all <a href="/{{ firstSegment }}">{{ category.group.name }}</a>
+    </h4>
         
     {# Fetch all of the entries related to this category #}
     {% set entries = craft.entries.relatedTo(category) %}
