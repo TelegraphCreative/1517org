@@ -4,7 +4,7 @@
 ## Craft 3 Installation (from repo)
 
 1. Clone repo
-2. Import database
+2. Import database (Craft Copy or request latest dump from admin)
 
 
 ### — Install Craft Plugins
