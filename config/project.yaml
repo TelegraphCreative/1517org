@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1553626087
+dateModified: 1553701463
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -216,7 +216,7 @@ sites:
     sortOrder: 1
     primary: true
 system:
-  edition: solo
+  edition: pro
   name: '1517'
   live: true
   schemaVersion: 3.1.25
