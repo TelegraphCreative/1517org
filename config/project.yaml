@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1554323154
+dateModified: 1554323743
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -249,7 +249,7 @@ sections:
         enabledByDefault: true
         hasUrls: true
         uriFormat: __home__
-        template: ''
+        template: home
     entryTypes:
       a3afaea9-2b5e-460c-9c03-5cfab4eb2909:
         name: Home
