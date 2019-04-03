@@ -1,0 +1,66 @@
+{% import '_macros/global' as global %}
+
+<div class="billboard -donate | {{ classes }}">
+    <div class="billboard__container container--sm | flex-grid | space-t">
+        <header class="billboard__content | gutter | md:w-2/3">
+            <div class="billboard__detail | space-b--sm">
+                <h5 class="header-xs font-serif | text-yellow-dark | mb-2">
+                    Thank you for your support
+                </h5>
+                <h2 class="header-lg font-serif">
+                    Your gift will enable us to proclaim the free gift of the
+                    Gospel of Christ to more people in more ways in 2019.
+                </h2>
+            </div>
+            <div class="billboard__action">
+                <div class="meta-label | mb-4">Choose Amount:</div>
+
+                <div class="option-group -equalize -start">
+                    <label
+                        class="option-group__item | control control--radio-box"
+                        for="option-1"
+                        ><input
+                            id="option-1"
+                            name="group-A"
+                            type="radio"
+                            value="Option 1"
+                        />
+                        <span class="control__text | w-full">$25</span></label
+                    >
+                    <label
+                        class="option-group__item | control control--radio-box"
+                        for="option-2"
+                        ><input
+                            id="option-2"
+                            name="group-A"
+                            type="radio"
+                            value="Option 2"
+                        />
+                        <span class="control__text | w-full">$50</span></label
+                    >
+                    <label
+                        class="option-group__item | control control--radio-box"
+                        for="option-3"
+                        ><input
+                            id="option-3"
+                            name="group-A"
+                            type="radio"
+                            value="Option 3"
+                        />
+                        <span class="control__text | w-full">$75</span></label
+                    >
+                </div>
+            </div>
+        </header>
+
+        <div class="billboard__media | md:w-1/3">
+            {{
+                global.image(
+                    '',
+                    '-is1x1 -fit-cover',
+                    '/assets/placeholder/placeholder_04.png'
+                )
+            }}
+        </div>
+    </div>
+</div>

@@ -115,6 +115,9 @@ a {
   &--dark a:hover {
     @apply text-slate-darker;
   }
+  &--grey a:hover {
+    @apply text-grey-darker;
+  }
   &--inherit a:hover {
     color: inherit;
   }
