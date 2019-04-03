@@ -1,13 +1,26 @@
 // Inline Justified Options
 @screen md {
-  .option-group {
-    @apply flex items-center .justify-center;
-    &__item {
-      @apply mr-4 flex-1;
+    .option-group {
+        @apply flex items-center .justify-center text-center;
 
-      &:last-child {
-        @apply mr-0;
-      }
+        &__item {
+            @apply mr-4;
+
+            &:last-child {
+                @apply mr-0;
+            }
+        }
+
+        // Align Start
+        &.-start {
+            @apply justify-start;
+        }
+
+        // Equalize
+        &.-equalize {
+            &__item {
+                @apply flex-1;
+            }
+        }
     }
-  }
 }
