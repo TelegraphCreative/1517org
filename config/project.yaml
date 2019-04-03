@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1553701463
+dateModified: 1554235225
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -212,9 +212,9 @@ sites:
     handle: default
     language: en-US
     hasUrls: true
-    baseUrl: '@web'
-    sortOrder: 1
-    primary: true
+    baseUrl: $DEFAULT_SITE_URL
+    sortOrder: '1'
+    primary: '1'
 system:
   edition: pro
   name: '1517'

@@ -1,7 +1,7 @@
 {
   "require": {
     "craftcms/cms": "^3.0.0",
-    "fortrabbit/craft-copy": "^1.0.0-RC4",
+    "fortrabbit/craft-copy": "^1.0.0-RC5",
     "nystudio107/craft-minify": "1.2.9",
     "nystudio107/craft-seomatic": "3.1.46",
     "verbb/super-table": "2.1.16",
