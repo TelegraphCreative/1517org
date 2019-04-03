@@ -1,3 +1,8 @@
+// Offset Menu
+.space-menu {
+  padding-top: var(--menu-height-sm);
+}
+
 // Section Spacing
 .space {
   &-t {
@@ -17,6 +22,10 @@
       @apply pb-18;
     }
 
+    &--md {
+      @apply pb-14;
+    }
+
     &--sm {
       @apply pb-12;
     }
@@ -32,6 +41,11 @@
     }
     &-b {
       @apply pb-18;
+
+      &--md {
+        @apply pb-16;
+      }
+      
       &--lg {
         @apply pb-32;
       }
@@ -40,6 +54,13 @@
 }
 
 @screen md {
+
+  // Offset Menu
+  .space-menu {
+    padding-top: var(--menu-height);
+  }
+
+  // Section Spacing
   .md\:space-t {
     @apply pt-18;
   }
@@ -51,4 +72,5 @@
       @apply pb-20;
     }
   }
+  
 }

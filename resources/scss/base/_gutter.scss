@@ -1,0 +1,56 @@
+
+  // Gutters
+  .gutter {
+    // Default
+    @apply px-3;
+
+//   &-sm {
+//     @apply px-6;
+//   }  
+
+  // Medium
+  &-md {
+    @apply px-10;
+  }
+
+  // Large
+  &-lg {
+    @apply px-12;
+  }
+
+  // Left
+  &-l {
+    // XL
+    &--xl {
+      @apply pl-12;
+    }
+  }
+}
+
+
+
+// Screens
+// MD
+@screen md {
+  
+    // Gutters
+    .gutter {
+      // Default
+      @apply px-8;
+      
+      // Large
+      &-lg {
+        @apply px-17;
+      }
+
+      // Left
+      &-l {
+        // XL
+        &--xl {
+          @apply pl-36;
+        }
+      }
+    }
+  
+  }
+  

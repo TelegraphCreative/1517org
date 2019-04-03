@@ -12,7 +12,7 @@
     // // Bars
 	span {
         @apply 
-            bg-green
+            bg-grey-darkest
             block
             absolute
             w-full
@@ -43,7 +43,7 @@
       &:hover,
       &.-active {
           span {
-              @apply bg-green-darkest;
+              @apply bg-red;
           }
       }
   

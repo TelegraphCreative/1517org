@@ -1,136 +1,51 @@
 .section-header {
-  // General Layout
-  @apply text-center mb-8 pt-12;
-  @apply w-4/5 mx-auto;
-  // Flush
-  &.-flush {
-    @apply w-full;
-    .section-header__descr {
-      @apply ml-0;
+
+  // -box
+  &.-box {
+    @apply border-8 border-grey-light p-6;
+
+    .paragraphs {
+      @apply text-grey-darker;
     }
   }
 
-  .header-sm {
-    @apply mb-4;
-  }
-  .paragraphs {
-    @apply pt-4;
-  }
-
-  &__descr {
-    @apply mx-auto max-w-lg;
-
-    &.-flush {
-      @apply ml-0;
-    }
-  }
-
-  &__action {
-    @apply pt-5;
-  }
-
-  // -Top Type
-  &.-top {
-    @apply px-4 w-full max-w-full;
-  }
-
-  // -Left Type
-  &.-left {
-    @apply text-left;
-  }
-
-  // -Arrow Type
-  &.-arrow {
-    .link.-icon {
-      @apply .justify-center;
-    }
-    // -Left
-    &.-left {
-      @apply text-center;
-    }
-  }
-
-  // sm Screen
-  @screen sm {
-    @apply w-full max-w-full;
-    &__descr {
-      @apply w-3/5;
-      &.-flush {
-        @apply w-full;
-      }
-    }
-
-    // -Inline-Actions
-    &.-inline-actions {
-      .section-header__content {
-        @apply text-center relative;
-      }
-
-      .section-header__action {
-        @apply absolute pin-r pin-t pt-0;
-      }
-    }
-
-    // -Left (override other types)
-    &.-left {
-      .section-header__content {
-        @apply text-left;
-      }
-    }
-
-    // Top Section Header
-    &.-top {
-      @apply px-8;
-    }
-  }
-
-  // md Screen
+  // Screens
+  // md
   @screen md {
-    // General Layout
-    @apply mb-10 pt-14 pt-22;
 
-    &__action {
-      @apply pt-10;
-    }
+    // -box
+    &.-box {
+      @apply relative mt-16 border-0;
+      
+      // Offset Border
+      &:before {
+        @apply absolute pseudo pin-t pin-l w-full h-full
+        border-16 border-grey-light
+        -ml-6 -mt-16;
 
-    // Top Section Header
-    &.-top {
-      @apply pb-6;
-
-      .header {
-        @apply text-6xl mx-auto w-4/5 max-w-xl;
-        line-height: 1.2;
+        width: 130%;
+        padding-bottom: 25rem;
+      }
+      
+      // Paragraphs
+      .paragraphs {
+        @apply text-grey-darker max-w-xxs;
       }
     }
-
-    // -Basic Type
-    &.-basic {
-      @apply pt-0 pb-4;
+  }
+  // xl
+  @screen xl {
+    // -box
+    &.-box {
+      @apply p-0;
+      
+      // Offset Border
+      &:before {
+        @apply -ml-16 -mt-20;
+      }
     }
   }
-}
 
-// Variation
-// On Dark
-// md Screen
-.bg-green-darkest .section-header {
-  .header {
-    @apply text-green-light;
-  }
-  .paragraphs {
-    @apply text-white;
-  }
-
-  // @screen md {
-  .header-sm {
-    @apply text-green-light;
-  }
-  .btn {
-    @apply text-green-light border-green-light;
-
-    &:hover {
-      @apply border-white bg-white text-green-darkest;
-    }
-  }
-  // }
+  
+  
 }

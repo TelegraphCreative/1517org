@@ -7,38 +7,87 @@
 .btn {
   @apply link
     inline-block
-    border-2 border-green
-    text-green text-sm text-center
+    border-2
+    rounded
+    text-md text-center
     font-sans 
     font-medium
+    leading-none
+    timing-1 duration-1 property-all
     px-6 py-5;
+
+  // Default
+  @apply bg-sage-darkest border-sage-darkest text-white;
+
+  .icon svg {
+    @apply property-none;
+  }
 
   // Hover
   &:hover {
-    @apply border-green bg-green text-white;
+    @apply  bg-red border-red text-white;
   }
 
   // Light
   &.-light {
-    @apply border-green-light text-green-light;
+    @apply bg-grey-light border-grey-light text-red;
 
     &:hover {
-      @apply border-white bg-white text-green-darkest;
+      @apply border-red bg-red text-white;
+    }
+  }
+
+  // white
+  &.-white {
+    @apply bg-white border-white text-slate-darker;
+
+    // &:hover {
+    //   @apply border-white bg-white;
+    // }
+
+    // -yellow
+    &.-yellow {
+      @apply text-yellow;
     }
   }
 
   // Solid
-  &.-solid {
-    @apply bg-green border-green text-white;
+  &.-red {
+    @apply  bg-red;
 
-    &:hover {
-      @apply bg-green-darkest border-green-darkest text-white;
-    }
+    // &:hover {
+    //   @apply text-white;
+    // }
   }
 
   // Small
-  &.-small {
-    @apply py-3;
+  &.-sm {
+    @apply py-3 text-sm;
+  }
+  // XS
+  &.-xs {
+    @apply py-3 px-4 text-sm;
+  }
+
+  // Icon 
+  &.-has-icon {
+    
+    .btn__text {
+      margin-top: 2px;
+      @apply pl-3;
+    }
+
+    // Reverse
+    &.-reverse {
+      .align-items-center {
+        @apply flex-row-reverse;
+      }
+
+      .btn__text {
+        @apply pl-0 pr-3;
+      }
+
+    }
   }
 
   // Add
@@ -49,36 +98,6 @@
       text-xl font-normal;
       content: "\002B";
       margin-right: 0.875rem;
-    }
-  }
-
-  // Dark
-  &.-dark {
-    @apply border-green-darkest text-green-darkest;
-
-    &.-small {
-      @apply border;
-    }
-
-    &:hover {
-      @apply border-green-darkest bg-green-darkest text-white;
-    }
-  }
-
-  // Gallery
-  &--gallery {
-    @apply flex justify-start items-center w-full cursor-pointer;
-
-    .link {
-      @apply pl-10 mt-6;
-    }
-    &:hover {
-      .link {
-        @apply text-green-darkest;
-        svg {
-          transform: translate(0.5rem, 0);
-        }
-      }
     }
   }
 }
@@ -94,5 +113,16 @@
     @apply block 
             w-full
             text-center;
+  }
+}
+
+
+// Screen
+// MD
+@screen md {
+
+  // Default
+  .btn {
+    @apply px-10;
   }
 }

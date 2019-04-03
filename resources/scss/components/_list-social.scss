@@ -1,0 +1,38 @@
+.social-list {
+    @apply list-reset leading-none;
+    
+    &.-inline li {
+        @apply inline-block mx-1;
+    }
+
+    a {
+        @apply w-4 h-4
+            inline-block
+            text-grey-darker;
+
+        &:hover {
+            @apply text-slate;
+        }
+    }
+
+    // Rounded
+    &.-rounded a {
+        @apply border rounded-full;
+            padding: 0.4375rem 0.5rem 0.375rem;
+            height: 1.875rem;
+            width: 1.875rem;
+    }
+
+    // Light
+    &.-light a {
+        @apply text-grey-darker border-grey-darker;
+    
+        &:hover {
+            @apply text-white 
+            border-yellow-dark 
+            bg-yellow-dark;
+        }
+    }
+
+  
+}

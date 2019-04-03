@@ -1,0 +1,32 @@
+.list-articles {
+    @apply list-reset;
+}
+.list-article {
+    
+    // content
+    &__content {
+        @apply block py-6 
+        border-b border-grey-darker;
+    }
+
+
+    // meta
+    &__meta {
+        @apply text-grey-darker;
+    }
+    
+    // // Screens
+    // // MD
+    // @screen md {
+    //     // media
+    //     &__media {
+    //         @apply w-
+    //     }
+
+    //     // content
+    //     &__content {
+    //         @apply w-
+    //     }
+
+    // }
+}

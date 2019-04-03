@@ -1,0 +1,44 @@
+{% import '_macros/global' as global %}
+
+<article class="content-card -stacked ">
+
+    <div class="content-card__container">
+        
+        {# Content #}
+        <div class="content-card__content">  
+            
+            {# Topic #}
+            <h4 class="topic-label">
+                <a href="#">Topic Label</a>
+            </h4>
+
+            <a href="#">
+                {# Header #}
+                <div class="content-card__header">
+                    <h2 class="card-title | header-base font-serif">This it the h2 title</h1>
+                </div>
+                
+                {# Detail #}
+                <div class="content-card__detail | paragraphs -xs">
+                    <p>Fences of the Law are not modern phenomena. They also existed in Jesus’ day. Much of His conversations with the Pharisees centered on the Law and teaching freedom.</p>
+                </div>
+            </a>
+
+        </div>
+        
+        {# Media #}
+        <a href="#" class="content-card__media">
+            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_02.jpg')}}
+        </a>
+
+        {# Meta #}
+        <div class="content-card__meta | flex-grid">
+
+            <a href="#" class="meta-label">By Author Name</a>
+        
+            <time class="meta-label" datetime="2019-03-19">03/19/2019</time>
+            
+        </div>
+    </div>
+
+</article>

@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1554235225
+dateModified: 1554321936
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -29,6 +29,8 @@ email:
 fieldGroups:
   be195220-984a-4496-a3ec-b2db4bf7dbe2:
     name: Common
+  bc4a29b7-7523-4b35-ad83-a925ceb3eb85:
+    name: Info
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -85,6 +87,127 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  93e4144e-c517-4c83-baa5-c9e7dde122e5:
+    name: 'Social Channels'
+    handle: socialChannels
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_socialchannels}}'
+      localizeBlocks: false
+      staticField: ''
+      columns:
+        new1:
+          width: ''
+        new2:
+          width: ''
+      fieldLayout: row
+      selectionLabel: Channel
+    contentColumnType: string
+    fieldGroup: bc4a29b7-7523-4b35-ad83-a925ceb3eb85
+  4bb4a775-071c-45ce-890a-0c78078d9211:
+    name: 'Site Description'
+    handle: siteDescription
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: Simple.json
+      purifierConfig: ''
+      cleanupHtml: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: bc4a29b7-7523-4b35-ad83-a925ceb3eb85
+  b01177fd-3f47-40a3-a665-91c104efbd06:
+    name: 'Site Tagline'
+    handle: siteTagline
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+globalSets:
+  c247ed92-d964-4a51-81a5-6992b276d9d1:
+    name: 'Site Info'
+    handle: siteInfo
+    fieldLayouts:
+      13894d4c-ad4f-43fc-800e-843a73766683:
+        tabs:
+          -
+            name: Info
+            sortOrder: 1
+            fields:
+              b01177fd-3f47-40a3-a665-91c104efbd06:
+                required: false
+                sortOrder: 1
+              4bb4a775-071c-45ce-890a-0c78078d9211:
+                required: false
+                sortOrder: 2
+              93e4144e-c517-4c83-baa5-c9e7dde122e5:
+                required: false
+                sortOrder: 3
+navigate:
+  nav:
+    0354414e-e4df-4181-af4b-a67fd04d500d:
+      title: 'Main Menu'
+      handle: mainMenu
+      levels: '1'
+      adminOnly: 0
+      allowSources: '*'
+    ff7edd4a-ec2d-4c7a-9945-30e86edae6a6:
+      title: 'Footer Menu'
+      handle: footerMenu
+      levels: '1'
+      adminOnly: 0
+      allowSources: '*'
+navigation:
+  navs:
+    efef6c3b-c762-4834-a0ba-dd4803f3cc35:
+      name: 'Main Menu (A)'
+      handle: mainMenuA
+      structure:
+        uid: 938dc810-b8e1-436a-81a7-c8ee79e9d37a
+        maxLevels: '2'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: null
+    62708f5a-91bd-4dba-89bf-66d9efec1ee5:
+      name: 'Footer Menu (L)'
+      handle: footerMenuL
+      structure:
+        uid: 50065e5f-54f0-42e8-8cda-c901a0156afd
+        maxLevels: '1'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 2
+    ad0f5836-360c-4f72-b923-6b5c4c8b8698:
+      name: 'Footer Menu (R)'
+      handle: footerMenuR
+      structure:
+        uid: e70ae466-8311-4ce7-a198-26ec33e6df0b
+        maxLevels: '1'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 3
 plugins:
   minify:
     edition: standard
@@ -101,7 +224,19 @@ plugins:
   seomatic:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.6
+    schemaVersion: 3.0.7
+  mix:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.11
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.2
 sections:
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
@@ -212,14 +347,67 @@ sites:
     handle: default
     language: en-US
     hasUrls: true
-    baseUrl: $DEFAULT_SITE_URL
-    sortOrder: '1'
-    primary: '1'
+    baseUrl: '@web'
+    sortOrder: 1
+    primary: true
+superTableBlockTypes:
+  06631530-af07-4551-9fb3-ce4f3e49f758:
+    field: 93e4144e-c517-4c83-baa5-c9e7dde122e5
+    fields:
+      73dfee3a-692e-4d9a-a54f-4bdba37ea818:
+        name: Channel
+        handle: channel
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Facebook
+              value: facebook
+              default: ''
+            -
+              label: Twitter
+              value: twitter
+              default: ''
+            -
+              label: Instagram
+              value: instagram
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      fb54923e-d0ce-46d0-936b-2b67d2a897e9:
+        name: URL
+        handle: href
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Url
+        settings:
+          placeholder: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      17f0fe3f-8435-4dbd-90d2-4822271b7d1b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              73dfee3a-692e-4d9a-a54f-4bdba37ea818:
+                required: true
+                sortOrder: 1
+              fb54923e-d0ce-46d0-936b-2b67d2a897e9:
+                required: true
+                sortOrder: 2
 system:
   edition: pro
   name: '1517'
   live: true
-  schemaVersion: 3.1.25
+  schemaVersion: 3.1.26
   timeZone: America/Los_Angeles
 users:
   requireEmailVerification: true

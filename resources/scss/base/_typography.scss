@@ -1,59 +1,104 @@
 // Typography
 body {
-  @apply text-green-darkest font-sans;
+  @apply text-sage-darker font-sans;
 }
 
-// Headers
+// Header Text Sizes
 .header {
-  // 12
-  &-sm {
-    @apply text-xs text-green 
-        uppercase
-        font-medium
-        tracking-narrow;
-
-    &.-light {
-      @apply text-green-light;
-    }
-    &.-dark {
-      @apply text-green-darkest;
-    }
-    &.-grey {
-      @apply text-grey-light;
-    }
-    &.-white {
-      @apply text-white;
-    }
+  
+  // - xxl -  56/36 *common
+  &-xxl {
+    @apply text-2xl;
   }
 
-  // 18
-  &-md {
-    @apply text-xl font-serif;
-  }
-
-  // 30 -> 36
-  &-lg {
-    @apply text-3xl font-serif leading-tight;
-    &-2 {
-      @apply text-2xl font-serif leading-tight;
-    }
-  }
-
-  // 40 -> 68
+  // - xl - 45/28 *common
   &-xl {
-    @apply text-5xl font-serif;
+    @apply text-4lg;
+  }
 
-    // 40
-    &-2 {
-      @apply text-5xl font-serif;
+  // - lg - 36/24
+  // - base - 32/24 *common
+  // - md - 28/24
+  &-lg,
+  &-base,
+  &-md, {
+    @apply text-3lg;
+  }
+  
+  // - sm - 24/21
+  &-sm {
+    @apply text-2lg;
+  }
+  // - xs - 21/18
+  &-xs {
+    @apply text-lg;
+  }
+
+  @screen md {
+    // - xxl -  56/36 *common
+    &-xxl {
+      @apply text-4xl;
+    }
+    // - xl - 45/28 *common
+    &-xl {
+      @apply text-3xl;
+    }
+    // - lg - 36/24
+    &-lg {
+      @apply text-2xl;
+    }
+    // - base - 32/24 *common
+    &-base {
+      @apply text-xl;
+    }
+    // - md - 28/24
+    &-md {
+      @apply text-4lg;
+    }
+    // - sm - 24/21
+    &-sm {
+      @apply text-3lg;
+    }
+    // - xs - 21/18
+    &-xs {
+      @apply text-2lg;
     }
   }
 }
+
+// Header Font Weights
+.header {
+  
+  // Lightweight
+  &-lightweight {
+    @apply font-light;
+    strong, b {
+        @apply font-medium;
+    }
+  }
+  
+}
+
+// Header Font Families
+// Sans Headers
+h1,h2,h3,h4,h5,h6 {
+  @apply font-medium;
+}
+
+// Serif Headers
+h1,h2,h3,h4,h5,h6 {
+  &.font-serif {
+    @apply font-bold;
+  }
+}
+
 
 // Paragraphs
 .paragraphs {
+  
+  // Default 
   p {
-    @apply text-lg leading-normal font-normal
+    @apply leading-normal font-normal
       mb-6;
 
     &:last-of-type {
@@ -62,27 +107,18 @@ body {
 
     // Default Links
     a {
-      @apply text-green;
+      @apply text-red border-b border-transparent;
 
       &:hover {
-        @apply text-green-darkest;
+        @apply border-red;
       }
     }
   }
 
-  &.-sm {
-    p {
-      @apply text-base leading-loose 
-            mb-4;
-
-      &:last-of-type {
-        @apply mb-0;
-      }
-    }
-  }
+  // xs - 14px
   &.-xs {
     p {
-      @apply text-sm leading-loose 
+      @apply text-md leading-loose
             mb-4;
 
       &:last-of-type {
@@ -90,47 +126,39 @@ body {
       }
     }
   }
-}
+  
+  // sm - 16px
+  &.-sm {
+    p {
+      @apply text-base 
+            mb-4;
 
-// Default Links
-a {
-  @apply text-green;
-}
-
-// lg Screen
-@screen lg {
-  // Headers
-  .header {
-    // 36
-    &-lg {
-      @apply text-5xl;
-      &-2 {
-        // @apply text-xl font-serif leading-tight;
-        font-size: 2rem;
-      }
-    }
-
-    // 68
-    &-xl {
-      @apply text-10xl;
-      // 56
-      &-2 {
-        @apply text-6xl;
+      &:last-of-type {
+        @apply mb-0;
       }
     }
   }
+  
+  // md - 18px
+  &.-md {
+    p {
+      @apply text-lg;
+    }
+  }
+  
 }
 
-// Integers
-.font-integer {
-  -moz-font-feature-settings: "lnum" 1;
-  -ms-font-feature-settings: "lnum" 1;
-  -o-font-feature-settings: "lnum" 1;
-  -webkit-font-feature-settings: "lnum" 1;
-  font-feature-settings: "lnum" 1;
-}
 
-// Line Heights (override header classes)
-.leading-neg {
-  line-height: 0.9 !important;
-}
+// // Integers
+// .font-integer {
+//   -moz-font-feature-settings: "lnum" 1;
+//   -ms-font-feature-settings: "lnum" 1;
+//   -o-font-feature-settings: "lnum" 1;
+//   -webkit-font-feature-settings: "lnum" 1;
+//   font-feature-settings: "lnum" 1;
+// }
+
+// // Line Heights (override header classes)
+// .leading-neg {
+//   line-height: 0.9 !important;
+// }
