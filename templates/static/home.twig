@@ -1,0 +1,89 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+    {# Featured Card #}
+    <div id="featured" class="container | space-menu space-b">
+        {# Content Card - Hero #}
+        {% include '_components/static/content-card--hero' with { 'classes': ' ' } %}
+    </div>
+    
+    {# Latest Cards #}
+    <div id="latest" class="container--sm gutter-md | space-b">
+        <div class="flex-grid">
+            {# Content Card - Stacked #}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+        </div>
+    </div>
+
+    <div id="mission" class="space-b">
+        {# Basic Billboard #}
+        {% include '_components/static/billboard--basic' with { 'classes': '-yellow' } %}
+    </div>
+
+    <div id="popular" class="container--sm gutter-md space-b">
+
+        <div class="flex-grid">
+
+            <div class="md:w-1/3 w-full">
+                {# Section Header #}
+                <header class="section-header -box">
+                    <h2 class="header-md mb-4">Heading <br>Here</h2>
+                    <div class="paragraphs -sm">
+                        <p>A collection of the consistently most popular articles. </p>
+                    </div>
+                </header>
+            </div>
+
+            <div class="md:w-2/3 w-full | mt-10 | relative z-10">
+                {# Article List #}
+                {% include '_components/static/list-articles' with { 'classes': '' } %}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="podcasts" class="container--sm gutter-md | space-b">
+        {# Header #}
+        <header class="section-header | mb-12">
+            <h6 class="meta-label mb-2 text-yellow">Newest Episodes</h6>
+            <h2 class="header-base">1517 Podcasts</h2>
+        </header> 
+
+        {# Podcast List #}
+        {% include '_components/static/list-podcasts' with { 'classes': 'md:w-2/3 mx-auto' } %}
+        
+    </div>
+
+    <div id="events" class="bg-grey-light | space-b space-t">
+        <div class="container--sm gutter-md">
+            
+            {# Header #}
+            <header class="section-header | mb-12 | md:flex-grid | items-center">
+                <h6 class="header-base">Upcoming Events</h6>
+                <a href="#" class="meta-label">
+                    <div class="align-items-center">
+                        <div class="pr-3">See all Events</div>
+                        {{ global.utilityIcon('arrow-right', '-xs') }}
+                    </div>
+                </a>
+            </header> 
+            
+            {# Events List #}
+            {% include '_components/static/list-events' with { 'classes': '' } %}
+            
+        </div>
+    </div>
+
+
+
+{% endblock %}

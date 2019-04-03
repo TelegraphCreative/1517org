@@ -1,0 +1,60 @@
+{% import '_macros/styleguide' as guide %}
+{% import '_macros/global' as global %}
+{% extends "_layouts/_styleguide" %}
+{% block content %}
+
+
+    <h2 class="text-3xl space-b">Icons</h2>
+    
+    {# Icon #}
+    {{ global.utilityIcon('arrow-left', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('arrow-left', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+    
+    {# Icon #}
+    {{ global.utilityIcon('arrow-right', '-sm') }}
+{% set code %}{%  verbatim %}{{ global.utilityIcon('arrow-right', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+    
+    {# Icon #}
+    {{ global.utilityIcon('arrow-down', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('arrow-down', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+    
+    {# Icon #}
+    {{ global.utilityIcon('search', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('search', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    {# Icon #}
+    {{ global.utilityIcon('play', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('play', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    
+    {# Icon #}
+    {{ global.utilityIcon('pause', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('pause', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    {# Icon #}
+    {{ global.utilityIcon('camera', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('camera', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    {# Icon #}
+    {{ global.utilityIcon('paperplane', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('paperplane', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    {# Icon #}
+    {{ global.utilityIcon('book', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('book', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    {# Icon #}
+    {{ global.utilityIcon('cart', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('cart', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}    
+
+{% endblock %}

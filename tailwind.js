@@ -44,89 +44,45 @@ View the full documentation at https://tailwindcss.com.
 */
 
 let colors = {
+
   'transparent': 'transparent',
+  'white': '#fff',
 
-  'black': '#22292f',
-  'grey-darkest': '#3d4852',
-  'grey-darker': '#606f7b',
-  'grey-dark': '#8795a1',
-  'grey': '#b8c2cc',
-  'grey-light': '#dae1e7',
-  'grey-lighter': '#f1f5f8',
-  'grey-lightest': '#f8fafc',
-  'white': '#ffffff',
+  // Grey
+  'grey-lighter': '#F0EDEB',
+  'grey-light': '#F7F4F2',
+  'grey': '#EAE2DB',
+  'grey': '#EAE2DB',
+  'grey-dark': '#BABABA',
+  'grey-darker': '#7D8082', 
+  'grey-darkest': '#3D3B49', 
 
-  'red-darkest': '#3b0d0c',
-  'red-darker': '#621b18',
-  'red-dark': '#cc1f1a',
-  'red': '#e3342f',
-  'red-light': '#ef5753',
-  'red-lighter': '#f9acaa',
-  'red-lightest': '#fcebea',
+  // Sage
+  'sage-lighter': '#EAF2F0',
+  'sage-light': '#D3DAD8',
+  'sage': '#B1C4BF',
+  'sage-dark': '#4C5357',
+  'sage-darker': '#3E4A50', // (text)
+  'sage-darkest': '#394347',
+  
 
-  'orange-darkest': '#462a16',
-  'orange-darker': '#613b1f',
-  'orange-dark': '#de751f',
-  'orange': '#f6993f',
-  'orange-light': '#faad63',
-  'orange-lighter': '#fcd9b6',
-  'orange-lightest': '#fff5eb',
+  // Slate
+  'slate': '#363B3D',
+  'slate-dark': '#2A4242',   
+  'slate-darker': '#292C2E',   
 
-  'yellow-darkest': '#453411',
-  'yellow-darker': '#684f1d',
-  'yellow-dark': '#f2d024',
-  'yellow': '#ffed4a',
-  'yellow-light': '#fff382',
-  'yellow-lighter': '#fff9c2',
-  'yellow-lightest': '#fcfbeb',
+  // Yellow
+  'yellow-lighter': '#E0CCB8',
+  'yellow-light': '#D1AA86',
+  'yellow': '#DF922D',
+  'yellow-dark': '#BAA188',
+  'yellow-darker': '#AD8D71',
 
-  'green-darkest': '#0f2f21',
-  'green-darker': '#1a4731',
-  'green-dark': '#1f9d55',
-  'green': '#38c172',
-  'green-light': '#51d88a',
-  'green-lighter': '#a2f5bf',
-  'green-lightest': '#e3fcec',
+  // Red
+  'red': '#CC4D39', // (default text/link hover)
+  'red-darker': '#B54635',
 
-  'teal-darkest': '#0d3331',
-  'teal-darker': '#20504f',
-  'teal-dark': '#38a89d',
-  'teal': '#4dc0b5',
-  'teal-light': '#64d5ca',
-  'teal-lighter': '#a0f0ed',
-  'teal-lightest': '#e8fffe',
-
-  'blue-darkest': '#12283a',
-  'blue-darker': '#1c3d5a',
-  'blue-dark': '#2779bd',
-  'blue': '#3490dc',
-  'blue-light': '#6cb2eb',
-  'blue-lighter': '#bcdefa',
-  'blue-lightest': '#eff8ff',
-
-  'indigo-darkest': '#191e38',
-  'indigo-darker': '#2f365f',
-  'indigo-dark': '#5661b3',
-  'indigo': '#6574cd',
-  'indigo-light': '#7886d7',
-  'indigo-lighter': '#b2b7ff',
-  'indigo-lightest': '#e6e8ff',
-
-  'purple-darkest': '#21183c',
-  'purple-darker': '#382b5f',
-  'purple-dark': '#794acf',
-  'purple': '#9561e2',
-  'purple-light': '#a779e9',
-  'purple-lighter': '#d6bbfc',
-  'purple-lightest': '#f3ebff',
-
-  'pink-darkest': '#451225',
-  'pink-darker': '#6f213f',
-  'pink-dark': '#eb5286',
-  'pink': '#f66d9b',
-  'pink-light': '#fa7ea8',
-  'pink-lighter': '#ffbbca',
-  'pink-lightest': '#ffebef',
+  
 }
 
 module.exports = {
@@ -195,6 +151,7 @@ module.exports = {
 
   fonts: {
     'sans': [
+      'Ginto Normal Trial',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -209,6 +166,7 @@ module.exports = {
       'sans-serif',
     ],
     'serif': [
+      'GT Super Display Trial',
       'Constantia',
       'Lucida Bright',
       'Lucidabright',
@@ -252,15 +210,24 @@ module.exports = {
   */
 
   textSizes: {
-    'xs': '.75rem',     // 12px
-    'sm': '.875rem',    // 14px
-    'base': '1rem',     // 16px
-    'lg': '1.125rem',   // 18px
-    'xl': '1.25rem',    // 20px
-    '2xl': '1.5rem',    // 24px
-    '3xl': '1.875rem',  // 30px
-    '4xl': '2.25rem',   // 36px
-    '5xl': '3rem',      // 48px
+    'xxs': '0.625rem', // 10px
+    'xs': '0.6875rem', // 11px
+    'sm': '0.75rem', // 12px
+    
+    'md': '0.875rem', // 14px
+    '2md': '0.9375rem', // 15px
+    
+    'base': '1rem', // 16px
+    
+    'lg': '1.125rem', // 18px
+    '2lg': '1.3125rem', // 21px
+    '3lg': '1.5rem', // 24px
+    '4lg': '1.75rem', // 28px
+    
+    'xl': '2rem', // 32px
+    '2xl': '2.25rem', // 36px
+    '3xl': '3rem', // 45px
+    '4xl': '3.5rem', // 56px
   },
 
 
@@ -328,8 +295,8 @@ module.exports = {
 
   tracking: {
     'tight': '-0.05em',
-    'normal': '0',
-    'wide': '0.05em',
+    'none': '0',
+    'normal': '0.05em',
   },
 
 
@@ -435,6 +402,7 @@ module.exports = {
     '2': '2px',
     '4': '4px',
     '8': '8px',
+    '16': '1rem',
   },
 
 
@@ -637,6 +605,7 @@ module.exports = {
   */
 
   maxWidth: {
+    'xxs': '16.25rem',
     'xs': '20rem',
     'sm': '30rem',
     'md': '40rem',
@@ -699,10 +668,14 @@ module.exports = {
     '8': '2rem',
     '10': '2.5rem',
     '12': '3rem',
+    '14': '3.75rem',
     '16': '4rem',
+    '17': '4.5rem',
+    '18': '4.875rem',
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
+    '36': '9.75rem',
   },
 
 

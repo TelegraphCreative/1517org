@@ -1,0 +1,25 @@
+.list-event {
+    @apply mb-12;
+
+    // media
+    &__media {
+        @apply w-1/4;
+    }
+
+    // content
+    &__content {
+        @apply w-3/4 pl-6;
+    }
+    
+    // Screens
+    // MD
+    @screen md {
+        @apply w-1/2;
+
+        // content
+        &__content {
+            @apply pl-10;
+        }
+
+    }
+}

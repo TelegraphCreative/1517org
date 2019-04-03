@@ -1,8 +1,49 @@
 {% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{# Menu #}
+{% set templateList = {
+    menu: [
+        {
+            name: "Home",
+            url: "/static/home"
+        },
+        {
+            name: "Topics List",
+            url: "/static/topics-list"
+        }
+    ]
+} 
+%}
+
 
 {% block content %}
+<div id="template-list" class="md:w-3/5 mx-auto | space-menu space-b--lg">
 
-    {# Include #}
-    {# {% include '_components/component' with { 'content': entry.content, 'classes': ' ' } %} #}
+    <header class="space-t space-b--sm">
+        <h2 class="header-xl">Static Templates</h2>
+    </header>
+
+    <ul class="list-articles">
+        {% for item in templateList.menu %}
+        
+            {# Item #}
+            <li class="list-article">
+
+                <div class="list-article__content">
+                    
+                    {# Header #}
+                    <h3 class="header-xs font-serif mb-4">
+                        <a href="{{ item.url }}">{{ item.name }}</a>
+                    </h3>
+                    
+                </div>
+        
+            </li>  
+
+        {% endfor %}
+    </ul>
+
+</div>
 
 {% endblock %}

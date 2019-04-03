@@ -1,0 +1,111 @@
+
+// Layout
+.site-header {
+    @apply fixed w-full pin-t z-50 bg-white;
+}
+
+// Tagline
+.site-tagline {
+    @apply text-sm text-grey-darkest;
+}
+
+// Menu
+.site-menu {
+
+    // Layout
+    &__container {
+        @apply flex justify-between 
+        items-center
+        py-6
+        relative z-20;
+    }
+
+    // Utility Bar
+    &__group.-secondary {
+        @apply hidden;
+    }
+
+    // Primary Bar (logo, toggle)
+    &__group.-primary {
+        @apply w-full px-6 justify-start;
+    }
+    // Dropdown
+    &__dropdown {
+        @apply overflow-scroll;
+        height: 89vh;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    // Dropdown Menu Items
+    .menu-list__item {
+        @apply text-base text-grey-darkest text-base;
+    }
+
+    // Dropdown Search
+    &__dropdown-search {
+        @apply py-6;
+    }
+
+    &__dropdown-group h4 {
+        @apply pt-6;
+    }
+
+}
+
+// Dropdown General
+.dropdown-menu {
+    @apply mb-6;
+
+    &__name {
+        @apply text-red text-sm uppercase mb-3 tracking-normal;
+    }
+}
+
+// Screen
+@screen md {
+
+    .site-menu {
+        // Layout
+        &__container {
+            @apply pt-6 pb-6 pl-14 pr-6;
+        }
+
+        // Toggle
+        &__toggle {
+            @apply mr-12;
+        }
+
+        // Dropdown
+        &__dropdown {
+            @apply shadow bg-white fixed w-full h-auto;
+            top: var(--menu-height);
+        }
+
+        // Dropdown Search
+        &__dropdown-search {
+            @apply py-10;
+        }
+
+        // Dropdown Groups
+        &__dropdown-groups {
+            @apply pt-10;
+        }
+        &__dropdown-group h4 {
+            @apply pt-10;
+
+            &:first-child {
+                @apply pt-0;
+            }
+        }
+
+        // Primary Bar (logo, toggle)
+        &__group.-primary {
+            @apply w-1/2 px-0;
+        }
+
+        // Utility Bar
+        &__group.-secondary {
+            display: inherit;
+        }
+    }
+}

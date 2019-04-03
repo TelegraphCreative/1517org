@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "babel-plugin-prismjs": "^1.0.2",
+    "body-scroll-lock": "^2.6.1",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.2.2",
     "laravel-mix": "^4.0.15",

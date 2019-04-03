@@ -1,0 +1,61 @@
+.search-form {
+    @apply w-full 
+    text-grey-darkest text-center
+    text-base;
+
+    // Placeholder
+    &:placeholder {
+        @apply text-yellow-dark;
+    }
+
+    // Field
+    .search-input {
+        @apply bg-transparent w-full relative
+        border-b-2 border-yellow-dark 
+        text-grey-darkest 
+        property-all duration-1 timing-1
+        py-3 pl-4;
+
+        &:focus {
+            @apply border-grey-darkest;
+        }
+    }
+
+    // Label
+    .search-label {
+        @apply pointer-events-none
+        absolute pin-l align-t
+        property-all duration-1 timing-1
+        h-full w-full 
+        px-4 
+        text-center
+        text-yellow-dark;
+    }
+
+    // Hide Label
+    .search-input:focus ~ .search-label,
+    &.-query .search-label {
+        @apply opacity-0;
+    }
+
+    // Button
+    .submit {
+        @apply absolute pin-l align-t z-10
+        h-full
+        px-4 
+        text-yellow-dark;
+
+        &:hover {
+            @apply text-grey-darkest;
+        }
+    }
+
+    // Screen
+    // MD
+    @screen md {
+        @apply text-2lg;
+        // &,
+        // .search-input {
+        // }
+    }
+}

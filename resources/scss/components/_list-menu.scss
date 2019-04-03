@@ -4,19 +4,20 @@
 
     
     &__item {
-        @apply text-sm
+        @apply text-base
         mb-3;
     }
+
+    
 
     a {
         @apply link
         block
-        font-normal
-        text-green-darkest;
+        font-normal;
+    }
 
-        &:hover {
-            @apply text-green;
-        }
+    h4 a {
+        @apply font-semibold;
     }
     
 }

@@ -1,0 +1,25 @@
+
+.list-podcast {
+    @apply mb-12;
+
+    // media
+    &__media {
+        @apply w-1/4;
+    }
+
+    // content
+    &__content {
+        @apply w-3/4 pl-6;
+    }
+    
+    // Screens
+    // MD
+    @screen md {
+
+        // content
+        &__content {
+            @apply pl-10;
+        }
+
+    }
+}
