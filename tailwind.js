@@ -80,7 +80,8 @@ let colors = {
 
   // Red
   'red': '#CC4D39', // (default text/link hover)
-  'red-darker': '#B54635',
+  'red-dark': '#B54635',
+  'red-darker': '#452621',
 
   
 }

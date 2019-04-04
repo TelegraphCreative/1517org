@@ -37,7 +37,6 @@
     {% endif %}
 {% endmacro %}
 
-
 {# Image #}
 {% macro image(source, class, placeholder) %}
     {# Source #}
@@ -55,11 +54,37 @@
                 class="lazyload" />
         </figure>
     {% else %}
-        {# Placeholder #}
+        {# Static Placeholder #}
         <figure class="image {{ classes }}">
             <img src="{{ placeholder }}">
         </figure>
     {% endif %}
+{% endmacro %}
+
+{# Related Topics #}
+{% macro relatedTopics(source) %}
+
+    {% if source %}
+        {# Note: Loop through actual topics from source #}
+        {# <a href="{{ source.url }}" class="{{ classes }}"{% if source.target %} target="{{ source.target }}" {% endif %}>{{ source.text }}</a> #}
+    {% else %}
+        {# Static Placeholder #}
+        
+        <ul class="items-bar">
+            <li>
+                <a href="#" class="link -underline -sm">
+                    Truth
+                </a>
+            </li>
+            <li>
+                <a href="#" class="link -underline -sm">
+                    Love and Longer Titles
+                </a>
+            </li>
+        </ul>
+        
+    {% endif %}
+    
 {% endmacro %}
 
 {# Utility Icons #}

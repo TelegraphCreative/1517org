@@ -1,6 +1,6 @@
 {% import '_macros/global' as global %}
 
-<article class="content-card -hero | links-hover--dark">
+<article class="content-card -hero | links-hover--red">
 
     <div class="content-card__container | flex-grid flex-row-reverse">
         
@@ -29,14 +29,14 @@
             <div class="content-card__meta | flex-grid">
 
                 <div class="w-1/2">
-                    <div class="align-items-center">
+                    <a href="#" class="align-items-center">
                         {{ global.utilityIcon('camera', '-sm') }}
-                        <a href="#" class="meta-label | ml-3">By Author Name</a>
-                    </div>
+                        <div class="meta-label | ml-3">By Author Name</div>
+                    </a>
                 </div>
                 
                 <div class="w-1/2 | text-right">
-                    <time class="meta-label" datetime="2019-03-19">03/19/2019</time>
+                    <time class="meta-label" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'm/d/y') }}</time>
                 </div>
                 
             </div>

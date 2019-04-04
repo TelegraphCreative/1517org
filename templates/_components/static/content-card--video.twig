@@ -1,0 +1,60 @@
+{% import '_macros/global' as global %}
+
+{# 
+    Templating Notes: 
+    Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
+    event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
+#}
+
+<article class="content-card -topic | space-b--sm {{ classes }}">
+
+    <div class="content-card__container | flex-grid md:flex-row-reverse">
+        
+        {# Media #}
+        <a href="#" class="content-card__media">
+            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_07.jpg')}}
+        </a>    
+        
+        {# Content #}
+        <div class="content-card__content">  
+
+            <a href="#">
+                {# Header #}
+                <div class="content-card__header | mb-4">
+                    <h2 class="card-title | header-sm font-serif">Q&A December 2018: Sin, Love, and Wrath</h1>
+                </div>
+            </a>
+            
+            {# Primary Meta #}
+            <div class="content-card__meta -primary mb-4 | flex-grid">
+                <ul class="items-bar">
+                    <li>
+                        <a href="#" class="align-items-center">
+                            {{ global.utilityIcon('camera', '-sm') }}
+                            <div class="meta-label | ml-3">Video Guest Name</div>
+                            <time class="meta-label | ml-5" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'm/d/y') }}</time>
+                        </a>
+                    </li>
+                </ul>        
+            </div>
+            
+            {# Detail #}
+            <div class="content-card__detail | paragraphs -xs -loose | mb-5">
+                <p>On the fourth episode of our series on the history of the Reformation, Dr. Keith walks listeners through the early stages of Melanchthon’s theological development…</p>
+            </div>
+
+            {# Play Button #}
+            <div class="content-card__action -play-podcast | mb-6">
+                {{ global.iconLink('', 'btn -xs -light', 'play', 'Watch 14.48') }}
+            </div>
+
+            {# Secondary Meta #}
+            <div class="content-card__meta -secondary">
+                {{ global.relatedTopics() }}                            
+            </div>
+
+        </div>
+        
+    </div>
+
+</article>

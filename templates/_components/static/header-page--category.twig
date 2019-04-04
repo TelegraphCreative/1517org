@@ -1,0 +1,21 @@
+{% import '_macros/global' as global %}
+
+<header class="page-header -action -left | container--sm gutter-md | space-t space-b--sm">
+
+    <div class="page-header__title">
+        <h3 class="meta-header">{{ content.category }}</h3>
+        <h1 class="header-xl font-serif">{{ content.title }}</h2>
+    </div>
+
+    {% if content.detail is defined %}
+        <div class="page-header__detail">
+            
+            <div class="paragraphs -sm -loose">
+                {{ content.detail | raw }}
+            </div>
+
+            {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
+            
+        </div>
+    {% endif %}
+</header>

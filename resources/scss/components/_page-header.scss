@@ -6,4 +6,27 @@
         @apply max-w-md  mx-auto mt-6 text-grey-darker;
     }
 
+    // - Category
+    &.-category {
+        .page-header {
+
+            // Detail
+            &__detail {
+                @apply w-4/5 pr-10;
+            }
+
+            figure {
+                @apply w-1/5;
+            }
+        }
+    }
+
+    // - Action
+    &.-action {}
+
+    // - Left
+    &.-left {
+        @apply text-left;
+    }
+
 }
