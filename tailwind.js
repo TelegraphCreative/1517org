@@ -65,11 +65,14 @@ let colors = {
   'sage-darker': '#3E4A50', // (text)
   'sage-darkest': '#394347',
   
+  // Neutral
+  'neutral-dark': '#333333',
 
   // Slate
   'slate': '#363B3D',
   'slate-dark': '#2A4242',   
   'slate-darker': '#292C2E',   
+  'slate-darkest': '#262626',   
 
   // Yellow
   'yellow-lighter': '#E0CCB8',

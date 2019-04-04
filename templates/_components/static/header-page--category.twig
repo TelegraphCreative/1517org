@@ -8,13 +8,18 @@
     </div>
 
     {% if content.detail is defined %}
-        <div class="page-header__detail">
+        <div class="page-header__detail | flex-grid md:items-center">
             
-            <div class="paragraphs -sm -loose">
-                {{ content.detail | raw }}
+            <div class="paragraphs -sm -loose -inline | w-3/4">
+                <p>
+                    {{ content.detail }}
+                </p>
+                <a href="#" class="link | meta-label | text-red hover:text-yellow-dark | ml-2">Keep Reading</a>
             </div>
 
-            {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
+            <div class="page-header__badge | w-1/4">
+                {{ global.image('', '-is1x1 rounded-full -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
+            </div>
             
         </div>
     {% endif %}

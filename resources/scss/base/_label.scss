@@ -6,18 +6,23 @@
     leading-none tracking-normal text-center
     p-4 border-8 -mb-3 -ml-6 border-grey-light; 
 
-    // Borders
-    &.-light {
-        @apply border-grey-lighter;
-    }
-    &.-red {
-        @apply border-red-dark;
-    }
-    
     // Date
     &.-date {
         @apply text-red font-medium px-6;
     }
+
+    // Themes
+    &.-light {
+        @apply border-grey-lighter;
+    }
+    &.-red {
+        @apply border-red-dark text-white;
+    }
+    &.-dark {
+        @apply border-slate-darkest text-white;
+    }
+    
+    
     &__day {
         @apply text-3lg;
     }

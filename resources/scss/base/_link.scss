@@ -22,6 +22,13 @@
         @apply border-grey-darkest text-grey-darkest;
       }
     }
+    &.-dark {
+      @apply text-white border-slate-darkest;
+
+      &:hover {
+        @apply border-yellow-dark text-yellow-dark;
+      }
+    }
     &.-sm {
       @apply text-xxs;
     }
@@ -123,6 +130,9 @@ a {
 .links-hover {
   &--red a:hover {
     @apply text-red-darker;
+  }
+  &--light a:hover {
+    @apply text-grey-lighter;
   }
   &--dark a:hover {
     @apply text-slate-darker;

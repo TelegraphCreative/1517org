@@ -62,7 +62,7 @@
 {% endmacro %}
 
 {# Related Topics #}
-{% macro relatedTopics(source) %}
+{% macro relatedTopics(source, theme) %}
 
     {% if source %}
         {# Note: Loop through actual topics from source #}
@@ -72,12 +72,12 @@
         
         <ul class="items-bar">
             <li>
-                <a href="#" class="link -underline -sm">
+                <a href="#" class="link -underline -sm {{ theme }}">
                     Truth
                 </a>
             </li>
             <li>
-                <a href="#" class="link -underline -sm">
+                <a href="#" class="link -underline -sm {{ theme }}">
                     Love and Longer Titles
                 </a>
             </li>

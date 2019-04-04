@@ -1,0 +1,57 @@
+// Content Card
+.content-hero {
+
+    // Themes
+    &.-dark {
+        // Default
+        @apply bg-neutral-dark text-white;
+    }
+    &.-red {
+        // Default
+        @apply bg-red text-white;
+    }
+
+    // Default
+    // Content
+    &__content {
+        width: 94%;
+    }
+
+    // Media
+    &__media {
+        width: 6%;
+    }
+
+
+    // Card Title
+    .card-title {
+        @apply mb-4;
+    }
+
+    // Screen 
+    // MD
+    @screen md {
+
+
+        // Content
+        &__content {
+            @apply w-3/5;
+        }
+
+        // Media
+        &__media {
+            @apply w-2/5;
+        }
+        
+        
+
+        // Card Title
+        .card-title {
+            @apply mb-6;
+        }
+    }
+
+}
+
+.content-hero.-event {
+} 
