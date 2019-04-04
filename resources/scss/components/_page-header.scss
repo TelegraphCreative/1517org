@@ -1,3 +1,9 @@
 .page-header {
     @apply text-center;
+
+    // Detail
+    &__detail {
+        @apply max-w-sm  mx-auto mt-6 text-grey-darker;
+    }
+
 }

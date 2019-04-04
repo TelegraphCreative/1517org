@@ -11,6 +11,10 @@
         {
             name: "Topics List",
             url: "/topics"
+        },
+        {
+            name: "Podcast Index",
+            url: "/static/podcast-index"
         }
     ]
 } 
@@ -33,7 +37,7 @@
                 <div class="list-article__content">
                     
                     {# Header #}
-                    <h3 class="header-xs font-serif mb-4">
+                    <h3 class="header-xs font-serif">
                         <a href="{{ item.url }}">{{ item.name }}</a>
                     </h3>
                     
