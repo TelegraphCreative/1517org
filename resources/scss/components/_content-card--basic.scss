@@ -1,0 +1,11 @@
+// Content Card
+.content-card.-basic {
+
+    @apply w-full;
+
+    // Screen 
+    // MD
+    @screen md {
+        width: 49%;
+    }
+}

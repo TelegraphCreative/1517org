@@ -1,49 +1,49 @@
 {% import '_macros/global' as global %}
 
-<article class="content-card -hero | links-hover--dark">
+<article class="content-hero -article -red | links-hover--red | {{ classes }}">
 
-    <div class="content-card__container | flex-grid flex-row-reverse">
+    <div class="content-hero__container | flex-grid flex-row-reverse">
         
         {# Content #}
-        <div class="content-card__content | gutter-lg py-10 space-b--md">  
+        <div class="content-hero__content | gutter-lg py-10 space-b--md">  
             
             {# Topic #}
-            <h4 class="topic-label">
+            <h4 class="content-label -red">
                 <a href="#">Topic Label</a>
             </h4>
             
-            <a href="#">
+            <a href="#" class="block">
                 {# Header #}
-                <div class="content-card__header">
+                <div class="content-hero__header">
                     <h1 class="card-title | header-xl font-serif">
                         This it the H1 title
                     </h1>
                 </div>
 
                 {# Detail #}
-                <div class="content-card__detail | paragraphs -sm">
+                <div class="content-hero__detail | paragraphs -sm">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, minus labore atque blanditiis molestiae inventore sequi unde explicabo ipsum a ratione est quis nemo eaque in laboriosam ad expedita sapiente.</p>
                 </div>
             </a>
 
-            <div class="content-card__meta | flex-grid">
+            <div class="content-hero__meta | space-t flex-grid">
 
                 <div class="w-1/2">
-                    <div class="align-items-center">
+                    <a href="#" class="align-items-center">
                         {{ global.utilityIcon('camera', '-sm') }}
-                        <a href="#" class="meta-label | ml-3">By Author Name</a>
-                    </div>
+                        <div class="meta-label | ml-3">By Author Name</div>
+                    </a>
                 </div>
                 
                 <div class="w-1/2 | text-right">
-                    <time class="meta-label" datetime="2019-03-19">03/19/2019</time>
+                    <time class="meta-label" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'm/d/y') }}</time>
                 </div>
                 
             </div>
         </div>
         
         {# Media #}
-        <a href="#" class="content-card__media overflow-hidden">
+        <a href="#" class="content-hero__media overflow-hidden">
             <div class="inline-background -hover-scale h-full w-full" style="background-image: url('/assets/placeholder/placeholder_01.png')"></div>
         </a>
     </div>

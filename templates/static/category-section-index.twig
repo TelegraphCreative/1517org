@@ -1,0 +1,45 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+    {# Page Header #}
+    <section class="space-menu ">
+        {% set content = {
+            title: 'The Section Name',
+            category: 'Section',
+            detail: 'Christ Hold Fast is a project of 1517. We are a Law/Gospel collective of creative contributors, dedicated to proclaiming the gospel of Jesus to all people. Makers of podcasts, authors of books, and friends of the gospel.'
+        } %}
+        {% include "_components/static/header-page--category" with { content: content } %}
+
+    </section>
+
+    {# Featured Card #}
+    <div id="featured" class="container | space-b--sm">
+        {# Content Card - Hero #}
+        {% include '_components/static/content-hero--event' with { 'classes': '' } %}
+    </div>
+
+    <div id="filters" class="container">
+        {# Filters #}
+        {% include "_components/static/filters-page" %}
+    </div>
+
+    {# Topics List #}
+    <div id="content" class="container--sm gutter-md | space-b">
+
+        {# Content Card - Topic Types #}
+        {# 
+            Templating Notes: 
+            Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
+            event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
+        #}
+        {% include '_components/static/content-card--course' with { 'classes': 'links-hover--yellow' } %}
+        {% include '_components/static/content-card--video' with { 'classes': 'links-hover--yellow' } %}
+        {% include '_components/static/content-card--podcast' with { 'classes': 'links-hover--yellow' } %}
+        {% include '_components/static/content-card--article' with { 'classes': 'links-hover--yellow' } %}
+        {% include '_components/static/content-card--event' with { 'classes': 'links-hover--yellow' } %}
+
+    </div>
+
+{% endblock %}

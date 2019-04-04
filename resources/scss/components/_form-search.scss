@@ -24,7 +24,7 @@
     // Label
     .search-label {
         @apply pointer-events-none
-        absolute pin-l align-t
+        absolute pin-l align-y
         property-all duration-1 timing-1
         h-full w-full 
         px-4 
@@ -40,7 +40,7 @@
 
     // Button
     .submit {
-        @apply absolute pin-l align-t z-10
+        @apply absolute pin-l align-y z-10
         h-full
         px-4 
         text-yellow-dark;

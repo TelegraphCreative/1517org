@@ -1,9 +1,17 @@
 {% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
 
 {% block content %}
-    <h1>
-        Topic: {{ category.title }}
-    </h1>
+
+    {# Page Header #}
+    <section class="space-menu ">
+        <header class="page-header | space-t space-b--sm">
+            <h1 class="header-xl font-serif">Topics</h2>
+                <p><strong>Note:</strong> This is purely data output, not reflective of intended layout</p>
+        </header>
+    </section>
+
     <h4>
         {% if category.level > 1 %}
             (part of a group, <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)

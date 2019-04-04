@@ -5,18 +5,34 @@
         inline-block
         timing-1 duration-1 property-all;
 
-  // // Underline
-  // &.-underline {
-  //   @apply  border-b-3 border-green pb-1;
+  // Underline
+  &.-underline {
+    @apply border-b-8 border-grey-light pb-1 
+    uppercase text-yellow-dark
+    text-xs tracking-normal;
 
-  //   &:hover {
-  //     @apply border-green-darkest;
-  //   }
+    &:hover {
+      @apply border-yellow-dark text-yellow-dark;
+    }
 
-  //   &.-sm {
-  //     @apply border-b-2 text-sm pb-1;
-  //   }
-  // }
+    &.-light {
+      @apply text-grey-light;
+
+      &:hover {
+        @apply border-grey-darkest text-grey-darkest;
+      }
+    }
+    &.-dark {
+      @apply text-white border-slate-darkest;
+
+      &:hover {
+        @apply border-yellow-dark text-yellow-dark;
+      }
+    }
+    &.-sm {
+      @apply text-xxs;
+    }
+  }
 
   // // Small
   // &.-sm {
@@ -112,8 +128,17 @@ a {
 
 // Alt Link Hover Colors
 .links-hover {
+  &--red a:hover {
+    @apply text-red-darker;
+  }
+  &--light a:hover {
+    @apply text-grey-lighter;
+  }
   &--dark a:hover {
     @apply text-slate-darker;
+  }
+  &--yellow a:hover {
+    @apply text-yellow-dark;
   }
   &--inherit a:hover {
     color: inherit;

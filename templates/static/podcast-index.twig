@@ -1,0 +1,37 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+
+{% block content %}
+
+    {# Page Header #}
+    <section class="space-menu">
+        {% set content = {
+            title: 'Podcasts',
+            detail: '<p>1517 Podcasts is a network of shows dedicated to delivering Christ-centered content through weekly, monthly, and seasonal audio platforms. Listen online every day of the week, or on your favorite podcasting app.</p>'
+        } %}
+        {% include "_components/static/header-page" with { content: content } %}
+
+    </section>
+
+    {# Topics List #}
+    <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b">
+
+            {# Latest Cards #}
+            <div class="flex-grid">
+                {# Content Card - Stacked #}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--yellow' } %}
+            </div>
+
+        
+    </div>
+
+
+{% endblock %}

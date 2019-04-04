@@ -6,21 +6,21 @@
     {# Featured Card #}
     <div id="featured" class="container | space-menu space-b">
         {# Content Card - Hero #}
-        {% include '_components/static/content-card--hero' with { 'classes': ' ' } %}
+        {% include '_components/static/content-hero--article' with { 'classes': ' ' } %}
     </div>
     
     {# Latest Cards #}
     <div id="latest" class="container--sm gutter-md | space-b">
         <div class="flex-grid">
             {# Content Card - Stacked #}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': ' ' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
         </div>
     </div>
 
@@ -45,7 +45,7 @@
 
             <div class="md:w-2/3 w-full | mt-10 | relative z-10">
                 {# Article List #}
-                {% include '_components/static/list-articles' with { 'classes': '' } %}
+                {% include '_components/static/list-articles' with { 'classes': 'links-hover--yellow' } %}
             </div>
 
         </div>
@@ -60,7 +60,7 @@
         </header> 
 
         {# Podcast List #}
-        {% include '_components/static/list-podcasts' with { 'classes': 'md:w-2/3 mx-auto' } %}
+        {% include '_components/static/list-podcasts' with { 'classes': 'md:w-2/3 mx-auto | links-hover--yellow' } %}
         
     </div>
 
@@ -79,11 +79,14 @@
             </header> 
             
             {# Events List #}
-            {% include '_components/static/list-events' with { 'classes': '' } %}
+            {% include '_components/static/list-events' with { 'classes': 'links-hover--yellow' } %}
             
         </div>
     </div>
 
-
+    <div id="donate" class="space-b">
+        {# Donate Billboard #}
+        {% include '_components/static/billboard--donate' with { 'classes': '' } %}
+    </div>
 
 {% endblock %}

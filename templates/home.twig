@@ -9,8 +9,20 @@
             url: "/static/home"
         },
         {
+            name: "Category Section Index",
+            url: "/static/category-section-index"
+        },
+        {
+            name: "Topics Landing",
+            url: "/static/category-topic-landing"
+        },
+        {
             name: "Topics List",
-            url: "/static/topics-list"
+            url: "/topics"
+        },
+        {
+            name: "Podcast Index",
+            url: "/static/podcast-index"
         }
     ]
 } 
@@ -33,7 +45,7 @@
                 <div class="list-article__content">
                     
                     {# Header #}
-                    <h3 class="header-xs font-serif mb-4">
+                    <h3 class="header-xs font-serif">
                         <a href="{{ item.url }}">{{ item.name }}</a>
                     </h3>
                     

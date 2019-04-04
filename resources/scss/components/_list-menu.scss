@@ -2,22 +2,63 @@
 .menu-list {
     @apply list-reset mb-4;
 
-    
-    &__item {
-        @apply text-base
-        mb-3;
+    ul {
+        @apply list-reset;
     }
 
-    
+    &__item {
+        @apply text-base
+        mb-4;
+    }
 
     a {
         @apply link
+        text-2md
         block
-        font-normal;
+        font-light;
     }
 
-    h4 a {
-        @apply font-semibold;
+    &__group-name {
+        @apply pt-4 text-base font-medium uppercase mb-3 tracking-normal;
+        a {
+            @apply text-base font-medium;
+        }
     }
-    
+
+    // Red
+    &.-red {
+        .menu-list__group-name {
+            @apply text-red;
+        }
+    }
+
+    // Yellow
+    &.-yellow {
+        .menu-list__group-name {
+            @apply text-yellow-dark;
+        }
+    }
+
+    // Small
+    &.-sm {
+        .menu-list__group-name {
+            @apply text-sm font-semibold;
+            a {
+                @apply text-sm font-semibold;
+            }
+        }
+    }
+
+    // Screen
+    // md
+    @screen md {
+        // Nested
+        &.-columns {
+            @apply flex flex-wrap flex-col justify-start h-screen;
+            // flex-direction: column;
+            // flex-wrap: wrap;
+            // height: 100vh;
+            // justify-content: flex-start;
+        }
+    }
 }
