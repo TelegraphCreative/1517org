@@ -34,10 +34,12 @@
 
 // // Vendor
 // @import "vendor/tiny-slider";
-// @import "vendor/choices";
+@import "vendor/choices";
 
 // Components
 // Menus
+@import 'components/filter-bar';
+@import 'components/items-bar';
 @import 'components/menu-bar';
 @import 'components/site-menu';
 
@@ -75,7 +77,6 @@
 @import 'components/list-podcast';
 @import 'components/list-articles';
 @import 'components/list-events';
-@import 'components/items-bar';
 
 // Forms
 @import 'components/form-signup';

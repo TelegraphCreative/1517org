@@ -155,6 +155,24 @@ h1,h2,h3,h4,h5,h6 {
   
 }
 
+// Category + Title Group
+.label-title-group {
+  @apply flex items-center;
+
+  &__title {
+    @apply relative pl-10;
+
+    &:before {
+      @apply absolute pseudo pin-l ml-4
+      border-l border-yellow-lighter;
+
+      height: 140%;
+      top: 50%;
+      transform: translate(0%, -50%) rotate(20deg);
+    }
+  }
+}
+
 
 // // Integers
 // .font-integer {
