@@ -34,10 +34,12 @@
 
 // // Vendor
 // @import "vendor/tiny-slider";
-// @import "vendor/choices";
+@import "vendor/choices";
 
 // Components
 // Menus
+@import 'components/filter-bar';
+@import 'components/items-bar';
 @import 'components/menu-bar';
 @import 'components/site-menu';
 
@@ -46,8 +48,11 @@
 @import 'components/section-header';
 
 // Cards
-@import 'components/content-card--hero';
+@import 'components/content-card';
+@import 'components/content-hero';
 @import 'components/content-card--stacked';
+@import 'components/content-card--basic';
+@import 'components/content-card--topic-types';
 // @import "components/author-card";
 
 // // Modals

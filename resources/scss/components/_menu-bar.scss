@@ -10,16 +10,17 @@
         @apply 
           list-reset 
           flex flex-wrap
-          items-center
-          ;
-      }
+          items-center;
 
-      li {
-        @apply pr-4;
-        &:last-child {
-          @apply pr-0;
+        li {
+          @apply pr-4;
+          &:last-child {
+            @apply pr-0;
+          }
         }
       }
+
+      
   
   }
   

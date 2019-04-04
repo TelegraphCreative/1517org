@@ -1,3 +1,66 @@
 .page-header {
     @apply text-center;
+
+    // Detail
+    &__detail {
+        @apply max-w-md  mx-auto mt-6 text-grey-darker;
+    }
+
+    // - Category
+    &.-category {
+        .page-header {
+
+            // Detail
+            &__detail {
+                @apply w-4/5 pr-10;
+            }
+
+            figure {
+                @apply w-1/5;
+            }
+        }
+    }
+
+    // - Action
+    &.-action {
+        .page-header {
+
+            // Detail
+            &__detail {
+                @apply max-w-lg;
+            }
+            // Badge
+            &__badge {
+                @apply pl-3;
+                max-width: 10rem;
+            }
+        }
+    }
+
+    // - Left
+    &.-left {
+        @apply text-left;
+    }
+
+
+    // Screen 
+    // Md
+    @screen md {
+        // - Action
+        &.-action {
+            .page-header {
+
+                // Detail
+                &__detail {
+                    @apply ml-24;
+                }
+                
+                // Badge
+                &__badge {
+                    @apply pl-8;
+                }
+            }
+        }
+    }
+
 }

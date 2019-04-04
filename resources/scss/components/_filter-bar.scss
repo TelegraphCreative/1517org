@@ -1,0 +1,21 @@
+.filter-bar {
+    @apply flex flex-wrap justify-between;
+
+    // Filter
+    .filter {
+       @apply mr-0;
+       width: 49%;
+    }
+
+    // Screen 
+    // MD
+    @screen md {
+        @apply justify-start;
+        
+        // Filter
+        .filter {
+            @apply mr-3 w-auto;
+         }
+    }
+
+}

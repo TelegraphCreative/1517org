@@ -3,13 +3,15 @@ window.Vue = require("vue");
 
 // Imports
 import site_menu from "./components/SiteMenu";
+import select_box from "./components/SelectBox";
 
 // Vue App
 const app = new Vue({
   el: "#app",
 
   components: {
-    site_menu
+    site_menu,
+    select_box
   }
 });
 
@@ -24,7 +26,7 @@ const app = new Vue({
 // import profile_modal from "./components/ProfileModal";
 // import content_modal from "./components/ContentModal";
 // import gallery_modal from "./components/GalleryModal";
-// import select_box from "./components/SelectBox";
+
 // import stat_card from "./components/StatCard.vue";
 // import range_slider from "./components/Range.vue";
 // import smooth_scroll from "./components/SmoothScroll";

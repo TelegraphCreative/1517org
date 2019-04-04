@@ -1,0 +1,54 @@
+{% import '_macros/global' as global %}
+
+{# 
+    Templating Notes: 
+    Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
+    event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
+#}
+
+<article class="content-card -topic | space-b--sm {{ classes }}">
+
+    <div class="content-card__container | flex-grid md:flex-row-reverse">
+        
+        {# Media #}
+        <a href="#" class="content-card__media">
+            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_06.jpg')}}
+        </a>
+        
+        {# Content #}
+        <div class="content-card__content">  
+
+            <a href="#">
+                {# Header #}
+                <div class="content-card__header | mb-4">
+                    <h2 class="card-title | header-sm font-serif">This it the h2 title</h1>
+                </div>
+            </a>
+            
+            {# Primary Meta #}
+            <div class="content-card__meta -primary mb-4 | flex-grid">
+                <ul class="items-bar">
+                    <li>
+                        <a href="#" class="align-items-center">
+                            {{ global.utilityIcon('library', '-sm') }}
+                            <div class="meta-label | ml-3">Dr. SoAndSo</div>
+                        </a>
+                    </li>
+                </ul>          
+            </div>
+            
+            {# Detail #}
+            <div class="content-card__detail | paragraphs -xs -loose | mb-4">
+                <p>The theme is The Christ, the Cross and the Christian. Come join us for this one day event full of singing, teaching and fellowship.</p>
+            </div>
+
+            {# Secondary Meta #}
+            <div class="content-card__meta -secondary">
+                {{ global.relatedTopics() }}                            
+            </div>
+
+        </div>
+        
+    </div>
+
+</article>
