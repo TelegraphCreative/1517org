@@ -15,13 +15,13 @@ categoryGroups:
     handle: topics
     structure:
       uid: 1669145e-7fda-479a-a721-10381691427e
-      maxLevels: null
+      maxLevels: '2'
     siteSettings:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1554323743
+dateModified: 1554342180
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'

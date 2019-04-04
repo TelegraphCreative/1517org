@@ -1,4 +1,3 @@
-
 // Layout
 .site-header {
     @apply fixed w-full pin-t z-50 bg-white;
@@ -11,7 +10,6 @@
 
 // Menu
 .site-menu {
-
     // Layout
     &__container {
         @apply flex justify-between 
@@ -45,25 +43,15 @@
     &__dropdown-search {
         @apply py-6;
     }
-
-    &__dropdown-group h4 {
-        @apply pt-6;
-    }
-
 }
 
 // Dropdown General
 .dropdown-menu {
     @apply mb-6;
-
-    &__name {
-        @apply text-red text-sm uppercase mb-3 tracking-normal;
-    }
 }
 
 // Screen
 @screen md {
-
     .site-menu {
         // Layout
         &__container {

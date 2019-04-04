@@ -1,29 +1,100 @@
 {% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
 
 {% block content %}
-    <h1>
-        Topics
-    </h1>
+
+    {# Page Header #}
+    <section class="space-menu ">
+        <header class="page-header | space-t space-b--sm">
+            <h1 class="header-xl font-serif">Topics</h2>
+        </header>
+    </section>
+
+    {# Topics List #}
+    <div id="topics" class="container--sm gutter-md | md:flex-grid | space-menu space-b">
+
+        {# Fetch all of the entries related to this category #} 
+        {% set group = craft.categories.group('topics') %}
         
-    {# Fetch all of the entries related to this category #}
-    {% set group = craft.categories.group('topics') %}
+        <ul class="menu-list -yellow -columns | w-full ">
+            {# Layout Example (static) #}
+            {# {% include "_components/static/static-topic-example" %} #}
+
+            {# Categories #}
+            {% nav category in group.all() %}
+                
+                {# Parents #}
+                {% if category.level == 1 and category.hasDescendants%}
+                    <h4 class="menu-list__group-name">{{ category.title }}</h4>
+                {% endif %}
+                
+                {# Children #}
+                {% if category.level == 2 %}
+                    <li class="menu-list__item">
+                        <a href="{{ category.url }}" role="menuitem" aria-haspopup="false" class="menu-list__link" tabindex="0">
+                            {{ category.title }}
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% ifchildren %}
+                    <li class="menu-list__group | md:w-1/3 w-1/2">
+
+                        <ul>{% children %}</ul>
+
+                    </li>
+                {% endifchildren %}
+
+            {% endnav %} 
+
+            {# Singles #}
+            {% set singles = craft.categories.group('topics').leaves().all() %}
+            
+            {% if singles|length %}
+                <h4 class="menu-list__group-name">Misc</h4>
+                
+                {% for category in singles %}
+
+                    {% if category.level == 1%}
+                        <li class="menu-list__item">
+                            <a href="{{ category.url }}" role="menuitem" aria-haspopup="false" class="menu-list__link" tabindex="0">
+                                {{ category.title }}
+                            </a>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+                
+            {% endif %}
+
+            
+        </ul>
+
+    </div>
+
+    {# Fetch all of the entries related to this category #} 
+    {# {% set group =
+    craft.categories.group('topics') %}
 
     <ul>
         {% for category in group.all() %}
-            <li>
-                {% if category.level == 2 %}
-                    <ul><li>
-                {% endif %}
+        <li class="menu-list__item">
+            {% if category.level == 2 %}
+            <ul>
+                <li class="menu-list__item">
+                    {% endif %}
 
-                <a href="{{ category.url }}">
-                    {{ category.title }}
-                </a>
-                
-                {% if category.level == 2 %}
-                    </li></ul>
-                {% endif %}
-            </li>
+                    <a href="{{ category.url }}">
+                        {{ category.title }}
+                    </a>
+
+                    {% if category.level == 2 %}
+                </li>
+            </ul>
+            {% endif %}
+        </li>
         {% endfor %}
-    </ul>
+    </ul> #}
 
 {% endblock %}
