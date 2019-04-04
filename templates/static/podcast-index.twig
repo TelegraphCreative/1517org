@@ -5,7 +5,7 @@
 {% block content %}
 
     {# Page Header #}
-    <section class="space-menu ">
+    <section class="space-menu">
         {% set content = {
             title: 'Podcasts',
             detail: '<p>1517 Podcasts is a network of shows dedicated to delivering Christ-centered content through weekly, monthly, and seasonal audio platforms. Listen online every day of the week, or on your favorite podcasting app.</p>'
@@ -15,19 +15,19 @@
     </section>
 
     {# Topics List #}
-    <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-menu space-b">
+    <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b">
 
             {# Latest Cards #}
             <div class="flex-grid">
                 {# Content Card - Stacked #}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
-                {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
+                {% include '_components/static/content-card--basic' with { 'classes': 'links-hover--grey' } %}
             </div>
 
         

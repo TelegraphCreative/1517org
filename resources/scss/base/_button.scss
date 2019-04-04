@@ -94,7 +94,7 @@
   &.-add {
     @apply relative pr-10;
     &:after {
-      @apply absolute pin-r align-t
+      @apply absolute pin-r align-y
       text-xl font-normal;
       content: "\002B";
       margin-right: 0.875rem;

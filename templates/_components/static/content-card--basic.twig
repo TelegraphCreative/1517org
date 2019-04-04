@@ -1,0 +1,32 @@
+{% import '_macros/global' as global %}
+
+<article class="content-card -basic | space-b--sm {{ classes }}">
+
+    <div class="content-card__container">
+
+        {# Media #}
+        <a href="#" class="content-card__media -cover-art | mb-6">
+            {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_05.png')}}
+        </a>
+        
+        {# Content #}
+        <div class="content-card__content">  
+           
+            <a href="#">
+                {# Header #}
+                <div class="content-card__header">
+                    <h2 class="card-title | header-md font-serif">This it the h2 title</h1>
+                </div>
+                
+                {# Detail #}
+                <div class="content-card__detail | paragraphs -xs | pt-1">
+                    <p>with Ms so-and-so and Mr. Something</p>
+                </div>
+            </a>
+
+        </div>
+        
+    
+    </div>
+
+</article>
