@@ -12,15 +12,43 @@
     {# Latest Cards #}
     <div id="latest" class="container--sm gutter-md | space-b">
         <div class="flex-grid">
-            {# Content Card - Stacked #}
+            
+            {# Latest from Selected Channels #}
+
+            {# Notes: For example only: once this template is moved to the actual homepage, 'entry' will be
+            set to home section automatically and this line can be removed #}
+            {% set entry = craft.entries.section('home')[0] %}
+
+            {# Convert selected channels to array #}
+            {% set latestContentSections = []  %}
+            {% for section in entry.sections %}
+                {% set latestContentSections = latestContentSections|merge([section]) %}
+            {% endfor %}
+            {% set latestContentSections = latestContentSections|join(', ') %}
+            
+            {# Get Latest Content #}
+            {% set latestContent = craft.entries({
+                section: latestContentSections,
+                limit: 10
+              }) %}
+            
+            {# Show Latest Content #}
+            {% for entry in latestContent %}
+                
+                {# Content Card - Stacked #}
+                {% include '_components/content-card--stacked' with { content: entry, classes: 'links-hover--yellow' } %}
+                
+            {% endfor %} 
+
+            {# Notes: Old (static) cards #}
+            {# {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
             {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
             {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
             {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
             {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
             {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
             {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
-            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %}
+            {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--yellow' } %} #}
         </div>
     </div>
 
