@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1554342180
+dateModified: 1554476691
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -145,6 +145,38 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  4f7d056d-7505-4f1c-9360-a814abddce71:
+    name: Sections
+    handle: sections
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Checkboxes
+    settings:
+      options:
+        -
+          label: Articles
+          value: articles
+          default: ''
+        -
+          label: Podcasts
+          value: podcasts
+          default: ''
+        -
+          label: Events
+          value: '''events'''
+          default: ''
+        -
+          label: Videos
+          value: '''videos'''
+          default: ''
+        -
+          label: Courses
+          value: '''courses'''
+          default: ''
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -237,6 +269,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.2.2
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.2'
 sections:
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
@@ -265,7 +301,7 @@ sections:
                 name: Common
                 sortOrder: 1
                 fields:
-                  0fec9112-8616-42d5-9d32-af51569d1dd9:
+                  4f7d056d-7505-4f1c-9360-a814abddce71:
                     required: false
                     sortOrder: 1
   6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1:
