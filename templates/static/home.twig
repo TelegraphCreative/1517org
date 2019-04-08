@@ -33,7 +33,7 @@
               }) %}
             
             {# Show Latest Content #}
-            {% for entry in latestContent %}
+            {% for entry in latestContent.all() %}
                 
                 {# Content Card - Stacked #}
                 {% include '_components/content-card--stacked' with { content: entry, classes: 'links-hover--yellow' } %}
