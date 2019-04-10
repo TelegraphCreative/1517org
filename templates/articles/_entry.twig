@@ -22,4 +22,10 @@
         </ul>
     {% endif %}
 
+    {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
+        <p>
+            {{ entry.vimeoEmbed.render }}
+        </p>
+    {% endif %}
+
 {% endblock %}
