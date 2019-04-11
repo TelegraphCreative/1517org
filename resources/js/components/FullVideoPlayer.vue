@@ -1,11 +1,20 @@
 <template>
-  <div>
-    <div @click="playVideo" :class="{ hidden: hideImg }">
-      <img :src="imgSrc">
+  <div
+    class="w-screen max-w-full overflow-hidden relative"
+    :style="{ height: calculatedVideoHeight }"
+  >
+    <div
+      @click="playVideo"
+      class="video-overlay text-white hover:text-red cursor-pointer"
+      :class="{ hidden: hideImg }"
+    >
+      <play_icon :classes=" 'icon -md absolute z-20 align-yx' "/>
+      <img :src="imgSrc" class="absolute w-screen">
     </div>
     <iframe
       :src="`https://player.vimeo.com/video/${vimeoId}`"
-      width="640" height="360"
+      :style="{ height: calculatedVideoHeight }"
+      class="w-screen max-w-full"
       frameborder="0"
       allow="autoplay; fullscreen"
       allowfullscreen
@@ -13,17 +22,22 @@
   </div>
 </template>
 <script>
+  import play_icon from '../icons/icon-play'
   import Player from '@vimeo/player'
   
   export default {
     props: {
       imgSrc: {
         type: String,
-        required: true
+        required: true,
       },
       videoUrl: {
         type: String,
-        required: true
+        required: true,
+      },
+      aspectRatio: {
+        type: String,
+        required: true,
       },
     },
     
@@ -36,8 +50,11 @@
 
     computed: {
       vimeoId() {
-        var match = /vimeo.*\/(\d+)/i.exec( this.videoUrl )
+        const match = /vimeo.*\/(\d+)/i.exec( this.videoUrl )
         return match[1]
+      },
+      calculatedVideoHeight() {
+        return `calc(100vw * (${this.aspectRatio} * 0.01))`
       }
     },
 
@@ -61,18 +78,10 @@
           _this.hideImg = false
         })
       })
+    },
+
+    components: {
+      play_icon,
     }
   }
 </script>
-
-<style lang="scss" scoped>
-div {
-  position: relative;
-}
-img {
-  position: absolute;
-}
-.hidden {
-  display: none;
-}
-</style>
