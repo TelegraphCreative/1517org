@@ -1,7 +1,6 @@
 {% import '_macros/global' as global %}
 
 <ul class="list-events | flex-grid | list-reset {{ classes }}">
-    
     <li class="list-event">
         <div class="list-event__container | flex-grid">
             <a href="#" class="list-event__media">
@@ -10,31 +9,33 @@
                     <div class="content-label__mo">Mar</div>
                     <div class="content-label__day">11</div>
                 </h4>
-                    
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale | rounded-full', '/assets/placeholder/placeholder_03.png')}}
-                
+
+                {{
+                    global.image(
+                        '',
+                        '-is1x1 -fit-cover -hover-scale | rounded-full',
+                        '/assets/placeholder/placeholder_03.png'
+                    )
+                }}
             </a>
 
             <div class="list-event__content">
-
                 <a href="#">
-
                     <h3 class="header -sm font-serif | mb-2 mt-6">
                         Dr Adam Francisco
                     </h3>
 
-                    <div class="meta-label text-grey-darker mb-2">Birmingham, Mi</div>
-                    
-                    <div class="list-event__detail | paragraphs -xs | mb-2">
+                    <div class="meta-label text-slate mb-2">Birmingham, Mi</div>
 
-                        <p>Dr. Francisco will be the featured speaker at the annual men’s retreat on Sat March 16, for Our Shepherd Lutheran Church in Birmingham, MI.</p>
-                    
+                    <div class="list-event__detail | paragraphs -xs | mb-2">
+                        <p>
+                            Dr. Francisco will be the featured speaker at the
+                            annual men’s retreat on Sat March 16, for Our
+                            Shepherd Lutheran Church in Birmingham, MI.
+                        </p>
                     </div>
                 </a>
             </div>
-            
         </div>
     </li>
-        
-    
 </ul>

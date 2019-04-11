@@ -15,7 +15,7 @@
 
     &__indicator {
         @apply absolute 
-            border border-grey-lighter
+            border border-ivory-light
             h-4 w-4;
         top: 2px;
         left: 0;
@@ -29,18 +29,18 @@
     &:hover input:not([disabled]) ~ .control__indicator,
     &:hover input:not([disabled]):checked ~ .control__indicator,
     input:focus ~ .control__indicator {
-        @apply border-grey;
+        @apply border-bronze;
     }
 
     // Checked
     input:checked ~ .control__indicator,
     input:checked:focus ~ .control__indicator {
-        @apply border-grey bg-grey;
+        @apply border-bronze bg-bronze;
     }
 
     // Disabled
     input:disabled ~ .control__indicator {
-        @apply bg-grey-lighter     
+        @apply bg-ivory-light     
         pointer-events-none;
     }
     &__indicator:after {
@@ -70,8 +70,8 @@
             @apply inline-block px-8 py-4
               font-medium font-sans text-base
               leading-none 
-              bg-white text-yellow-dark
-              border-2 border-grey-light rounded-full
+              bg-white text-bronze
+              border-2 border-ivory-light rounded-full
               property-colors duration-3 timing-1;
         }
         .control__indicator {
@@ -81,11 +81,11 @@
         // Hover / Checked
         input:checked ~ .control__text,
         input:checked:focus ~ .control__text {
-            @apply bg-grey-darkest text-white font-semibold;
+            @apply bg-bronze text-white font-semibold;
         }
         &:hover {
             .control__text {
-                @apply bg-yellow-dark border-yellow-dark text-white;
+                @apply bg-bronze border-bronze text-white;
             }
         }
     }

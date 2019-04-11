@@ -1,35 +1,42 @@
-<footer class="site-footer | focus-links | leading-normal" role="contentinfo">
+<footer
+    class="site-footer | focus-links -light | leading-normal"
+    role="contentinfo"
+>
     <!-- Groups -->
     <div class="site-footer__groups | container gutter-md | space-t--sm">
-        <div class="site-footer__groups__container | md:flex-grid | mb-10 md:mb-0">
+        <div
+            class="site-footer__groups__container | md:flex-grid | mb-10 md:mb-0"
+        >
             {# Group #}
             <div class="site-footer__group | md:w-3/4 md:pr-10 | space-b">
                 <div aria-label="1517 Info" class="footer-about | max-w-sm">
-                    {# Site Info #}
-                    {% if siteInfo.siteDescription | length %}
-                      <div class="mb-8">
+                    {# Site Info #} {% if siteInfo.siteDescription | length %}
+                    <div class="mb-8">
                         {{ siteInfo.siteDescription }}
-                      </div>
-                    {% endif %}
-                    
-                    {# Social #} {% include "_components/list-social" with {
-                    content: siteInfo.socialChannels, classes: '-inline -light -rounded' } %}
+                    </div>
+                    {% endif %} {# Social #} {% include
+                    "_components/list-social" with { content:
+                    siteInfo.socialChannels, classes: '-inline -light -rounded'
+                    } %}
                 </div>
             </div>
 
             {# Group #}
             <div class="site-footer__group | md:w-1/4">
                 <nav aria-label="1517 Primary Footer Menu" class="footer-menu">
-                    {# Menu List #} {% include "_components/list-menu" with
-                    { content: 'footerMenuL', classes: '' } %}
+                    {# Menu List #} {% include "_components/list-menu" with {
+                    content: 'footerMenuL', classes: '' } %}
                 </nav>
             </div>
 
             {# Group #}
             <div class="site-footer__group | md:w-1/4">
-                <nav aria-label="1517 Secondary Footer Menu" class="footer-menu">
-                    {# Menu List #} {% include "_components/list-menu" with
-                    { content: 'footerMenuR', classes: '-grey' } %}
+                <nav
+                    aria-label="1517 Secondary Footer Menu"
+                    class="footer-menu"
+                >
+                    {# Menu List #} {% include "_components/list-menu" with {
+                    content: 'footerMenuR', classes: '-grey' } %}
                 </nav>
             </div>
         </div>
@@ -40,11 +47,12 @@
         <div class="site-footer__meta__container | md:flex-grid">
             {# Subscribe Form #}
             <div class="footer-meta__group | md:w-3/4 ">
-                {% include "_components/static/form-signup" with { header: 'Subscribe to 1517 eNewsletter' } %}
+                {% include "_components/static/form-signup" with { header:
+                'Subscribe to 1517 eNewsletter' } %}
             </div>
-            
+
             {# Legal #}
-            
+
             <div class="footer-meta__group | md:w-1/4"></div>
 
             <div class="footer-meta__group | md:w-1/4 | text-md | pt-10">
@@ -56,7 +64,6 @@
                     All Rights Reserved.
                 </div>
             </div>
-
         </div>
     </div>
 </footer>

@@ -1,10 +1,9 @@
 // Content Card
 .content-hero {
-
     // Themes
     &.-dark {
         // Default
-        @apply bg-neutral-dark text-white;
+        @apply bg-slate-darker text-white;
     }
     &.-red {
         // Default
@@ -22,17 +21,14 @@
         width: 6%;
     }
 
-
     // Card Title
     .card-title {
         @apply mb-4;
     }
 
-    // Screen 
+    // Screen
     // MD
     @screen md {
-
-
         // Content
         &__content {
             @apply w-3/5;
@@ -42,16 +38,13 @@
         &__media {
             @apply w-2/5;
         }
-        
-        
 
         // Card Title
         .card-title {
             @apply mb-6;
         }
     }
-
 }
 
 .content-hero.-event {
-} 
+}

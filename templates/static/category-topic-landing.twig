@@ -1,34 +1,27 @@
-{% extends "_layouts/_base" %}
-{% import '_macros/global' as global %}
+{% extends "_layouts/_base" %} {% import '_macros/global' as global %} {% block
+content %} {# Page Header #}
+<section class="space-menu ">
+    {% set content = { title: 'Topic Title', category: 'Topics' } %} {% include
+    "_components/static/header-page--category" with { content: content } %} {%
+    include "_components/static/filters-page" %}
+</section>
 
-{% block content %}
-
-    {# Page Header #}
-    <section class="space-menu ">
-        {% set content = {
-            title: 'Topic Title',
-            category: 'Topics'
-        } %}
-        {% include "_components/static/header-page--category" with { content: content } %}
-        {% include "_components/static/filters-page" %}
-
-    </section>
-
-    {# Topics List #}
-    <div id="content" class="container--sm gutter-md | space-b">
-
-        {# Content Card - Topic Types #}
-        {# 
-            Templating Notes: 
-            Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
-            event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
-        #}
-        {% include '_components/static/content-card--course' with { 'classes': 'links-hover--yellow' } %}
-        {% include '_components/static/content-card--video' with { 'classes': 'links-hover--yellow' } %}
-        {% include '_components/static/content-card--podcast' with { 'classes': 'links-hover--yellow' } %}
-        {% include '_components/static/content-card--article' with { 'classes': 'links-hover--yellow' } %}
-        {% include '_components/static/content-card--event' with { 'classes': 'links-hover--yellow' } %}
-
-    </div>
+{# Topics List #}
+<div id="content" class="container--sm gutter-md | space-b">
+    {# Content Card - Topic Types #} {# Templating Notes: Run a switch statement
+    on the entry type to build logic for which card to include, handling
+    conditional elements like event meta vs podcast show, author, podcast
+    player, video button+player, icons, etc. #} {% include
+    '_components/static/content-card--course' with { 'classes':
+    'links-hover--bronze' } %} {% include
+    '_components/static/content-card--video' with { 'classes':
+    'links-hover--bronze' } %} {% include
+    '_components/static/content-card--podcast' with { 'classes':
+    'links-hover--bronze' } %} {% include
+    '_components/static/content-card--article' with { 'classes':
+    'links-hover--bronze' } %} {% include
+    '_components/static/content-card--event' with { 'classes':
+    'links-hover--bronze' } %}
+</div>
 
 {% endblock %}

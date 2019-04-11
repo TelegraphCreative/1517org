@@ -1,18 +1,17 @@
 {% import '_macros/global' as global %}
 
-<article class="content-hero -event -dark | links-hover--yellow | {{ classes }}">
-
+<article
+    class="content-hero -event -dark | links-hover--bronze | {{ classes }}"
+>
     <div class="content-hero__container | flex-grid flex-row-reverse">
-        
         {# Content #}
-        <div class="content-hero__content | gutter-lg py-10 space-b--md">  
-            
+        <div class="content-hero__content | gutter-lg py-10 space-b--md">
             {# Label #}
             <h4 class="content-label -date -dark">
                 <div class="content-label__mo">Mar</div>
                 <div class="content-label__day">11</div>
             </h4>
-            
+
             <a href="#" class="block">
                 {# Header #}
                 <div class="content-hero__header">
@@ -22,31 +21,35 @@
                 </div>
 
                 <div class="content-hero__meta | mb-4">
-
                     <a href="#" class="align-items-center">
                         {{ global.utilityIcon('map-pin', '-sm') }}
                         <div class="meta-label | ml-3">Austin, TX</div>
                     </a>
-                    
                 </div>
 
                 {# Detail #}
                 <div class="content-hero__detail | paragraphs -sm">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, minus labore atque blanditiis molestiae inventore sequi unde explicabo ipsum a ratione est quis nemo eaque in laboriosam ad expedita sapiente.</p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Saepe, minus labore atque blanditiis molestiae inventore
+                        sequi unde explicabo ipsum a ratione est quis nemo eaque
+                        in laboriosam ad expedita sapiente.
+                    </p>
                 </div>
 
                 {# Secondary Meta #}
                 <div class="content-hero__meta -secondary | space-t">
-                    {{ global.relatedTopics('', '-dark') }}                            
+                    {{ global.relatedTopics('', '-dark') }}
                 </div>
             </a>
-
         </div>
-        
+
         {# Media #}
         <a href="#" class="content-hero__media overflow-hidden">
-            <div class="inline-background -hover-scale h-full w-full" style="background-image: url('/assets/placeholder/placeholder_01.png')"></div>
+            <div
+                class="inline-background -hover-scale h-full w-full"
+                style="background-image: url('/assets/placeholder/placeholder_01.png')"
+            ></div>
         </a>
     </div>
-
 </article>

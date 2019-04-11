@@ -1,15 +1,18 @@
 .page-header {
     @apply text-center;
 
+    // Title
+    &__title {
+        @apply font-serif text-hunter;
+    }
     // Detail
     &__detail {
-        @apply max-w-md  mx-auto mt-6 text-grey-darker;
+        @apply max-w-md  mx-auto mt-6 text-slate-light;
     }
 
     // - Category
     &.-category {
         .page-header {
-
             // Detail
             &__detail {
                 @apply w-4/5 pr-10;
@@ -24,7 +27,6 @@
     // - Action
     &.-action {
         .page-header {
-
             // Detail
             &__detail {
                 @apply max-w-lg;
@@ -42,19 +44,17 @@
         @apply text-left;
     }
 
-
-    // Screen 
+    // Screen
     // Md
     @screen md {
         // - Action
         &.-action {
             .page-header {
-
                 // Detail
                 &__detail {
                     @apply ml-24;
                 }
-                
+
                 // Badge
                 &__badge {
                     @apply pl-8;
@@ -62,5 +62,4 @@
             }
         }
     }
-
 }

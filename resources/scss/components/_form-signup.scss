@@ -3,20 +3,20 @@
     w-full max-w-xs;
 
     .email-input {
-        @apply border-2 border-grey-darker rounded
-        bg-transparent text-grey-darker
+        @apply border-2 border-slate-light rounded
+        bg-transparent text-white
         property-all duration-1 timing-1
         text-base font-sans
         py-3 px-4
         w-full;
 
         &::placeholder {
-            @apply opacity-100;
+            @apply text-slate-light;
         }
 
         &:focus,
         &:target {
-            @apply border-white;
+            @apply border-bronze;
             outline: none;
 
             &::placeholder {
@@ -29,9 +29,10 @@
         @apply absolute pin-r align-y
         h-full
         px-4 
-        text-grey-darker;
+        text-slate;
 
-        &:hover {
+        &:hover,
+        &:focus {
             @apply text-white;
         }
     }

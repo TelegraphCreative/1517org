@@ -4,7 +4,7 @@
 .content-label {
     @apply link text-xs font-sans font-semibold uppercase 
     leading-none tracking-normal text-center
-    p-4 border-8 -mb-3 -ml-6 border-grey-light; 
+    p-4 border-8 -mb-3 -ml-6 border-ivory-light;
 
     // Date
     &.-date {
@@ -13,7 +13,7 @@
 
     // Themes
     &.-light {
-        @apply border-grey-lighter;
+        @apply border-ivory-lighter;
     }
     &.-red {
         @apply border-red-dark text-white;
@@ -21,8 +21,7 @@
     &.-dark {
         @apply border-slate-darkest text-white;
     }
-    
-    
+
     &__day {
         @apply text-3lg;
     }
@@ -30,7 +29,7 @@
 
 // Meta Label
 .meta-label {
-    @apply link text-xs font-sans tracking-normal uppercase leading-none; 
+    @apply link text-xs font-sans tracking-normal uppercase leading-none;
 }
 
 // Screens
