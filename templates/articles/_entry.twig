@@ -23,27 +23,11 @@
     {% endif %}
 
     {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
-        <p>
-            <img id="x" src={{ entry.vimeoEmbed.media.image }}">
+        <full_video_player
+            img-src="{{ entry.vimeoEmbed.media.image }}"
+        >
             {{ entry.vimeoEmbed.render }}
-        </p>
-        {% js %}
-            var iframe = document.querySelector('iframe');
-            var player = new Vimeo.Player(iframe);
-
-            var x = document.querySelector('#x');
-            x.addEventListener('click', function() {
-                player.play();
-            })
-
-            player.on('play', function() {
-                console.log('Played the video');
-            });
-
-            player.getVideoTitle().then(function(title) {
-                console.log('title:', title);
-            });
-        {% endjs %}
+        </full_video_player>
     {% endif %}
 
 {% endblock %}

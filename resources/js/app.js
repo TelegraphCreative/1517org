@@ -4,6 +4,7 @@ window.Vue = require("vue");
 // Imports
 import site_menu from "./components/SiteMenu";
 import select_box from "./components/SelectBox";
+import full_video_player from "./components/FullVideoPlayer";
 
 // Vue App
 const app = new Vue({
@@ -11,7 +12,8 @@ const app = new Vue({
 
   components: {
     site_menu,
-    select_box
+    select_box,
+    full_video_player
   }
 });
 
