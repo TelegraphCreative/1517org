@@ -1,11 +1,15 @@
 <template>
   <div>
-    <!-- john: was having issues with video loading before img, "|| false" and v-cloak -->
-    <!--       were attempts to fix this. open to suggestions -->
-    <div @click="playVideo" :class="{ hidden: hideImg || false }">
+    <div @click="playVideo" :class="{ hidden: hideImg }">
       <img :src="imgSrc">
     </div>
-    <slot v-cloak />
+    <iframe
+      :src="`https://player.vimeo.com/video/${vimeoId}`"
+      width="640" height="360"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    />
   </div>
 </template>
 <script>
@@ -17,12 +21,23 @@
         type: String,
         required: true
       },
+      videoUrl: {
+        type: String,
+        required: true
+      },
     },
     
     data() {
       return {
         player: null,
         hideImg: false,
+      }
+    },
+
+    computed: {
+      vimeoId() {
+        var match = /vimeo.*\/(\d+)/i.exec( this.videoUrl )
+        return match[1]
       }
     },
 

@@ -25,9 +25,8 @@
     {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
         <full_video_player
             img-src="{{ entry.vimeoEmbed.media.image }}"
-        >
-            {{ entry.vimeoEmbed.render }}
-        </full_video_player>
+            video-url="{{ entry.vimeoEmbed.media.url }}"
+        />
     {% endif %}
 
 {% endblock %}
