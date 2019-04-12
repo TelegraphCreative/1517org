@@ -4,7 +4,7 @@
 .content-label {
     @apply link text-xs font-sans font-semibold uppercase 
     leading-none tracking-normal text-center
-    p-4 border-8 -mb-3 -ml-6 border-ivory-light;
+    p-4 border-8 -mb-3 -ml-6 border-ivory-lightest;
 
     // Date
     &.-date {

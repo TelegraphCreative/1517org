@@ -103,6 +103,7 @@ h6 {
 // Paragraphs
 .paragraphs {
     // Default
+    &,
     p {
         @apply leading-normal font-normal
       mb-6;
@@ -130,6 +131,7 @@ h6 {
 
     // xs - 14px
     &.-xs {
+        &,
         p {
             @apply text-md leading-loose
             mb-4;

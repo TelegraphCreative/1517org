@@ -15,12 +15,12 @@
                 }
             }
         }
+    }
 
-        // Hover
-        a:hover {
-            .card-title {
-                @apply text-red;
-            }
+    // Hover
+    a:hover {
+        .card-title {
+            @apply text-red;
         }
     }
 }
