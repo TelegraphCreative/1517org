@@ -1,5 +1,12 @@
 {% import '_macros/global' as global %}
 
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <div class="billboard -donate | {{ classes }}">
     <div class="billboard__container container--sm | flex-grid | space-t">
         <header class="billboard__content | gutter | md:w-2/3">

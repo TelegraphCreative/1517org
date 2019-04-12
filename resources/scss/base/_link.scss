@@ -129,7 +129,7 @@ a {
 // Alt Link Hover Colors
 .links-hover {
     &--red a:hover {
-        @apply text-slate-darkest;
+        @apply text-red;
     }
     &--light a:hover {
         @apply text-bronze;

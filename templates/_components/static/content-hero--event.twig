@@ -1,5 +1,12 @@
 {% import '_macros/global' as global %}
 
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <article
     class="content-hero -event -dark | links-hover--bronze | {{ classes }}"
 >

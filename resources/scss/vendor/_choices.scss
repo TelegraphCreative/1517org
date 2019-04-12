@@ -83,7 +83,7 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     .choices__inner .#{$choices-selector}__item--selectable {
         position: relative;
         width: auto;
-        @apply pr-6;
+        @apply pr-8;
 
         // Caret (solid/triangle)
         // &:before {
@@ -419,7 +419,7 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     // Medium
     &.-md {
         .choices__inner {
-            @apply px-5 py-5;
+            @apply px-5 py-4;
             @apply link text-xs font-sans tracking-normal uppercase leading-none;
         }
     }

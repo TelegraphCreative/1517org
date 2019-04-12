@@ -1,5 +1,12 @@
 {% import '_macros/global' as global %}
 
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <ul class="list-events | flex-grid | list-reset {{ classes }}">
     <li class="list-event">
         <div class="list-event__container | flex-grid">

@@ -14,12 +14,12 @@
     </section>
 
     {# Topics List #}
-    <div id="topics" class="container--sm gutter-md | md:flex-grid | space-menu space-b">
+    <div id="topics" class="container--sm gutter-md | md:flex-grid | space-b">
 
         {# Fetch all of the entries related to this category #} 
         {% set group = craft.categories.group('topics') %}
         
-        <ul class="menu-list -bronze -columns | w-full ">
+        <ul class="menu-list -bronze -columns | w-full | links-hover--red">
             
             {# Layout Example (static) #}
             {# {% include "_components/static/static-topic-example" %} #}
@@ -29,7 +29,7 @@
                 
                 {# Parents #}
                 {% if category.level == 1 and category.hasDescendants%}
-                    <h4 class="menu-list__group-name">{{ category.title }}</h4>
+                    <h4 class="menu-list__group-name | md:w-1/3">{{ category.title }}</h4>
                 {% endif %}
                 
                 {# Children #}
@@ -42,7 +42,7 @@
                 {% endif %}
 
                 {% ifchildren %}
-                    <li class="menu-list__group | md:w-1/3 w-1/2">
+                    <li class="menu-list__group | md:w-1/3">
 
                         <ul>{% children %}</ul>
 
@@ -55,7 +55,7 @@
             {% set singles = craft.categories.group('topics').leaves().all() %}
             
             {% if singles|length %}
-                <h4 class="menu-list__group-name">Misc</h4>
+                <h4 class="menu-list__group-name | md:w-1/3">Misc</h4>
                 
                 {% for category in singles %}
 

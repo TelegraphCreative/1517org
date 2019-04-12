@@ -1,5 +1,12 @@
 {% import '_macros/global' as global %}
 {# Defaults to stacked #}
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <ul class="social-list {{ classes }}">
     {% for link in content.all() %}
     <li>

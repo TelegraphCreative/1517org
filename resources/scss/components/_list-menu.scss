@@ -19,7 +19,7 @@
     }
 
     &__group-name {
-        @apply pt-4 text-base font-medium uppercase mb-3 tracking-normal;
+        @apply pt-4 text-base font-medium uppercase mb-5 tracking-normal;
         a {
             @apply text-base font-medium;
         }
@@ -35,7 +35,7 @@
     // Yellow
     &.-bronze {
         .menu-list__group-name {
-            @apply text-bronze;
+            @apply text-bronze-light;
         }
     }
 
