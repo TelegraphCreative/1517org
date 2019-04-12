@@ -32,6 +32,24 @@
     @apply link text-xs font-sans tracking-normal uppercase leading-none;
 }
 
+// Category + Title Group
+.label-title-group {
+    @apply flex items-center;
+
+    &__title {
+        @apply relative pl-10;
+
+        &:before {
+            @apply absolute pseudo pin-l ml-4
+            border-l border-bronze-lighter;
+
+            height: 140%;
+            top: 50%;
+            transform: translate(0%, -50%) rotate(20deg);
+        }
+    }
+}
+
 // Screens
 // MD
 @screen md {

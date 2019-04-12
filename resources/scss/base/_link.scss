@@ -121,15 +121,15 @@ a {
     @apply link;
     color: inherit;
 
-    &:hover {
-        @apply text-red;
-    }
+    // &:hover {
+    //     @apply text-red;
+    // }
 }
 
 // Alt Link Hover Colors
 .links-hover {
     &--red a:hover {
-        @apply text-red;
+        @apply text-slate-darkest;
     }
     &--light a:hover {
         @apply text-bronze;

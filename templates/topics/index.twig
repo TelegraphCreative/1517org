@@ -6,9 +6,11 @@
 
     {# Page Header #}
     <section class="space-menu ">
-        <header class="page-header | space-t space-b--sm">
-            <h1 class="header-xl font-serif">Topics</h2>
-        </header>
+        {% set content = { 
+                    title: 'Topics'
+                } 
+            %}
+        {% include "_components/static/page-header" with { content: content } %}
     </section>
 
     {# Topics List #}

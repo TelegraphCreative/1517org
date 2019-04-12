@@ -9,6 +9,24 @@
 {% set content = {
         menu: [
             {
+                name: "Headers"
+            },
+            {
+                name: "Page Header (default)",
+                url: "page-header"
+            },
+            {
+                name: "Page Header -filters",
+                url: "page-header--filters"
+            },
+            {
+                name: "Page Header -action",
+                url: "page-header--action"
+            },
+            {
+                name: "Core"
+            },
+            {
                 name: "Icons",
                 url: "icons"
             },
@@ -19,6 +37,9 @@
             {
                 name: "Typography",
                 url: "typography"
+            },
+            {
+                name: "Utility"
             },
             {
                 name: "Menu List",
@@ -48,7 +69,7 @@
 
     </head> 
     <body>
-        <div class="site-container" id="app">
+        <div class="site-container">
 
             <main class="site-main">
 
@@ -69,7 +90,11 @@
                             <ul class="menu-list">
                                 {% for item in content.menu %}
                                     <li>
-                                        <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black">{{ item.name }}</a>
+                                        {% if item.url is defined %}
+                                            <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black">{{ item.name }}</a>
+                                        {% else %}
+                                            <b>{{ item.name }}</b>
+                                        {% endif %}
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -94,7 +119,7 @@
 
     </body>
 
-    {# {% do view.registerJsFile('/assets/js/app.js') %} #}
+    {% do view.registerJsFile('/assets/js/app.js') %}
     {% do view.registerJsFile('/assets/js/styleguide.js') %}
 	
 </html>

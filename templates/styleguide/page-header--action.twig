@@ -1,0 +1,57 @@
+{% import '_macros/styleguide' as guide %}
+{% import '_macros/global' as global %}
+{% extends "_layouts/_styleguide" %}
+{% block content %}
+
+
+    <h2 class="text-3xl space-b">Page Header -action</h2>
+
+    <div class="notes leading-normal border-b space-b">
+        <h3>Notes:</h3>
+        <p>Detail is optional</p>
+    </div>
+    
+    {# Header #}
+    {% set content = { 
+            title: 'The Section Name', 
+            category: 'Section', 
+            detail: 'Christ Hold Fast is a project of 1517. We are a Law/Gospel collective of creative contributors, dedicated to proclaiming the gospel of Jesus to all people. Makers of podcasts, authors of books, and friends of the gospel.' 
+        }
+    %}
+    {% include "_components/static/page-header--action" with { content: content } %}
+{% set code %}{% verbatim %}{% include "_components/page-header--action" with { content: content } %}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    
+
+{% set code %}{% verbatim %}
+<header class="page-header -action -left | container--sm gutter-md | space-t space-b--sm">
+
+    <div class="page-header__title | label-title-group">
+        <h3 class="meta-label text-bronze-light | label-title-group__label">{{ content.category }}</h3>
+        <h1 class="header-xl font-serif | label-title-group__title">{{ content.title }}</h2>
+    </div>
+
+    {% if content.detail is defined %}
+    <div class="page-header__detail">
+
+        <div class="paragraphs -sm -loose -inline | w-3/4">
+            <p>
+                {{ content.detail }}
+            </p>
+            <a href="#" class="link | meta-label | text-red hover:text-bronze | ml-2">Keep Reading</a>
+        </div>
+
+        <div class="page-header__badge | w-1/4">
+            {{ global.image('', '-is1x1 rounded-full -fit-cover', '/assets/placeholder/placeholder_03.png')}}
+        </div>
+
+    </div>
+    {% endif %}
+
+</header>
+{% endverbatim %}
+{% endset %}
+{{ guide.snippet( code, 'twig' ) }}
+    
+{% endblock %}

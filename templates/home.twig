@@ -1,27 +1,52 @@
-{% extends "_layouts/_base" %} {% import '_macros/global' as global %} {# Menu
-#} {% set templateList = { menu: [ { name: "Home (mostly static)", url:
-"/static/home" }, { name: "Category Section Index", url:
-"/static/category-section-index" }, { name: "Topics Landing", url:
-"/static/category-topic-landing" }, { name: "Topics List", url: "/topics" }, {
-name: "Podcast Index", url: "/static/podcast-index" } ] } %} {% block content %}
-<div id="template-list" class="md:w-3/5 mx-auto | space-menu space-b--lg">
-    <header class="space-t space-b--sm">
-        <h2 class="header-xl font-serif">Static Templates</h2>
-    </header>
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %} 
 
-    <ul class="list-articles">
-        {% for item in templateList.menu %} {# Item #}
-        <li class="list-article">
-            <div class="list-article__content">
-                {# Header #}
-                <h3 class="header-xs font-serif">
-                    <a href="{{ item.url }}">{{ item.name }}</a>
-                </h3>
-            </div>
-        </li>
+{# Menu #} 
+{% set templateList = { 
+    menu: [
+        { 
+            name: "Home (mostly static)", 
+            url: "/static/home" 
+        },{ 
+            name: "Category Section Index", 
+            url: "/static/category-section-index" 
+        },{ 
+            name: "Topics Landing", 
+            url: "/static/category-topic-landing" 
+        },{ 
+            name: "Topics List", 
+            url: "/topics" 
+        },{
+            name: "Podcast Index", 
+            url: "/static/podcast-index" 
+        }
+    ]} 
+%} 
 
-        {% endfor %}
-    </ul>
-</div>
+{% block content %}
+    
+{# Front End Templates #}
+    <div id="template-list" class="md:w-3/5 mx-auto | space-menu space-b--lg">
+        <header class="space-t space-b--sm">
+            <h2 class="header-xl font-serif">Static Templates</h2>
+        </header>
+        
+        {# List #}
+        <ul class="list-articles">
+            {% for item in templateList.menu %} 
+
+                {# Item #}
+                <li class="list-article">
+                    <div class="list-article__content">
+                        {# Header #}
+                        <h3 class="header-xs font-serif">
+                            <a href="{{ item.url }}">{{ item.name }}</a>
+                        </h3>
+                    </div>
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endblock %}

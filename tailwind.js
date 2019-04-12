@@ -48,7 +48,7 @@ let colors = {
 
     'slate-light': '#7D8082', // (designer name: stone) (for when we don’t want to emphasize text as much or it appears in the footer (stone -- page header p,footer grey) (secondary text products, articles, form labels)
     slate: '#4C5357', // (replaces #3E4A50) for nearly all body copy, subheadings (I call this Slate) (detail body copy) (headers, text)
-    'slate-dark': '#363B3D', // (designer name: charcoal) (replaces #394347 and #3D3B49) for nearly all headings (charcoal) (edited) (detail header) (buttons, headers, dark links, page header)
+    'slate-dark': '#363B3D', // (designer name: charcoal) (replaces #394347 #2A4242 #3D3B49) for nearly all headings (charcoal) (edited) (detail header) (buttons, headers, dark links, page header)
     'slate-darker': '#292C2E', // (footer bg)
     'slate-darkest': '#262626', // (link border,  label border)
 
@@ -64,9 +64,8 @@ let colors = {
     'ivory-lighter': '#F7F4F2', // (header bg, footer white, light link borders)
     'ivory-light': '#F5F1ED', // (borders, light button bg, link underline light)
     ivory: '#EAE2DB', // (dropdown and qty borders)
-
-    hunter: '#2A4242',
     sage: '#D2D9D7',
+    hunter: '#2A4242',
 }
 
 module.exports = {

@@ -1,27 +1,41 @@
-{% extends "_layouts/_base" %} {% import '_macros/global' as global %} {% block
-content %} {# Page Header #}
-<section class="space-menu ">
-    {% set content = { title: 'Topic Title', category: 'Topics' } %} {% include
-    "_components/static/header-page--category" with { content: content } %} {%
-    include "_components/static/filters-page" %}
-</section>
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %} 
+{% block content %} 
 
-{# Topics List #}
-<div id="content" class="container--sm gutter-md | space-b">
-    {# Content Card - Topic Types #} {# Templating Notes: Run a switch statement
-    on the entry type to build logic for which card to include, handling
-    conditional elements like event meta vs podcast show, author, podcast
-    player, video button+player, icons, etc. #} {% include
-    '_components/static/content-card--course' with { 'classes':
-    'links-hover--bronze' } %} {% include
-    '_components/static/content-card--video' with { 'classes':
-    'links-hover--bronze' } %} {% include
-    '_components/static/content-card--podcast' with { 'classes':
-    'links-hover--bronze' } %} {% include
-    '_components/static/content-card--article' with { 'classes':
-    'links-hover--bronze' } %} {% include
-    '_components/static/content-card--event' with { 'classes':
-    'links-hover--bronze' } %}
-</div>
+    <section class="space-menu ">
+        {# Page Header #}
+        {# Temp content for Header #}
+        {% set content = { 
+                title: 'Topic Title', 
+                category: 'Topics' 
+            } 
+        %} 
+        {% include "_components/static/page-header--action" with { content: content } %} 
+        
+        {# Filters #}
+        {% include "_components/static/filters-page" %}
+    </section>
+
+    {# Topics List #}
+    <div id="content" class="container--sm gutter-md | space-b">
+        
+        {# Content Card - Topic Types #} 
+        {# Templating Notes: Run a switch statement
+        on the entry type to build logic for which card to include, handling
+        conditional elements like event meta vs podcast show, author, podcast
+        player, video button+player, icons, etc. #} 
+        
+        {# Course #}
+        {% include '_components/static/content-card--course' with { 'classes': 'links-hover--bronze' } %} 
+        {# Video #}
+        {% include '_components/static/content-card--video' with { 'classes': 'links-hover--bronze' } %} 
+        {# Podcast #}
+        {% include '_components/static/content-card--podcast' with { 'classes': 'links-hover--bronze' } %} 
+        {# Article #}
+        {% include '_components/static/content-card--article' with { 'classes': 'links-hover--bronze' } %} 
+        {# Event #}
+        {% include '_components/static/content-card--event' with { 'classes': 'links-hover--bronze' } %}
+        
+    </div>
 
 {% endblock %}

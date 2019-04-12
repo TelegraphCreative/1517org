@@ -13,7 +13,7 @@ $choices-bg-color: #ffffff !default;
 $choices-bg-color-disabled: #f0f0f0 !default;
 $choices-bg-color-dropdown: #ffffff !default;
 $choices-text-color: #12302d !default;
-$choices-keyline-color: #f1ece4 !default;
+$choices-keyline-color: #eae2db !default;
 $choices-primary-color: #53c07d !default;
 $choices-disabled-color: #f1f5f8 !default;
 $choices-highlight-color: $choices-primary-color !default;
@@ -427,7 +427,7 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     &.-dark {
         .choices__list--dropdown,
         .choices__inner {
-            @apply border-ivory-light;
+            @apply border-ivory;
         }
     }
     // Center
@@ -441,7 +441,7 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     &.-standard {
         .choices__list--dropdown,
         .choices__inner {
-            @apply bg-white border-ivory-light;
+            @apply bg-white border-ivory;
         }
         .choices__inner {
             @apply border-0 border-b

@@ -3,10 +3,9 @@
 
     li,
     .item {
-        @apply mr-2 inline-block;
+        @apply mr-4 inline-block;
         &:last-child {
             @apply mr-0;
         }
     }
-
 }

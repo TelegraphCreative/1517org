@@ -1,11 +1,8 @@
 // Content Card
 .content-card {
-
-    
     .content-card {
-
-        // Media - Cover Art 
-        // Notes: Floats a cover img in the center - need to pull the dominant color to use as a background fill 
+        // Media - Cover Art
+        // Notes: Floats a cover img in the center - need to pull the dominant color to use as a background fill
         // from Craft image info
         &__media {
             &.-cover-art {
@@ -19,6 +16,11 @@
             }
         }
 
+        // Hover
+        a:hover {
+            .card-title {
+                @apply text-red;
+            }
+        }
     }
-
 }

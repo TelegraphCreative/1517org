@@ -3,7 +3,7 @@
 
     // Title
     &__title {
-        @apply font-serif text-hunter;
+        @apply font-serif text-slate-dark;
     }
     // Detail
     &__detail {
@@ -29,12 +29,12 @@
         .page-header {
             // Detail
             &__detail {
-                @apply max-w-lg;
+                @apply flex max-w-lg;
             }
             // Badge
             &__badge {
                 @apply pl-3;
-                max-width: 10rem;
+                max-width: 6.875rem;
             }
         }
     }
@@ -42,6 +42,12 @@
     // - Left
     &.-left {
         @apply text-left;
+        .page-header {
+            // Detail
+            &__detail {
+                @apply ml-0;
+            }
+        }
     }
 
     // Screen
@@ -52,7 +58,7 @@
             .page-header {
                 // Detail
                 &__detail {
-                    @apply ml-24;
+                    @apply items-center ml-24;
                 }
 
                 // Badge

@@ -1,0 +1,73 @@
+{% import '_macros/styleguide' as guide %}
+{% import '_macros/global' as global %}
+{% extends "_layouts/_styleguide" %}
+{% block content %}
+
+
+<h2 class="text-3xl space-b">Page Header (default)</h2>
+
+<div class="notes leading-normal border-b space-b">
+    <h3>Notes:</h3>
+    <ul>
+        <li>Content:
+            <ul>
+                <li>Title</li>
+                <li>Detail (optional)</li>
+            </ul>
+        </li>
+        <li>Variation Classes:
+            <ul>
+                <li>-left</li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+{# Header #}
+{% set content = { 
+        title: 'The Section Name', 
+        category: 'Section', 
+        detail: 'Christ Hold Fast is a project of 1517. We are a Law/Gospel collective of creative contributors, dedicated to proclaiming the gospel of Jesus to all people. Makers of podcasts, authors of books, and friends of the gospel.' 
+    }
+%}
+
+{% include "_components/static/page-header" with { content: content } %}
+
+{% set code %}{% verbatim %}{% include "_components/page-header--filters" with { content: content } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+
+<h3>No detail, -left</h3>
+{% set content = { 
+        title: 'The Section Name', 
+        category: 'Section', 
+    }
+%}
+{% include "_components/static/page-header" with { content: content, classes: '-left' } %}
+
+
+{% set code %}{% verbatim %}
+<header class="page-header | container--sm gutter-md | space-t space-b--sm">
+
+    <div class="page-header__title">
+        <h1 class="header-xl font-serif">{{ content.title }}</h2>
+    </div>
+
+    {% if content.detail is defined %}
+    <div class="page-header__detail">
+
+        <div class="paragraphs -sm -loose">
+            <p>
+                {{ content.detail }}
+            </p>
+        </div>
+
+    </div>
+    {% endif %}
+</header>
+{% endverbatim %}
+{% endset %}
+{{ guide.snippet( code, 'twig' ) }}
+
+{% endblock %}

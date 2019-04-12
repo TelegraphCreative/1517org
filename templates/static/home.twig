@@ -8,41 +8,34 @@ content %} {# Featured Card #}
 {# Latest Cards #}
 <div id="latest" class="container--sm gutter-md | space-b">
     <div class="flex-grid">
-        {# Latest from Selected Channels #} {# Notes: For example only: once
-        this template is moved to the actual homepage, 'entry' will be set to
-        home section automatically and this line can be removed #} {% set entry
-        = craft.entries.section('home')[0] %} {# Convert selected channels to
-        array #} {% set latestContentSections = [] %} {% for section in
-        entry.sections %} {% set latestContentSections =
-        latestContentSections|merge([section]) %} {% endfor %} {% set
-        latestContentSections = latestContentSections|join(', ') %} {# Get
-        Latest Content #} {% set latestContent = craft.entries({ section:
-        latestContentSections, limit: 10 }) %} {# Show Latest Content #} {% for
-        entry in latestContent.all() %} {# Content Card - Stacked #} {% include
-        '_components/content-card--stacked' with { content: entry, classes:
-        'links-hover--bronze' } %} {% endfor %} {# Notes: Old (static) cards #}
-        {# {% include '_components/static/content-card--stacked' with {
-        'classes': 'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} {% include
-        '_components/static/content-card--stacked' with { 'classes':
-        'links-hover--bronze' } %} #}
+        {# Latest from Selected Channels #}
+        {# Notes: For example only: once this template is moved to the actual homepage, 
+        'entry' will be set to home section automatically and this line can be removed #}
+        {% set entry = craft.entries.section('home')[0] %} 
+         
+        {# Convert selected channels to array #}
+        {% set latestContentSections = [] %} 
+        {% for section in entry.sections %} 
+            {% set latestContentSections = latestContentSections|merge([section]) %} 
+        {% endfor %} 
+        {% set latestContentSections = latestContentSections|join(', ') %} 
+         
+        {# Get Latest Content #}
+        {% set latestContent = craft.entries({ section: latestContentSections, limit: 10 }) %} 
+        
+        {# Show Latest Content #}
+        {% for entry in latestContent.all() %} {# Content Card - Stacked #}
+
+        {% include '_components/content-card--stacked' with { content: entry, classes: 'links-hover--bronze' } %} {% endfor %} 
+        
+        {# Notes: Old (static) cards #}
+        {# {% include '_components/static/content-card--stacked' with { 'classes': 'links-hover--bronze' } %} #}
     </div>
 </div>
 
 <div id="mission" class="space-b">
-    {# Basic Billboard #} {% include '_components/static/billboard--basic' with
-    { 'classes': '-bronze' } %}
+    {# Basic Billboard #} 
+    {% include '_components/static/billboard--basic' with { 'classes': '-bronze' } %}
 </div>
 
 <div id="popular" class="container--sm gutter-md space-b">
@@ -90,14 +83,12 @@ content %} {# Featured Card #}
             </a>
         </header>
 
-        {# Events List #} {% include '_components/static/list-events' with {
-        'classes': 'links-hover--bronze' } %}
+        {# Events List #} {% include '_components/static/list-events' with {'classes': 'links-hover--bronze' } %}
     </div>
 </div>
 
 <div id="donate" class="space-b">
-    {# Donate Billboard #} {% include '_components/static/billboard--donate'
-    with { 'classes': '' } %}
+    {# Donate Billboard #} {% include '_components/static/billboard--donate' with { 'classes': '' } %}
 </div>
 
 {% endblock %}
