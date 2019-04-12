@@ -15,7 +15,7 @@
     "choices.js": "^7.0.0",
     "laravel-mix": "^4.0.15",
     "laravel-mix-tailwind": "^0.1.0",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.16.0",
     "purgecss-webpack-plugin": "^1.4.0",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "resolve-url-loader": "2.3.1",
-    "sass": "^1.17.3",
+    "sass": "^1.18.0",
     "sass-loader": "7.*",
     "tailwindcss": "^0.7.4"
   }

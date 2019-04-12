@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1554476691
+dateModified: 1554916923
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -177,6 +177,18 @@ fields:
           default: ''
     contentColumnType: string
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  ede86204-99a0-40e1-b93c-ec303474603f:
+    name: 'Vimeo Embed'
+    handle: vimeoEmbed
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: wrav\oembed\fields\OembedField
+    settings:
+      url: ''
+    contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -273,6 +285,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '1.2'
+  oembed:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 sections:
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
@@ -373,6 +389,9 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: false
                     sortOrder: 2
+                  ede86204-99a0-40e1-b93c-ec303474603f:
+                    required: false
+                    sortOrder: 3
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
