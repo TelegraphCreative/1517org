@@ -60,8 +60,11 @@ let colors = {
     'bronze-light': '#D1AA86', // AD8D71 // (text)
     bronze: '#BAA188', // (UI elements like buttons, link border hovers, hover states, etc.)
 
+    yellow: '#DF922D',
+
     'ivory-lightest': '#FBF9F8',
     'ivory-lighter': '#F7F4F2', // (header bg, footer white, light link borders)
+    'ivory-lightish': '#F0EDE9', // (borders, light button bg, link underline light)
     'ivory-light': '#F5F1ED', // (borders, light button bg, link underline light)
     ivory: '#EAE2DB', // (dropdown and qty borders)
     sage: '#D2D9D7',

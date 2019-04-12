@@ -1,15 +1,5 @@
 // Content Card
 .content-hero {
-    // Themes
-    &.-dark {
-        // Default
-        @apply bg-slate-darker text-white;
-    }
-    &.-red {
-        // Default
-        @apply bg-red text-white;
-    }
-
     // Default
     // Content
     &__content {
@@ -24,6 +14,17 @@
     // Card Title
     .card-title {
         @apply mb-4;
+    }
+
+    // Link
+    a:hover {
+        .card-title,
+        .meta-label {
+            @apply text-red;
+        }
+    }
+    .content-label a {
+        @apply text-red;
     }
 
     // Screen
@@ -44,7 +45,62 @@
             @apply mb-6;
         }
     }
+
+    // Themes
+    &.-dark {
+        // Default
+        @apply bg-slate-darker text-white;
+
+        // Label
+        .content-label {
+            @apply border-slate-darkest text-white;
+        }
+        // Links
+        .link.-underline {
+            @apply text-white border-slate-darkest;
+
+            &:hover {
+                @apply border-bronze text-bronze;
+            }
+        }
+        a:hover {
+            .card-title,
+            .meta-label {
+                @apply text-bronze;
+            }
+        }
+        .content-label a {
+            @apply text-bronze;
+        }
+    }
+
+    &.-red {
+        // Default
+        @apply bg-red text-white;
+
+        // Label
+        .content-label {
+            @apply border-red-dark text-white;
+        }
+        // Links
+        .link.-underline {
+            @apply text-white;
+
+            &:hover {
+                @apply border-slate-darker text-slate-darker;
+            }
+        }
+        a:hover {
+            .card-title,
+            .meta-label {
+                @apply text-slate-darker;
+            }
+        }
+        .content-label a {
+            @apply text-slate-darker;
+        }
+    }
 }
 
-.content-hero.-event {
-}
+// .content-hero.-event {
+// }

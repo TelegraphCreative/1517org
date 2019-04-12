@@ -24,6 +24,13 @@
                 url: "page-header--action"
             },
             {
+                name: "Content Heroes"
+            },
+            {
+                name: "Content Hero -event",
+                url: "content-hero--event"
+            },
+            {
                 name: "Core"
             },
             {
@@ -98,10 +105,11 @@
                             <ul class="menu-list">
                                 {% for item in content.menu %}
                                     <li>
+                                        
                                         {% if item.url is defined %}
-                                            <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black">{{ item.name }}</a>
+                                            <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black block mb-2 {% if lastSegment == item.url %} text-red {% endif %}">{{ item.name }}</a>
                                         {% else %}
-                                            <b>{{ item.name }}</b>
+                                            <b class="mt-4 pb-2 pt-4 border-t border-ivory-lightest block">{{ item.name }}</b>
                                         {% endif %}
                                     </li>
                                 {% endfor %}

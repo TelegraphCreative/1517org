@@ -4,7 +4,7 @@
 .content-label {
     @apply link text-xs font-sans font-semibold uppercase 
     leading-none tracking-normal text-center
-    p-4 border-8 -mb-3 -ml-6 border-ivory-lightest;
+    py-3 px-4 border-8 -mb-3 -ml-6 border-ivory-lightest;
 
     // Date
     &.-date {
@@ -13,7 +13,7 @@
 
     // Themes
     &.-light {
-        @apply border-ivory-lighter;
+        @apply border-ivory-lightish;
     }
     &.-red {
         @apply border-red-dark text-white;
@@ -55,6 +55,10 @@
 @screen md {
     // Topic Label
     .content-label {
-        @apply py-6 -mb-6 -ml-8 border-16;
+        @apply py-5 -mb-6 -ml-8 border-16;
+
+        &.-flush {
+            @apply ml-0;
+        }
     }
 }

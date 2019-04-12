@@ -1,5 +1,6 @@
 // Content Card
 .content-card {
+    // Layouts
     .content-card {
         // Media - Cover Art
         // Notes: Floats a cover img in the center - need to pull the dominant color to use as a background fill
@@ -21,6 +22,9 @@
     a:hover {
         .card-title {
             @apply text-red;
+        }
+        .meta-label {
+            @apply text-slate;
         }
     }
 }

@@ -6,7 +6,7 @@
     {# Featured Card #}
     <div id="featured" class="container | space-menu space-b">
         {# Content Card - Hero #} {% include
-        '_components/static/content-hero--article' with { 'classes': ' ' } %}
+        '_components/static/content-hero--article' with { 'classes': '-red' } %}
     </div>
 
     {# Latest Cards #}
@@ -49,7 +49,7 @@
                 {# Section Header #}
                 <header class="section-header -box">
                     <h2 class="header-md mb-4">Heading <br />Here</h2>
-                    <div class="paragraphs -sm">
+                    <div class="paragraphs -xs text-slate-light">
                         <p>
                             A collection of the consistently most popular articles.
                         </p>
@@ -58,8 +58,7 @@
             </div>
 
             <div class="md:w-2/3 w-full | mt-10 | relative z-10">
-                {# Article List #} {% include '_components/static/list-articles'
-                with { 'classes': 'links-hover--bronze' } %}
+                {# Article List #} {% include '_components/static/list-articles' with { 'classes': '' } %}
             </div>
         </div>
     </div>
@@ -67,16 +66,16 @@
     <div id="podcasts" class="container--sm gutter-md | space-b">
         {# Header #}
         <header class="section-header | mb-12">
-            <h6 class="meta-label mb-2 text-bronze">Newest Episodes</h6>
+            <h6 class="meta-label mb-2 text-yellow">Newest Episodes</h6>
             <h2 class="header-base">1517 Podcasts</h2>
         </header>
 
-        {# Podcast List #} {% include '_components/static/list-podcasts' with {
-        'classes': 'md:w-2/3 mx-auto | links-hover--bronze' } %}
+        {# Podcast List #} {% include '_components/static/list-podcasts' with { 'classes': 'md:w-2/3 mx-auto' } %}
     </div>
 
-    <div id="events" class="bg-ivory-light | space-b space-t">
+    <div id="events" class="bg-ivory-lighter | space-b space-t">
         <div class="container--sm gutter-md">
+            
             {# Header #}
             <header class="section-header | mb-12 | md:flex-grid | items-center">
                 <h6 class="header-base">Upcoming Events</h6>
@@ -88,7 +87,9 @@
                 </a>
             </header>
 
-            {# Events List #} {% include '_components/static/list-events' with {'classes': 'links-hover--bronze' } %}
+            {# Events List #} 
+            {% include '_components/static/list-events' with {'classes': '' } %}
+
         </div>
     </div>
 

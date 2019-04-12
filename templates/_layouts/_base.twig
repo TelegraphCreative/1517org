@@ -1,7 +1,11 @@
-{%- minify -%} {# {% cache for 1 week%}{% endcache %} #} {# Sections, Requests
-#} {# {% set work = craft.entries().section('caseStudies').all() %} #} {% set
-firstSegment = craft.app.request.segment(1) %} {% set lastSegment =
-craft.app.request.segments|last %} {# Base Layout #}
+{%- minify -%} 
+{# {% cache for 1 week%}{% endcache %} #} 
+{# Sections, Requests #} 
+{# {% set work = craft.entries().section('caseStudies').all() %} #} 
+{% set firstSegment = craft.app.request.segment(1) %} 
+{% set lastSegment = craft.app.request.segments|last %} 
+
+{# Base Layout #}
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -14,8 +18,10 @@ craft.app.request.segments|last %} {# Base Layout #}
         />
         <meta name="referrer" content="origin-when-cross-origin" />
 
-        {% do view.registerCssFile( mix('/css/app.css') ) %} {# Favicons #} {%
-        include '_components/site-favicons' %}
+        {% do view.registerCssFile( mix('/css/app.css') ) %} 
+
+        {# Favicons #} 
+        {% include '_components/site-favicons' %}
     </head>
     <body class="">
         <div class="site-container" id="app">
