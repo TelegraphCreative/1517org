@@ -46,7 +46,7 @@
 
       <transition name="fade" v-on:enter="enter" v-on:leave="leave">
         <div v-if="isActive" class="site-menu__dropdown | space-b">
-          <div class="site-menu__dropdown-search | bg-grey-light | gutter">
+          <div class="site-menu__dropdown-search | bg-ivory-light | gutter">
             <div
               class="search-form | form-base | container md:w-4/5 mx-auto"
               :class="{'-query' : query}"
@@ -60,11 +60,11 @@
                     class="search-input | text-center"
                   >
                   <label class="search-label | flex items-center justify-center" for="search">
-                    <search_icon :classes=" 'icon -md | hover:yellow-dark | mr-4' "/>Search 1517
+                    <search_icon :classes=" 'icon -md | hover:bronze | mr-4' "/>Search 1517
                   </label>
 
                   <button class="submit" v-if="query">
-                    <search_icon :classes=" 'icon -md | hover:yellow-dark | mr-4' "/>
+                    <search_icon :classes=" 'icon -md | hover:bronze | mr-4' "/>
                   </button>
                 </div>
               </form>

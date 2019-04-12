@@ -19,7 +19,7 @@
     {% if source %}
         <a href="{{ source.url }}" class="{{ classes }} -has-icon"{% if source.target %} target="{{ source.target }}" {% endif %}>
             <span class="align-items-center">
-                {{ icon.utilityIcon(icon, '-xs') }}
+                {{ icon.utilityIcon(icon, '-sm') }}
                 <span class="btn__text">
                     {{ source.text }}
                 </span>
@@ -28,7 +28,7 @@
     {% else %}
         <a href="#" class="{{ classes }} -has-icon">
             <span class="align-items-center">
-                {{ icon.utilityIcon(iconName, '-xs') }}
+                {{ icon.utilityIcon(iconName, '-sm') }}
                 <span class="btn__text">
                     {{ placeholderText }}
                 </span>

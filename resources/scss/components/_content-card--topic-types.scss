@@ -1,8 +1,6 @@
 .content-card {
-
     // Topic Type (general layout rules)
     &.-topic {
-
         .content-card {
             &__content,
             &__media {
@@ -12,7 +10,7 @@
                 @apply mt-4;
             }
             &__meta {
-                @apply text-yellow-dark mb-4;
+                @apply text-bronze mb-4;
             }
             &__detail {
                 @apply w-4/5;
@@ -22,7 +20,7 @@
     // Course
     // &.-course {}
 
-    // Screen 
+    // Screen
     // MD
     @screen md {
         &.-topic {
@@ -34,5 +32,4 @@
             }
         }
     }
-
 }
