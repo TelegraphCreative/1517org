@@ -3,10 +3,8 @@
     &__caption {
         @apply bg-ghost 
             p-3 
-            text-grey-darker text-right text-3xs 
+            text-slate-light text-right text-3xs 
             uppercase
             font-sans font-semibold;
-
-            
     }
 }

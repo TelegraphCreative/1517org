@@ -1,5 +1,12 @@
 {% import '_macros/global' as global %}
 
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <ul class="list-podcasts | list-reset | {{ classes }}">
 
     <li class="list-podcast">
@@ -24,7 +31,7 @@
                     </div>
                 </a>
                 
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
                
             </div>
             
@@ -53,7 +60,7 @@
                     </div>
                 </a>
                 
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
                
             </div>
             
@@ -82,7 +89,7 @@
                     </div>
                 </a>
                 
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
                
             </div>
             
@@ -111,7 +118,7 @@
                     </div>
                 </a>
                 
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
                
             </div>
             
@@ -140,7 +147,7 @@
                     </div>
                 </a>
                 
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
                
             </div>
             
@@ -169,7 +176,7 @@
                     </div>
                 </a>
                 
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
                
             </div>
             

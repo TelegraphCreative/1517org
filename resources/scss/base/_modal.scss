@@ -1,15 +1,15 @@
-body.overflow-hidden{
+body.overflow-hidden {
     @apply overflow-hidden;
 }
 
 // Modal
 .modal {
     //background-color: rgba(43, 61, 71, 0.4);
-    &__bg{
+    &__bg {
         @apply fixed 
         pin-t pin-r pin-b pin-l 
         z-40
-        cursor-pointer; 
+        cursor-pointer;
 
         background-color: rgba(43, 61, 71, 0.4);
     }
@@ -18,10 +18,9 @@ body.overflow-hidden{
         @apply fixed 
         pin-t pin-r pin-b pin-l 
         w-full h-full
-        bg-green-darkest 
+        bg-white 
         overflow-auto
         z-50;
-    
     }
 
     &__close {
@@ -36,6 +35,5 @@ body.overflow-hidden{
         &:hover {
             // @apply text-sage-darkest;
         }
-
     }
 }

@@ -6,6 +6,13 @@
     event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
 #}
 
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <article class="content-card -topic | space-b--sm {{ classes }}">
 
     <div class="content-card__container | flex-grid md:flex-row-reverse">

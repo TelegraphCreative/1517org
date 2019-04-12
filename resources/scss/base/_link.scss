@@ -1,167 +1,179 @@
 // Links
 .link {
-  @apply no-underline
+    @apply no-underline
         font-medium
         inline-block
         timing-1 duration-1 property-all;
 
-  // Underline
-  &.-underline {
-    @apply border-b-8 border-grey-light pb-1 
-    uppercase text-yellow-dark
+    // Underline
+    &.-underline {
+        @apply border-b-8 border-ivory-light pb-1 
+    uppercase text-bronze
     text-xs tracking-normal;
 
-    &:hover {
-      @apply border-yellow-dark text-yellow-dark;
+        &:hover {
+            @apply border-bronze text-bronze;
+        }
+
+        &.-light {
+            @apply text-ivory;
+
+            &:hover {
+                @apply border-bronze text-bronze;
+            }
+        }
+        &.-dark {
+            @apply text-white border-slate-darkest;
+
+            &:hover {
+                @apply border-bronze text-bronze;
+            }
+        }
+        &.-sm {
+            @apply text-xxs;
+        }
     }
 
-    &.-light {
-      @apply text-grey-light;
+    // // Small
+    // &.-sm {
+    //   @apply text-sm pb-0;
+    // }
 
-      &:hover {
-        @apply border-grey-darkest text-grey-darkest;
-      }
-    }
-    &.-dark {
-      @apply text-white border-slate-darkest;
+    // // Green
+    // &.-green {
+    //   @apply ;
 
-      &:hover {
-        @apply border-yellow-dark text-yellow-dark;
-      }
-    }
-    &.-sm {
-      @apply text-xxs;
-    }
-  }
+    //   &:hover {
+    //     @apply;
+    //   }
+    // }
 
-  // // Small
-  // &.-sm {
-  //   @apply text-sm pb-0;
-  // }
+    // // Dark
+    // &.-dark {
+    //   @apply border-green-darkest;
 
-  // // Green
-  // &.-green {
-  //   @apply ;
+    //   &:hover {
+    //     @apply  border-green;
+    //   }
+    // }
 
-  //   &:hover {
-  //     @apply;
-  //   }
-  // }
+    // // Icon Link
+    // &.-icon {
+    //   @apply flex items-center;
 
-  // // Dark
-  // &.-dark {
-  //   @apply border-green-darkest;
+    //   // Icon
+    //   svg {
+    //     @apply property-transform;
+    //   }
 
-  //   &:hover {
-  //     @apply  border-green;
-  //   }
-  // }
+    //   .text {
+    //     @apply mr-2;
+    //   }
 
-  // // Icon Link
-  // &.-icon {
-  //   @apply flex items-center;
+    //   &:hover {
+    //     svg {
+    //       transform: translate(0.5rem, 0);
+    //       @apply property-transform;
+    //     }
+    //   }
+    // }
+    // // Group of Links
+    // &-group__item {
+    //   @apply block w-full mb-2;
+    // }
 
-  //   // Icon
-  //   svg {
-  //     @apply property-transform;
-  //   }
+    // // Screen XS
+    // @screen xs {
+    //   // Group of Links
+    //   &-group {
+    //     @apply flex items-center .justify-start;
+    //     &__item,
+    //     .link {
+    //       @apply mr-4 text-center w-auto mb-0;
 
-  //   .text {
-  //     @apply mr-2;
-  //   }
+    //       &:last-child {
+    //         @apply mr-0;
+    //       }
+    //     }
+    //   }
+    // }
 
-  //   &:hover {
-  //     svg {
-  //       transform: translate(0.5rem, 0);
-  //       @apply property-transform;
-  //     }
-  //   }
-  // }
-  // // Group of Links
-  // &-group__item {
-  //   @apply block w-full mb-2;
-  // }
+    // // Screen sm
+    // @screen sm {
+    //   // Group of Links
+    //   &-group {
+    //     @apply justify-center;
+    //   }
+    // }
 
-  // // Screen XS
-  // @screen xs {
-  //   // Group of Links
-  //   &-group {
-  //     @apply flex items-center .justify-start;
-  //     &__item,
-  //     .link {
-  //       @apply mr-4 text-center w-auto mb-0;
-
-  //       &:last-child {
-  //         @apply mr-0;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // // Screen sm
-  // @screen sm {
-  //   // Group of Links
-  //   &-group {
-  //     @apply justify-center;
-  //   }
-  // }
-
-  // // Screen Md
-  // @screen md {
-  //   // Group of Links
-  //   &-group {
-  //     @apply justify-start;
-  //   }
-  // }
+    // // Screen Md
+    // @screen md {
+    //   // Group of Links
+    //   &-group {
+    //     @apply justify-start;
+    //   }
+    // }
 }
 
 // Links
 // Default
 a {
-  @apply link;
-  color: inherit;
+    @apply link;
+    color: inherit;
 
-  &:hover {
-    @apply text-red;
-  }
+    // &:hover {
+    //     @apply text-red;
+    // }
 }
 
 // Alt Link Hover Colors
 .links-hover {
-  &--red a:hover {
-    @apply text-red-darker;
-  }
-  &--light a:hover {
-    @apply text-grey-lighter;
-  }
-  &--dark a:hover {
-    @apply text-slate-darker;
-  }
-  &--yellow a:hover {
-    @apply text-yellow-dark;
-  }
-  &--inherit a:hover {
-    color: inherit;
-  }
+    &--red a:hover {
+        @apply text-red;
+    }
+    &--light a:hover {
+        @apply text-bronze;
+    }
+    &--dark a:hover {
+        @apply text-slate-darkest;
+    }
+    &--bronze a:hover {
+        @apply text-bronze;
+    }
+    &--inherit a:hover {
+        color: inherit;
+    }
 }
 
 // No Outline
 a,
 button {
-  outline: none !important;
+    outline: none !important;
 }
 
 // Focus Links (general accessibility)
 .focus-links {
-  a:focus,
-  button:focus {
-    color: var(--red) !important;
-    border-color: var(--red) !important;
-    .icon {
-      color: var(--red);
-      border-color: var(--red);
+    a:focus,
+    button:focus {
+        color: var(--red) !important;
+        border-color: var(--red) !important;
+        .icon {
+            color: var(--red);
+            border-color: var(--red);
+        }
     }
-  }
+
+    &.-light {
+        a:focus,
+        button:focus {
+            color: #fff !important;
+            border-color: #fff !important;
+            .icon {
+                color: #fff;
+                border-color: #fff;
+            }
+        }
+    }
 }
 
 // Section Anchor

@@ -2,19 +2,17 @@
     @apply list-reset;
 }
 .list-article {
-    
     // content
     &__content {
         @apply block py-6 
-        border-b border-grey-darker;
+        border-b border-ivory-light;
     }
-
 
     // meta
     &__meta {
-        @apply text-grey-darker;
+        @apply text-slate-light;
     }
-    
+
     // // Screens
     // // MD
     // @screen md {

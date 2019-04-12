@@ -1,51 +1,54 @@
 // Table
 .table {
-    
-    @apply 
-        text-left text-grey-darker text-base
+    @apply text-left text-slate text-base
         overflow-hidden 
         font-sans
         w-full;
 
-    h2,h2,h3,h4,h5,h6 {
+    h2,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         @apply text-grey-darkest 
         font-medium;
     }
 
-    &, thead, tbody {
+    &,
+    thead,
+    tbody {
         @apply block;
     }
 
     thead {
         @apply hidden   
-        bg-grey-lightest;
+        bg-ivory-lightest;
     }
-    
+
     th {
-        @apply 
-            text-grey-darker text-3xs
+        @apply text-slate text-3xs
             uppercase
             font-semibold font-sans
             p-4;
     }
 
     tr {
-        @apply 
-            block
+        @apply block
             py-2
-            border-b border-grey-lightest;
+            border-b border-ivory-lightest;
     }
-    
-    td, th {
+
+    td,
+    th {
         @apply block;
     }
 
-    
     td {
-        @apply py-2 px-4 ;
+        @apply py-2 px-4;
     }
 
-    // Labels 
+    // Labels
     &.-labels {
         td {
             @apply py-2 px-4 text-right;
@@ -62,7 +65,8 @@
 
     // Programs
     &.-programs {
-        h4, td {
+        h4,
+        td {
             @apply text-sm;
         }
 
@@ -79,8 +83,14 @@
 
     // Disabled
     &.-disabled {
-        &, h2,h2,h3,h4,h5,h6 {
-            @apply text-grey-light;
+        &,
+        h2,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-ivory-light;
         }
     }
 
@@ -93,12 +103,12 @@
             @apply text-sm;
         }
         tr {
-            @apply 
-                py-0
+            @apply py-0
                 flex flex-row;
         }
-        
-        td, th {
+
+        td,
+        th {
             @apply flex-1;
         }
 
@@ -106,16 +116,16 @@
             @apply py-8 px-4;
         }
 
-        // Labels 
+        // Labels
         &.-labels {
             td {
                 @apply py-8 px-4 text-left ml-0;
-                
+
                 &:before {
                     @apply hidden;
                 }
             }
-    
+
             .flag-icon {
                 @apply static;
             }
@@ -123,13 +133,10 @@
 
         // Programs
         &.-programs {
-            h4, td {
+            h4,
+            td {
                 @apply text-base;
             }
         }
-    
     }
-
-    
 }
-
