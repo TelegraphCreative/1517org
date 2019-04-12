@@ -19,13 +19,6 @@
 endverbatim %}{% endset %}
 {{ guide.snippet(code, 'css') }}
 
-{# Button #}
-<h3 class="mb-8">Button -bronze</h3>
-<a href="#" class="btn -bronze">Learn More</a>
-
-{% set code %}{% verbatim %}{{ global.link(data.field, 'btn -bronze') }}{%
-endverbatim %}{% endset %}
-{{ guide.snippet(code, 'css') }}
 
 {# Button #}
 <h3 class="mb-8">Button -red</h3>
@@ -40,6 +33,22 @@ endverbatim %}{% endset %}
 <a href="#" class="btn -light">Learn More</a>
 
 {% set code %}{% verbatim %}{{ global.link(data.field, 'btn -light') }}{%
+endverbatim %}{% endset %}
+{{ guide.snippet(code, 'css') }}
+
+{# Button #}
+<h3 class="mb-8">Button -light -red</h3>
+<a href="#" class="btn -light -red">Learn More</a>
+
+{% set code %}{% verbatim %}{{ global.link(data.field, 'btn -light -red') }}{%
+endverbatim %}{% endset %}
+{{ guide.snippet(code, 'css') }}
+
+{# Button #}
+<h3 class="mb-8">Button -light -bronze</h3>
+<a href="#" class="btn -light -bronze">Learn More</a>
+
+{% set code %}{% verbatim %}{{ global.link(data.field, 'btn -light -bronze') }}{%
 endverbatim %}{% endset %}
 {{ guide.snippet(code, 'css') }}
 

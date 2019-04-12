@@ -13,6 +13,7 @@
     font-sans 
     font-medium
     leading-none
+    uppercase
     timing-1 duration-1 property-all
     px-6 py-5;
 
@@ -22,6 +23,15 @@
     // Hover
     &:hover {
         @apply bg-red border-red text-white;
+    }
+
+    // Solid
+    &.-red {
+        @apply bg-red border-red;
+
+        &:hover {
+            @apply bg-red-dark border-red-dark text-white;
+        }
     }
 
     // Light Hunter
@@ -40,6 +50,14 @@
                 @apply border-red bg-red text-white;
             }
         }
+        // Light Red
+        &.-bronze {
+            @apply text-bronze;
+
+            &:hover {
+                @apply border-bronze-light bg-bronze-light text-white;
+            }
+        }
     }
 
     // white
@@ -56,22 +74,27 @@
         }
     }
 
-    // Solid
-    &.-red {
-        @apply bg-red;
-
-        // &:hover {
-        //   @apply text-white;
-        // }
-    }
-
     // Small
     &.-sm {
         @apply py-3 text-sm;
     }
     // XS
     &.-xs {
-        @apply py-3 px-4 text-sm;
+        @apply py-2 px-2 text-sm;
+    }
+
+    // -media
+    &.-media {
+        @apply bg-ivory-light border-ivory-light text-red;
+
+        &:hover {
+            @apply border-red bg-red text-white;
+        }
+
+        // XS Media
+        &.-xs .icon {
+            @apply w-3 h-3;
+        }
     }
 
     // Icon
@@ -81,8 +104,7 @@
 
     &.-has-icon {
         .btn__text {
-            margin-top: 2px;
-            @apply pl-3;
+            @apply pl-2;
         }
 
         // Reverse

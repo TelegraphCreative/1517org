@@ -1,0 +1,32 @@
+{% import '_macros/styleguide' as guide %} {% import '_macros/global' as global
+%} {% extends "_layouts/_styleguide" %} {% block content %}
+
+<h2 class="text-3xl space-b">Buttons -icons</h2>
+
+{# Button #}
+<h3 class="mb-8">Icon Button -xs -media</h3>
+{{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}
+
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}{%
+endverbatim %}{% endset %}
+{{ guide.snippet(code, 'css') }}
+
+
+{# Button #}
+<h3 class="mb-8">Icon Button -media</h3>
+{{ global.iconLink('', 'btn -media', 'play', 'Watch 14.48') }}
+
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -media', 'play', 'Watch 14.48') }}{%
+endverbatim %}{% endset %}
+{{ guide.snippet(code, 'css') }}
+
+{# Button #}
+<h3 class="mb-8">Icon Button</h3>
+{{ global.iconLink('', 'btn', 'arrow-right', 'All Purpose') }}
+
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}{%
+endverbatim %}{% endset %}
+{{ guide.snippet(code, 'css') }}
+
+{% endblock %}
+
