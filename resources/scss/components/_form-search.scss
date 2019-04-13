@@ -8,13 +8,18 @@
         @apply text-bronze;
     }
 
+    .form-base .field-group {
+        @apply px-0;
+    }
+
     // Field
     .search-input {
         @apply bg-transparent w-full relative
-        border-b-2 border-bronze 
+        border-b-2 border-bronze-lighter
         text-bronze 
         property-all duration-1 timing-1
-        py-3 pl-4;
+        py-3 
+        text-center;
 
         &:focus {
             @apply border-bronze;
@@ -28,8 +33,9 @@
         property-all duration-1 timing-1
         h-full w-full 
         px-4 
+        text-bronze
         text-center
-        text-bronze;
+        justify-center;
     }
 
     // Hide Label
@@ -47,6 +53,16 @@
 
         &:hover {
             @apply text-bronze;
+        }
+    }
+
+    // Variations
+    &.-left {
+        .search-input {
+            @apply text-left pl-10;
+        }
+        .search-label {
+            @apply text-left justify-start;
         }
     }
 

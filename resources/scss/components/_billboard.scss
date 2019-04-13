@@ -1,0 +1,13 @@
+// Billboard General Settings
+
+.billboard {
+    // Themes
+    // Bronze
+    &.-bronze {
+        @apply bg-bronze text-white;
+    }
+    // Sage
+    &.-sage {
+        @apply bg-sage-dark text-white;
+    }
+}

@@ -4,7 +4,7 @@
 
     <section class="space-menu">
         {# Page Header #}
-        {# Temp content for Header #}
+        {# Placeholder content #}
         {% set content = { title: 'Podcasts', detail: '
         <p>
             1517 Podcasts is a network of shows dedicated to delivering
@@ -17,7 +17,7 @@
     </section>
 
     {# Topics List #}
-    <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b">
+    <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b--sm">
         {# Latest Cards #}
         <div class="flex-grid">
             {# Content Card - Stacked #} 
@@ -30,6 +30,19 @@
             {% include '_components/static/content-card--basic' with { 'classes': '' } %} 
             {% include '_components/static/content-card--basic' with { 'classes': '' } %}
         </div>
+    </div>
+
+    <div id="mission" class="">
+        {# Text Billboard - placeholder content#}
+        {% set content = { 
+                    header: 'Advertise with 1517',
+                    detail: '<p></p>At 1517 Podcasts, we partner with brands to craft ad campaigns that resonate with listeners. We are listener centered,
+                    and we take pride in collaborating with brands that our audience will care about.</p>',
+                    buttons: 'btn -light', 
+                    action: 'Get in Touch'
+                }%}
+        {# Text Billboard - basic #}
+        {% include '_components/static/billboard--text' with { classes: '-sage', content: content } %}
     </div>
 
 {% endblock %}

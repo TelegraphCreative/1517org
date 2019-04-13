@@ -1,19 +1,21 @@
 // Vue
-window.Vue = require("vue");
+window.Vue = require('vue')
 
 // Imports
-import site_menu from "./components/SiteMenu";
-import select_box from "./components/SelectBox";
+import site_menu from './components/SiteMenu'
+import search_menu from './components/SearchMenu'
+import select_box from './components/SelectBox'
 
 // Vue App
 const app = new Vue({
-  el: "#app",
+    el: '#app',
 
-  components: {
-    site_menu,
-    select_box
-  }
-});
+    components: {
+        site_menu,
+        search_menu,
+        select_box,
+    },
+})
 
 // Other Initializations
 // section_anchor_states();

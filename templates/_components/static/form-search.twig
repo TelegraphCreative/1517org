@@ -1,0 +1,7 @@
+{% set query = craft.app.request.getParam('q') %}
+
+<div class="py-12 bg-ivory-lightest | gutter">
+
+    <search_menu :opt="{ 'query': '{{ query }}', 'classes': '-left | container--sm gutter-md' }"></search_menu>
+
+</div>

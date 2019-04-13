@@ -59,6 +59,7 @@ let colors = {
     'bronze-lighter': '#E0CCB8', // (headers, player progress bar)
     'bronze-light': '#D1AA86', // AD8D71 // (text)
     bronze: '#BAA188', // (UI elements like buttons, link border hovers, hover states, etc.)
+    'bronze-dark': '#AD8D71', // (UI elements like buttons, link border hovers, hover states, etc.)
 
     yellow: '#DF922D',
 
@@ -68,6 +69,7 @@ let colors = {
     'ivory-light': '#F5F1ED', // (borders, light button bg, link underline light)
     ivory: '#EAE2DB', // (dropdown and qty borders)
     sage: '#D2D9D7',
+    'sage-dark': '#B1C4BF',
     hunter: '#2A4242',
 }
 
@@ -578,7 +580,7 @@ module.exports = {
         xxs: '16.25rem',
         xs: '20rem',
         sm: '30rem',
-        md: '40rem',
+        md: '37.5rem',
         lg: '50rem',
         xl: '60rem',
         '2xl': '70rem',

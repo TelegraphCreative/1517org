@@ -1,0 +1,36 @@
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %} 
+{% block content %} 
+
+    <section class="space-menu ">        
+        <div class="space-b--sm">
+            {# Search Form #}
+            {% include "_components/static/form-search" %}
+        </div>
+        {# Filters #}
+        {% include "_components/static/filters-page" %}
+    </section>
+
+    {# Topics List #}
+    <div id="content" class="container--sm gutter-md | space-b">
+        
+        {# Content Card - Topic Types #} 
+        {# Templating Notes: Run a switch statement
+        on the entry type to build logic for which card to include, handling
+        conditional elements like event meta vs podcast show, author, podcast
+        player, video button+player, icons, etc. #} 
+        
+        {# Course #}
+        {% include '_components/static/content-card--course' with { 'classes': '' } %} 
+        {# Video #}
+        {% include '_components/static/content-card--video' with { 'classes': '' } %} 
+        {# Podcast #}
+        {% include '_components/static/content-card--podcast' with { 'classes': '' } %} 
+        {# Article #}
+        {% include '_components/static/content-card--article' with { 'classes': '' } %} 
+        {# Event #}
+        {% include '_components/static/content-card--event' with { 'classes': '' } %}
+        
+    </div>
+
+{% endblock %}

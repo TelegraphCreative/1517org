@@ -1,9 +1,13 @@
 {% extends "_layouts/_styleguide" %}
 {% set menu = { 
     layouts: [
-        { 
+        {
+        name: "Singles"
+        },{ 
             name: "Home (mostly static)", 
             url: "/static/home" 
+        },{
+        name: "Channels"
         },{ 
             name: "Category Section Index", 
             url: "/static/category-section-index" 
@@ -16,6 +20,12 @@
         },{
             name: "Podcast Index", 
             url: "/static/podcast-index" 
+        },{
+            name: "Search Results", 
+            url: "/static/search-results" 
+        },{
+            name: "Event Index", 
+            url: "/static/event-index" 
         }
     ]} 
 %} 
@@ -34,9 +44,13 @@
             <li class="list-article">
                 <div class="list-article__content">
                     {# Header #}
-                    <h3 class="header-xs ">
-                        <a href="{{ item.url }}">{{ item.name }}</a>
-                    </h3>
+                    {% if item.url is defined %}
+                        <a class="header-xs font-light" href="{{ item.url }}">{{ item.name }}</a>
+                    {% else %}
+                        <h3 class="header-xs text-bronze">
+                            {{ item.name }}
+                        </h3>
+                    {% endif %}
                 </div>
             </li>
 

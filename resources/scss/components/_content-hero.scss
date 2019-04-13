@@ -53,7 +53,14 @@
 
         // Label
         .content-label {
-            @apply border-slate-darkest text-white;
+            @apply border-slate-darkest;
+            a {
+                @apply text-white;
+
+                &:hover {
+                    @apply text-bronze;
+                }
+            }
         }
         // Links
         .link.-underline {
@@ -69,9 +76,6 @@
                 @apply text-bronze;
             }
         }
-        .content-label a {
-            @apply text-bronze;
-        }
     }
 
     &.-red {
@@ -80,7 +84,13 @@
 
         // Label
         .content-label {
-            @apply border-red-dark text-white;
+            @apply border-red-dark;
+            a {
+                @apply text-white;
+                &:hover {
+                    @apply text-slate-darker;
+                }
+            }
         }
         // Links
         .link.-underline {
@@ -95,9 +105,6 @@
             .meta-label {
                 @apply text-slate-darker;
             }
-        }
-        .content-label a {
-            @apply text-slate-darker;
         }
     }
 }

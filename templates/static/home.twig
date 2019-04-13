@@ -39,8 +39,14 @@
     </div>
 
     <div id="mission" class="space-b">
-        {# Basic Billboard #} 
-        {% include '_components/static/billboard--basic' with { 'classes': '-bronze' } %}
+        {# Text Billboard - placeholder content#} 
+        {% set content = { 
+            header: '<strong>Freedom is rooted in the gospel of Christ.</strong> 1517 tells you stories you never heard before, shows you connections you never knew existed and the nuance and complexity of the world',
+            buttons: 'link -underline -light', 
+            action: 'Hear our Mission'
+        }%}
+        {# Text Billboard - basic #} 
+        {% include '_components/static/billboard--text' with { classes: '-basic -bronze', content: content } %}
     </div>
 
     <div id="popular" class="container--sm gutter-md space-b">
