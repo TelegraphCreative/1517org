@@ -3,14 +3,15 @@
 
     // media
     &__media {
-        @apply w-1/4;
+        width: 30%;
     }
 
     // content
     &__content {
-        @apply w-3/4 pl-6;
+        @apply pl-6;
+        width: 70%;
     }
-    
+
     // Screens
     // MD
     @screen md {
@@ -18,8 +19,7 @@
 
         // content
         &__content {
-            @apply pl-10;
+            @apply pr-10;
         }
-
     }
 }

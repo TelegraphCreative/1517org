@@ -34,7 +34,7 @@
 
 {% include "_components/static/page-header" with { content: content } %}
 
-{% set code %}{% verbatim %}{% include "_components/page-header--filters" with { content: content } %}{% endverbatim %}{% endset %}
+{% set code %}{% verbatim %}{% include "_components/static/page-header" with { content: content, classes: '-left' } %}{% endverbatim %}{% endset %}
 {{ guide.snippet( code, 'css' ) }}
 
 

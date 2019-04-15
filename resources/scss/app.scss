@@ -69,11 +69,9 @@
 @import 'components/form-base';
 @import 'components/option-group';
 
-// Players
-// @import 'components/full-video-player';
-
-// Misc
-@import 'components/billboard--basic';
+// Billboards
+@import 'components/billboard';
+@import 'components/billboard--text';
 
 // --
 // @import "components/headsup";

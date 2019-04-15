@@ -5,12 +5,22 @@
     // content
     &__content {
         @apply block py-6 
-        border-b border-ivory-light;
+        border-b border-ivory-light
+        timing-1 duration-1 property-all;
+
+        &:hover {
+            @apply border-red;
+        }
     }
 
     // meta
     &__meta {
         @apply text-slate-light;
+    }
+
+    // Hover
+    a:hover {
+        @apply text-red;
     }
 
     // // Screens

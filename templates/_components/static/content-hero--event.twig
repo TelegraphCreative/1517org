@@ -8,13 +8,13 @@
 {% endif %}
 
 <article
-    class="content-hero -event -dark | links-hover--bronze | {{ classes }}"
+    class="content-hero -event | {{ classes }}"
 >
     <div class="content-hero__container | flex-grid flex-row-reverse">
         {# Content #}
         <div class="content-hero__content | gutter-lg py-10 space-b--md">
             {# Label #}
-            <h4 class="content-label -date -dark">
+            <h4 class="content-label -date">
                 <div class="content-label__mo">Mar</div>
                 <div class="content-label__day">11</div>
             </h4>
@@ -46,7 +46,7 @@
 
                 {# Secondary Meta #}
                 <div class="content-hero__meta -secondary | space-t">
-                    {{ global.relatedTopics('', '-dark') }}
+                    {{ global.relatedTopics('', '') }}
                 </div>
             </a>
         </div>

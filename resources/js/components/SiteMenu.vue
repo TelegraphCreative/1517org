@@ -46,29 +46,8 @@
 
       <transition name="fade" v-on:enter="enter" v-on:leave="leave">
         <div v-if="isActive" class="site-menu__dropdown | space-b">
-          <div class="site-menu__dropdown-search | bg-ivory-light | gutter">
-            <div
-              class="search-form | form-base | container md:w-4/5 mx-auto"
-              :class="{'-query' : query}"
-            >
-              <form action="/search">
-                <div class="field-group">
-                  <input
-                    v-model="query"
-                    type="search"
-                    id="search"
-                    class="search-input | text-center"
-                  >
-                  <label class="search-label | flex items-center justify-center" for="search">
-                    <search_icon :classes=" 'icon -md | hover:bronze | mr-4' "/>Search 1517
-                  </label>
-
-                  <button class="submit" v-if="query">
-                    <search_icon :classes=" 'icon -md | hover:bronze | mr-4' "/>
-                  </button>
-                </div>
-              </form>
-            </div>
+          <div class="site-menu__dropdown-search | bg-ivory-lightest | gutter">
+            <search_menu :opt="{ 'query': query, 'classes': 'container md:w-4/5 mx-auto' }"></search_menu>
           </div>
 
           <div class="site-menu__dropdown-groups container gutter-md | md:flex-grid">
@@ -84,15 +63,28 @@
 import click_outside from '../directives/ClickOutslide'
 import search_icon from '../icons/icon-search'
 import cart_icon from '../icons/icon-cart'
+import search_menu from './SearchMenu'
 //import scrollLock from 'body-scroll-lock'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-
+import {
+    disableBodyScroll,
+    enableBodyScroll,
+    clearAllBodyScrollLocks,
+} from 'body-scroll-lock'
 
 export default {
+    props: {
+        opt: {
+            type: Object,
+            required: false,
+            default() {
+                return {}
+            },
+        },
+    },
     data() {
         return {
             isActive: false,
-            query: '',
+            query: this.opt.query,
         }
     },
     mounted() {
@@ -108,27 +100,26 @@ export default {
             this.isActive = false
         },
 
-        enter(){
-          const scrollable = this.$el.querySelector('.site-menu__dropdown');
-          console.log(scrollable);
-          disableBodyScroll(scrollable);
+        enter() {
+            const scrollable = this.$el.querySelector('.site-menu__dropdown')
+            console.log(scrollable)
+            disableBodyScroll(scrollable)
         },
-        
-        leave(){
-          const scrollable = this.$el.querySelector('.site-menu__dropdown');
-          enableBodyScroll(scrollable);
+
+        leave() {
+            const scrollable = this.$el.querySelector('.site-menu__dropdown')
+            enableBodyScroll(scrollable)
         },
 
         toggleMenu() {
             // setTimeout(function(){
             //   const scrollable = this.$el.querySelector('.site-menu__dropdown');
             // }, 600)
-  
+
             // Handle Toggle
             if (!this.isActive) {
                 // Open
                 this.isActive = true
-
             } else {
                 // Close
                 this.isActive = false
@@ -140,6 +131,7 @@ export default {
     },
 
     components: {
+        search_menu,
         search_icon,
         cart_icon,
     },

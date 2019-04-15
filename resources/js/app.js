@@ -1,8 +1,9 @@
 // Vue
-window.Vue = require("vue");
+window.Vue = require('vue')
 
 // Imports
 import site_menu from "./components/SiteMenu";
+import search_menu from './components/SearchMenu'
 import select_box from "./components/SelectBox";
 import video_player_full from "./components/VideoPlayerFull";
 import video_content_card from "./components/VideoContentCard";
@@ -11,15 +12,16 @@ import seconds_to_time_filter from "./filters/SecondsToTime";
 
 // Vue App
 const app = new Vue({
-  el: "#app",
+    el: '#app',
 
-  components: {
-    site_menu,
-    select_box,
-    video_player_full,
-    video_content_card,
-    podcast_player_compact,
-  }
+    components: {
+        site_menu,
+        search_menu,
+        select_box,
+        video_player_full,
+        video_content_card,
+        podcast_player_compact,
+    }
 });
 
 // Other Initializations

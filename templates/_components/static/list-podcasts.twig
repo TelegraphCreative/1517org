@@ -7,180 +7,46 @@
     {% set classes = '' %}
 {% endif %}
 
+
 <ul class="list-podcasts | list-reset | {{ classes }}">
 
-    <li class="list-podcast">
-        <div class="list-podcast__container | flex-grid">
+    {# Placeholder Loop #}
+    {% set content = [
+            {},
+            {},
+            {}
+        ]
+    %}
+    
+    {% for entry in content %}
+        <li class="list-podcast">
+            <div class="list-podcast__container | flex-grid">
 
-            <a href="#" class="list-podcast__media">
+                <a href="#" class="list-podcast__media">
 
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
+                    {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
 
-            </a>
-
-            <div class="list-podcast__content">
-
-                <a href="#">
-                    <h3 class="header -xs font-serif | mb-2">
-                        No. 19 Episode Title Here
-                    </h3>
-                    <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
-                    
-                    <div class="list-podcast__detail | paragraphs -xs | mb-2">
-                        <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
-                    </div>
                 </a>
-                
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
-               
-            </div>
-            
-        </div>
-    </li>
-        
-    <li class="list-podcast">
-        <div class="list-podcast__container | flex-grid">
 
-            <a href="#" class="list-podcast__media">
+                <div class="list-podcast__content">
 
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
-
-            </a>
-
-            <div class="list-podcast__content">
-
-                <a href="#">
-                    <h3 class="header -xs font-serif | mb-2">
-                        No. 19 Episode Title Here
-                    </h3>
-                    <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
+                    <a href="#">
+                        <h3 class="list-title | header -xs font-serif | mb-2">
+                            No. 19 Episode Title Here
+                        </h3>
+                        <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
+                        
+                        <div class="list-podcast__detail | paragraphs -xs ">
+                            <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
+                        </div>
+                    </a>
                     
-                    <div class="list-podcast__detail | paragraphs -xs | mb-2">
-                        <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
-                    </div>
-                </a>
+                    {{ global.iconLink('', 'btn -xs -media mt-5', 'play', 'Listen 12:41') }}
                 
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
-               
-            </div>
-            
-        </div>
-    </li>
-        
-    <li class="list-podcast">
-        <div class="list-podcast__container | flex-grid">
-
-            <a href="#" class="list-podcast__media">
-
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
-
-            </a>
-
-            <div class="list-podcast__content">
-
-                <a href="#">
-                    <h3 class="header -xs font-serif | mb-2">
-                        No. 19 Episode Title Here
-                    </h3>
-                    <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
-                    
-                    <div class="list-podcast__detail | paragraphs -xs | mb-2">
-                        <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
-                    </div>
-                </a>
+                </div>
                 
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
-               
             </div>
-            
-        </div>
-    </li>
-        
-    <li class="list-podcast">
-        <div class="list-podcast__container | flex-grid">
-
-            <a href="#" class="list-podcast__media">
-
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
-
-            </a>
-
-            <div class="list-podcast__content">
-
-                <a href="#">
-                    <h3 class="header -xs font-serif | mb-2">
-                        No. 19 Episode Title Here
-                    </h3>
-                    <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
-                    
-                    <div class="list-podcast__detail | paragraphs -xs | mb-2">
-                        <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
-                    </div>
-                </a>
-                
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
-               
-            </div>
-            
-        </div>
-    </li>
-        
-    <li class="list-podcast">
-        <div class="list-podcast__container | flex-grid">
-
-            <a href="#" class="list-podcast__media">
-
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
-
-            </a>
-
-            <div class="list-podcast__content">
-
-                <a href="#">
-                    <h3 class="header -xs font-serif | mb-2">
-                        No. 19 Episode Title Here
-                    </h3>
-                    <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
-                    
-                    <div class="list-podcast__detail | paragraphs -xs | mb-2">
-                        <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
-                    </div>
-                </a>
-                
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
-               
-            </div>
-            
-        </div>
-    </li>
-        
-    <li class="list-podcast">
-        <div class="list-podcast__container | flex-grid">
-
-            <a href="#" class="list-podcast__media">
-
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_03.png')}}
-
-            </a>
-
-            <div class="list-podcast__content">
-
-                <a href="#">
-                    <h3 class="header -xs font-serif | mb-2">
-                        No. 19 Episode Title Here
-                    </h3>
-                    <time class="meta-label -sm | mb-2" datetime="2019-03-19">03/19/2019</time>
-                    
-                    <div class="list-podcast__detail | paragraphs -xs | mb-2">
-                        <p>It’s a humid, August afternoon. The courtroom is packed. There aren’t many murder trials in this town. Everyone and their mother wants a seat.</p>
-                    </div>
-                </a>
-                
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Listen 12:41') }}
-               
-            </div>
-            
-        </div>
-    </li>
+        </li>
+    {% endfor %}
         
 </ul>

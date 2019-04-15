@@ -4,7 +4,7 @@
         @apply border-8 border-ivory-light p-6;
 
         .paragraphs {
-            @apply text-slate;
+            @apply text-slate-light;
         }
     }
 
@@ -27,7 +27,7 @@
 
             // Paragraphs
             .paragraphs {
-                @apply text-slate max-w-xxs;
+                @apply max-w-xxs;
             }
         }
     }

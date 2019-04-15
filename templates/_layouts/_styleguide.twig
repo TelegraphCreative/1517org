@@ -24,6 +24,13 @@
                 url: "page-header--action"
             },
             {
+                name: "Content Heroes"
+            },
+            {
+                name: "Content Hero -event",
+                url: "content-hero--event"
+            },
+            {
                 name: "Core"
             },
             {
@@ -84,7 +91,7 @@
                 {# Header #}
                 <div class="p-10 container gutter border-b-8 border-ivory-lighter">
                     <h1 class="styleguide__content | font-sans font-medium">
-                        <a href="/" class="no-underline | text-grey-darkest | hover:text-black"><span class="text-3xl">{{siteName}}</span> <span class="text-xl block">Styleguide</span></a>
+                        <a href="/styleguide" class="no-underline | text-grey-darkest | hover:text-black"><span class="text-3xl">{{siteName}}</span> <span class="text-xl block">Styleguide</span></a>
                     </h1>
                 </div>
 
@@ -98,10 +105,11 @@
                             <ul class="menu-list">
                                 {% for item in content.menu %}
                                     <li>
+                                        
                                         {% if item.url is defined %}
-                                            <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black">{{ item.name }}</a>
+                                            <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black block mb-2 {% if lastSegment == item.url %} text-red {% endif %}">{{ item.name }}</a>
                                         {% else %}
-                                            <b>{{ item.name }}</b>
+                                            <b class="mt-4 pb-2 pt-4 border-t border-ivory-lightest block">{{ item.name }}</b>
                                         {% endif %}
                                     </li>
                                 {% endfor %}
@@ -122,6 +130,8 @@
                 <div class="py-12 container gutter"></div>
                 
             </main>
+
+            {% include '_components/site-footer' %}
 
         </div>
 
