@@ -3,6 +3,9 @@
 .billboard {
     // Themes
     // Bronze
+    &.-bronze-light {
+        @apply bg-bronze-light text-white;
+    }
     &.-bronze {
         @apply bg-bronze text-white;
     }

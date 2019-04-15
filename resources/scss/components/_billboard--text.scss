@@ -44,10 +44,30 @@
 }
 
 // Variations
+// Image Left
+.billboard.-text.-image-left {
+    @apply p-0;
+
+    // Content
+    .billboard {
+        &__container {
+            @apply flex flex-row-reverse justify-end;
+        }
+        &__content {
+            @apply mx-0 w-3/4 p-10;
+        }
+        &__media {
+            @apply w-1/4;
+        }
+    }
+    // Screen
+    // MD
+    @screen md {
+        @apply p-0;
+    }
+}
 // Basic
 .billboard.-text.-basic {
-    @apply p-10;
-
     // Content
     .billboard {
         &-title {

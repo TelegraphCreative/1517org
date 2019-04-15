@@ -53,7 +53,7 @@
 
         // Label
         .content-label {
-            @apply border-slate-darkest;
+            @apply border-slate-darkest text-white;
             a {
                 @apply text-white;
 
@@ -84,7 +84,7 @@
 
         // Label
         .content-label {
-            @apply border-red-dark;
+            @apply border-red-dark text-white;
             a {
                 @apply text-white;
                 &:hover {

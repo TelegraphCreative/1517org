@@ -1,4 +1,5 @@
 {% import '_macros/global' as global %}
+
 {# Check for imported properties #}
 {% if classes is defined %}
 {% set classes = classes %}
@@ -31,6 +32,13 @@
                 {{ global.link( '', content.buttons, content.action ) }}
             </div>
             {% endif %}
+
         </header>
+
+        {% if content.image is defined %}
+            <div class="billboard__media">
+                {{ global.image('', '-is1x1 -fit-cover -hover-scale', content.image )}}
+            </div>
+        {% endif %}
     </div>
 </div>
