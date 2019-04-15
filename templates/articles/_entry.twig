@@ -23,7 +23,7 @@
     {% endif %}
 
     {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
-        <full_video_player
+        <video_player_full
             img-src="{{ entry.vimeoEmbed.media.image }}"
             video-url="{{ entry.vimeoEmbed.media.url }}"
             aspect-ratio="{{ entry.vimeoEmbed.media.aspectRatio }}"

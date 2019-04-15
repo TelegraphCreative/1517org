@@ -5,6 +5,7 @@ window.Vue = require("vue");
 import site_menu from "./components/SiteMenu";
 import select_box from "./components/SelectBox";
 import video_player_full from "./components/VideoPlayerFull";
+import video_content_card from "./components/VideoContentCard";
 import podcast_player_compact from "./components/PodcastPlayerCompact";
 import seconds_to_time_filter from "./filters/SecondsToTime";
 
@@ -16,6 +17,7 @@ const app = new Vue({
     site_menu,
     select_box,
     video_player_full,
+    video_content_card,
     podcast_player_compact,
   }
 });

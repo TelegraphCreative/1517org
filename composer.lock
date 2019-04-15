@@ -1488,6 +1488,11 @@
         {
             "name": "embed/embed",
             "version": "v3.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/Embed.git",
+                "reference": "4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/oscarotero/Embed/zipball/4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c",
@@ -1500,12 +1505,17 @@
                 "ext-mbstring": "*",
                 "php": "^5.5|^7.0"
             },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "phpunit/phpunit": "^4.8|^5.7"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Embed\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4666,6 +4676,11 @@
         {
             "name": "wrav/oembed",
             "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wrav/oembed.git",
+                "reference": "30e660938b716633bac7167bcb88942e0b340d86"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/wrav/oembed/zipball/30e660938b716633bac7167bcb88942e0b340d86",
@@ -4694,6 +4709,7 @@
                     "wrav\\oembed\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4705,8 +4721,8 @@
             ],
             "description": "A simple plugin to extract media information from websites, like youtube videos, twitter statuses or blog articles.",
             "keywords": [
+                "Craft",
                 "cms",
-                "craft",
                 "craft-plugin",
                 "craftcms",
                 "facebook",
@@ -4717,10 +4733,6 @@
                 "vimeo",
                 "youtube"
             ],
-            "support": {
-                "docs": "https://github.com/wrav/oembed/blob/master/README.md",
-                "issues": "https://github.com/wrav/oembed/issues"
-            },
             "time": "2019-04-04T05:46:45+00:00"
         },
         {
