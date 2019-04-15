@@ -8,6 +8,7 @@
       />
       <iframe
         :src="`https://player.vimeo.com/video/${vimeoId}`"
+        :height="videoHeight"
         class="w-full"
         frameborder="0"
         allow="autoplay; fullscreen"
