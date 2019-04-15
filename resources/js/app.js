@@ -8,6 +8,7 @@ import select_box from "./components/SelectBox";
 import video_player_full from "./components/VideoPlayerFull";
 import video_content_card from "./components/VideoContentCard";
 import podcast_player_compact from "./components/PodcastPlayerCompact";
+import podcast_player_full from "./components/PodcastPlayerFull";
 import seconds_to_time_filter from "./filters/SecondsToTime";
 
 // Vue App
@@ -21,6 +22,7 @@ const app = new Vue({
         video_player_full,
         video_content_card,
         podcast_player_compact,
+        podcast_player_full,
     }
 });
 

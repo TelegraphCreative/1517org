@@ -9,7 +9,7 @@
       :class="{ hidden: hideImg }"
     >
       <play_icon :classes=" 'icon -md absolute z-20 align-yx' "/>
-      <img :src="imgSrc" class="absolute w-screen">
+      <img :src="imgSrc" class="absolute w-screen max-w-full">
     </div>
     <iframe
       :src="`https://player.vimeo.com/video/${vimeoId}`"
