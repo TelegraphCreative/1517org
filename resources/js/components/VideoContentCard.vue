@@ -4,16 +4,17 @@
       <img
         :src="imgSrc"
         :class="{ hidden: hideImg }"
-        class="-is2x1 -fit-cover -hover-scale absolute"
+        class="-is2x1 -fit-cover -hover-scale absolute z-10 mt-2"
       />
-      <iframe
-        :src="`https://player.vimeo.com/video/${vimeoId}`"
-        :height="videoHeight"
-        class="w-full"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-      />
+      <div :style="`padding:${aspectRatio}% 0 0 0`" class="relative">
+        <iframe
+          :src="`https://player.vimeo.com/video/${vimeoId}`"
+          class="absolute pin-t pin-l w-full h-full"
+          frameborder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+      </div>
     </a>
 
     <div class="content-card__content"> 
@@ -78,6 +79,7 @@
         duration: 0,
         playing: false,
         currentTime: 0,
+        videoWidth: 0,
         videoHeight: 0,
       }
     },
@@ -106,11 +108,6 @@
         this.player.setCurrentTime(0)
         this.hideImg = false
       },
-
-      resizeVideo() {
-        const width = this.playerEl.offsetWidth * (this.aspectRatio * 0.01)
-        this.videoHeight = width.toString() + 'px'
-      }
     },
 
     mounted() {
@@ -121,8 +118,6 @@
         _this.playerEl = _this.$el.querySelector('iframe')
         _this.player = new Player(_this.playerEl)
 
-        _this.resizeVideo()
-        
         _this.player.getDuration().then((duration) => {
           _this.duration = duration
         })
@@ -147,10 +142,6 @@
           _this.currentTime = data.seconds
         })
 
-      })
-
-      window.addEventListener("resize", function(e) {
-        _this.resizeVideo()
       })
     },
 
