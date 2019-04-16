@@ -7,7 +7,12 @@
         {{ entry.title }}
     </h1>
 
-    <podcast_player_full audio-url="https://mcdn.podbean.com/mf/download/crc6t8/Richard_Rohr_and_The_Universal_Christ_Part_1_.mp3" />
+    {# {{ entry.podcastEmbed }} #}
+
+    {% set rel = entry.podcastEmbed.one() %}
+    {% if rel %}
+        <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+    {% endif %}
 
     <p>
         {{ entry.description }}

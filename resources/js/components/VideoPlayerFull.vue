@@ -1,24 +1,22 @@
 <template>
-  <div
-    class="w-screen max-w-full overflow-hidden relative"
-    :style="{ height: calculatedVideoHeight }"
-  >
+  <div class="w-screen max-w-full relative">
     <div
-      @click="playVideo"
-      class="video-overlay text-white hover:text-red cursor-pointer"
+      class="text-white hover:text-red cursor-pointer"
       :class="{ hidden: hideImg }"
+      @click="playVideo"
     >
       <play_icon :classes=" 'icon -md absolute z-20 align-yx' "/>
-      <img :src="imgSrc" class="absolute w-screen max-w-full">
+      <img :src="imgSrc" class="absolute w-screen max-w-full z-10 mt-2">
     </div>
-    <iframe
-      :src="`https://player.vimeo.com/video/${vimeoId}`"
-      :style="{ height: calculatedVideoHeight }"
-      class="w-screen max-w-full"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-    />
+    <div :style="`padding:${aspectRatio}% 0 0 0`" class="relative">
+      <iframe
+        :src="`https://player.vimeo.com/video/${vimeoId}`"
+        class="absolute pin-t pin-l w-full h-full max-w-full"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
   </div>
 </template>
 <script>
@@ -53,9 +51,9 @@
         const match = /vimeo.*\/(\d+)/i.exec( this.videoUrl )
         return match[1]
       },
-      calculatedVideoHeight() {
-        return `calc(100vw * (${this.aspectRatio} * 0.01))`
-      }
+      // calculatedVideoHeight() {
+      //   return `calc(100vw * (${this.aspectRatio} * 0.01))`
+      // }
     },
 
     methods: {

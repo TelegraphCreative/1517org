@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1554916923
+dateModified: 1555434078
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -189,6 +189,33 @@ fields:
       url: ''
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  ae3007c6-c40c-49cf-9308-766f80773a36:
+    name: 'Podcast Embed'
+    handle: podcastEmbed
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - audio
+      sources:
+        - 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      source: null
+      targetSiteId: null
+      viewMode: list
+      limit: '1'
+      selectionLabel: 'Add a podcast'
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -350,12 +377,15 @@ sections:
                   1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
                     required: false
                     sortOrder: 1
-                  8e7cd322-96ae-4173-9807-4a103598e9c9:
+                  ae3007c6-c40c-49cf-9308-766f80773a36:
                     required: false
                     sortOrder: 2
-                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                  8e7cd322-96ae-4173-9807-4a103598e9c9:
                     required: false
                     sortOrder: 3
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: false
+                    sortOrder: 4
   b0598134-0d64-4c98-9d73-351145a9c276:
     name: Articles
     handle: articles
@@ -470,3 +500,24 @@ users:
   defaultGroup: null
   photoVolumeUid: null
   photoSubpath: ''
+volumes:
+  00cd5776-45fa-4edf-9645-ee2a9cd92708:
+    name: 'Podcast Url'
+    handle: podcastUrl
+    type: craft\awss3\Volume
+    hasUrls: false
+    url: 'https://s3.us-east-2.amazonaws.com/1517-podcast-files/'
+    settings:
+      subfolder: ''
+      keyId: AKIAILLCGN7EWG5RPJUA
+      secret: 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
+      bucketSelectionMode: choose
+      bucket: 1517-podcast-files
+      region: us-east-2
+      expires: ''
+      makeUploadsPublic: '1'
+      storageClass: ''
+      cfDistributionId: ''
+      cfPrefix: ''
+      autoFocalPoint: ''
+    sortOrder: '1'

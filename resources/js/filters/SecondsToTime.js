@@ -15,6 +15,7 @@ import Vue from 'vue';
 // });
   
 Vue.filter('secondsToTime', function (t) {
+	if (isNaN(parseFloat(t))) return '00:00'
 	let h = padZero(parseInt((t / (60 * 60)) % 24)) + ":"
 	h = h === '00:' ? '' : h
 	return h +
