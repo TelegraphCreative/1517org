@@ -2,19 +2,27 @@
     @apply list-reset;
 }
 .list-article {
-    
     // content
     &__content {
         @apply block py-6 
-        border-b border-grey-darker;
-    }
+        border-b border-ivory-light
+        timing-1 duration-1 property-all;
 
+        &:hover {
+            @apply border-red;
+        }
+    }
 
     // meta
     &__meta {
-        @apply text-grey-darker;
+        @apply text-slate-light;
     }
-    
+
+    // Hover
+    a:hover {
+        @apply text-red;
+    }
+
     // // Screens
     // // MD
     // @screen md {

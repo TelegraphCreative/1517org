@@ -6,7 +6,14 @@
     event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
 #}
 
-<article class="content-card -topic | space-b--sm {{ classes }}">
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<article class="content-card -topic | {{ classes }}">
 
     <div class="content-card__container | flex-grid md:flex-row-reverse">
         
@@ -45,7 +52,7 @@
 
             {# Play Button #}
             <div class="content-card__action -play-podcast | mb-6">
-                {{ global.iconLink('', 'btn -xs -light', 'play', 'Listen 24.48') }}
+                <podcast_player_compact audio-url="https://mcdn.podbean.com/mf/download/crc6t8/Richard_Rohr_and_The_Universal_Christ_Part_1_.mp3" />
             </div>
 
             {# Secondary Meta #}

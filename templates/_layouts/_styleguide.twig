@@ -9,16 +9,52 @@
 {% set content = {
         menu: [
             {
+                name: "Headers"
+            },
+            {
+                name: "Page Header (default)",
+                url: "page-header"
+            },
+            {
+                name: "Page Header -filters",
+                url: "page-header--filters"
+            },
+            {
+                name: "Page Header -action",
+                url: "page-header--action"
+            },
+            {
+                name: "Content Heroes"
+            },
+            {
+                name: "Content Hero -event",
+                url: "content-hero--event"
+            },
+            {
+                name: "Core"
+            },
+            {
                 name: "Icons",
                 url: "icons"
             },
             {
-                name: "Buttons & Links",
-                url: "buttons-links"
+                name: "Buttons",
+                url: "buttons"
+            },
+            {
+                name: "Buttons -icon",
+                url: "buttons--icons"
+            },
+            {
+                name: "Links",
+                url: "links"
             },
             {
                 name: "Typography",
                 url: "typography"
+            },
+            {
+                name: "Utility"
             },
             {
                 name: "Menu List",
@@ -48,14 +84,14 @@
 
     </head> 
     <body>
-        <div class="site-container" id="app">
+        <div class="site-container">
 
             <main class="site-main">
 
                 {# Header #}
-                <div class="p-10 container gutter border-b-8 border-grey-lighter">
+                <div class="p-10 container gutter border-b-8 border-ivory-lighter">
                     <h1 class="styleguide__content | font-sans font-medium">
-                        <a href="/" class="no-underline | text-grey-darkest | hover:text-black"><span class="text-3xl">{{siteName}}</span> <span class="text-xl block">Styleguide</span></a>
+                        <a href="/styleguide" class="no-underline | text-grey-darkest | hover:text-black"><span class="text-3xl">{{siteName}}</span> <span class="text-xl block">Styleguide</span></a>
                     </h1>
                 </div>
 
@@ -63,13 +99,18 @@
                 <div class="styleguide | container gutter">
                     <div class="md:flex flex-wrap">
                         <aside
-                        class="styleguide-menu styleguide__content | md:w-1/4 pt-10 | md:pb-0 pb-4 | md:pl-10 | md:border-r md:border-b-0 border-b | border-grey-lighter"
+                        class="styleguide-menu styleguide__content | md:w-1/4 pt-10 | md:pb-0 pb-4 | md:pl-10 | md:border-r md:border-b-0 border-b | border-ivory-lighter"
                         >
                         <h3 class="header-md mb-3 text-grey-darkest">Components</h3>
                             <ul class="menu-list">
                                 {% for item in content.menu %}
                                     <li>
-                                        <a href="/styleguide/{{ item.url }}" class="text-grey-darker hover:text-black">{{ item.name }}</a>
+                                        
+                                        {% if item.url is defined %}
+                                            <a href="/styleguide/{{ item.url }}" class="text-slate hover:text-black block mb-2 {% if lastSegment == item.url %} text-red {% endif %}">{{ item.name }}</a>
+                                        {% else %}
+                                            <b class="mt-4 pb-2 pt-4 border-t border-ivory-lightest block">{{ item.name }}</b>
+                                        {% endif %}
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -90,11 +131,13 @@
                 
             </main>
 
+            {% include '_components/site-footer' %}
+
         </div>
 
     </body>
 
-    {# {% do view.registerJsFile('/assets/js/app.js') %} #}
+    {% do view.registerJsFile('/assets/js/app.js') %}
     {% do view.registerJsFile('/assets/js/styleguide.js') %}
 	
 </html>

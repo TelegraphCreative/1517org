@@ -1,6 +1,13 @@
 {% import '_macros/global' as global %}
 
-<article class="content-card -basic | space-b--sm {{ classes }}">
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<article class="content-card -basic | space-b {{ classes }}">
 
     <div class="content-card__container">
 
@@ -20,7 +27,8 @@
                 
                 {# Detail #}
                 <div class="content-card__detail | paragraphs -xs | pt-1">
-                    <p>with Ms so-and-so and Mr. Something</p>
+                    <p>Most scholars consider Melanchthon to be a Reformation enigma. He, the developer of the Reformation doctrine of forensic
+                    justification.</p>
                 </div>
             </a>
 

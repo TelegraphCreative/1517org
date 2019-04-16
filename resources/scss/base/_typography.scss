@@ -1,185 +1,173 @@
 // Typography
 body {
-  @apply text-sage-darker font-sans;
+    @apply text-slate font-sans;
 }
 
 // Header Text Sizes
 .header {
-  
-  // - xxl -  56/36 *common
-  &-xxl {
-    @apply text-2xl;
-  }
-
-  // - xl - 45/28 *common
-  &-xl {
-    @apply text-4lg;
-  }
-
-  // - lg - 36/24
-  // - base - 32/24 *common
-  // - md - 28/24
-  &-lg,
-  &-base,
-  &-md, {
-    @apply text-3lg;
-  }
-  
-  // - sm - 24/21
-  &-sm {
-    @apply text-2lg;
-  }
-  // - xs - 21/18
-  &-xs {
-    @apply text-lg;
-  }
-
-  @screen md {
     // - xxl -  56/36 *common
     &-xxl {
-      @apply text-4xl;
+        @apply text-2xl;
     }
-    // - xl - 45/28 *common
+
+    // - xl - 48/28 *common
     &-xl {
-      @apply text-3xl;
+        @apply text-4lg;
     }
+
     // - lg - 36/24
-    &-lg {
-      @apply text-2xl;
-    }
     // - base - 32/24 *common
-    &-base {
-      @apply text-xl;
-    }
     // - md - 28/24
+    &-lg,
+    &-base,
     &-md {
-      @apply text-4lg;
+        @apply text-3lg;
     }
-    // - sm - 24/21
+
+    // - sm - 24/22
     &-sm {
-      @apply text-3lg;
+        @apply text-2lg;
     }
-    // - xs - 21/18
+    // - xs - 22/18
     &-xs {
-      @apply text-2lg;
+        @apply text-lg;
     }
-  }
+
+    @screen md {
+        // - xxl -  56/36 *common
+        &-xxl {
+            @apply text-4xl;
+        }
+        // - xl - 48/28 *common
+        &-xl {
+            @apply text-3xl;
+        }
+        // - lg - 36/24
+        &-lg {
+            @apply text-2xl;
+        }
+        // - base - 32/24 *common
+        &-base {
+            @apply text-xl;
+        }
+        // - md - 28/24
+        &-md {
+            @apply text-4lg;
+        }
+        // - sm - 24/22
+        &-sm {
+            @apply text-3lg;
+        }
+        // - xs - 22/18
+        &-xs {
+            @apply text-2lg;
+        }
+    }
 }
 
 // Header Font Weights
 .header {
-  
-  // Lightweight
-  &-lightweight {
-    @apply font-light;
-    strong, b {
-        @apply font-medium;
+    // Lightweight
+    &-lightweight {
+        @apply font-light;
+        strong,
+        b {
+            @apply font-medium;
+        }
     }
-  }
-  
 }
 
 // Header Font Families
 // Sans Headers
-h1,h2,h3,h4,h5,h6 {
-  @apply font-medium;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-medium;
 }
 
 // Serif Headers
-h1,h2,h3,h4,h5,h6 {
-  &.font-serif {
-    @apply font-bold;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &.font-serif {
+        @apply font-bold;
+    }
 }
-
 
 // Paragraphs
 .paragraphs {
-  
-  // Default 
-  p {
-    @apply leading-normal font-normal
+    // Default
+    &,
+    p {
+        @apply leading-normal font-normal
       mb-6;
 
-    &:last-of-type {
-      @apply mb-0;
+        &:last-of-type {
+            @apply mb-0;
+        }
+
+        // Default Links
+        a {
+            @apply text-red border-b border-transparent;
+
+            &:hover {
+                @apply border-red;
+            }
+        }
     }
 
-    // Default Links
-    a {
-      @apply text-red border-b border-transparent;
-
-      &:hover {
-        @apply border-red;
-      }
+    // Inline
+    &.-inline {
+        p {
+            @apply inline;
+        }
     }
-  }
 
-  // Inline 
-  &.-inline {
-    p {
-      @apply inline;
-    }
-  }
-
-  // xs - 14px
-  &.-xs {
-    p {
-      @apply text-md leading-loose
+    // xs - 14px
+    &.-xs {
+        &,
+        p {
+            @apply text-md leading-loose
             mb-4;
 
-      &:last-of-type {
-        @apply mb-0;
-      }
+            &:last-of-type {
+                @apply mb-0;
+            }
+        }
     }
-  }
-  
-  // sm - 16px
-  &.-sm {
-    p {
-      @apply text-base 
+
+    // sm - 16px
+    &.-sm {
+        p {
+            @apply text-base 
             mb-4;
 
-      &:last-of-type {
-        @apply mb-0;
-      }
+            &:last-of-type {
+                @apply mb-0;
+            }
+        }
     }
-  }
-  
-  // md - 18px
-  &.-md {
-    p {
-      @apply text-lg;
-    }
-  }
 
-  // loose
-  &.-loose {
-    p {
-      @apply leading-loose;
+    // md - 18px
+    &.-md {
+        p {
+            @apply text-lg;
+        }
     }
-  }
-  
+
+    // loose
+    &.-loose {
+        p {
+            @apply leading-loose;
+        }
+    }
 }
-
-// Category + Title Group
-.label-title-group {
-  @apply flex items-center;
-
-  &__title {
-    @apply relative pl-10;
-
-    &:before {
-      @apply absolute pseudo pin-l ml-4
-      border-l border-yellow-lighter;
-
-      height: 140%;
-      top: 50%;
-      transform: translate(0%, -50%) rotate(20deg);
-    }
-  }
-}
-
 
 // // Integers
 // .font-integer {

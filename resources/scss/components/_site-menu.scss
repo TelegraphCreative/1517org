@@ -5,7 +5,7 @@
 
 // Tagline
 .site-tagline {
-    @apply text-sm text-grey-darkest;
+    @apply text-sm text-slate;
 }
 
 // Menu
@@ -15,7 +15,8 @@
         @apply flex justify-between 
         items-center
         py-6
-        relative z-20;
+        relative z-20
+        shadow-md;
     }
 
     // Utility Bar
@@ -36,7 +37,7 @@
 
     // Dropdown Menu Items
     .menu-list__item {
-        @apply text-base text-grey-darkest text-base;
+        @apply text-base text-slate text-base;
     }
 
     // Dropdown Search

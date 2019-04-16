@@ -1,0 +1,98 @@
+// Text Billboard
+
+// Default
+.billboard.-text {
+    @apply p-10;
+
+    .paragraphs,
+    p {
+        @apply mb-0;
+    }
+
+    // Content
+    .billboard {
+        &__content {
+            @apply mx-auto;
+        }
+        &__detail {
+            @apply mx-auto;
+        }
+        &__action {
+            @apply pt-10;
+        }
+        &-title {
+            @apply leading-normal header-lightweight mb-3
+            text-3lg font-serif;
+            // 28/24
+        }
+    }
+    // Screen
+    // MD
+    @screen md {
+        @apply py-20 px-0;
+
+        // Content
+        .billboard {
+            &__content {
+                @apply max-w-md;
+            }
+            &-title {
+                @apply text-4lg;
+            }
+        }
+    }
+}
+
+// Variations
+// Image Left
+.billboard.-text.-image-left {
+    @apply p-0;
+
+    // Content
+    .billboard {
+        &__container {
+            @apply flex flex-row-reverse justify-end;
+        }
+        &__content {
+            @apply mx-0 w-3/4 p-10;
+        }
+        &__media {
+            @apply w-1/4;
+        }
+    }
+    // Screen
+    // MD
+    @screen md {
+        @apply p-0;
+    }
+}
+// Basic
+.billboard.-text.-basic {
+    // Content
+    .billboard {
+        &-title {
+            @apply mb-0 text-lg font-sans;
+            // header-xs (18/22)
+        }
+        // action
+        &__action {
+            @apply pt-6;
+        }
+    }
+
+    // Screen
+    // MD
+    @screen md {
+        // @apply py-20 px-0;
+
+        // Content
+        .billboard {
+            &__content {
+                @apply max-w-lg;
+            }
+            &-title {
+                @apply text-2lg;
+            }
+        }
+    }
+}

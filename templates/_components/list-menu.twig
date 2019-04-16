@@ -1,3 +1,9 @@
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
 
 <ul class="menu-list {{ classes }}">  
     {% set mainMenu = craft.navigation.nodes(content)%}

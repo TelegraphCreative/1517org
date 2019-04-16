@@ -1,3 +1,10 @@
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <ul class="list-articles | {{ classes }}">
     
     {# Item #}
@@ -6,7 +13,7 @@
         <div class="list-article__content">
             
             {# Header #}
-            <h3 class="header-xs font-serif mb-4">
+            <h3 class="list-title | header-xs font-serif mb-4">
                 <a href="#">Header H3 is a title about freedom</a>
             </h3>
             

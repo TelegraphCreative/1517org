@@ -1,10 +1,17 @@
 {% import '_macros/global' as global %}
 
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
 <div class="billboard -donate | {{ classes }}">
     <div class="billboard__container container--sm | flex-grid | space-t">
         <header class="billboard__content | gutter | md:w-2/3">
             <div class="billboard__detail | space-b--sm">
-                <h5 class="header-xs font-serif | text-yellow-dark | mb-2">
+                <h5 class="header-xs font-serif | text-bronze | mb-2">
                     Thank you for your support
                 </h5>
                 <h2 class="header-lg font-serif">

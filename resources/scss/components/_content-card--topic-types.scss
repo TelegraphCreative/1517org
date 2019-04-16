@@ -1,28 +1,32 @@
 .content-card {
-
     // Topic Type (general layout rules)
     &.-topic {
-
         .content-card {
+            // Space, Border
+            &__container {
+                @apply pb-10 mb-12 border-b border-ivory-light;
+            }
             &__content,
             &__media {
                 @apply w-full;
             }
             &__content {
-                @apply mt-4;
+                @apply mt-4 
+                flex flex-col;
             }
             &__meta {
-                @apply text-yellow-dark mb-4;
+                @apply text-bronze;
             }
             &__detail {
-                @apply w-4/5;
+                @apply w-4/5 
+                flex-1;
             }
         }
     }
     // Course
     // &.-course {}
 
-    // Screen 
+    // Screen
     // MD
     @screen md {
         &.-topic {
@@ -34,5 +38,4 @@
             }
         }
     }
-
 }

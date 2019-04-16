@@ -1,23 +1,28 @@
 .search-form {
     @apply w-full 
-    text-grey-darkest text-center
+    text-bronze text-center
     text-base;
 
     // Placeholder
     &:placeholder {
-        @apply text-yellow-dark;
+        @apply text-bronze;
+    }
+
+    .form-base .field-group {
+        @apply px-0;
     }
 
     // Field
     .search-input {
         @apply bg-transparent w-full relative
-        border-b-2 border-yellow-dark 
-        text-grey-darkest 
+        border-b-2 border-bronze-lighter
+        text-bronze 
         property-all duration-1 timing-1
-        py-3 pl-4;
+        py-3 
+        text-center;
 
         &:focus {
-            @apply border-grey-darkest;
+            @apply border-bronze;
         }
     }
 
@@ -28,8 +33,9 @@
         property-all duration-1 timing-1
         h-full w-full 
         px-4 
+        text-bronze
         text-center
-        text-yellow-dark;
+        justify-center;
     }
 
     // Hide Label
@@ -43,10 +49,20 @@
         @apply absolute pin-l align-y z-10
         h-full
         px-4 
-        text-yellow-dark;
+        text-bronze;
 
         &:hover {
-            @apply text-grey-darkest;
+            @apply text-bronze;
+        }
+    }
+
+    // Variations
+    &.-left {
+        .search-input {
+            @apply text-left pl-10;
+        }
+        .search-label {
+            @apply text-left justify-start;
         }
     }
 

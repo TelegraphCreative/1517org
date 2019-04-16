@@ -1,0 +1,43 @@
+{# Page Header -left with Filter Bar
+    Optional Content:
+    - Detail
+#}
+<header class="page-header -left | container--sm gutter-md | space-t space-b--sm">
+
+    <div class="page-header__title | flex-grid">
+        <h1 class="header-xl font-serif">{{ content.title }}</h2>
+
+            <div class="filter-bar">
+                <div class="item filter | mb-2">
+                    <select_box :opt="{ name: 'format', variant: '-md' }">
+                        <option value="All Formats" selected>All Formats</option>
+                        <option value="Articles">Articles</option>
+                        <option value="Events">Events</option>
+                    </select_box>
+                </div>
+
+                <div class="item filter | mb-2">
+                    <select_box :opt="{ name: 'topic', variant: '-md' }">
+                        <option value="All Topics" selected>By any Author</option>
+                        <option value="Articles">Articles</option>
+                        <option value="Events">Events</option>
+                    </select_box>
+                </div>
+
+            </div>
+
+    </div>
+
+    {% if content.detail is defined %}
+    <div class="page-header__detail">
+
+        <div class="paragraphs -sm -loose">
+            <p>
+                {{ content.detail }}
+            </p>
+        </div>
+
+
+    </div>
+    {% endif %}
+</header>

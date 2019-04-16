@@ -1,8 +1,61 @@
 {% extends "_layouts/_styleguide" %}
-
+{% set menu = { 
+    layouts: [
+        {
+        name: "Singles"
+        },{ 
+            name: "Home (mostly static)", 
+            url: "/static/home" 
+        },{
+        name: "Channels"
+        },{ 
+            name: "Category Section Index", 
+            url: "/static/category-section-index" 
+        },{ 
+            name: "Topics Landing", 
+            url: "/static/category-topic-landing" 
+        },{ 
+            name: "Topics List", 
+            url: "/topics" 
+        },{
+            name: "Podcast Index", 
+            url: "/static/podcast-index" 
+        },{
+            name: "Search Results", 
+            url: "/static/search-results" 
+        },{
+            name: "Event Index", 
+            url: "/static/event-index" 
+        }
+    ]} 
+%} 
 {% block content %}
 
-    {# Include #}
-    {# {% include '_components/component' with { 'content': entry.content, 'classes': ' ' } %} #}
+<div id="template-list" class="md:w-3/5 mx-auto | space-b--lg">
+    <header class="space-b--sm">
+        <h2 class="header-xl ">Static Templates</h2>
+    </header>
+    
+    {# List #}
+    <ul class="list-articles">
+        {% for item in menu.layouts %} 
+
+            {# Item #}
+            <li class="list-article">
+                <div class="list-article__content">
+                    {# Header #}
+                    {% if item.url is defined %}
+                        <a class="header-xs font-light" href="{{ item.url }}">{{ item.name }}</a>
+                    {% else %}
+                        <h3 class="header-xs text-bronze">
+                            {{ item.name }}
+                        </h3>
+                    {% endif %}
+                </div>
+            </li>
+
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock %}
