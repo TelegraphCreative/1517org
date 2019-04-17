@@ -56,7 +56,11 @@
 @import 'components/content-card--basic';
 @import 'components/content-card--topic-types';
 
+// Content: Detail
+@import 'components/entry-detail-layout';
+
 // Lists
+@import 'components/list-meta';
 @import 'components/list-menu';
 @import 'components/list-social';
 @import 'components/list-podcast';
@@ -72,6 +76,10 @@
 // Billboards
 @import 'components/billboard';
 @import 'components/billboard--text';
+
+// Players
+// @import 'components/podcast-player-full';
+
 
 // --
 // @import "components/headsup";

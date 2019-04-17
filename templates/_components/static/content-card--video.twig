@@ -15,20 +15,20 @@
 
 <article class="content-card -topic | {{ classes }}">
 
-    <div class="content-card__container | flex-grid md:flex-row-reverse">
-        
-        {# Media #}
-        <a href="#" class="content-card__media">
-            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_10.jpg')}}
-        </a>    
+{# {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %} #}
+    <video_content_card
+        img-src="https://i.vimeocdn.com/video/762743169_640.jpg"
+        video-url="https://player.vimeo.com/video/320342557"
+        aspect-ratio="56.25"
+    >
         
         {# Content #}
-        <div class="content-card__content">  
+        <template v-slot:main>  
 
             <a href="#">
                 {# Header #}
                 <div class="content-card__header | mb-4">
-                    <h2 class="card-title | header-sm font-serif">Q&A December 2018: Sin, Love, and Wrath</h1>
+                    <h2 class="card-title | header-sm font-serif">Radical, Dude: Sin, Love, and Wrath</h1>
                 </div>
             </a>
             
@@ -50,18 +50,16 @@
                 <p>On the fourth episode of our series on the history of the Reformation, Dr. Keith walks listeners through the early stages of Melanchthon’s theological development…</p>
             </div>
 
-            {# Play Button #}
-            <div class="content-card__action -play-podcast | mb-6">
-                {{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}
-            </div>
+        </template>
 
-            {# Secondary Meta #}
+        <template v-slot:related-topics>
             <div class="content-card__meta -secondary">
                 {{ global.relatedTopics() }}                            
             </div>
-
-        </div>
+        </template>
         
-    </div>
+    </video_content_card>
+
+{# {% endif %} #}
 
 </article>

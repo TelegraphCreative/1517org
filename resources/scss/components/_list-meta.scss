@@ -1,0 +1,11 @@
+.meta-list {
+    @apply list-reset;
+
+    > li {
+        @apply py-6 px-8 border-t border-ivory-light;
+
+        &:last-child {
+            @apply border-b;
+        }
+    }
+}

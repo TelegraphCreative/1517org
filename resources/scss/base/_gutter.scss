@@ -18,8 +18,14 @@
     @apply px-12;
   }
 
+  // XL
+  &-xl {
+    @apply px-26;
+  }
+
   // Left
   &-l {
+    
     // XL
     &--xl {
       @apply pl-12;

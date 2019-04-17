@@ -1,26 +1,41 @@
 .social-list {
     @apply list-reset leading-none;
 
+    // Defaults
+    a {
+        @apply w-4 h-4
+            inline-block
+            text-slate
+            flex justify-center items-center;
+
+        &:hover {
+            @apply text-bronze;
+        }
+    }
+
+    svg {
+        @apply h-4;
+    }
+
+    
+    
+    // Inline
     &.-inline li {
         @apply inline-block mx-1;
     }
 
-    a {
-        @apply w-4 h-4
-            inline-block
-            text-slate;
-
-        &:hover {
-            @apply text-slate;
-        }
-    }
-
     // Rounded
-    &.-rounded a {
-        @apply border rounded-full;
-        padding: 0.4375rem 0.5rem 0.375rem;
-        height: 1.875rem;
-        width: 1.875rem;
+    &.-rounded {
+        a {
+            @apply border rounded-full;
+            height: 1.875rem;
+            width: 1.875rem;
+        }
+
+        svg {
+            @apply h-3;
+        }
+    
     }
 
     // Light

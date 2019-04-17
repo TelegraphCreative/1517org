@@ -5,11 +5,18 @@
         inline-block
         timing-1 duration-1 property-all;
 
+    // Meta
+    &.-meta {
+        @apply uppercase text-bronze text-xs tracking-normal;
+        &:hover {
+            @apply text-bronze-dark;
+        }
+    }
+
     // Underline
     &.-underline {
         @apply border-b-8 border-ivory-light pb-1 
-    uppercase text-bronze
-    text-xs tracking-normal;
+        uppercase text-bronze text-xs tracking-normal;
 
         &:hover {
             @apply border-bronze text-bronze;

@@ -1,0 +1,21 @@
+// General
+.entry {
+    // Header
+    &__header {
+        @apply mb-10;
+    }
+}
+
+// Screen
+// Md
+@screen md {
+    // Aside
+    .entry-aside {
+        @apply w-1/4;
+    }
+
+    // Main
+    .entry-main {
+        @apply w-3/4;
+    }
+}

@@ -1,0 +1,62 @@
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %}
+
+{% block content %} 
+
+    {# TEMP: Grab example podcast content #}
+    {# Notes: For example only: once this template is moved to the actual homepage, 
+    'entry' will be set to podcast section automatically and this line can be removed #}
+    {% set entry = craft.entries.section('podcasts')[1] %} 
+
+    <section class="space-menu | space-b">
+
+        {# Podcast Player Full #}
+        {% set rel = entry.podcastEmbed.one() %}
+        {% if rel %}
+            <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+        {% endif %}
+
+    </section>
+
+    {# Article + Aside  #}
+    <div class="entry-detail-layout | container | space-b | flex-grid">
+
+        {# Aside #}
+        <aside class="entry-aside">
+            <ul class="meta-list">
+                <li>
+                    <time class="meta-label | text-slate-light" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}</time>
+                </li>
+                <li>
+                    {{ global.relatedTopics('', '') }}
+                </li>
+                <li>
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline' } %}
+                </li>
+                <li>
+                    <a href="{{ url('/') }}" class="link -meta">Browse all Episodes</a>
+                </li>
+            </ul>
+        </aside>
+
+        {# Content #}
+        <article class="entry-main | gutter-xl">
+        
+            {# Header #}
+            <header class="entry__header">
+                <h1 class="header-xl | font-serif">Ep 115 - The Most Heroic Acts</h1>
+            </header>
+
+            {# Blocks #}
+            <div class="entry__blocks">
+                {# Entry Summary #}
+                <div class="paragraphs -md">
+                    <p>Join hosts Chad Bird and Daniel Emery Price as they travel through the Old Testament one page at a time. Many people find these old books confusing, but in this podcast you will discover that everything God does and says is meant to fix your gaze on the promise of the coming Christ. You will discover that the Old Testament is actually about the love and grace of God toward sinners just like you and the hosts.</p>
+                </div>
+            </div>
+        </article>
+
+
+    </div>
+
+{% endblock %}

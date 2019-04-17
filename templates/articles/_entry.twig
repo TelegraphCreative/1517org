@@ -1,7 +1,8 @@
 {% extends "_layouts/_base" %}
 
 {% block content %}
-    <h1>
+    {# Margin just for testing #}
+    <h1 class="mt-24">
         {{ entry.title }}
     </h1>
 
@@ -20,6 +21,14 @@
                 </li>
             {% endfor %}
         </ul>
+    {% endif %}
+
+    {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
+        <video_player_full
+            img-src="{{ entry.vimeoEmbed.media.image }}"
+            video-url="{{ entry.vimeoEmbed.media.url }}"
+            aspect-ratio="{{ entry.vimeoEmbed.media.aspectRatio }}"
+        />
     {% endif %}
 
 {% endblock %}
