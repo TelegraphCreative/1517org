@@ -1,0 +1,52 @@
+{% import '_macros/global' as global %}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+{% set classes = classes %}
+{% else %}
+{% set classes = '' %}
+{% endif %}
+
+<div class="billboard -text -subscribe | {{classes}}">
+    <div class="billboard__container container">
+
+        <header class="billboard__content | gutter">
+
+            {# Header #}
+            {% if content.header is defined %}
+            <div class="billboard__header">
+                <h4 class="billboard-title">{{ content.header | raw }}</h4>
+            </div>
+            {% endif %}
+
+            {# Detail #}
+            {% if content.detail is defined %}
+            <div class="billboard__detail | paragraphs -sm">
+                {{ content.detail | raw }}
+            </div>
+            {% endif %}
+
+            {# Action #}
+            {% if content.action is defined %}
+            <div class="billboard__action">
+                {{ global.iconLink('', content.buttons, 'podcast', content.action) }}
+
+                {# Streaming Services #}
+                <div class="pt-8">
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -rounded -white' } %}
+                </div>
+            </div>
+            {% endif %}
+
+        </header>
+
+        {% if content.image is defined %}
+            <div class="billboard__media | text-center">
+
+                {{ global.devices('iphone', 'background: url(/assets/placeholder/placeholder_09.jpg);') }}
+
+                {# {{ global.image('', '-is1x1 -fit-cover -hover-scale', content.image )}} #}
+            </div>
+        {% endif %}
+    </div>
+</div>

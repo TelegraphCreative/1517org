@@ -61,6 +61,7 @@
     {% endif %}
 {% endmacro %}
 
+
 {# Related Topics #}
 {% macro relatedTopics(source, theme) %}
 
@@ -85,6 +86,39 @@
         
     {% endif %}
     
+{% endmacro %}
+
+
+
+{# Device Mockups #}
+{% macro devices(device, styles) %}
+    {% switch device %}
+
+        {% case "iphone" %}
+            <div class="marvel-device iphone-x">
+                <div class="notch">
+                    {# <div class="camera"></div> #}
+                    <div class="speaker"></div>
+                </div>
+                {# <div class="top-bar"></div> #}
+                <div class="sleep"></div>
+                <div class="bottom-bar"></div>
+                <div class="volume"></div>
+                <div class="overflow">
+                    <div class="shadow shadow--tr"></div>
+                    <div class="shadow shadow--tl"></div>
+                    <div class="shadow shadow--br"></div>
+                    <div class="shadow shadow--bl"></div>
+                </div>
+                <div class="inner-shadow"></div>
+                <div class="screen" style="{{ styles }}">
+                    <!-- Content goes here -->
+                </div>
+            </div>
+        {% default %}
+            <!-- Device not found --> 
+    {% endswitch %}  
+
 {% endmacro %}
 
 {# Utility Icons #}
@@ -159,7 +193,6 @@
             {# camera #}
             <span class="icon {{ classes }}">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect stroke="currentColor" class="s" x="0.75" y="5.261" width="15" height="13.5" rx="3" ry="3"/><path stroke="currentColor" class="s" d="M18.75,15.011l3.415,1.707a.75.75,0,0,0,1.085-.671V7.974a.749.749,0,0,0-1.085-.67L18.75,9.011"/></svg>
-              {# <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect class="s" stroke="currentColor" x="0.75" y="12" width="16.5" height="10.5" rx="1.5" ry="1.5"/><path class="s" stroke="currentColor" d="M17.25,19.832l4.987,1.87A.75.75,0,0,0,23.25,21V14.164a.749.749,0,0,0-1.013-.7l-4.987,1.87Z"/><line class="s" stroke="currentColor" x1="4.5" y1="15" x2="12.75" y2="15"/><circle class="s" stroke="currentColor" cx="4.5" cy="5.25" r="3.75"/><circle class="s" stroke="currentColor" cx="14.25" cy="6" r="3"/></svg> #}
             </span>
 
         {% case "pause" %}
@@ -172,6 +205,19 @@
             {# play #}
             <span class="icon {{ classes }}">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path class="f" stroke="currentColor" d="M2.338,3.255v17.49a1.5,1.5,0,0,0,2.209,1.322L20.87,13.322a1.5,1.5,0,0,0,0-2.644L4.547,1.933A1.5,1.5,0,0,0,2.338,3.255Z"/></svg>
+            </span>
+        
+        {% case "podcast" %}
+            {# podcast #}
+            <span class="icon {{ classes }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12,3.86a6.43,6.43,0,0,0-5.45,9.83,1,1,0,1,0,1.69-1.06,4.43,4.43,0,1,1,7.5,0,1,1,0,1,0,1.69,1.07A6.43,6.43,0,0,0,12,3.86Z"/><path fill="currentColor" d="M12,0a10.5,10.5,0,0,0-7.73,17.6,1,1,0,0,0,1.47-1.35,8.5,8.5,0,1,1,12.54,0,1,1,0,1,0,1.48,1.35A10.5,10.5,0,0,0,12,0Z"/><path fill="currentColor" d="M13.27,15H10.73a2,2,0,0,0-2,2.22l.56,5a2,2,0,0,0,2,1.78h1.42a2,2,0,0,0,2-1.78l.56-5a2,2,0,0,0-2-2.22Z"/><circle fill="currentColor" cx="12" cy="10.5" r="2.5"/></svg>
+            </span>
+
+            
+        {% case "spotify" %}
+            {# podcast #}
+            <span class="icon {{ classes }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path  fill="currentColor" d="M12,0A12,12,0,1,0,24,12,12,12,0,0,0,12,0Zm5,18.1a.9.9,0,0,1-1.27.08,8.37,8.37,0,0,0-4.27-1.78,8.4,8.4,0,0,0-4.57.52.9.9,0,1,1-.76-1.63,10.07,10.07,0,0,1,5.58-.67,10.05,10.05,0,0,1,5.2,2.21A.9.9,0,0,1,17,18.1Zm1.19-3.78a1,1,0,0,1-1.41.09,9.35,9.35,0,0,0-4.75-2A9.33,9.33,0,0,0,6.92,13a1,1,0,1,1-.85-1.81,11.21,11.21,0,0,1,6.25-.76,11.22,11.22,0,0,1,5.79,2.45A1,1,0,0,1,18.2,14.32Zm1.58-3.62a1.15,1.15,0,0,1-1.62.08,10.62,10.62,0,0,0-5.55-2.35,10.61,10.61,0,0,0-6,.72,1.15,1.15,0,0,1-1-2.07,13,13,0,0,1,7.29-.93A13,13,0,0,1,19.7,9.07,1.15,1.15,0,0,1,19.78,10.69Z"/></svg>
             </span>
 
 

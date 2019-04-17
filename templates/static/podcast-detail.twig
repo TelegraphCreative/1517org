@@ -59,4 +59,15 @@
 
     </div>
 
+    {# Text Billboard - placeholder content#}
+    {% set content = { 
+        header: 'Subscribe to You Are Forgiven',
+        detail: '<p>Subscribe (it’s free!) in your favorite podcast app.</p>',
+        buttons: 'btn -outline -reverse', 
+        action: 'Apple Podcasts',
+        image: '/assets/placeholder/placeholder_05.png'
+    }%}
+    {# Text Billboard - basic #}
+    {% include '_components/static/billboard--subscribe' with { classes: '-bronze-light', content: content } %}
+
 {% endblock %}

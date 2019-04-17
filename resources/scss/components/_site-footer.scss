@@ -1,5 +1,6 @@
 .site-footer {
-    @apply bg-slate-darker text-slate-light;
+    @apply bg-slate-darker text-slate-light
+    relative z-20;
 
     // Links
     a {

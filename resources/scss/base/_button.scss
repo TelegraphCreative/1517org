@@ -119,6 +119,15 @@
         }
     }
 
+    // Outline
+    &.-outline {
+        @apply bg-transparent text-white border-white border rounded-full px-5;
+
+        &:hover {
+            @apply bg-white text-bronze;
+        }
+    }
+
     // Add
     &.-add {
         @apply relative pr-10;

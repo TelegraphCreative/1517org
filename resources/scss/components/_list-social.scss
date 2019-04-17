@@ -3,8 +3,7 @@
 
     // Defaults
     a {
-        @apply w-4 h-4
-            inline-block
+        @apply inline-block
             text-slate
             flex justify-center items-center;
 
@@ -12,12 +11,9 @@
             @apply text-bronze;
         }
     }
-
     svg {
         @apply h-4;
     }
-
-    
     
     // Inline
     &.-inline li {
@@ -35,12 +31,43 @@
         svg {
             @apply h-3;
         }
+
+
+        // Rounded White
+        &.-white {
+            a {
+                @apply text-white border-transparent;
+                height: 3rem;
+                width: 3rem;
+
+                &:hover {
+                    @apply text-bronze border-white bg-white;
+                }
+
+                svg {
+                    @apply h-8
+                }
+            }
+        }
+
+        
     
     }
 
     // Light
     &.-light a {
         @apply text-slate-light border-slate-light;
+
+        &:hover {
+            @apply text-white 
+            border-bronze 
+            bg-bronze;
+        }
+    }
+
+    // White
+    &.-white a {
+        @apply text-white border-white;
 
         &:hover {
             @apply text-white 
