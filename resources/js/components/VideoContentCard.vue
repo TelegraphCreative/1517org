@@ -1,6 +1,6 @@
 <template>
   <div class="content-card__container | flex-grid md:flex-row-reverse mb-4">
-    <a href="#" @click.prevent="" class="content-card__media relative cursor-default">
+    <a href="#" @click.prevent="" class="content-card__media relative cursor-default | no-print">
       <img
         :src="imgSrc"
         :class="{ hidden: hideImg }"

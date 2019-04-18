@@ -6,12 +6,19 @@
     }
     // Aside
     &-aside {
-        @apply px-12 w-full;
+        @apply w-full;
     }
     // Header
     &__header {
         @apply mb-6;
+
+        .paragraphs {
+            @apply pt-4 text-slate-light;
+        }
     }
+
+    // Blocks
+    // &__blocks {}
 }
 
 // Screen
@@ -20,7 +27,7 @@
     .entry {
         // Aside
         &-aside {
-            @apply w-1/4 px-0;
+            @apply w-1/4;
             order: 1;
         }
         // Main

@@ -105,8 +105,7 @@ h6 {
     // Default
     &,
     p {
-        @apply leading-normal font-normal
-      mb-6;
+        @apply leading-normal font-normal mb-6;
 
         &:last-of-type {
             @apply mb-0;
@@ -143,7 +142,9 @@ h6 {
     }
 
     // sm - 16px
-    &.-sm {
+    // md - 16/18
+    &.-sm,
+    &.-md {
         p {
             @apply text-base 
             mb-4;
@@ -154,17 +155,23 @@ h6 {
         }
     }
 
-    // md - 18px
-    &.-md {
-        p {
-            @apply text-lg;
-        }
-    }
+    
 
     // loose
     &.-loose {
         p {
             @apply leading-looser;
+        }
+    }
+
+    // Screen 
+    // MD
+    @screen md {
+        // md - 16/18px
+        &.-md {
+            p {
+                @apply text-lg;
+            }
         }
     }
 }

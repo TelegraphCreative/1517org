@@ -2,7 +2,7 @@
     @apply list-reset leading-none;
 
     // Defaults
-    a {
+    a, button {
         @apply inline-block
             text-slate
             flex justify-center items-center;
@@ -11,8 +11,8 @@
             @apply text-bronze;
         }
     }
-    svg {
-        @apply h-4;
+    .icon {
+        @apply  w-4;
     }
     
     // Inline
@@ -28,8 +28,8 @@
             width: 1.875rem;
         }
 
-        svg {
-            @apply h-3;
+        .icon {
+            @apply w-3;
         }
 
 
@@ -44,8 +44,8 @@
                     @apply text-bronze border-white bg-white;
                 }
 
-                svg {
-                    @apply h-8
+                .icon {
+                    @apply w-6
                 }
             }
         }

@@ -26,6 +26,7 @@
 @import 'base/checkbox-radio';
 @import 'base/toggle-text';
 @import 'base/device';
+@import 'base/drop-cap';
 // @import "base/blockquote";
 // @import "base/video";
 // @import "base/ornament";
@@ -59,6 +60,8 @@
 
 // Content: Detail
 @import 'components/entry-detail-layout';
+@import 'components/entry-footnote';
+@import 'components/meta-summary-block';
 
 // Lists
 @import 'components/list-meta';
@@ -81,6 +84,10 @@
 
 // Players
 // @import 'components/podcast-player-full';
+
+// Articles
+@import 'components/article-content';
+
 
 
 // --

@@ -1,0 +1,13 @@
+.entry-footnote {
+    @apply border-t-4 border-ivory-light pt-4 mt-20 mb-12;
+
+    small {
+        @apply text-sm text-slate-light leading-loose;
+    }
+
+    // Screen
+    // MD
+    @screen md {
+        @apply border-t-8 pt-6 mt-16;
+    }
+}

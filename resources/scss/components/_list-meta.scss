@@ -2,10 +2,10 @@
     @apply list-reset;
 
     > li {
-        @apply py-6 border-t border-ivory-light;
+        @apply p-6 border-b border-ivory-light;
 
-        &:last-child {
-            @apply border-b;
+        &:first-child {
+            @apply border-t;
         }
     }
 

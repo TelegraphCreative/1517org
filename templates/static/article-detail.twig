@@ -8,7 +8,7 @@
     'entry' will be set to podcast section automatically and this line can be removed #}
     {% set entry = craft.entries.section('podcasts')[1] %} 
 
-    <section class="space-menu | space-b">
+    <section class="space-menu | space-b | no-print">
 
         {# Podcast Player Full #}
         {% set rel = entry.podcastEmbed.one() %}
@@ -21,40 +21,131 @@
     {# Article + Aside  #}
     <div class="entry-detail-layout | container | space-b | flex-grid">
 
-        {# Aside #}
-        <aside class="entry-aside">
-            <ul class="meta-list">
-                <li>
-                    <time class="meta-label | text-slate-light" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}</time>
-                </li>
-                <li>
-                    {{ global.relatedTopics('', '') }}
-                </li>
-                <li>
-                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline' } %}
-                </li>
-                <li>
-                    <a href="{{ url('/') }}" class="link -meta">Browse all Episodes</a>
-                </li>
-            </ul>
-        </aside>
-
         {# Content #}
         <article class="entry-main | gutter-xl">
         
             {# Header #}
             <header class="entry__header">
                 <h1 class="header-xl | font-serif">Ep 115 - The Most Heroic Acts</h1>
+                <div class="paragraphs -md">
+                    <p>This is the first in our series of Psalms reflections for Lent. </p>
+                </div>
             </header>
 
             {# Blocks #}
             <div class="entry__blocks">
                 {# Entry Summary #}
-                <div class="paragraphs -md -loose">
-                    <p>Join hosts Chad Bird and Daniel Emery Price as they travel through the Old Testament one page at a time. Many people find these old books confusing, but in this podcast you will discover that everything God does and says is meant to fix your gaze on the promise of the coming Christ. You will discover that the Old Testament is actually about the love and grace of God toward sinners just like you and the hosts.</p>
+                <div class="paragraphs -md -loose | article-content -drop-cap">
+                    {# Notes: 
+                    Javascript takes -drop-cap and reworks paragraph 1 like so:
+                    <p>
+                        <span class="drop-cap"></span>hat are the thoughts that run through your head as you read or sing this Psalm 51? Do you wonder if you sing or pray them with enough contrition? Do you worry you lack a clean heart, a steadfast spirit, the joy of salvation? </p>
+                    #}
+                    <p>What are the thoughts that run through your head as you read or sing this Psalm 51? Do you wonder if you sing or pray them with enough contrition? Do you worry you lack a clean heart, a steadfast spirit, the joy of salvation? </p>
+            
+                    <p>When I used to sing <a href="#">these words</a>, I don’t think I was ever worried about being fully cast from God’s presence, but I certainly worried I wasn’t good enough, whatever “good enough” was supposed to be. Singing this hymn, I would close my eyes tight, praying away bad behaviors and hoping God would finally scrub clean the corners of my heart. I saw my sin as final to-dos on a long list of sanctification. They were annoying roadblocks, getting in my way from becoming better and doing better.  </p>
+                            
+                    <p>Yet Psalm 51 is much more than this one, <b>beautiful stanza</b>, and tells us much more about ourselves and our sin than we would wish to be true. </p>
+                            
+                    <p>At the beginning of this psalm, David laments that it is against God and God alone that He has sinned. This is interesting, especially considering the circumstances. King David has just slept with a woman who is not his wife and had this woman’s husband killed so that he could do so. Surely his sin was against others. Surely, he knows he has desperately failed at his to-do list. </p>
+                            
+                    <p>It’s not that David is <u>unrepentant</u> of the harm he has caused <strong>Bathsheba</strong>, Uriah, and countless others. The point is that David is repenting of the sin that lies beneath these actions, the sin all of us would rather avoid. He names this sin right after in verse 5: “I was brought forth in iniquity, and in sin did my mother conceive me.” </p>
+                            
+                    <p>David confesses he is a sinner through and through. This sin is even deeper than the horror of murder and deeper than the transgression of adultery because from here springs forth all unbelief, selfish behavior and deceit. Each of us shares in this sin; the sin of self-justification and disbelief in God’s promises. </p>
+
+                    <ul>
+                        <li>List Item</li>
+                        <li>List Item</li>
+                        <li>List Item</li>
+                    </ul>
+
+                    <p>Yet Psalm 51 is much more than this one, beautiful stanza, and tells us much more about ourselves and our sin than we would wish to be true. </p>
+
+                    <ol>
+                        <li>Ordered List Item</li>
+                        <li>Ordered List Item</li>
+                        <li>Ordered List Item</li>
+                    </ol>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eveniet tenetur inventore earum odit, id unde similique. Inventore voluptates rerum id quae dolorem, voluptas eaque quibusdam repellat nihil eos commodi!</p>
+
+                    <blockquote>
+                        Forgiveness doesn’t fall out of the sky but is rooted in the death and resurrection of the one who became sin for us.
+                    </blockquote>
+
+                    <p>Our hearts don’t just need to be cleansed of our bad behaviors; they need to be cleansed from the sin in which, as fallen sons of Adam and daughters of Eve, we were conceived. Luther says it this way in his Lectures on the Psalms, “The ungodly and proud man is, first of all, the excuser and defender, the justifier and savior, of himself. For that very reason he automatically says that he does not need God as his Savior.” </p>
+
+                    <p>As sinners, we will even use repentance as a means of self-justification. We turn the words of Psalm 51, or the practices during the season of Lent, into an announcement of how far we’ve justified ourselves through our own works and penitence. We cannot be helped from doing so. </p>
+                    
+                    {# This would be a simple inline image, no image sets #}
+                    <img src="/assets/placeholder/placeholder_11.jpg" alt="">
+
+                    <h2>Header H2</h2>
+
+                    <p>As sinners, we will even use repentance as a means of self-justification. We turn the words of Psalm 51, or the practices during the season of Lent, into an announcement of how far we’ve justified ourselves through our own works and penitence. We cannot be helped from doing so. </p>
+
+                    <h3>Header H3</h3>
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis voluptate voluptatibus similique libero nulla quos sint doloremque numquam architecto dicta. Dolor repellendus ratione quod sint delectus sed tenetur quaerat aliquid.</p>
+
+                    <h4>Header H4</h4>
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis voluptate voluptatibus similique libero nulla quos sint doloremque numquam architecto dicta. Dolor repellendus ratione quod sint delectus sed tenetur quaerat aliquid.</p>
+
+                    <h5>Header H5</h5>
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis voluptate voluptatibus similique libero nulla quos sint doloremque numquam architecto dicta. Dolor repellendus ratione quod sint delectus sed tenetur quaerat aliquid.</p>
+
+                    <h6>Header H6</h6>
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis voluptate voluptatibus similique libero nulla quos sint doloremque numquam architecto dicta. Dolor repellendus ratione quod sint delectus sed tenetur quaerat aliquid.</p>
+
+
+                </div>
+
+                <div class="entry-footnote">
+                    <small>This was an excerpt from The Sinner/Saint Lenten Devotional written by Kyle G. Jones and Kathy Strauch (1517 Publishing, 2019). Used by permission, pgs. 4-5</small>
                 </div>
             </div>
         </article>
+
+        {# Aside #}
+        <aside class="entry-aside">
+            <ul class="meta-list">
+                <li class="display-print">
+                    <time class="meta-label | text-slate-light" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}</time>
+                </li>
+                <li>
+                    {{ global.relatedTopics('', '') }}
+                </li>
+                <li>
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
+                </li>
+                <li>
+                    <a href="{{ url('/') }}" class="link -meta">Browse all Episodes</a>
+                </li>
+            </ul>
+
+            <div class="meta-summary-block">
+                <div class="meta-summary__media -narrow">
+                    {{ global.image('', '-is1x1 -fit-cover | rounded-full ', '/assets/placeholder/placeholder_05.png')}}
+                </div>
+                <div class="author-bio__detail">
+                    <h6>About the Author</h6>
+                    <p>Kelsi is a freelance writer who writes for nonprofits and small businesses all over the world. She is currently pursuing an MA in Reformation studies from Concordia University Irvine. She lives with her husband, Doug, in Dallas, Texas.</p>
+                </div>
+            </div>
+            <div class="meta-summary-block">
+                <div class="meta-summary__media">
+                    {{ global.image('', '-is8x20 -fit-cover ', '/assets/placeholder/book-cover-sm_01.png')}}
+                </div>
+                <div class="meta-summary__detail">
+                    <h6>The Book Title Here</h6>
+                    <p>A summary of the book is brief</p>
+                    <p>$16</p>
+                </div>
+            </div>
+        </aside>
 
     </div>
 

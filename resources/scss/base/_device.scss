@@ -622,18 +622,18 @@
 // Small
 .marvel-device.iphone-x {
     width: 260px;
-    height: 600px;
+    height: 32.5rem;
     .notch {
-        width: 100px;
+        width: 6.25rem;
     }
 }
 // Screen 
 // MD
 @screen md {
     .marvel-device.iphone-x {
-        width: 325px;
+        width: 20.3125rem;
         .notch {
-            width: 160px;
+            width: 8.75rem;
         }
     }
 }
