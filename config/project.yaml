@@ -21,7 +21,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555434078
+dateModified: 1555628077
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -509,8 +509,8 @@ volumes:
     url: 'https://s3.us-east-2.amazonaws.com/1517-podcast-files/'
     settings:
       subfolder: ''
-      keyId: AKIAILLCGN7EWG5RPJUA
-      secret: 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
+      keyId: $AWS_ACCESS_KEY_ID
+      secret: $AWS_SECRET_ACCESS_KEY
       bucketSelectionMode: choose
       bucket: 1517-podcast-files
       region: us-east-2
