@@ -56,7 +56,16 @@
             </div>
         </article>
 
+    </div>
 
+    {# Related Content #}
+    <div class="container--sm gutter-md | md:flex-grid | space-b--sm">
+        {# Latest Cards #}
+        <div class="flex-grid">
+            {# Content Card - Stacked #} 
+            {% include '_components/static/content-card--basic' with { 'classes': '' } %} 
+            {% include '_components/static/content-card--basic' with { 'classes': '' } %} 
+        </div>
     </div>
 
     {# Text Billboard - placeholder content#}

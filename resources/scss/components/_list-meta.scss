@@ -2,10 +2,19 @@
     @apply list-reset;
 
     > li {
-        @apply py-6 px-8 border-t border-ivory-light;
+        @apply py-6 border-t border-ivory-light;
 
         &:last-child {
             @apply border-b;
+        }
+    }
+
+
+    // Screen
+    // Md
+    @screen md {
+        > li {
+            @apply px-8;
         }
     }
 }

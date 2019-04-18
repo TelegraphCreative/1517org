@@ -20,7 +20,7 @@
 
   // XL
   &-xl {
-    @apply px-26;
+    @apply px-12;
   }
 
   // Left
@@ -49,6 +49,11 @@
         @apply px-17;
       }
 
+
+    // XL
+    &-xl {
+      @apply px-26;
+    }
       // Left
       &-l {
         // XL

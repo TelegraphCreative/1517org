@@ -259,6 +259,7 @@ module.exports = {
         tight: 1.25,
         normal: 1.5,
         loose: 1.625,
+        looser: 1.7,
     },
 
     /*

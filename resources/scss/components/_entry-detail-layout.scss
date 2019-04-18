@@ -1,21 +1,37 @@
 // General
 .entry {
+    // Main
+    &-main {
+        @apply mb-10;
+    }
+    // Aside
+    &-aside {
+        @apply px-12 w-full;
+    }
     // Header
     &__header {
-        @apply mb-10;
+        @apply mb-6;
     }
 }
 
 // Screen
 // Md
 @screen md {
-    // Aside
-    .entry-aside {
-        @apply w-1/4;
-    }
+    .entry {
+        // Aside
+        &-aside {
+            @apply w-1/4 px-0;
+            order: 1;
+        }
+        // Main
+        &-main {
+            @apply w-3/4 mb-0;
+            order: 2;
+        }
 
-    // Main
-    .entry-main {
-        @apply w-3/4;
+        // Header
+        &__header {
+            @apply mb-10;
+        }
     }
 }
