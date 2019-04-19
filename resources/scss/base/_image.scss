@@ -17,6 +17,18 @@
     background-size: cover;
   }
 
+  // Cove
+  &.-cover {
+    img {
+      width: 40%;
+      left: 50%;
+      top: 50%;
+      height: 80%;
+      margin-left: -20%;
+      margin-top: -20%;
+    }
+  }
+
   // Show Overflow
   &.-show-overflow {
     @apply .overflow-visible;

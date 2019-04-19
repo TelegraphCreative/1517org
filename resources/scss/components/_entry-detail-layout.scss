@@ -1,0 +1,44 @@
+// General
+.entry {
+    // Main
+    &-main {
+        @apply mb-10;
+    }
+    // Aside
+    &-aside {
+        @apply w-full;
+    }
+    // Header
+    &__header {
+        @apply mb-6;
+
+        .paragraphs {
+            @apply pt-4 text-slate-light;
+        }
+    }
+
+    // Blocks
+    // &__blocks {}
+}
+
+// Screen
+// Md
+@screen md {
+    .entry {
+        // Aside
+        &-aside {
+            @apply w-1/4;
+            order: 1;
+        }
+        // Main
+        &-main {
+            @apply w-3/4 mb-0;
+            order: 2;
+        }
+
+        // Header
+        &__header {
+            @apply mb-10;
+        }
+    }
+}

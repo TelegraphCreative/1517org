@@ -1,0 +1,67 @@
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %}
+
+{% block content %} 
+
+    {# TEMP: Grab example podcast content #}
+    {# Notes: For example only: once this template is moved to the actual homepage, 
+    'entry' will be set to podcast section automatically and this line can be removed #}
+    {% set entry = craft.entries.section('articles')[0] %} 
+
+    <section class="space-menu | space-b | no-print">
+
+        {# Video Player Full #}
+        {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
+            <video_player_full
+                img-src="{{ entry.vimeoEmbed.media.image }}"
+                video-url="{{ entry.vimeoEmbed.media.url }}"
+                aspect-ratio="{{ entry.vimeoEmbed.media.aspectRatio }}"
+            />
+        {% endif %}
+
+    </section>
+
+    {# Article + Aside  #}
+    <div class="entry-detail-layout | container | space-b | flex-grid">
+
+        {# Content #}
+        <article class="entry-main | gutter-xl">
+        
+            {# Header #}
+            <header class="entry__header">
+                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+                <div class="paragraphs -md">
+                    <p>with David Zahl</p>
+                </div>
+            </header>
+
+            {# Blocks #}
+            <div class="entry__blocks">
+                {# Entry Summary #}
+                <div class="paragraphs -md -loose | article-content">
+                    <p>What are the thoughts that run through your head as you read or sing this Psalm 51? Do you wonder if you sing or pray them with enough contrition? Do you worry you lack a clean heart, a steadfast spirit, the joy of salvation? </p>
+            
+                    <p>When I used to sing <a href="#">these words</a>, I don’t think I was ever worried about being fully cast from God’s presence, but I certainly worried I wasn’t good enough, whatever “good enough” was supposed to be. Singing this hymn, I would close my eyes tight, praying away bad behaviors and hoping God would finally scrub clean the corners of my heart. I saw my sin as final to-dos on a long list of sanctification. They were annoying roadblocks, getting in my way from becoming better and doing better.  </p>
+                    
+                </div>
+
+            </div>
+        </article>
+
+        {# Aside #}
+        <aside class="entry-aside">
+            <ul class="meta-list">
+                <li class="display-print">
+                    <time class="meta-label | text-slate-light" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}</time>
+                </li>
+                <li>
+                    {{ global.relatedTopics('', '') }}
+                </li>
+                <li>
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
+                </li>
+            </ul>
+        </aside>
+
+    </div>
+{% endblock %}

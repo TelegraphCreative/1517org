@@ -7,7 +7,7 @@
 {% set classes = '' %}
 {% endif %}
 
-<div class="billboard -text | {{classes}} | no-print">
+<div class="billboard -text -subscribe | {{classes}} | no-print">
     <div class="billboard__container container">
 
         <header class="billboard__content | gutter">
@@ -29,7 +29,12 @@
             {# Action #}
             {% if content.action is defined %}
             <div class="billboard__action">
-                {{ global.link( '', content.buttons, content.action ) }}
+                {{ global.iconLink('', content.buttons, 'podcast', content.action) }}
+
+                {# Streaming Services #}
+                <div class="pt-8">
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -rounded -white' } %}
+                </div>
             </div>
             {% endif %}
 
@@ -37,7 +42,10 @@
 
         {% if content.image is defined %}
             <div class="billboard__media">
-                {{ global.image('', '-is1x1 -fit-cover -hover-scale', content.image )}}
+
+                {{ global.devices('iphone', 'background: url(/assets/placeholder/placeholder_09.jpg);') }}
+
+                {# {{ global.image('', '-is1x1 -fit-cover -hover-scale', content.image )}} #}
             </div>
         {% endif %}
     </div>

@@ -6,7 +6,8 @@ mix.setPublicPath('./web')
     // The App Build
     .js('resources/js/app.js', 'assets/js')
     .sass('resources/scss/app.scss', 'assets/css')
-    .sass('resources/scss/styleguide.scss', 'assets/css')
+    // .sass('resources/scss/styleguide.scss', 'assets/css')
+    .sass('resources/scss/print.scss', 'assets/css')
     .copy('resources/fonts', './web/assets/fonts')
     .sourceMaps()
     .browserSync({

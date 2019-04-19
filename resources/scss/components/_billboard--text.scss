@@ -11,12 +11,6 @@
 
     // Content
     .billboard {
-        &__content {
-            @apply mx-auto;
-        }
-        &__detail {
-            @apply mx-auto;
-        }
         &__action {
             @apply pt-10;
         }
@@ -43,6 +37,18 @@
     }
 }
 
+
+.billboard.-text.-center {
+    // Content
+    .billboard {
+        &__content {
+            @apply mx-auto;
+        }
+        &__detail {
+            @apply mx-auto;
+        }
+    }
+}
 // Variations
 // Image Left
 .billboard.-text.-image-left {

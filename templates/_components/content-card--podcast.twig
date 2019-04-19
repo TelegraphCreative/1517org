@@ -1,0 +1,71 @@
+{% import '_macros/global' as global %}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<article class="content-card -topic | {{ classes }}">
+
+    <div class="content-card__container | flex-grid md:flex-row-reverse">
+        
+        {# Media #}
+        {% set image = content.cardImagePodcast.one().optimize %}
+        {% set cover = image.colorPalette[0] %}
+
+        {# {{content.cardImagePodcast.one().optimize.colorPalette[0]}} #}
+        
+        <a href="{{ content.url }}" class="content-card__media -cover | no-print" >
+            {{ global.image(content.cardImagePodcast.one().optimize, '-is2x1 -fit-cover -hover-scale', '', cover)}}
+        </a>    
+        
+        {# Content #}
+        <div class="content-card__content">  
+
+            <a href="{{ content.url }}">
+                {# Header #}
+                <div class="content-card__header | mb-4">
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h1>
+                </div>
+            </a>
+            
+            {# Primary Meta #}
+            <div class="content-card__meta -primary mb-4 | flex-grid">
+                <ul class="items-bar">
+                    <li>
+                        {% for category in entry.podcastShow.level(1).all() %}
+                        <a href="{{ category.url }}" class="align-items-center">
+                            {{ global.utilityIcon('microphone', '-sm') }}
+                            <div class="meta-label | ml-3">
+                                    {{ category.title }}
+                                </div>
+                                <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                        </a>
+                        {% endfor %}
+                    </li>
+                </ul>        
+            </div>
+            
+            {# Detail #}
+            <div class="content-card__detail | paragraphs -xs -loose | mb-5">
+                {{ content.shortDescription | chop(limit=40, unit='w', append= '…') }}
+            </div>
+
+            {# Play Button #}
+            <div class="content-card__action -play-podcast | mb-6">
+                {% set rel = content.podcastEmbed.one() %}
+                <podcast_player_compact audio-url="{{ rel.filename }}" />
+            </div>
+
+            {# Secondary Meta #}
+            <div class="content-card__meta -secondary">
+                    {{ global.relatedTopics(content.topics.all(), '') }}                         
+            </div>
+
+        </div>
+        
+    </div>
+
+</article>

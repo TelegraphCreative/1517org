@@ -259,6 +259,7 @@ module.exports = {
         tight: 1.25,
         normal: 1.5,
         loose: 1.625,
+        looser: 1.7,
     },
 
     /*
@@ -378,6 +379,7 @@ module.exports = {
         '2': '2px',
         '4': '4px',
         '8': '8px',
+        '12': '0.75rem',
         '16': '1rem',
     },
 
@@ -644,6 +646,7 @@ module.exports = {
         '18': '4.875rem',
         '20': '5rem',
         '24': '6rem',
+        '26': '7.5rem',
         '32': '8rem',
         '36': '9.75rem',
     },
