@@ -34,7 +34,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555630919
+dateModified: 1555634761
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -859,8 +859,8 @@ volumes:
     url: 'https://s3.us-east-2.amazonaws.com/1517-podcast-files/'
     settings:
       subfolder: audio
-      keyId: AKIAILLCGN7EWG5RPJUA
-      secret: 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
+      keyId: $AWS_ACCESS_KEY_ID
+      secret: $AWS_SECRET_ACCESS_KEY
       bucketSelectionMode: choose
       bucket: 1517-podcast-files
       region: us-east-2
@@ -879,8 +879,8 @@ volumes:
     url: 'https://s3.us-west-2.amazonaws.com/1517-assets-public/'
     settings:
       subfolder: images
-      keyId: AKIAILLCGN7EWG5RPJUA
-      secret: 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
+      keyId: $AWS_ACCESS_KEY_ID
+      secret: $AWS_SECRET_ACCESS_KEY
       bucketSelectionMode: choose
       bucket: 1517-assets-public
       region: us-west-2
