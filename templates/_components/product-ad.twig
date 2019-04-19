@@ -1,0 +1,32 @@
+{% import '_macros/global' as global %}
+{% if content is defined %}
+
+    {% for block in content.all() %}
+
+        {% switch block.type %}
+            {% case "customAd" %}
+                <div class="meta-summary-block">
+                    <div class="meta-summary__media">
+                        {{ global.image( block.image[0], '-fit-cover bg-ivory-lightest')}}
+                    </div>
+                    <div class="meta-summary__detail">
+                        <h6>{{ block.header }}</h6>
+                        {{ block.description | chop(limit=20, allowedTags='<p><b><i><strong>', unit='w', append= '…')}}
+                    </div>
+                </div>
+                
+            {% case "productLink" %}
+                <div class="meta-summary-block">
+                    <div class="meta-summary__media">
+                        
+                    </div>
+                    <div class="meta-summary__detail">
+                        <h6>productLink</h6>
+                        This will link to a product and pull ad baseed on it's entry info 
+                    </div>
+                </div>
+            
+        {% endswitch %}
+
+    {% endfor %}
+{% endif %}

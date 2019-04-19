@@ -1,0 +1,26 @@
+// Hero Image
+.hero-image {
+    @apply my-12;
+}
+// Offset Margin for Gutter XL
+.gutter-xl {
+    .hero-image {
+        @apply -mx-12;
+    }
+}
+
+// Screen
+// MD
+@screen md {
+
+    // Hero Image
+    .hero-image {
+        @apply my-24;
+    }
+    // Offset Margin for Gutter XL
+    .gutter-xl {
+        .hero-image {
+            @apply -mx-26;
+        }
+    }
+}

@@ -1,3 +1,5 @@
+// Magic Calculation: padding-top: calc(591.44 / 1127.34 * 100%); 
+
 .image {
   @apply relative
         overflow-hidden;
@@ -56,7 +58,7 @@
   }
 
   &.-is16x9 {
-    padding-top: 65.25%;
+    padding-top: 56.25%;
   }
 
   &.-is2x1 {

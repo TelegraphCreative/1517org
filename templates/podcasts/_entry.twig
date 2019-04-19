@@ -26,15 +26,24 @@
 
             {# Blocks #}
             <div class="entry__blocks">
-                {# Entry Content #}
-                <div class="paragraphs -md -loose | article-content">
-                    {{ entry.fullDescription }}
-                </div>
+
+                {# Longform Content #}
+                {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast } %}
+
+                {# Citation #}
+                {% if entry.citation is defined %}
+                    <div class="article-content entry-footnote">
+                        <small>{{ entry.citation }}</small>
+                    </div>
+                {% endif %}
+                
             </div>
+            
         </article>
         
         {# Aside #}
         <aside class="entry-aside">
+            {# Meta List #}
             <ul class="meta-list">
                 <li>
                     <time class="meta-label | text-slate-light" datetime="{{ entry.postDate | date( 'm-d-y') }}">{{ entry.postDate | date( 'M d, Y') }}</time>
@@ -51,10 +60,15 @@
                     {% endfor %}
                 </li>
             </ul>
+            
+            {# Ad #}
+            {% include "_components/product-ad" with { content: entry.productAd } %}
+            
         </aside>
 
 
     </div>
+
 
     {# Text Billboard - placeholder content#}
     {% set content = { 
