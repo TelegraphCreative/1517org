@@ -3,7 +3,11 @@
     {% import _self as icon %}
 
     {% if source %}
-        <a href="{{ source.url }}" class="{{ classes }}"{% if source.target %} target="{{ source.target }}" {% endif %}>{{ source.text }}</a>
+        {# More options here: https://github.com/fruitstudios/craft-linkit/blob/master/README.md #}
+        {% set attributes = {
+            class: classes
+        } %}
+        {{ source.link(attributes) }}
     {% else %}
         <a href="#" class="{{ classes }}">
             {{ placeholderText }}
@@ -38,10 +42,10 @@
 {% endmacro %}
 
 {# Image #}
-{% macro image(source, class, placeholder, cover) %}
+{% macro image(source, classes, placeholder, cover) %}
     
-    {% if class %}
-        {% set classes = class %}
+    {% if classes %}
+        {% set classes = classes %}
     {% else %}
         {% set classes = '' %}
     {% endif %}
@@ -51,22 +55,22 @@
     {% else %}
         {% set cover = false %}
     {% endif %}
+
     
     {# Source #}
     {% if source|length %}
         {% if cover %}
             {# Cover Image #}
-            <figure class="image -cover | {{ classes }}" style="background: {{cover}}">
-                <img data-src="{{ source.src() }}"
-                    data-srcset="{{ source.srcset() }}"
+            <figure class="image -cover | {{ classes }}" style="background: {{cover}}; padding-top: calc({{source.height}} / ({{source.width}} * 100%);">
+                <img data-src="{{ source.optimize.src() }}"
+                    data-srcset="{{ source.optimize.srcset() }}"
                     sizes="100vw"
                     class="lazyload" />
             </figure>
             {% else %}
-            {# Default #}
-            <figure class="image {{ classes }}">
-                <img data-src="{{ source.src() }}"
-                    data-srcset="{{ source.srcset() }}"
+            <figure class="image {{ classes }}" style="padding-top: calc({{source.height}} / {{source.width}} * 100%); background: {{ source.optimize.colorPalette[3] }}">
+                <img data-src="{{ source.optimize.src() }}"
+                    data-srcset="{{ source.optimize.srcset() }}"
                     sizes="100vw"
                     class="lazyload" />
             </figure>

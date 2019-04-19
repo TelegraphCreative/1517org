@@ -126,6 +126,14 @@
         &:hover {
             @apply bg-white text-bronze;
         }
+
+        &.-bronze {
+            @apply bg-transparent text-bronze border-bronze border rounded-full px-5;
+
+            &:hover {
+                @apply bg-bronze text-white;
+            }
+        }
     }
 
     // Add
@@ -161,5 +169,16 @@
     // Default
     .btn {
         @apply px-10;
+    }
+}
+
+
+// Button Group
+.button-group {
+    .btn {
+        @apply mr-4 inline-block; 
+        &:last-child {
+            @apply mr-0;
+        }
     }
 }
