@@ -10,6 +10,19 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'podcasts/{slug}'
         template: podcasts/_category
+    fieldLayouts:
+      30234eec-ab66-46f5-87ce-408b34fb1188:
+        tabs:
+          -
+            name: Introduction
+            sortOrder: 1
+            fields:
+              d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                required: true
+                sortOrder: 1
+              ca88b718-b5ea-4d62-907a-b2746232ec5a:
+                required: true
+                sortOrder: 2
   cc2489d2-901a-44fa-abd8-7dae85d85495:
     name: Topics
     handle: topics
@@ -21,7 +34,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555434078
+dateModified: 1555630919
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -31,6 +44,10 @@ fieldGroups:
     name: Common
   bc4a29b7-7523-4b35-ad83-a925ceb3eb85:
     name: Info
+  0ddddc66-0470-4604-a350-eb0595dbb767:
+    name: Author
+  0d9ac9ee-3b17-4cf3-8207-afeb2dbe0f44:
+    name: Podcast
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -216,6 +233,259 @@ fields:
       localizeRelations: false
     contentColumnType: string
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  726e4aac-9f65-4618-b0c1-4da0e43672ee:
+    name: 'First Name'
+    handle: firstName
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  cf24e239-4e4a-46f2-8aa9-5f86bcefaa56:
+    name: 'Last Name'
+    handle: lastName
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+    name: 'Short Description'
+    handle: shortDescription
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: '1'
+      initialRows: '4'
+      charLimit: '500'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+    name: 'Full Description'
+    handle: fullDescription
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: ''
+      purifierConfig: ''
+      cleanupHtml: '1'
+      purifyHtml: '1'
+      columnType: text
+      availableVolumes: '*'
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  d8b6b06f-0202-413c-83b0-879f3c793a6f:
+    name: 'Featured Book'
+    handle: featuredBook
+    instructions: 'This will be an Entry Link to Store Products that lets you choose a book to feature in the side bar of articles below the short author bio. '
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Dropdown
+    settings:
+      options:
+        -
+          label: 'Placeholder Field'
+          value: placeholderField
+          default: ''
+    contentColumnType: string
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  2d8ecd0c-5f0b-4fa5-903a-a8e49166151d:
+    name: Photo
+    handle: photo
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      singleUploadLocationSubpath: profiles
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: Photo
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  9a9d8073-0941-48d6-9bd6-e97b15f2b90b:
+    name: 'Supporting Text'
+    handle: supportingText
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: '1'
+      initialRows: '2'
+      charLimit: '50'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  ca88b718-b5ea-4d62-907a-b2746232ec5a:
+    name: 'Card Image (podcast)'
+    handle: cardImagePodcast
+    instructions: '812 x 812'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      singleUploadLocationSubpath: cards
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: Card
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 0d9ac9ee-3b17-4cf3-8207-afeb2dbe0f44
+  52442c36-3d5b-4ff2-bd85-35fcb79135bf:
+    name: 'Hero Image'
+    handle: heroImage
+    instructions: '1280 x 480'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      singleUploadLocationSubpath: heroes
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: Hero
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  982c618e-7295-4cca-ba1a-7ab255da5b1e:
+    name: Host
+    handle: host
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: Host
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 0d9ac9ee-3b17-4cf3-8207-afeb2dbe0f44
+  4488380c-137d-4283-a4b9-63f4f2596303:
+    name: Optimize
+    handle: optimize
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: nystudio107\imageoptimize\fields\OptimizedImages
+    settings:
+      ignoreFilesOfType:
+        - image/svg
+        - image/gif
+      displayOptimizedImageVariants: ''
+      displayDominantColorPalette: '1'
+      displayLazyLoadPlaceholderImages: ''
+      variants:
+        -
+          width: '1200'
+          useAspectRatio: '1'
+          aspectRatioX: '16'
+          aspectRatioY: '9'
+          retinaSizes:
+            - '1'
+          quality: '82'
+          format: jpg
+        -
+          width: '992'
+          useAspectRatio: '1'
+          aspectRatioX: '16'
+          aspectRatioY: '9'
+          retinaSizes:
+            - '1'
+          quality: '82'
+          format: jpg
+        -
+          width: '768'
+          useAspectRatio: '1'
+          aspectRatioX: '4'
+          aspectRatioY: '3'
+          retinaSizes:
+            - '1'
+          quality: '60'
+          format: jpg
+        -
+          width: '576'
+          useAspectRatio: '1'
+          aspectRatioX: '4'
+          aspectRatioY: '3'
+          retinaSizes:
+            - '1'
+          quality: '60'
+          format: jpg
+    contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -316,6 +586,30 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  image-optimize:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      transformClass: nystudio107\imageoptimize\imagetransforms\CraftImageTransform
+      imageTransformTypeSettings:
+        nystudio107\imageoptimizeimgix\imagetransforms\ImgixImageTransform:
+          domain: ''
+          apiKey: ''
+          securityToken: ''
+        nystudio107\imageoptimizethumbor\imagetransforms\ThumborImageTransform:
+          baseUrl: ''
+          securityKey: ''
+          includeBucketPrefix: ''
+      createColorPalette: '1'
+      createPlaceholderSilhouettes: ''
+      lowerQualityRetinaImageVariants: '1'
+      allowUpScaledImageVariants: ''
+      autoSharpenScaledImages: '1'
+  wordsmith:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.0.0.0
 sections:
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
@@ -371,21 +665,31 @@ sections:
           045b7ff7-4163-4ff5-83b4-cdaeae16f265:
             tabs:
               -
-                name: Common
+                name: Introduction
                 sortOrder: 1
                 fields:
-                  1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: false
                     sortOrder: 1
                   ae3007c6-c40c-49cf-9308-766f80773a36:
-                    required: false
+                    required: true
                     sortOrder: 2
+                  ca88b718-b5ea-4d62-907a-b2746232ec5a:
+                    required: true
+                    sortOrder: 3
+              -
+                name: 'About the Podcast'
+                sortOrder: 2
+                fields:
                   8e7cd322-96ae-4173-9807-4a103598e9c9:
+                    required: true
+                    sortOrder: 1
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: true
+                    sortOrder: 2
+                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
                     required: false
                     sortOrder: 3
-                  a8ddce4c-468a-4ff3-b531-c61d499863de:
-                    required: false
-                    sortOrder: 4
   b0598134-0d64-4c98-9d73-351145a9c276:
     name: Articles
     handle: articles
@@ -422,6 +726,52 @@ sections:
                   ede86204-99a0-40e1-b93c-ec303474603f:
                     required: false
                     sortOrder: 3
+  a820e5c3-2900-4e71-9dab-1daa6e72b273:
+    name: Authors
+    handle: authors
+    type: channel
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'authors/{slug}'
+        template: authors/_entry
+    entryTypes:
+      4b7d7d49-8e55-46bd-9aeb-dbb21f124bb6:
+        name: Authors
+        handle: authors
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: '{firstName} {lastName}'
+        sortOrder: 1
+        fieldLayouts:
+          f9ec9348-63f9-4b8b-83c2-a807c5fa964e:
+            tabs:
+              -
+                name: Introduction
+                sortOrder: 1
+                fields:
+                  726e4aac-9f65-4618-b0c1-4da0e43672ee:
+                    required: false
+                    sortOrder: 1
+                  cf24e239-4e4a-46f2-8aa9-5f86bcefaa56:
+                    required: false
+                    sortOrder: 2
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: false
+                    sortOrder: 3
+                  2d8ecd0c-5f0b-4fa5-903a-a8e49166151d:
+                    required: false
+                    sortOrder: 4
+              -
+                name: Bio
+                sortOrder: 2
+                fields:
+                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+                    required: false
+                    sortOrder: 1
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
@@ -502,13 +852,13 @@ users:
   photoSubpath: ''
 volumes:
   00cd5776-45fa-4edf-9645-ee2a9cd92708:
-    name: 'Podcast Url'
-    handle: podcastUrl
+    name: Audio
+    handle: audio
     type: craft\awss3\Volume
     hasUrls: false
     url: 'https://s3.us-east-2.amazonaws.com/1517-podcast-files/'
     settings:
-      subfolder: ''
+      subfolder: audio
       keyId: AKIAILLCGN7EWG5RPJUA
       secret: 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
       bucketSelectionMode: choose
@@ -521,3 +871,33 @@ volumes:
       cfPrefix: ''
       autoFocalPoint: ''
     sortOrder: '1'
+  c160af80-d4b3-4032-99f1-f91b25f713d3:
+    name: Images
+    handle: images
+    type: craft\awss3\Volume
+    hasUrls: true
+    url: 'https://s3.us-west-2.amazonaws.com/1517-assets-public/'
+    settings:
+      subfolder: images
+      keyId: AKIAILLCGN7EWG5RPJUA
+      secret: 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
+      bucketSelectionMode: choose
+      bucket: 1517-assets-public
+      region: us-west-2
+      expires: ''
+      makeUploadsPublic: '1'
+      storageClass: ''
+      cfDistributionId: ''
+      cfPrefix: ''
+      autoFocalPoint: ''
+    sortOrder: '2'
+    fieldLayouts:
+      1763c8f0-fdb7-4f39-8dcc-d3e339d61fbc:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              4488380c-137d-4283-a4b9-63f4f2596303:
+                required: false
+                sortOrder: 1

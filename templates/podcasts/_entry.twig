@@ -1,18 +1,90 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %}
 
 {% block content %}
+
+    <section class="space-menu | space-b">
+
+        {# Podcast Player Full #}
+        {% set rel = entry.podcastEmbed.one() %}
+        {% if rel %}
+            <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+        {% endif %}
+
+    </section>
+
+    {# Article + Aside  #}
+    <div class="entry-detail-layout | container | space-b | flex-grid">
+
+        {# Content #}
+        <article class="entry-main | gutter-xl">
+        
+            {# Header #}
+            <header class="entry__header">
+                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            </header>
+
+            {# Blocks #}
+            <div class="entry__blocks">
+                {# Entry Content #}
+                <div class="paragraphs -md -loose | article-content">
+                    {{ entry.fullDescription }}
+                </div>
+            </div>
+        </article>
+        
+        {# Aside #}
+        <aside class="entry-aside">
+            <ul class="meta-list">
+                <li>
+                    <time class="meta-label | text-slate-light" datetime="{{ entry.postDate | date( 'm-d-y') }}">{{ entry.postDate | date( 'M d, Y') }}</time>
+                </li>
+                <li>
+                    {{ global.relatedTopics(entry.topics.all(), '') }}
+                </li>
+                <li>
+                    {% include "_components/list-social" with { content: '', classes: '-inline', share: true } %}
+                </li>
+                <li>
+                    {% for category in entry.podcastShow.level(1).all() %}
+                        <a href="{{ category.url }}" class="link -meta">Browse all Episodes</a>
+                    {% endfor %}
+                </li>
+            </ul>
+        </aside>
+
+
+    </div>
+
+    {# Text Billboard - placeholder content#}
+    {% set content = { 
+        header: 'Subscribe to You Are Forgiven',
+        detail: '<p>Subscribe (it’s free!) in your favorite podcast app.</p>',
+        buttons: 'btn -outline -reverse', 
+        action: 'Apple Podcasts',
+        image: '/assets/placeholder/placeholder_05.png'
+    }%}
+    {# Text Billboard - basic #}
+    {% include '_components/static/billboard--subscribe' with { classes: '-bronze-light', content: content } %}
+
+
     
     {# Margin just for testing #}
-    <h1 class="mt-24">
+    {# <h1 class="mt-24 ">
         {{ entry.title }}
     </h1>
 
-    {# {{ entry.podcastEmbed }} #}
-
-    {% set rel = entry.podcastEmbed.one() %}
-    {% if rel %}
-        <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+    {% if entry.topics|length %}
+        <ul>
+            {% for category in entry.topics.all() %}
+                <li>
+                        {{ category.title }}
+                        {{ category.url }}
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
+    
 
     <p>
         {{ entry.description }}
@@ -64,6 +136,7 @@
                 </li>
             {% endfor %}
         </ul>
-    {% endif %}
+    {% endif %} #}
+
 
 {% endblock %}

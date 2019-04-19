@@ -2,6 +2,7 @@
 window.Vue = require('vue')
 
 // Imports
+import lazysizes from "lazysizes";
 import site_menu from "./components/SiteMenu";
 import search_menu from './components/SearchMenu'
 import select_box from "./components/SelectBox";
@@ -11,6 +12,7 @@ import podcast_player_compact from "./components/PodcastPlayerCompact";
 import podcast_player_full from "./components/PodcastPlayerFull";
 import seconds_to_time_filter from "./filters/SecondsToTime";
 import print from "./components/Print";
+import share from "./components/Share";
 import dropcap from "./components/DropCap";
 
 // Vue App
@@ -25,7 +27,8 @@ const app = new Vue({
         video_content_card,
         podcast_player_compact,
         podcast_player_full,
-        print
+        print,
+        share
     }
 });
 

@@ -1,30 +1,77 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %}
 
-{% block content %}
-    <h1>
-        {{ category.title }}
-    </h1>
-    <h4>
-        {% if category.level > 1 %}
-            (series of <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
-        {% endif %}
-    </h4>
-    
+{% set section = craft.entries.section('podcasts') %}
+{% set entries = section.relatedTo(category) %}
+{% set count = entries.count %} 
+{% set topics = craft.categories.group('topics') %}
+{% set relatedTopics = craft.categories.group('topics').relatedTo(entries).all() %}
+{% set relatedSeries = craft.categories.group('podcastShows').level(2).relatedTo(entries) %}
+{% set hasSeries = false %}
+{% for category in relatedSeries %}
+    {% set hasSeries = true %}
+{% endfor %}
 
-    <h2>Episodes</h2>
-        
-    {# Fetch all of the entries related to this category #}
-    {% set section = craft.entries.section('podcasts') %}
-    {% set entries = section.relatedTo(category) %}
+{% block content %} 
 
-    <ul>
+    <section class="space-menu ">
+        {# Page Header #}
+        {# Temp content for Header #}
+        {% set content = { 
+                title: category.title, 
+                category: 'Podcast', 
+                detail: category.shortDescription,
+                image: category.cardImagePodcast.one().optimize
+            }
+        %} 
+        {% include "_components/page-header--action" with { content: content } %}
+
+    </section>
+
+
+    <div id="filters" class="container">
+        {# Filters #} 
+        {% include "_components/filters-page--podcasts" with {topics: relatedTopics} %}
+    </div>
+
+
+    {# Topics List #}
+    <div id="content" class="container--sm gutter-md | space-b">
+
+        {# Content Card - Podcast #} 
         {% for entry in entries.all() %}
-            <li>
-                <a href="{{ entry.url }}">
-                    {{ entry.title }}
-                </a>
-            </li>
+            {% include '_components/content-card--podcast' with { content: entry, 'classes': '' } %}
         {% endfor %}
-    </ul>
+        
+    </div>
+
+
+{# <h1>
+    {{ category.title }}
+</h1>
+<h4>
+    {% if category.level > 1 %}
+        (series of <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
+    {% endif %}
+</h4>
+
+
+<h2>Episodes</h2>
+    
+<!-- Fetch all of the entries related to this category -->
+{% set section = craft.entries.section('podcasts') %}
+{% set entries = section.relatedTo(category) %}
+
+<ul>
+    {% for entry in entries.all() %}
+        <li>
+            <a href="{{ entry.url }}">
+                {{ entry.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul> #}
+
+
 
 {% endblock %}
