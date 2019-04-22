@@ -23,7 +23,8 @@
                     {{ content.detail }}
                 </p>
                 {% if content.action is defined %}
-                    <a href="#" class="link | meta-label | text-red hover:text-bronze | ml-2">Keep Reading</a>
+                    {# <a href="" class="">Keep Reading</a> #}
+                    {{ global.link( content.action, 'link | meta-label | text-red hover:text-bronze | ml-2' ) }}
                 {% endif %}
             </div>
             {% if content.image is defined %}

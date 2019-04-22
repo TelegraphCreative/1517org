@@ -1,3 +1,4 @@
+{# Content Card --podcast (real data) #}
 {% import '_macros/global' as global %}
 
 {# Check for imported properties #}
@@ -12,13 +13,8 @@
     <div class="content-card__container | flex-grid md:flex-row-reverse">
         
         {# Media #}
-        {% set image = content.cardImagePodcast.one().optimize %}
-        {% set cover = image.colorPalette[0] %}
-
-        {# {{content.cardImagePodcast.one().optimize.colorPalette[0]}} #}
-        
-        <a href="{{ content.url }}" class="content-card__media -cover | no-print" >
-            {{ global.image(content.cardImagePodcast.one().optimize, '-is2x1 -fit-cover -hover-scale', '', cover)}}
+        <a href="{{ content.url }}" class="content-card__media  | no-print" >
+            {{ global.coverImage( content.cardImagePodcast.one(), '-fit-cover -hover-scale' )}}
         </a>    
         
         {# Content #}
@@ -35,14 +31,14 @@
             <div class="content-card__meta -primary mb-4 | flex-grid">
                 <ul class="items-bar">
                     <li>
-                        {% for category in entry.podcastShow.level(1).all() %}
-                        <a href="{{ category.url }}" class="align-items-center">
-                            {{ global.utilityIcon('microphone', '-sm') }}
-                            <div class="meta-label | ml-3">
-                                    {{ category.title }}
-                                </div>
-                                <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
-                        </a>
+                        {% for category in entry.podcastShow.level(1).limit(1) %}
+                            <a href="{{ category.url }}" class="align-items-center">
+                                {{ global.utilityIcon('microphone', '-sm') }}
+                                <div class="meta-label | ml-3">
+                                        {{ category.title }}
+                                    </div>
+                                    <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                            </a>
                         {% endfor %}
                     </li>
                 </ul>        

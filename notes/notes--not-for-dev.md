@@ -12,18 +12,18 @@
 # FED for Podcast Section
 
 [ ] Featured Podcast*^^
-[ ] Add action*
+[x] Add action*
 
 -   needs templating
     ^^ fed done, needs tweaked
 
 # Notes
 
-[ ] Billboard themes auto update inner buttons/links
+[x] Billboard themes auto update inner buttons/links (text)
 
 # Structures/Misc
 
-[ ] Podcast Index
+[x] Podcast Index
 [ ] Match Article to Podcast
 
 ---- Archived Colors ----

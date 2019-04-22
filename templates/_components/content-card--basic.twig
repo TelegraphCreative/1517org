@@ -12,8 +12,8 @@
     <div class="content-card__container">
 
         {# Media #}
-        <a href="{{ content.url }}" class="content-card__media -cover-art | mb-6 | no-print">
-            {{ global.image(content.cardImagePodcast.one().optimize, '-is2x1 -fit-cover -hover-scale', '', cover)}}
+        <a href="{{ content.url }}" class="content-card__media | mb-6 | no-print | block">
+            {{ global.coverImage(content.cardImagePodcast.one(), '-is16x9 -fit-cover -hover-scale' )}}
         </a>
         
         {# Content #}

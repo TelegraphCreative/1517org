@@ -40,7 +40,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555943845
+dateModified: 1555948333
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -846,9 +846,9 @@ fields:
           sources: '*'
           customSelectionLabel: ''
           userPath: ''
-      allowCustomText: ''
+      allowCustomText: '1'
       defaultText: ''
-      allowTarget: ''
+      allowTarget: '1'
     contentColumnType: text
     fieldGroup: 18fa1806-d926-4b54-a367-a29143312bbf
   e0cc44bc-a00c-45bf-a7c2-619ef73bb788:
@@ -1881,8 +1881,8 @@ sections:
       04a5a5ea-9f7e-482b-93a7-4da233dfb6b7:
         name: 'Podcasts Index'
         handle: podcastsIndex
-        hasTitleField: false
-        titleLabel: ''
+        hasTitleField: true
+        titleLabel: Title
         titleFormat: '{section.name|raw}'
         sortOrder: 1
         fieldLayouts:

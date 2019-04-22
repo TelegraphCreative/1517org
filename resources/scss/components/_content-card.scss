@@ -5,17 +5,17 @@
         // Media - Cover Art
         // Notes: Floats a cover img in the center - need to pull the dominant color to use as a background fill
         // from Craft image info
-        &__media {
-            &.-cover-art {
-                @apply relative block bg-ivory-lighter;
-                padding-top: 60%;
+        // &__media {
+        //     &.-cover-art {
+        //         @apply relative block bg-ivory-lighter;
+        //         padding-top: 60%;
 
-                figure {
-                    @apply w-2/5 absolute align-yx;
-                    padding-top: 40%;
-                }
-            }
-        }
+        //         figure {
+        //             @apply w-2/5 absolute align-yx;
+        //             padding-top: 40% !important;
+        //         }
+        //     }
+        // }
     }
 
     // Hover

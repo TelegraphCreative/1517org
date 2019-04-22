@@ -18,28 +18,31 @@
                 
                 {% for entry in indexList %}
                     {# Content Card - Stacked #}
-                    {{ entry.title }}
-                    {# {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %} #}
+                    {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %}
                 {% endfor %}
 
             </div>
         </div>
 
     {% endif %}
+    
+    {# Billboard #}
+    {% if entry.showBillboardText %}
+        
+        <div id="advertise" class="">
+            {# Billboard Content #}
+            {% set billboardContent = { 
+                    header: entry.billboardHeader,
+                    description: entry.billboardDescription,
+                    button: entry.billboardButton,
+                    buttonStyle: entry.billboardButtonStyle,
+                    background: entry.billboardBackground,
+                }%}
+            {# Text Billboard - text #}
+            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+        </div>
 
-    <div id="advertise" class="">
-        {# Text Billboard - placeholder content#}
-        {% set content = { 
-                header: 'Advertise with 1517',
-                detail: '<p>At 1517 Podcasts, we partner with brands to craft ad campaigns that resonate with listeners. We are listener centered,
-                and we take pride in collaborating with brands that our audience will care about.</p>',
-                buttons: 'link -underline', 
-                action: 'Get in Touch'
-            }%}
-        {# Text Billboard - basic #}
-        {% include '_components/static/billboard--text' with { classes: '-sage', content: content } %}
-    </div>
-
+    {% endif %}
 
     {# Notes:
     {% set group = craft.categories.group('podcastShows').level(1) %}

@@ -1,0 +1,60 @@
+{% import '_macros/global' as global %}
+
+{# Options/Content 
+
+    - header
+    - description
+    - button
+    - buttonStyle
+    - background
+    - image (optional)
+
+    - sage
+    - slate
+    - bronze-light
+    - red
+    - center
+#}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+{% set classes = classes %}
+{% else %}
+{% set classes = '' %}
+{% endif %}
+{# {{ content.background }} #}
+<div class="billboard -text | -bronze-light {{classes}} | no-print">
+    <div class="billboard__container container">
+
+        <header class="billboard__content | gutter">
+
+            {# Header #}
+            {% if content.header is defined %}
+                <div class="billboard__header">
+                    <h4 class="billboard-title">{{ content.header | raw }}</h4>
+                </div>
+            {% endif %}
+
+            {# Detail #}
+            {% if content.description is defined %}
+                <div class="billboard__detail | paragraphs -sm">
+                    {{ content.description }}
+                </div>
+            {% endif %}
+
+            {# Action #}
+            {% if content.button is defined %}
+                <div class="billboard__action">
+                    {{ global.link( content.button, content.buttonStyle ) }}
+                </div>
+            {% endif %}
+
+        </header>
+
+        {% if content.image is defined %}
+            <div class="billboard__media">
+                {{ global.image( '', '-is1x1 -fit-cover -hover-scale', content.image )}}
+            </div>
+        {% endif %}
+    </div>
+</div>
