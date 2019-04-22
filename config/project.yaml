@@ -29,6 +29,25 @@ categoryGroups:
               54e37d81-5d17-492e-9b84-1797817a292a:
                 required: false
                 sortOrder: 4
+          -
+            name: 'Billboard (Subscribe)'
+            sortOrder: 2
+            fields:
+              ce742a26-47ad-4871-a052-7c25a110bf4a:
+                required: true
+                sortOrder: 1
+              eb22cdff-17f7-419e-b076-b24ce26578d4:
+                required: true
+                sortOrder: 2
+              ddcdbf02-d299-4f04-a9b9-8efc7f0840ed:
+                required: true
+                sortOrder: 3
+              3707ea53-b09b-49bf-81e8-89c02f16bdfe:
+                required: true
+                sortOrder: 4
+              81b1fffd-00d4-4255-9952-644a4702765f:
+                required: true
+                sortOrder: 5
   cc2489d2-901a-44fa-abd8-7dae85d85495:
     name: Topics
     handle: topics
@@ -40,7 +59,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555953508
+dateModified: 1555965079
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -612,11 +631,67 @@ fields:
     searchable: false
     translationMethod: none
     translationKeyFormat: null
-    type: craft\fields\Url
+    type: fruitstudios\linkit\fields\LinkitField
     settings:
-      placeholder: ''
-      maxLength: '255'
-    contentColumnType: string(255)
+      selectLinkText: ''
+      types:
+        fruitstudios\linkit\models\Email:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Phone:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Url:
+          enabled: '1'
+          customLabel: ''
+          customPlaceholder: ''
+          allowAlias: ''
+          allowMailto: ''
+          allowHash: ''
+          allowPaths: '1'
+        fruitstudios\linkit\models\Twitter:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Facebook:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Instagram:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\LinkedIn:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Entry:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+        fruitstudios\linkit\models\Category:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+        fruitstudios\linkit\models\Asset:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+        fruitstudios\linkit\models\User:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+          userPath: ''
+      allowCustomText: '1'
+      defaultText: ''
+      allowTarget: '1'
+    contentColumnType: text
     fieldGroup: 1cd8381d-7d6a-40c0-8ee5-78474d24030d
   81b1fffd-00d4-4255-9952-644a4702765f:
     name: 'Subscribe Image'

@@ -2,12 +2,12 @@
 
 # FED for Podcast Entry
 
-[x] button group ^^
 [ ] big list*
+[x] subscribe billboard\*^^ (needs service icons)
+[x] button group ^^
 [x] entry callout*^^
-[ ] billboard (floated)_
+[x] billboard (floated)_
 [x] related entry cards_^^
-[ ] subscribe billboard\*^^
 
 # FED for Podcast Section
 

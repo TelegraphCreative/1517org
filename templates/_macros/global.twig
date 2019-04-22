@@ -23,7 +23,7 @@
     {% if source %}
         <a href="{{ source.url }}" class="{{ classes }} -has-icon"{% if source.target %} target="{{ source.target }}" {% endif %}>
             <span class="align-items-center">
-                {{ icon.utilityIcon(icon, '-sm') }}
+                {{ icon.utilityIcon(iconName, '-sm') }}
                 <span class="btn__text">
                     {{ source.text }}
                 </span>
@@ -155,7 +155,7 @@
 
 
 {# Device Mockups #}
-{% macro devices(device, styles) %}
+{% macro devices(device, image) %}
     {% switch device %}
 
         {% case "iphone" %}
@@ -175,7 +175,7 @@
                     <div class="shadow shadow--bl"></div>
                 </div>
                 <div class="inner-shadow"></div>
-                <div class="screen" style="{{ styles }}">
+                <div class="screen" style="background: url({{ image }});">
                     <!-- Content goes here -->
                 </div>
             </div>

@@ -7,13 +7,13 @@
 
         {# Article Body #}
         {% case "articleBody" %}
-            <div class="article-body narrow-block | paragraphs -md -loose | article-content">
+            <div class="article-body gutter-xl narrow-block | paragraphs -md -loose | article-content">
                 {{ block.article }}
             </div>
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="big-list--asset narrow-block">
+            {# <div class="big-list--asset narrow-block">
                 {% if block.header|length %}
                     {{ block.header }}
                 {% endif %}
@@ -26,10 +26,10 @@
                     {{ item.resource.link(attributes) }}
                 {% endfor %}
             </div>
-        
+         #}
         {# Button Group #}
         {% case "buttonGroup" %}
-            <div class="button-group narrow-block | pt-4 md:pb-18 pb-12">
+            <div class="button-group narrow-block gutter-xl | pt-4 pb-14">
                 {# Header #}
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
@@ -51,7 +51,7 @@
 
         {# Entry Callout #}
         {% case "entryCallout" %}
-            <div class="entry-callout | gutter-xl | space-b">
+            <div class="entry-callout | gutter-xl | space-t space-b--sm">
                 {# Header #}
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
@@ -63,12 +63,10 @@
 
         {# Billboard - floated image #}
         {% case "billboardFloatedImage" %}
-            {{ block.backgroundColor }}
-            {{ global.link(block.button, block.buttonStyle)}}   
-            {{ block.buttonStyle }}
-            {{ block.header }}
-            {{ block.description }}
-            {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
+            <div class="billboard-floated-image | space-t space-b">
+                {# Billboard #}
+                {% include "_components/billboard--floated-img" with { content: block } %}
+            </div>
             
         {% endswitch %}
     {% endfor %}

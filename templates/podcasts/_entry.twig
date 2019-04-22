@@ -48,9 +48,7 @@
                     {% include "_components/list-social" with { content: '', classes: '-inline', share: true } %}
                 </li>
                 <li>
-                    {% for category in entry.podcastShow.level(1).all() %}
-                        <a href="{{ category.url }}" class="link -meta">Browse all Episodes</a>
-                    {% endfor %}
+                    <a href="{{ entry.podcastShow.level(1)[0].url }}" class="link -meta">Browse all Episodes</a>
                 </li>
             </ul>
             
@@ -59,118 +57,44 @@
             
         </aside>
 
-    </div>
 
-    {# Article + Aside (top) #}
-    <div class="entry-detail-layout | container | space-b | flex-grid">
-
-        {# Content #}
-        <article class="entry-main -wide">
-
-            {# Blocks #}
-            <div class="entry__blocks | longform-entry-blocks">
-
-                {# Longform Content #}
-                {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast.offset(1).all() } %}
-
-                {# Citation #}
-                {% if entry.citation is defined %}
-                    <div class="narrow-block article-content entry-footnote">
-                        <small>{{ entry.citation }}</small>
-                    </div>
-                {% endif %}
-                
-            </div>
+        {# Article + Aside (top) #}
+        {% if entry.contentBlocksPodcast|length>1 %}
             
-        </article>
-        
+            {# Content #}
+            <article class="entry-main -wide">
+
+                {# Blocks #}
+                <div class="entry__blocks | longform-entry-blocks">
+
+                    {# Longform Content #}
+                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast.offset(1).all() } %}
+
+                    {# Citation #}
+                    {% if entry.citation is defined %}
+                        <div class="narrow-block gutter-xl">
+                            <div class="article-content entry-footnote">
+                                <small>{{ entry.citation }}</small>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                </div>
+                
+            </article>
+            
+
+        {% endif %}
+    
     </div>
 
     {# Related Content #}
     {% include '_components/related-content-cards' with { section: 'podcasts', 'classes': '' } %}
 
 
-    {# Text Billboard - placeholder content#}
-    {% set content = { 
-        header: 'Subscribe to You Are Forgiven',
-        detail: '<p>Subscribe (it’s free!) in your favorite podcast app.</p>',
-        buttons: 'btn -outline -reverse', 
-        action: 'Apple Podcasts',
-        image: '/assets/placeholder/placeholder_05.png'
-    }%}
-    {# Text Billboard - basic #}
-    {% include '_components/static/billboard--subscribe' with { classes: '-bronze-light', content: content } %}
-
-
-    
-    {# Margin just for testing #}
-    {# <h1 class="mt-24 ">
-        {{ entry.title }}
-    </h1>
-
-    {% if entry.topics|length %}
-        <ul>
-            {% for category in entry.topics.all() %}
-                <li>
-                        {{ category.title }}
-                        {{ category.url }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-    
-
-    <p>
-        {{ entry.description }}
-    </p>
-
-    {% if entry.podcastShow|length %}
-        <h2>Show</h2>
-        <ul>
-            {% for category in entry.podcastShow.level(1).all() %}
-                <li>
-                    <a href="{{ category.url }}">
-                        {{ category.title }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    {% if entry.podcastShow.level(2)|length %}
-        <h2>Series</h2>
-        <ul>
-            {% for category in entry.podcastShow.level(2).all() %}
-                <li>
-                    <a href="{{ category.url }}">
-                        {{ category.title }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-
-
-    <h2>Topics</h2>
-    {% if entry.topics|length %}
-        <ul>
-            {% for category in entry.topics.all() %}
-                <li>
-                    {% if category.level == 2 %}
-                        <ul><li>
-                    {% endif %}
-
-                    <a href="{{ category.url }}">
-                        {{ category.title }}
-                    </a>
-                    {% if category.level == 2 %}
-                        </li></ul>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %} #}
+    {# Subscribe Billboard  #}
+    {% set podcastShow = entry.podcastShow.level(1)[0] %}
+    {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: podcastShow } %}
 
 
 {% endblock %}

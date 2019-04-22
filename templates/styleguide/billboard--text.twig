@@ -18,11 +18,27 @@
         </li>
         <li>Variation Classes:
             <ul>
-                <li>-slate</li>
-                <li>-sage</li>
-                <li>-ivory</li>
-                <li>-red</li>
-                <li>-center</li>
+                <li>Alignment:
+                    <ul>
+                        <li>default (left)</li>
+                        <li>-center</li>
+                    </ul>
+                </li>
+                <li>Backgrounds:
+                    <ul>
+                        <li>-slate</li>
+                        <li>-sage</li>
+                        <li>-ivory</li>
+                        <li>-red</li>
+                    </ul>
+                </li>
+                <li>Buttons:
+                    <ul>
+                        <li>btn</li>
+                        <li>link -underline</li>
+                    </ul>
+                </li>
+                
             </ul>
         </li>
     </ul>
@@ -39,6 +55,20 @@
         background: placeholderSection.billboardBackground,
 }%}
 
+<h3 class="pt-10">Data Model (required):</h3>
+
+{% set code %}{% verbatim %}
+{% set billboardContent = { 
+    header: placeholderSection.billboardHeader,
+    description: placeholderSection.billboardDescription,
+    button: placeholderSection.billboardButton,
+    buttonStyle: placeholderSection.billboardButtonStyle,
+    background: placeholderSection.billboardBackground,
+}%}
+{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+<h3 class="py-10">Includes:</h3>
 {# Text Billboard - text #}
 {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
 
@@ -51,6 +81,13 @@
 {% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-sage', content: billboardContent } %}{% endverbatim %}{% endset %}
 {{ guide.snippet( code, 'css' ) }}
 
+{% set billboardContent = { 
+    header: placeholderSection.billboardHeader,
+    description: placeholderSection.billboardDescription,
+    button: placeholderSection.billboardButton,
+    buttonStyle: 'btn',
+    background: placeholderSection.billboardBackground,
+}%}
 {# Text Billboard - text #}
 {% include '_components/billboard--text' with { classes: '-slate', content: billboardContent } %}
 

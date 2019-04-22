@@ -22,33 +22,36 @@
 {% else %}
 {% set classes = '' %}
 {% endif %}
-{# {{ content.background }} #}
+
 <div class="billboard -text | -bronze-light {{classes}} | no-print">
     <div class="billboard__container container">
 
         <header class="billboard__content | gutter">
 
-            {# Header #}
-            {% if content.header is defined %}
+            <div class="billboard__content-max">
+                {# Header #}
+                {% if content.header is defined %}
                 <div class="billboard__header">
                     <h4 class="billboard-title">{{ content.header | raw }}</h4>
                 </div>
-            {% endif %}
+                {% endif %}
 
-            {# Detail #}
-            {% if content.description is defined %}
-                <div class="billboard__detail | paragraphs -sm">
-                    {{ content.description }}
-                </div>
-            {% endif %}
+                {# Detail #}
+                {% if content.description is defined %}
+                    <div class="billboard__detail | paragraphs -sm">
+                        {{ content.description }}
+                    </div>
+                {% endif %}
 
-            {# Action #}
-            {% if content.button is defined %}
-                <div class="billboard__action">
-                    {{ global.link( content.button, content.buttonStyle ) }}
-                </div>
-            {% endif %}
+                {# Action #}
+                {% if content.button is defined %}
+                    <div class="billboard__action">
+                        {{ global.link( content.button, content.buttonStyle ) }}
+                    </div>
+                {% endif %}
 
+            </div>
+            
         </header>
 
         {% if content.image is defined %}
