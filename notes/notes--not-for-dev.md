@@ -1,3 +1,31 @@
+---- Templating Notes ----
+
+# FED for Podcast Entry
+
+[ ] button group ^^
+[ ] big list*
+[ ] entry callout*^^
+[ ] billboard (floated)_
+[ ] related entry cards_^^
+[ ] subscribe billboard\*^^
+
+# FED for Podcast Section
+
+[ ] Featured Podcast*^^
+[ ] Add action*
+
+-   needs templating
+    ^^ fed done, needs tweaked
+
+# Notes
+
+[ ] Billboard themes auto update inner buttons/links
+
+# Structures/Misc
+
+[ ] Podcast Index
+[ ] Match Article to Podcast
+
 ---- Archived Colors ----
 
 # Grey

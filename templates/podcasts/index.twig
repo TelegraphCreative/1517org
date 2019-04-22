@@ -1,11 +1,47 @@
 {% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+{% set indexList = craft.categories.group('podcastShows').level(1) %}
 
 {% block content %}
-    <h1>
-        Podcasts
-    </h1>
-        
-    {# Fetch all of the entries related to this category #}
+
+    <section class="space-menu">
+        {# Page Header #}
+        {% include "_components/page-header" with { content: entry } %}
+    </section>
+
+    {# Topics List #}
+    {% if indexList.count > 0 %}
+    
+        <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            {# Latest Cards #}
+            <div class="flex-grid">
+                
+                {% for entry in indexList %}
+                    {# Content Card - Stacked #}
+                    {{ entry.title }}
+                    {# {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %} #}
+                {% endfor %}
+
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div id="advertise" class="">
+        {# Text Billboard - placeholder content#}
+        {% set content = { 
+                header: 'Advertise with 1517',
+                detail: '<p>At 1517 Podcasts, we partner with brands to craft ad campaigns that resonate with listeners. We are listener centered,
+                and we take pride in collaborating with brands that our audience will care about.</p>',
+                buttons: 'link -underline', 
+                action: 'Get in Touch'
+            }%}
+        {# Text Billboard - basic #}
+        {% include '_components/static/billboard--text' with { classes: '-sage', content: content } %}
+    </div>
+
+
+    {# Notes:
     {% set group = craft.categories.group('podcastShows').level(1) %}
 
     <ul>
@@ -17,6 +53,6 @@
 
             </li>
         {% endfor %}
-    </ul>
+    </ul> #}
 
-{% endblock %}
+    {% endblock %}
