@@ -3,14 +3,89 @@
 .billboard {
     // Themes
     // Bronze
-    &.-bronze-light {
-        @apply bg-bronze-light text-white;
-    }
+    &.-bronze-light,
     &.-bronze {
-        @apply bg-bronze text-white;
+        @apply bg-bronze-light text-white;
+        // Button (primary)
+        .btn {
+            @apply bg-ivory-light border-ivory-light text-bronze-dark;
+
+            &:hover {
+                @apply border-slate bg-slate text-ivory-light;
+            }
+        }
+
+        // Link (-underline)
+        // Link (-underline)
+        .link {
+            @apply text-ivory-light;
+            &:hover {
+                @apply border-bronze-dark;
+            }
+        }
+        
     }
+
     // Sage
     &.-sage {
-        @apply bg-sage-dark text-white;
+        @apply bg-sage-dark text-ivory-light;
+
+        // Button (primary)
+        .btn {
+            @apply bg-ivory-light border-ivory-light text-hunter;
+
+            &:hover {
+                @apply border-hunter bg-hunter text-ivory-light;
+            }
+        }
+
+    }
+
+    // Sage
+    &.-slate {
+        @apply bg-slate text-white;
+
+        // Button (primary)
+        .btn {
+            @apply bg-ivory-light border-ivory-light text-hunter;
+
+            &:hover {
+                @apply border-bronze-light bg-bronze-light text-white;
+            }
+        }
+
+        // Link (-underline)
+        .link {
+            @apply text-ivory-light;
+        }
+
+        
+    }
+
+    // Red
+    &.-red {
+        @apply bg-red text-white;
+
+        // Button (primary)
+        .btn {
+            @apply bg-white border-white text-red;
+
+            &:hover {
+                @apply border-slate-dark bg-slate-dark text-white;
+            }
+        }
+        
+    }
+}
+
+// All
+.billboard {
+    &.-sage,
+    &.-slate,
+    &.-red {
+        // Link (-underline)
+        .link {
+            @apply text-ivory-light;
+        }
     }
 }

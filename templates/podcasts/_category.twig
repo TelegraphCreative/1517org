@@ -15,18 +15,56 @@
 {% block content %} 
 
     <section class="space-menu ">
-        {# Page Header #}
-        {# Temp content for Header #}
+        {# Page Header Content #}
         {% set content = { 
                 title: category.title, 
                 category: 'Podcast', 
                 detail: category.shortDescription,
-                image: category.cardImagePodcast.one().optimize
+                image: category.cardImagePodcast.one(),
+                action: category.headerAction
             }
         %} 
+        {# Page Header - Action #}
         {% include "_components/page-header--action" with { content: content } %}
 
     </section>
+
+    {# Featured Card #}
+    {% if category.featuredPodcast|length %}
+        {% set featuredSingle = '' %}
+        {% set background = '' %}
+        {% for method in category.featuredPodcast %}
+            {# Data based on Method #}
+            {% switch method.type %}
+                
+                {# Pull Latest #}
+                {% case "pullLatest" %}
+                    {% set sources = [] %}
+
+                    {% for source in method.latestFrom %}
+                        {% set sources = sources|merge([source]) %}
+                    {% endfor %}
+                    {% set featuredAll = section.relatedTo(sources) %}
+                    {% set featuredSingle = featuredAll[0] %}
+                
+                {# Pull Featured #}
+                {% case "pullFeatured" %}
+
+                    {% set featuredSingle = method.featuredPodcast.one() %}
+
+            {% endswitch %}
+
+            {# Set Background #}
+            {% set background = method.background %}
+
+        {% endfor %}
+        <div id="featured" class="container | space-b">
+
+            {# Content Card - Hero #} 
+            {% include '_components/content-hero--podcast' with { content: featuredSingle, 'classes': background } %}
+
+        </div>
+    {% endif %}
 
 
     <div id="filters" class="container">

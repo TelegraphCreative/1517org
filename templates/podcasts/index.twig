@@ -1,11 +1,50 @@
 {% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+{% set indexList = craft.categories.group('podcastShows').level(1) %}
 
 {% block content %}
-    <h1>
-        Podcasts
-    </h1>
+
+    <section class="space-menu">
+        {# Page Header #}
+        {% include "_components/page-header" with { content: entry } %}
+    </section>
+
+    {# Topics List #}
+    {% if indexList.count > 0 %}
+    
+        <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            {# Latest Cards #}
+            <div class="flex-grid">
+                
+                {% for entry in indexList %}
+                    {# Content Card - Stacked #}
+                    {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %}
+                {% endfor %}
+
+            </div>
+        </div>
+
+    {% endif %}
+    
+    {# Billboard #}
+    {% if entry.showBillboardText %}
         
-    {# Fetch all of the entries related to this category #}
+        <div id="advertise" class="">
+            {# Billboard Content #}
+            {% set billboardContent = { 
+                    header: entry.billboardHeader,
+                    description: entry.billboardDescription,
+                    button: entry.billboardButton,
+                    buttonStyle: entry.billboardButtonStyle,
+                    background: entry.billboardBackground,
+                }%}
+            {# Text Billboard - text #}
+            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+        </div>
+
+    {% endif %}
+
+    {# Notes:
     {% set group = craft.categories.group('podcastShows').level(1) %}
 
     <ul>
@@ -17,6 +56,6 @@
 
             </li>
         {% endfor %}
-    </ul>
+    </ul> #}
 
-{% endblock %}
+    {% endblock %}

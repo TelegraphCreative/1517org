@@ -12,23 +12,22 @@
     <div class="content-card__container">
 
         {# Media #}
-        <a href="#" class="content-card__media -cover-art | mb-6 | no-print">
-            {{ global.coverImage('', '-is1x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_05.png')}}
+        <a href="{{ content.url }}" class="content-card__media | mb-6 | no-print | block">
+            {{ global.coverImage(content.cardImagePodcast.one(), '-is16x9 -fit-cover -hover-scale' )}}
         </a>
         
         {# Content #}
         <div class="content-card__content">  
            
-            <a href="#">
+            <a href="{{ content.url }}">
                 {# Header #}
                 <div class="content-card__header">
-                    <h2 class="card-title | header-md font-serif">This it the h2 title</h1>
+                    <h2 class="card-title | header-md font-serif">{{ content.title }}</h1>
                 </div>
                 
                 {# Detail #}
                 <div class="content-card__detail | paragraphs -xs | pt-1">
-                    <p>Most scholars consider Melanchthon to be a Reformation enigma. He, the developer of the Reformation doctrine of forensic
-                    justification.</p>
+                    {{ content.shortDescription | chop(limit=40, unit='w', append= '…') }}
                 </div>
             </a>
 

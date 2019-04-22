@@ -1,0 +1,39 @@
+.billboard.-floated-img {
+
+    @apply py-14;
+
+    // Layout
+    .billboard {
+        &__content {
+            @apply text-center;
+        }
+        &__floated {
+            @apply mx-auto mb-10;
+            max-width: 10rem;
+        }
+    }
+    
+    @screen md {
+        @apply pt-16;
+
+        .billboard {
+            
+            &__container {
+                @apply flex w-4/5;
+            }
+
+            &__media {
+                @apply w-1/3;
+            }
+            
+            &__floated {
+                @apply  mb-0;
+                max-width: 14rem;
+            }
+
+            &__content {
+                @apply w-2/3 flex-col flex justify-center text-left;
+            }
+        }
+    }
+}

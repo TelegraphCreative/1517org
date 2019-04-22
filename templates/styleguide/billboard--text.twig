@@ -1,0 +1,110 @@
+{% import '_macros/styleguide' as guide %}
+{% import '_macros/global' as global %}
+{% extends "_layouts/_styleguide" %}
+{% block content %}
+
+
+<h2 class="text-3xl space-b">Billboard - text</h2>
+<div class="notes leading-normal border-b space-b">
+    <h3>Notes:</h3>
+    <ul>
+        <li>Content:
+            <ul>
+                <li>Header</li>
+                <li>Description</li>
+                <li>Action</li>
+                <li>Background Color</li>
+            </ul>
+        </li>
+        <li>Variation Classes:
+            <ul>
+                <li>Alignment:
+                    <ul>
+                        <li>default (left)</li>
+                        <li>-center</li>
+                    </ul>
+                </li>
+                <li>Backgrounds:
+                    <ul>
+                        <li>-slate</li>
+                        <li>-sage</li>
+                        <li>-ivory</li>
+                        <li>-red</li>
+                    </ul>
+                </li>
+                <li>Buttons:
+                    <ul>
+                        <li>btn</li>
+                        <li>link -underline</li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+{# Billboard Content #}
+{% set placeholderSection = craft.entries.section('podcastsIndex')[0] %}
+{% set billboardContent = { 
+        header: placeholderSection.billboardHeader,
+        description: placeholderSection.billboardDescription,
+        button: placeholderSection.billboardButton,
+        buttonStyle: placeholderSection.billboardButtonStyle,
+        background: placeholderSection.billboardBackground,
+}%}
+
+<h3 class="pt-10">Data Model (required):</h3>
+
+{% set code %}{% verbatim %}
+{% set billboardContent = { 
+    header: placeholderSection.billboardHeader,
+    description: placeholderSection.billboardDescription,
+    button: placeholderSection.billboardButton,
+    buttonStyle: placeholderSection.billboardButtonStyle,
+    background: placeholderSection.billboardBackground,
+}%}
+{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+<h3 class="py-10">Includes:</h3>
+{# Text Billboard - text #}
+{% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+
+{% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+{# Text Billboard - text #}
+{% include '_components/billboard--text' with { classes: '-sage', content: billboardContent } %}
+
+{% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-sage', content: billboardContent } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+{% set billboardContent = { 
+    header: placeholderSection.billboardHeader,
+    description: placeholderSection.billboardDescription,
+    button: placeholderSection.billboardButton,
+    buttonStyle: 'btn',
+    background: placeholderSection.billboardBackground,
+}%}
+{# Text Billboard - text #}
+{% include '_components/billboard--text' with { classes: '-slate', content: billboardContent } %}
+
+{% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-slate', content: billboardContent } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+{# Text Billboard - text #}
+{% include '_components/billboard--text' with { classes: '-red', content: billboardContent } %}
+
+{% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-red', content: billboardContent } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+{# Text Billboard - text #}
+{% include '_components/billboard--text' with { classes: '-center -sage', content: billboardContent } %}
+
+{% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-center -sage', content: billboardContent } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+
+{% endblock %}

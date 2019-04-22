@@ -27,7 +27,7 @@
 
         // Content
         .billboard {
-            &__content {
+            &__context-max {
                 @apply max-w-md;
             }
             &-title {
@@ -89,11 +89,10 @@
     // Screen
     // MD
     @screen md {
-        // @apply py-20 px-0;
 
         // Content
         .billboard {
-            &__content {
+            &__context-max {
                 @apply max-w-lg;
             }
             &-title {

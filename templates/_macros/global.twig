@@ -23,7 +23,7 @@
     {% if source %}
         <a href="{{ source.url }}" class="{{ classes }} -has-icon"{% if source.target %} target="{{ source.target }}" {% endif %}>
             <span class="align-items-center">
-                {{ icon.utilityIcon(icon, '-sm') }}
+                {{ icon.utilityIcon(iconName, '-sm') }}
                 <span class="btn__text">
                     {{ source.text }}
                 </span>
@@ -41,46 +41,79 @@
     {% endif %}
 {% endmacro %}
 
-{# Image #}
-{% macro image(source, classes, placeholder, cover) %}
+{# Image (autosizes) #}
+{% macro image(source, classes, placeholder) %}
     
-    {% if classes %}
+    {% if classes is defined %}
         {% set classes = classes %}
     {% else %}
         {% set classes = '' %}
     {% endif %}
     
-    {% if cover %}
-        {% set cover = cover %}
-    {% else %}
-        {% set cover = false %}
-    {% endif %}
-
-    
     {# Source #}
     {% if source|length %}
-        {% if cover %}
-            {# Cover Image #}
-            <figure class="image -cover | {{ classes }}" style="background: {{cover}}; padding-top: calc({{source.height}} / ({{source.width}} * 100%);">
-                <img data-src="{{ source.optimize.src() }}"
-                    data-srcset="{{ source.optimize.srcset() }}"
-                    sizes="100vw"
-                    class="lazyload" />
-            </figure>
-            {% else %}
-            <figure class="image {{ classes }}" style="padding-top: calc({{source.height}} / {{source.width}} * 100%); background: {{ source.optimize.colorPalette[3] }}">
-                <img data-src="{{ source.optimize.src() }}"
-                    data-srcset="{{ source.optimize.srcset() }}"
-                    sizes="100vw"
-                    class="lazyload" />
-            </figure>
-        {% endif %}
+        <figure class="image | {{ classes }}" style="padding-top: calc({{source.height}} / {{source.width}} * 100%); background: {{ source.optimize.colorPalette[0] }}">
+            <img data-src="{{ source.optimize.src() }}"
+                data-srcset="{{ source.optimize.srcset() }}"
+                sizes="100vw"
+                class="lazyload blur-up" />
+        </figure>
+
+    {% else %}
+
+        {# Static Placeholder #}
+        <figure class="image {{ classes }}">
+            <img src="{{ placeholder }}">
+        </figure>
+
+    {% endif %}
+
+{% endmacro %}
+
+{# Card Image #}
+{% macro cardImage(source, classes, placeholder) %}
+    
+    {% if classes is defined %}
+        {% set classes = classes %}
+    {% else %}
+        {% set classes = '' %}
+    {% endif %}
+
+    {# Source #}
+    {% if source|length %}
+        <figure class="image | {{ classes }}" style="background: {{ source.optimize.colorPalette[0] }}">
+            <img data-src="{{ source.optimize.src() }}"
+                data-srcset="{{ source.optimize.srcset() }}"
+                sizes="100vw"
+                class="lazyload" />
+        </figure>
     {% else %}
         {# Static Placeholder #}
         <figure class="image {{ classes }}">
             <img src="{{ placeholder }}">
         </figure>
     {% endif %}
+
+{% endmacro %}
+
+{% macro coverImage(source, classes) %}
+    
+    {% if classes is defined %}
+        {% set classes = classes %}
+    {% else %}
+        {% set classes = '' %}
+    {% endif %}
+    
+    {# Source #}
+    {% if source|length %}
+        <figure class="image -cover | {{ classes }}" style="background: {{ source.optimize.colorPalette[0] }}">
+            <img data-src="{{ source.optimize.src() }}"
+                data-srcset="{{ source.optimize.srcset() }}"
+                sizes="100vw"
+                class="lazyload" />
+        </figure>
+    {% endif %}
+
 {% endmacro %}
 
 
@@ -122,7 +155,7 @@
 
 
 {# Device Mockups #}
-{% macro devices(device, styles) %}
+{% macro devices(device, image) %}
     {% switch device %}
 
         {% case "iphone" %}
@@ -142,7 +175,7 @@
                     <div class="shadow shadow--bl"></div>
                 </div>
                 <div class="inner-shadow"></div>
-                <div class="screen" style="{{ styles }}">
+                <div class="screen" style="background: url({{ image }});">
                     <!-- Content goes here -->
                 </div>
             </div>
