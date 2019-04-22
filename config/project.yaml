@@ -40,7 +40,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555948333
+dateModified: 1555952918
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -1529,8 +1529,32 @@ matrixBlockTypes:
           targetSiteId: null
           viewMode: null
           limit: null
-          selectionLabel: ''
+          selectionLabel: 'Podcast Show'
           localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      968c030e-8580-4e56-bdaf-c03637891218:
+        name: Background
+        handle: background
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: 'Dark '
+              value: '-dark'
+              default: ''
+            -
+              label: Red
+              value: '-red'
+              default: ''
+            -
+              label: Ivory
+              value: '-ivory'
+              default: ''
         contentColumnType: string
         fieldGroup: null
     fieldLayouts:
@@ -1543,6 +1567,9 @@ matrixBlockTypes:
               cdd293e7-3193-4290-8b61-2639bed42781:
                 required: false
                 sortOrder: 1
+              968c030e-8580-4e56-bdaf-c03637891218:
+                required: false
+                sortOrder: 2
   6525cbb1-f0cf-4d9e-9763-0b4e2c21d0dd:
     field: 54e37d81-5d17-492e-9b84-1797817a292a
     name: 'Pull Featured'
@@ -1568,6 +1595,30 @@ matrixBlockTypes:
           localizeRelations: false
         contentColumnType: string
         fieldGroup: null
+      3537ffb6-9075-4e8b-8f35-b82ec025d094:
+        name: Background
+        handle: background
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Dark
+              value: '-dark'
+              default: ''
+            -
+              label: Red
+              value: '-red'
+              default: ''
+            -
+              label: Ivory
+              value: '-ivory'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
     fieldLayouts:
       df34c7f8-01a1-43a6-913d-1f26be91fa68:
         tabs:
@@ -1578,6 +1629,9 @@ matrixBlockTypes:
               1781bd82-55b1-47cc-8d1b-63a53936f85b:
                 required: false
                 sortOrder: 1
+              3537ffb6-9075-4e8b-8f35-b82ec025d094:
+                required: false
+                sortOrder: 2
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
