@@ -152,9 +152,12 @@
     </div>
 
     {# Related Content #}
-    <div class="container--sm gutter-md | md:flex-grid | space-b--sm">
+    <div class="container--sm gutter-md | space-b--sm">
+        {# Header #}
+        <h3 class="header-lg text-bronze-lighter font-serif pt-6">Discover Related Content</h3>
+        
         {# Latest Cards #}
-        <div class="flex-grid">
+        <div class="md:flex-grid">
             {# Content Card - Stacked #} 
             {% include '_components/static/content-card--basic' with { 'classes': '' } %} 
             {% include '_components/static/content-card--basic' with { 'classes': '' } %} 

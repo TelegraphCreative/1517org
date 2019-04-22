@@ -1,42 +1,77 @@
 {% import '_macros/global' as global %}
-{% if blocks is defined %}
-    
-<div class="longform-entry-blocks">
 
-    {% for block in blocks.all() %}
+{% if blocks|length %}
+
+    {% for block in blocks %}
         {% switch block.type %}
 
         {# Article Body #}
         {% case "articleBody" %}
-            <div class="article-body | paragraphs -md -loose | article-content">
+            <div class="article-body narrow-block | paragraphs -md -loose | article-content">
                 {{ block.article }}
             </div>
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="big-list--asset">
-                <h2>Big List - Assets</h2>
-                {{ block.header }}
-                {{ global.link(block.resource, 'link -underline')}}
+            <div class="big-list--asset narrow-block">
+                {% if block.header|length %}
+                    {{ block.header }}
+                {% endif %}
+                
+                {% for item in block.list %}
+                    {{ item.header }}
+                    {% set attributes = {
+                        class: 'link -underline'
+                    } %}
+                    {{ item.resource.link(attributes) }}
+                {% endfor %}
             </div>
         
         {# Button Group #}
         {% case "buttonGroup" %}
-            <h2>Button Group</h2>
-            <div class="button-group">
-                {% for item in block.button.all() %}
-                    {{ global.link(item.button, item.buttonStyle)}}                
-                {% endfor %}
+            <div class="button-group narrow-block | pt-4 md:pb-18 pb-12">
+                {# Header #}
+                {% if block.header|length %}
+                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
+                {% endif %}
+                
+                {# Actions #}
+                <div class="button-group__actions">
+                    {% for item in block.button.all() %}
+                        {{ global.link(item.button, item.buttonStyle)}}                
+                    {% endfor %}
+                </div>
             </div>
         
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}
             <div class="hero-image">
-                {{ global.image( block.image[0], '-fit-cover bg-ivory-lightest' )}}
+                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
             </div>
+
+        {# Entry Callout #}
+        {% case "entryCallout" %}
+            <div class="entry-callout | gutter-xl | space-b">
+                {# Header #}
+                {% if block.header|length %}
+                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
+                {% endif %}
+
+                {# Content Card - Podcast #} 
+                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
+            </div>
+
+        {# Billboard - floated image #}
+        {% case "billboardFloatedImage" %}
+            {{ block.backgroundColor }}
+            {{ global.link(block.button, block.buttonStyle)}}   
+            {{ block.buttonStyle }}
+            {{ block.header }}
+            {{ block.description }}
+            {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
             
         {% endswitch %}
     {% endfor %}
     
-</div>
+
 {% endif %}

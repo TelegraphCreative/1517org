@@ -1,0 +1,32 @@
+{% if entry.showRelatedEntries %}
+
+    {% set entryTopics = entry.topics %}
+    {% set entryTopicsArray = [] %}
+    {% for topic in entryTopics %}
+        {% set entryTopicsArray = entryTopicsArray|merge([topic]) %}
+    {% endfor %}
+
+    {% set relatedEntries =  craft.entries({
+        section: section,
+        id: 'not ' ~ entry.id,
+        relatedTo: entryTopicsArray
+    }) %}
+
+
+    {% if relatedEntries|length > 0 %} 
+        <div class="container--sm gutter-md | space-b--sm">
+
+            {# Header #}
+            <h3 class="header-lg text-bronze-lighter font-serif pb-8">Discover Related Content</h3>
+            
+            {# Latest Cards #}
+            <div class="flex-grid">
+                {# Content Card - Stacked #} 
+                {% for entry in relatedEntries.limit(2) %}
+                    {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %}
+                {% endfor %}
+            
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

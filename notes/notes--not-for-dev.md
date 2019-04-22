@@ -2,16 +2,16 @@
 
 # FED for Podcast Entry
 
-[ ] button group ^^
+[x] button group ^^
 [ ] big list*
-[ ] entry callout*^^
+[x] entry callout*^^
 [ ] billboard (floated)_
 [ ] related entry cards_^^
 [ ] subscribe billboard\*^^
 
 # FED for Podcast Section
 
-[ ] Featured Podcast*^^
+[x] Featured Podcast*^^
 [x] Add action*
 
 -   needs templating

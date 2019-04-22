@@ -40,7 +40,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555952918
+dateModified: 1555953508
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -1033,7 +1033,7 @@ matrixBlockTypes:
     fields:
       6d1232b7-cf2b-4a22-a2ed-8eed424d5d0a:
         name: 'Header (optional)'
-        handle: headerOptional
+        handle: header
         instructions: ''
         searchable: true
         translationMethod: none

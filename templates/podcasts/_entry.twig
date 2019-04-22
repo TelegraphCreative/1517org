@@ -13,7 +13,7 @@
 
     </section>
 
-    {# Article + Aside  #}
+    {# Article + Aside (top) #}
     <div class="entry-detail-layout | container | space-b | flex-grid">
 
         {# Content #}
@@ -25,18 +25,11 @@
             </header>
 
             {# Blocks #}
-            <div class="entry__blocks">
+            <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksPodcast.one() } %}
 
-                {# Citation #}
-                {% if entry.citation is defined %}
-                    <div class="article-content entry-footnote">
-                        <small>{{ entry.citation }}</small>
-                    </div>
-                {% endif %}
-                
             </div>
             
         </article>
@@ -66,8 +59,35 @@
             
         </aside>
 
-
     </div>
+
+    {# Article + Aside (top) #}
+    <div class="entry-detail-layout | container | space-b | flex-grid">
+
+        {# Content #}
+        <article class="entry-main -wide">
+
+            {# Blocks #}
+            <div class="entry__blocks | longform-entry-blocks">
+
+                {# Longform Content #}
+                {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast.offset(1).all() } %}
+
+                {# Citation #}
+                {% if entry.citation is defined %}
+                    <div class="narrow-block article-content entry-footnote">
+                        <small>{{ entry.citation }}</small>
+                    </div>
+                {% endif %}
+                
+            </div>
+            
+        </article>
+        
+    </div>
+
+    {# Related Content #}
+    {% include '_components/related-content-cards' with { section: 'podcasts', 'classes': '' } %}
 
 
     {# Text Billboard - placeholder content#}

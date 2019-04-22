@@ -34,6 +34,21 @@
         &-main {
             @apply w-3/4 mb-0;
             order: 2;
+
+            &.-wide {
+                @apply w-full;
+                order: 3;
+            }
+        }
+
+        // Entry Block
+        &__blocks {
+            @apply flex flex-col;
+            
+            // Narrow
+            .narrow-block {
+                @apply w-3/4 self-end;
+            }
         }
 
         // Header
