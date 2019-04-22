@@ -6,7 +6,7 @@
 [ ] big list*
 [x] entry callout*^^
 [ ] billboard (floated)_
-[ ] related entry cards_^^
+[x] related entry cards_^^
 [ ] subscribe billboard\*^^
 
 # FED for Podcast Section
