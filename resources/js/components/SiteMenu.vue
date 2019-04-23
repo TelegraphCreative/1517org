@@ -32,7 +32,7 @@
             </li>
 
             <li @click="toggleMenu" class="site-menu__search" :class="{'-active' : isActive}">
-              <button class="hover:text-red">
+              <button class="text-slate hover:text-red">
                 <search_icon :classes=" 'icon -sm mr-2' "/>
               </button>
             </li>

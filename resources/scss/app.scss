@@ -72,6 +72,7 @@
 @import 'components/list-articles';
 @import 'components/list-assets';
 @import 'components/list-events';
+@import 'components/list-hover';
 
 // Forms
 @import 'components/form-signup';
@@ -92,8 +93,6 @@
 @import 'components/article-content';
 @import 'components/longform-entry-blocks';
 
-
-
 // --
 // @import "components/headsup";
 // @import "components/hcard";
@@ -111,7 +110,6 @@
 // @import "components/profile-slider";
 // @import "components/info-slider";
 // @import "components/gallery-slider";
-
 
 // .if-not-in-body-removed-by-purge {
 //   @apply text-green;

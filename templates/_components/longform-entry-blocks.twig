@@ -13,25 +13,27 @@
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="asset-list--asset | narrow-block gutter-xl | space-b">
+            <div class="big-list-assets | narrow-block gutter-xl | space-b">
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">{{ block.header }}</h3>
                 {% endif %}
                 
-                <ul class="asset-list">
+                <ul class="list-assets -hover-effect">
                     {% for item in block.list %}
 
-                    <li class="asset-list__item | flex-grid">
+                    <li class="list-asset | flex-grid">
                         
-                        <div class="asset-list__content">
-                            <h4 class="header-sm font-serif">{{ item.header }} </h4>
-                            {% if item.supportingCopy|length %}
-                                <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
-                            {% endif %}
+                        <div class="list-asset__content">
+                            <a href="{{ item.resource }}">
+                                <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                                {% if item.supportingCopy|length %}
+                                    <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
+                                {% endif %}
+                            </a>
                         </div>
                         
-                        <div class="asset-list__action">
-                            {{ global.iconLink( item.resource, '-md -icon-only', 'arrow-down' ) }}
+                        <div class="list-asset__action">
+                            {{ global.iconLink( item.resource, '-md -icon-only hover:text-red', 'arrow-down' ) }}
                         </div>
                         
                     </li>
