@@ -7,29 +7,42 @@
 
         {# Article Body #}
         {% case "articleBody" %}
-            <div class="article-body gutter-xl narrow-block | paragraphs -md -loose | article-content">
+            <div class="article-body | narrow-block gutter-xl | paragraphs -md -loose | article-content">
                 {{ block.article }}
             </div>
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            {# <div class="big-list--asset narrow-block">
+            <div class="asset-list--asset | narrow-block gutter-xl | space-b">
                 {% if block.header|length %}
-                    {{ block.header }}
+                    <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">{{ block.header }}</h3>
                 {% endif %}
                 
-                {% for item in block.list %}
-                    {{ item.header }}
-                    {% set attributes = {
-                        class: 'link -underline'
-                    } %}
-                    {{ item.resource.link(attributes) }}
-                {% endfor %}
+                <ul class="asset-list">
+                    {% for item in block.list %}
+
+                    <li class="asset-list__item | md:flex-grid">
+                        
+                        <div class="asset-list__content">
+                            <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                        </div>
+                        
+                        <div class="asset-list__action">
+                            {% set attributes = {
+                                class: 'link -underline'
+                            } %}
+                            {{ item.resource.link(attributes) }}
+                        </div>
+                        
+                    </li>
+                    {% endfor %}
+                </ul>
+                
             </div>
-         #}
+        
         {# Button Group #}
         {% case "buttonGroup" %}
-            <div class="button-group narrow-block gutter-xl | pt-4 pb-14">
+            <div class="button-group | narrow-block gutter-xl | pt-4 pb-14">
                 {# Header #}
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
@@ -46,7 +59,7 @@
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}
             <div class="hero-image">
-                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
+                {# {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}} #}
             </div>
 
         {# Entry Callout #}
@@ -58,14 +71,14 @@
                 {% endif %}
 
                 {# Content Card - Podcast #} 
-                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
+                {# {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %} #}
             </div>
 
         {# Billboard - floated image #}
         {% case "billboardFloatedImage" %}
             <div class="billboard-floated-image | space-t space-b">
                 {# Billboard #}
-                {% include "_components/billboard--floated-img" with { content: block } %}
+                {# {% include "_components/billboard--floated-img" with { content: block } %} #}
             </div>
             
         {% endswitch %}

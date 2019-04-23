@@ -189,6 +189,15 @@
 {% macro utilityIcon(icon, classes) %}
     {% switch icon %}
 
+        {% case "material-play" %}
+            {# google material play icon #}
+            <span class="icon {{ classes }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202 202">
+                    <polygon points="78,61 78,141 140.9,101 "/>
+                    <circle class="s-2" cx="101" cy="101" r="100"/>
+                </svg>
+            </span>
+
         {% case "print" %}
             {# print #}
             <span class="icon {{ classes }}">
@@ -319,9 +328,14 @@
 {% macro socialIcon(icon, classes) %}
     {% switch icon %}
     
+        {% case "play-store" %}
+            <span class="icon | {{ classes }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <title>e-commerce-play-store</title><path fill="currentColor" d="M22,9.73l-1.87-.88a.5.5,0,0,0-.55.09l-2.83,2.65a.5.5,0,0,0,0,.73L19.62,15a.5.5,0,0,0,.55.09L22,14.25a2.5,2.5,0,0,0,0-4.53Z"/><path fill="currentColor" d="M2.61,22.77,13.73,12.34a.5.5,0,0,0,0-.73L2.5,1.23a2.48,2.48,0,0,0-.74.3A2.49,2.49,0,0,0,.6,3.64v16.7a2.49,2.49,0,0,0,1.16,2.11A2.48,2.48,0,0,0,2.61,22.77Z"/><path fill="currentColor" d="M17.79,8.53a.5.5,0,0,0-.13-.82L5.6,2l9.28,8.58a.5.5,0,0,0,.68,0Z"/><path fill="currentColor" d="M15.57,13.31a.5.5,0,0,0-.68,0L5.8,21.84l11.93-5.6a.5.5,0,0,0,.13-.82Z"/></svg>
+            </span>
         {% case "facebook" %}
             <span class="icon | {{ classes }}">
-                <svg id="Bold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>social-media-facebook</title><path fill="currentColor" d="M18.14,7.17A.5.5,0,0,0,17.77,7H14V5.59c0-.28.06-.6.51-.6h3a.44.44,0,0,0,.35-.15A.5.5,0,0,0,18,4.5V.5a.5.5,0,0,0-.5-.5H13.17C8.37,0,8,4.1,8,5.35V7H5.5a.5.5,0,0,0-.5.5v4a.5.5,0,0,0,.5.5H8V23.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V12h3.35a.5.5,0,0,0,.5-.45l.42-4A.5.5,0,0,0,18.14,7.17Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>social-media-facebook</title><path fill="currentColor" d="M18.14,7.17A.5.5,0,0,0,17.77,7H14V5.59c0-.28.06-.6.51-.6h3a.44.44,0,0,0,.35-.15A.5.5,0,0,0,18,4.5V.5a.5.5,0,0,0-.5-.5H13.17C8.37,0,8,4.1,8,5.35V7H5.5a.5.5,0,0,0-.5.5v4a.5.5,0,0,0,.5.5H8V23.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V12h3.35a.5.5,0,0,0,.5-.45l.42-4A.5.5,0,0,0,18.14,7.17Z"/></svg>
             </span>
 
         {% case "twitter" %}
