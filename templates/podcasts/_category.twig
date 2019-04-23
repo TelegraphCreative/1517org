@@ -8,7 +8,7 @@
 {% set relatedTopics = craft.categories.group('topics').relatedTo(entries).all() %}
 {% set relatedSeries = craft.categories.group('podcastShows').level(2).relatedTo(entries) %}
 {% set hasSeries = false %}
-{% for category in relatedSeries %}
+{% for category in relatedSeries.all() %}
     {% set hasSeries = true %}
 {% endfor %}
 
