@@ -59,7 +59,7 @@
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}
             <div class="hero-image">
-                {# {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}} #}
+                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
             </div>
 
         {# Entry Callout #}
@@ -71,14 +71,14 @@
                 {% endif %}
 
                 {# Content Card - Podcast #} 
-                {# {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %} #}
+                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
             </div>
 
         {# Billboard - floated image #}
         {% case "billboardFloatedImage" %}
             <div class="billboard-floated-image | space-t space-b">
                 {# Billboard #}
-                {# {% include "_components/billboard--floated-img" with { content: block } %} #}
+                {% include "_components/billboard--floated-img" with { content: block } %}
             </div>
             
         {% endswitch %}

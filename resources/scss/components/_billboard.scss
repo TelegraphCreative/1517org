@@ -16,14 +16,12 @@
         }
 
         // Link (-underline)
-        // Link (-underline)
         .link {
             @apply text-ivory-light;
             &:hover {
                 @apply border-bronze-dark;
             }
         }
-        
     }
 
     // Sage
@@ -38,7 +36,11 @@
                 @apply border-hunter bg-hunter text-ivory-light;
             }
         }
-
+        .link {
+            &:hover {
+                @apply border-hunter;
+            }
+        }
     }
 
     // Sage
@@ -58,8 +60,6 @@
         .link {
             @apply text-ivory-light;
         }
-
-        
     }
 
     // Red
@@ -74,7 +74,6 @@
                 @apply border-slate-dark bg-slate-dark text-white;
             }
         }
-        
     }
 }
 
