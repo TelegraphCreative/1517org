@@ -59,7 +59,7 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1555965079
+dateModified: 1556033001
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -2135,6 +2135,23 @@ superTableBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
+      4e4c3366-c42b-4670-8f5a-112ea62eb17b:
+        name: 'Supporting Copy (optional)'
+        handle: supportingCopy
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: '50'
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
       c9a43343-9c3a-4b5c-abba-f9a30db421e2:
         name: Resource
         handle: resource
@@ -2214,9 +2231,12 @@ superTableBlockTypes:
               f8e6c123-8718-4891-84aa-5a8f234ee3d7:
                 required: false
                 sortOrder: 1
-              c9a43343-9c3a-4b5c-abba-f9a30db421e2:
+              4e4c3366-c42b-4670-8f5a-112ea62eb17b:
                 required: false
                 sortOrder: 2
+              c9a43343-9c3a-4b5c-abba-f9a30db421e2:
+                required: false
+                sortOrder: 3
   b63b6f49-c42c-4cb3-a088-a1f65d5176e4:
     field: e34c55a7-1a2e-4c83-bae0-a19d5f3422a8
     fields:

@@ -28,6 +28,14 @@
     }
 }
 
+// Hide Text
+.-icon-only {
+    .btn__text {
+        @apply hidden;
+    }
+}
+
+// Logo
 .logo,
 .logo-icon {
     @apply w-full block;

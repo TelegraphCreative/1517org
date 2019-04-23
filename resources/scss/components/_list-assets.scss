@@ -1,16 +1,7 @@
 .asset-list {
-
     @apply list-reset;
 
     &__item {
-        @apply py-6 px-4 border-b border-slate;
+        @apply py-6 px-4 border-b border-slate items-center;
     }
-
-    // Screen
-    // MD
-    // @screen md {
-    //     &__item {
-    //         @apply
-    //     }
-    // }
 }

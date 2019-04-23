@@ -21,17 +21,17 @@
                 <ul class="asset-list">
                     {% for item in block.list %}
 
-                    <li class="asset-list__item | md:flex-grid">
+                    <li class="asset-list__item | flex-grid">
                         
                         <div class="asset-list__content">
                             <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                            {% if item.supportingCopy|length %}
+                                <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
+                            {% endif %}
                         </div>
                         
                         <div class="asset-list__action">
-                            {% set attributes = {
-                                class: 'link -underline'
-                            } %}
-                            {{ item.resource.link(attributes) }}
+                            {{ global.iconLink( item.resource, '-md -icon-only', 'arrow-down' ) }}
                         </div>
                         
                     </li>
