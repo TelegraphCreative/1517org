@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ca514af8e415bcbb0343f5d5b7c23c8",
+    "content-hash": "6fa0ec4c34978be40769ad9fdc524f14",
     "packages": [
         {
             "name": "99designs/phumbor",
@@ -815,11 +815,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.1.23",
+            "version": "3.1.24",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/40add5d4d5784caf54f49b3fdf3a4cb46fcd9abe",
-                "reference": "40add5d4d5784caf54f49b3fdf3a4cb46fcd9abe",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373",
+                "reference": "aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373",
                 "shasum": ""
             },
             "require": {
@@ -848,7 +848,7 @@
                 "seld/cli-prompt": "^1.0.3",
                 "symfony/yaml": "^3.2|^4.0",
                 "true/punycode": "^2.1.0",
-                "twig/twig": "~2.7.2",
+                "twig/twig": "~2.8.1",
                 "yii2tech/ar-softdelete": "^1.0.2",
                 "yiisoft/yii2": "~2.0.17.0",
                 "yiisoft/yii2-debug": "^2.0.10",
@@ -895,7 +895,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2019-04-16T16:41:36+00:00"
+            "time": "2019-04-23T17:11:18+00:00"
         },
         {
             "name": "craftcms/commerce",
@@ -3322,11 +3322,11 @@
         },
         {
             "name": "nystudio107/craft-imageoptimize",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-imageoptimize/zipball/18b6e609af1dfc4f953b1ab73b0c64a7b8199646",
-                "reference": "18b6e609af1dfc4f953b1ab73b0c64a7b8199646",
+                "url": "https://api.github.com/repos/nystudio107/craft-imageoptimize/zipball/6a90a61847e66daef745eab25dc7a6a901ceafe3",
+                "reference": "6a90a61847e66daef745eab25dc7a6a901ceafe3",
                 "shasum": ""
             },
             "require": {
@@ -3381,7 +3381,7 @@
                 "docs": "https://github.com/nystudio107/craft-imageoptimize/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-imageoptimize/issues"
             },
-            "time": "2019-02-23T03:27:15+00:00"
+            "time": "2019-04-22T17:11:44+00:00"
         },
         {
             "name": "nystudio107/craft-imageoptimize-imgix",
@@ -3523,11 +3523,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.1.48",
+            "version": "3.1.49",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/1e9605eefb50dbfe8a32ef93f380d7fcffc7068b",
-                "reference": "1e9605eefb50dbfe8a32ef93f380d7fcffc7068b",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/f6432ec96659a760ab8b628fcb025714cb4805f3",
+                "reference": "f6432ec96659a760ab8b628fcb025714cb4805f3",
                 "shasum": ""
             },
             "require": {
@@ -3590,7 +3590,7 @@
                 "docs": "https://github.com/nystudio107/craft-seomatic/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-seomatic/issues"
             },
-            "time": "2019-04-16T12:55:40+00:00"
+            "time": "2019-04-23T03:23:57+00:00"
         },
         {
             "name": "ostark/yii2-artisan-bridge",
@@ -4406,11 +4406,11 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.0",
+            "version": "v6.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707",
-                "reference": "6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
+                "reference": "5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
                 "shasum": ""
             },
             "require": {
@@ -4419,10 +4419,6 @@
                 "symfony/polyfill-iconv": "^1.0",
                 "symfony/polyfill-intl-idn": "^1.10",
                 "symfony/polyfill-mbstring": "^1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9.1",
-                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
             },
             "suggest": {
                 "ext-intl": "Needed to support internationalized email addresses",
@@ -4439,7 +4435,6 @@
                     "lib/swift_required.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4459,7 +4454,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2019-03-10T07:52:41+00:00"
+            "time": "2019-04-21T09:21:45+00:00"
         },
         {
             "name": "symfony/console",
@@ -5297,11 +5292,11 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.7.4",
+            "version": "v2.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ed9c49220e09bfaeb1ba4d48077c08a7b09908dd",
-                "reference": "ed9c49220e09bfaeb1ba4d48077c08a7b09908dd",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/91cc2594d3143761ce0399c1caffd0b500ffe5b9",
+                "reference": "91cc2594d3143761ce0399c1caffd0b500ffe5b9",
                 "shasum": ""
             },
             "require": {
@@ -5312,7 +5307,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -5349,7 +5344,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-03-23T14:28:58+00:00"
+            "time": "2019-04-16T17:14:24+00:00"
         },
         {
             "name": "verbb/navigation",
@@ -5502,11 +5497,11 @@
         },
         {
             "name": "wrav/oembed",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wrav/oembed/zipball/6cb0912767574ade59b5d484605c347b7b413c7a",
-                "reference": "6cb0912767574ade59b5d484605c347b7b413c7a",
+                "url": "https://api.github.com/repos/wrav/oembed/zipball/94f7f02a282b8723421a6e53076209feb9526963",
+                "reference": "94f7f02a282b8723421a6e53076209feb9526963",
                 "shasum": ""
             },
             "require": {
@@ -5517,8 +5512,8 @@
             "extra": {
                 "name": "oEmbed",
                 "handle": "oembed",
-                "schemaVersion": "1.0.0",
-                "hasCpSettings": false,
+                "schemaVersion": "1.0.1",
+                "hasCpSettings": true,
                 "hasCpSection": false,
                 "changelogUrl": "https://raw.githubusercontent.com/wrav/oembed/master/CHANGELOG.md",
                 "components": {
@@ -5558,7 +5553,7 @@
                 "docs": "https://github.com/wrav/oembed/blob/master/README.md",
                 "issues": "https://github.com/wrav/oembed/issues"
             },
-            "time": "2019-04-15T00:55:54+00:00"
+            "time": "2019-04-22T04:26:36+00:00"
         },
         {
             "name": "yii2tech/ar-softdelete",

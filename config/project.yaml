@@ -110,7 +110,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556051852
+dateModified: 1556054778
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -1912,7 +1912,7 @@ plugins:
   oembed:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 1.0.1
   image-optimize:
     edition: standard
     enabled: true
