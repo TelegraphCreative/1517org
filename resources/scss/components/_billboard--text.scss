@@ -27,7 +27,7 @@
 
         // Content
         .billboard {
-            &__context-max {
+            &__content-max {
                 @apply max-w-md;
             }
             &-title {
@@ -40,7 +40,7 @@
 .billboard.-text.-center {
     // Content
     .billboard {
-        &__content {
+        &__content-max {
             @apply mx-auto;
         }
         &__detail {

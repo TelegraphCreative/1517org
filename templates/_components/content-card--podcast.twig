@@ -31,7 +31,7 @@
             <div class="content-card__meta -primary mb-4 | flex-grid">
                 <ul class="items-bar">
                     <li>
-                        {% for category in content.podcastShow.level(1).limit(1) %}
+                        {% for category in content.podcastShow.level(1).limit(1).all() %}
                             <a href="{{ category.url }}" class="align-items-center">
                                 {{ global.utilityIcon('microphone', '-sm') }}
                                 <div class="meta-label | ml-3">

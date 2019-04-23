@@ -16,7 +16,7 @@
             {# Latest Cards #}
             <div class="flex-grid">
                 
-                {% for entry in indexList %}
+                {% for entry in indexList.all() %}
                     {# Content Card - Stacked #}
                     {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %}
                 {% endfor %}

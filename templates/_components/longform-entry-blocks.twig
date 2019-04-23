@@ -19,7 +19,7 @@
                 {% endif %}
                 
                 <ul class="list-assets -hover-effect">
-                    {% for item in block.list %}
+                    {% for item in block.list.all() %}
 
                     <li class="list-asset | flex-grid">
                         
@@ -33,7 +33,7 @@
                         </div>
                         
                         <div class="list-asset__action">
-                            {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down' ) }}
+                            {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-sm' ) }}
                         </div>
                         
                     </li>

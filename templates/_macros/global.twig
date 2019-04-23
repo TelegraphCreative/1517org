@@ -17,13 +17,13 @@
 {% endmacro %}
 
 {# Link with Icon #}
-{% macro iconLink(source, classes, iconName, placeholderText) %}
+{% macro iconLink(source, classes, iconName, iconSize, placeholderText) %}
     {% import _self as icon %}
 
     {% if source %}
         <a href="{{ source.url }}" class="{{ classes }} -has-icon"{% if source.target %} target="{{ source.target }}" {% endif %}>
             <span class="align-items-center">
-                {{ icon.utilityIcon(iconName, classes) }}
+                {{ icon.utilityIcon(iconName, iconSize) }}
                 <span class="btn__text">
                     {{ source.text }}
                 </span>
