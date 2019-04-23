@@ -59,7 +59,58 @@ categoryGroups:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
-dateModified: 1556033001
+commerce:
+  orderStatuses:
+    e4306305-81b8-4056-a5c5-0288ad6a682d:
+      name: New
+      handle: new
+      color: green
+      sortOrder: 99
+      default: true
+    ed0a1b96-bdcd-4c0a-8dd3-a79b9b64ea47:
+      name: Shipped
+      handle: shipped
+      color: blue
+      sortOrder: 99
+      default: false
+  productTypes:
+    eab58cec-6ae9-47fb-9671-d47ecd191d64:
+      name: Clothing
+      handle: clothing
+      hasDimensions: true
+      hasVariants: false
+      hasVariantTitleField: false
+      titleFormat: '{product.title}'
+      skuFormat: ''
+      descriptionFormat: ''
+      siteSettings:
+        fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+          hasUrls: true
+          uriFormat: 'shop/products/{slug}'
+          template: shop/products/_product
+    f9c230d7-2875-41fa-8dcf-c539aadc45d9:
+      name: Events
+      handle: events
+      hasDimensions: false
+      hasVariants: false
+      hasVariantTitleField: false
+      titleFormat: '{product.title}'
+      skuFormat: '{product.slug}'
+      descriptionFormat: ''
+      siteSettings:
+        fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+          hasUrls: true
+          uriFormat: 'events/paid/{slug}'
+          template: events/_entry
+  gateways:
+    c75c0b95-9c3a-4869-a35e-4ed562c66d66:
+      name: Dummy
+      handle: dummy
+      type: craft\commerce\gateways\Dummy
+      sortOrder: 99
+      paymentType: purchase
+      isFrontendEnabled: true
+dateModified: 1556051852
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -79,6 +130,10 @@ fieldGroups:
     name: 'Section Index Header'
   18fa1806-d926-4b54-a367-a29143312bbf:
     name: 'Billboard (Text)'
+  c8b54415-97f3-4759-8c5a-5ba6d41f9519:
+    name: 'Common Format Fields'
+  6f4e8399-1849-4697-8f01-9b281385c7bd:
+    name: Events
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -518,7 +573,7 @@ fields:
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   24c123a8-1d09-4025-a414-fa85da64ab81:
-    name: 'Content Blocks (podcast)'
+    name: 'Content Blocks (podcast, article)'
     handle: contentBlocksPodcast
     instructions: ''
     searchable: true
@@ -802,6 +857,11 @@ fields:
           sources: '*'
           customSelectionLabel: ''
           userPath: ''
+        fruitstudios\linkit\models\Product:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
       allowCustomText: '1'
       defaultText: ''
       allowTarget: '1'
@@ -986,6 +1046,70 @@ fields:
       default: '1'
     contentColumnType: boolean
     fieldGroup: 18fa1806-d926-4b54-a367-a29143312bbf
+  6f8a5e6f-6027-4c82-8abc-d681013cc10f:
+    name: Author
+    handle: author
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: Author
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: c8b54415-97f3-4759-8c5a-5ba6d41f9519
+  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+    name: 'Card Image'
+    handle: cardImage
+    instructions: '1280 x 720 (aspect ratio: 16 x 9)'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      singleUploadLocationSubpath: cards
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: Card
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: c8b54415-97f3-4759-8c5a-5ba6d41f9519
+  7d0ab95a-b3e4-43cb-a28a-2d77392790a5:
+    name: 'Paid Event'
+    handle: paidEvent
+    instructions: 'To make a paid event, connect this entry with an Event Product in the Store'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\commerce\fields\Products
+    settings:
+      sources:
+        - 'productType:f9c230d7-2875-41fa-8dcf-c539aadc45d9'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: 'Purchase Info'
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -1080,6 +1204,8 @@ matrixBlockTypes:
           staticField: ''
           columns:
             29:
+              width: ''
+            85:
               width: ''
             51:
               width: ''
@@ -1815,6 +1941,25 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.8
+  fieldlabels:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  commerce:
+    edition: lite
+    enabled: true
+    schemaVersion: 2.1.06
+routes:
+  ab27c89e-4540-4090-90f5-59d726e23ab4:
+    template: /events/
+    uriParts:
+      - /events/paid/
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: '/events/paid/<any:[^\/]+>'
+    sortOrder: 1
+    siteUid: null
 sections:
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
@@ -1906,12 +2051,15 @@ sections:
                 name: 'Additional Info'
                 sortOrder: 4
                 fields:
-                  044102bf-2640-48b6-9408-aafe7d83a5bc:
-                    required: false
-                    sortOrder: 1
                   56055b61-5ad3-45e5-b59a-ddc4a5b454cb:
                     required: false
+                    sortOrder: 1
+                  982c618e-7295-4cca-ba1a-7ab255da5b1e:
+                    required: false
                     sortOrder: 2
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                    required: false
+                    sortOrder: 3
   b0598134-0d64-4c98-9d73-351145a9c276:
     name: Articles
     handle: articles
@@ -1922,7 +2070,7 @@ sections:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         enabledByDefault: true
         hasUrls: true
-        uriFormat: '{topics[0].uri}/{slug}'
+        uriFormat: 'articles/{slug}'
         template: articles/_entry
     entryTypes:
       74c20f3f-0b48-4025-8609-252b703a7ce0:
@@ -1942,12 +2090,40 @@ sections:
                   1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
                     required: false
                     sortOrder: 1
-                  a8ddce4c-468a-4ff3-b531-c61d499863de:
-                    required: false
-                    sortOrder: 2
+              -
+                name: Introduction
+                sortOrder: 2
+                fields:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: true
+                    sortOrder: 1
                   ede86204-99a0-40e1-b93c-ec303474603f:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 2
+              -
+                name: Main
+                sortOrder: 3
+                fields:
+                  24c123a8-1d09-4025-a414-fa85da64ab81:
+                    required: false
+                    sortOrder: 1
+              -
+                name: Sidebar
+                sortOrder: 4
+                fields:
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: false
+                    sortOrder: 1
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 2
+              -
+                name: 'Additional Info'
+                sortOrder: 5
+                fields:
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                    required: false
+                    sortOrder: 1
   a820e5c3-2900-4e71-9dab-1daa6e72b273:
     name: Authors
     handle: authors
@@ -2049,6 +2225,182 @@ sections:
                   e0cc44bc-a00c-45bf-a7c2-619ef73bb788:
                     required: false
                     sortOrder: 6
+  6dae438c-8b4a-44a7-9101-3b4e69096f41:
+    name: Events
+    handle: events
+    type: channel
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'events/{slug}'
+        template: events/_entry
+    entryTypes:
+      6caaaec2-eb97-4dc2-be47-71ab62786199:
+        name: Events
+        handle: events
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          c6377610-fd87-4189-b3a9-f00bb612ad86:
+            tabs:
+              -
+                name: Main
+                sortOrder: 1
+                fields:
+                  7d0ab95a-b3e4-43cb-a28a-2d77392790a5:
+                    required: false
+                    sortOrder: 1
+  af5b313a-5a09-4aee-805b-a7df6ed731a7:
+    name: Video
+    handle: video
+    type: channel
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'videos/{slug}'
+        template: videos/_entry
+    entryTypes:
+      14b46485-af4a-4be1-8d76-3cdce5fbb820:
+        name: Video
+        handle: video
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: null
+        sortOrder: 1
+  4cfc45f7-e2aa-4bb7-a468-bfe079a34104:
+    name: 'Articles Index'
+    handle: articlesIndex
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: articles
+        template: articles
+    entryTypes:
+      5162e753-8d87-4db8-b5c7-9a36f8e0b137:
+        name: 'Articles Index'
+        handle: articlesIndex
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          8dbb39b0-9c8a-48a3-bde8-06c26dbe1c30:
+            tabs:
+              -
+                name: Header
+                sortOrder: 1
+                fields:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: true
+                    sortOrder: 1
+                  32236621-f50a-48af-a121-8ff8282224f3:
+                    required: false
+                    sortOrder: 2
+  e34a0462-0725-491b-a8e5-42edcc42fd56:
+    name: 'Video Index'
+    handle: videoIndex
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: videos
+        template: videos
+    entryTypes:
+      2448cb3e-29f1-403a-af8e-fff5da9b4228:
+        name: 'Video Index'
+        handle: videoIndex
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          c664dbcc-d6ab-4ce6-970a-b12a8d609280:
+            tabs:
+              -
+                name: Header
+                sortOrder: 1
+                fields:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: true
+                    sortOrder: 1
+                  32236621-f50a-48af-a121-8ff8282224f3:
+                    required: false
+                    sortOrder: 2
+  acb4fe5d-3e31-418f-99bc-5654f4a94c1a:
+    name: 'Events Index'
+    handle: eventsIndex
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: events
+        template: events
+    entryTypes:
+      79994339-08fe-44b9-9ec2-8993f47ebc8a:
+        name: 'Events Index'
+        handle: eventsIndex
+        hasTitleField: false
+        titleLabel: null
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+  038eaf80-f334-49e1-be95-efe0ff8a714d:
+    name: Courses
+    handle: courses
+    type: channel
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'courses/{slug}'
+        template: courses/_entry
+    entryTypes:
+      c04241ac-83b4-4bf9-88cc-cd29a4ea3fef:
+        name: Courses
+        handle: courses
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: null
+        sortOrder: 1
+  fb3fa809-9963-4430-af25-fe3ee86eff79:
+    name: 'Courses Index'
+    handle: coursesIndex
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: courses
+        template: courses
+    entryTypes:
+      d2573035-d2bb-438d-8c65-3a5459c016e4:
+        name: 'Courses Index'
+        handle: coursesIndex
+        hasTitleField: false
+        titleLabel: null
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
