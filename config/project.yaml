@@ -4,7 +4,7 @@ categoryGroups:
     handle: podcastShows
     structure:
       uid: 9895d996-dcdd-4526-9f9e-5b2435ba4582
-      maxLevels: '2'
+      maxLevels: 2
     siteSettings:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         hasUrls: true
@@ -33,32 +33,75 @@ categoryGroups:
             name: 'Billboard (Subscribe)'
             sortOrder: 2
             fields:
-              ce742a26-47ad-4871-a052-7c25a110bf4a:
-                required: true
+              5f570022-53d1-4cc5-ace9-3cb8cdcede91:
+                required: false
                 sortOrder: 1
-              eb22cdff-17f7-419e-b076-b24ce26578d4:
-                required: true
+              ce742a26-47ad-4871-a052-7c25a110bf4a:
+                required: false
                 sortOrder: 2
-              ddcdbf02-d299-4f04-a9b9-8efc7f0840ed:
-                required: true
+              eb22cdff-17f7-419e-b076-b24ce26578d4:
+                required: false
                 sortOrder: 3
-              3707ea53-b09b-49bf-81e8-89c02f16bdfe:
-                required: true
+              ddcdbf02-d299-4f04-a9b9-8efc7f0840ed:
+                required: false
                 sortOrder: 4
-              81b1fffd-00d4-4255-9952-644a4702765f:
-                required: true
+              3707ea53-b09b-49bf-81e8-89c02f16bdfe:
+                required: false
                 sortOrder: 5
+              81b1fffd-00d4-4255-9952-644a4702765f:
+                required: false
+                sortOrder: 6
   cc2489d2-901a-44fa-abd8-7dae85d85495:
     name: Topics
     handle: topics
     structure:
       uid: 1669145e-7fda-479a-a721-10381691427e
-      maxLevels: '2'
+      maxLevels: 2
     siteSettings:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         hasUrls: true
         uriFormat: 'topics/{slug}'
         template: topics/_category
+    fieldLayouts:
+      2e5da84e-924e-4d39-b51b-1488bfb02320:
+        tabs:
+          -
+            name: Introduction
+            sortOrder: 1
+            fields:
+              d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                required: false
+                sortOrder: 1
+              32236621-f50a-48af-a121-8ff8282224f3:
+                required: false
+                sortOrder: 2
+  159851d0-e6a0-4c39-8346-d994125c7f4a:
+    name: Sections
+    handle: sections
+    structure:
+      uid: d33ee65e-2443-4181-af50-1be7d9e20d17
+      maxLevels: 1
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        hasUrls: true
+        uriFormat: 'sections/{slug}'
+        template: sections/index
+    fieldLayouts:
+      32914909-f583-472d-9317-301345052744:
+        tabs:
+          -
+            name: Introduction
+            sortOrder: 1
+            fields:
+              d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                required: true
+                sortOrder: 1
+              32236621-f50a-48af-a121-8ff8282224f3:
+                required: false
+                sortOrder: 2
+              d346861d-be5b-43ad-84db-cec8cb55d41e:
+                required: false
+                sortOrder: 3
 commerce:
   orderStatuses:
     e4306305-81b8-4056-a5c5-0288ad6a682d:
@@ -110,7 +153,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556054778
+dateModified: 1556061871
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -134,6 +177,8 @@ fieldGroups:
     name: 'Common Format Fields'
   6f4e8399-1849-4697-8f01-9b281385c7bd:
     name: Events
+  4748bdfa-3553-4647-96f4-932d64fcec02:
+    name: Articles
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -635,7 +680,7 @@ fields:
   5f570022-53d1-4cc5-ace9-3cb8cdcede91:
     name: 'Show Subscribe Billboard'
     handle: showSubscribeBillboard
-    instructions: ''
+    instructions: 'If this is a Series within a Show, you can leave this switch on and the fields below blank to pull the Parent Show''s billboard content automatically.'
     searchable: false
     translationMethod: none
     translationKeyFormat: null
@@ -1110,6 +1155,48 @@ fields:
       localizeRelations: false
     contentColumnType: string
     fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
+  d346861d-be5b-43ad-84db-cec8cb55d41e:
+    name: 'Featured Content'
+    handle: featuredContent
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: Content
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
+    name: Section
+    handle: contentSections
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      branchLimit: '1'
+      sources: '*'
+      source: 'group:159851d0-e6a0-4c39-8346-d994125c7f4a'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: Section
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -1338,17 +1425,18 @@ matrixBlockTypes:
         handle: product
         instructions: 'Automatically pulls ad info from an item in the shop '
         searchable: true
-        translationMethod: none
+        translationMethod: site
         translationKeyFormat: null
-        type: craft\fields\PlainText
+        type: craft\commerce\fields\Products
         settings:
-          placeholder: 'DEV NOTES: waiting for store build out to switch this to entry type.'
-          code: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: text
-        contentColumnType: text
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: '1'
+          selectionLabel: Product
+          localizeRelations: false
+        contentColumnType: string
         fieldGroup: null
     fieldLayouts:
       a348430e-ce5b-4ec6-939d-1aa070539e1a:
@@ -2084,15 +2172,8 @@ sections:
           b8a6ebcc-9b05-4437-b3d2-ae3d43e983b2:
             tabs:
               -
-                name: Common
-                sortOrder: 1
-                fields:
-                  1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
-                    required: false
-                    sortOrder: 1
-              -
                 name: Introduction
-                sortOrder: 2
+                sortOrder: 1
                 fields:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: true
@@ -2100,30 +2181,39 @@ sections:
                   ede86204-99a0-40e1-b93c-ec303474603f:
                     required: false
                     sortOrder: 2
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                    required: false
+                    sortOrder: 3
               -
                 name: Main
-                sortOrder: 3
+                sortOrder: 2
                 fields:
                   24c123a8-1d09-4025-a414-fa85da64ab81:
-                    required: false
+                    required: true
                     sortOrder: 1
               -
                 name: Sidebar
-                sortOrder: 4
+                sortOrder: 3
                 fields:
-                  a8ddce4c-468a-4ff3-b531-c61d499863de:
-                    required: false
+                  6f8a5e6f-6027-4c82-8abc-d681013cc10f:
+                    required: true
                     sortOrder: 1
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: true
+                    sortOrder: 2
                   ace2dff4-0b7d-4102-aec0-964fae1c78a3:
                     required: false
-                    sortOrder: 2
+                    sortOrder: 3
               -
                 name: 'Additional Info'
-                sortOrder: 5
+                sortOrder: 4
                 fields:
-                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
                     required: false
                     sortOrder: 1
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                    required: false
+                    sortOrder: 2
   a820e5c3-2900-4e71-9dab-1daa6e72b273:
     name: Authors
     handle: authors

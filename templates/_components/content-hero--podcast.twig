@@ -16,7 +16,7 @@
             
             {# Topic #}
             <h4 class="content-label">
-                {% for category in content.topics.limit(1) %}
+                {% for category in content.topics.limit(1).all() %}
                     <a href="{{ category.url }}">{{ category.title }}</a>
                 {% endfor %}
             </h4>
@@ -38,7 +38,7 @@
             <div class="content-hero__meta | space-t flex-grid">
 
                 <div class="w-1/2">
-                    {% for category in content.podcastShow.level(1).limit(1) %}
+                    {% for category in content.podcastShow.level(1).limit(1).all() %}
                         <a href="{{ category.url }}" class="align-items-center">
                             {{ global.utilityIcon('microphone', '-sm') }}
                             <div class="meta-label | ml-3">
