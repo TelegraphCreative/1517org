@@ -13,25 +13,27 @@
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="asset-list--asset | narrow-block gutter-xl | space-b">
+            <div class="big-list-assets | narrow-block gutter-xl | space-b">
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">{{ block.header }}</h3>
                 {% endif %}
                 
-                <ul class="asset-list">
-                    {% for item in block.list %}
+                <ul class="list-assets -hover-effect">
+                    {% for item in block.list.all() %}
 
-                    <li class="asset-list__item | md:flex-grid">
+                    <li class="list-asset | flex-grid">
                         
-                        <div class="asset-list__content">
-                            <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                        <div class="list-asset__content">
+                            <a href="{{ item.resource }}">
+                                <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                                {% if item.supportingCopy|length %}
+                                    <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
+                                {% endif %}
+                            </a>
                         </div>
                         
-                        <div class="asset-list__action">
-                            {% set attributes = {
-                                class: 'link -underline'
-                            } %}
-                            {{ item.resource.link(attributes) }}
+                        <div class="list-asset__action">
+                            {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-sm' ) }}
                         </div>
                         
                     </li>
@@ -59,7 +61,7 @@
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}
             <div class="hero-image">
-                {# {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}} #}
+                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
             </div>
 
         {# Entry Callout #}
@@ -71,14 +73,14 @@
                 {% endif %}
 
                 {# Content Card - Podcast #} 
-                {# {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %} #}
+                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
             </div>
 
         {# Billboard - floated image #}
         {% case "billboardFloatedImage" %}
             <div class="billboard-floated-image | space-t space-b">
                 {# Billboard #}
-                {# {% include "_components/billboard--floated-img" with { content: block } %} #}
+                {% include "_components/billboard--floated-img" with { content: block } %}
             </div>
             
         {% endswitch %}

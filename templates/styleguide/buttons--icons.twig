@@ -5,18 +5,18 @@
 
 {# Button #}
 <h3 class="mb-8">Icon Button -xs -media</h3>
-{{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}
+{{ global.iconLink('', 'btn -xs -media', 'sharp-play', '-sm', 'Watch 14.48') }}
 
-{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}{%
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'sharp-play', '-sm', 'Watch 14.48') }}{%
 endverbatim %}{% endset %}
 {{ guide.snippet(code, 'css') }}
 
 
 {# Button #}
 <h3 class="mb-8">Icon Button -media</h3>
-{{ global.iconLink('', 'btn -media', 'play', 'Watch 14.48') }}
+{{ global.iconLink('', 'btn -media', 'sharp-play', '-sm', 'Watch 14.48') }}
 
-{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -media', 'play', 'Watch 14.48') }}{%
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -media', 'sharp-play', '-sm', 'Watch 14.48') }}{%
 endverbatim %}{% endset %}
 {{ guide.snippet(code, 'css') }}
 
@@ -24,7 +24,15 @@ endverbatim %}{% endset %}
 <h3 class="mb-8">Icon Button</h3>
 {{ global.iconLink('', 'btn', 'arrow-right', 'All Purpose') }}
 
-{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'play', 'Watch 14.48') }}{%
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'sharp-play', '-sm', 'Watch 14.48') }}{%
+endverbatim %}{% endset %}
+{{ guide.snippet(code, 'css') }}
+{# Button #}
+
+<h3 class="mb-8">Icon Button</h3>
+{{ global.iconLink('', 'btn -outline -bronze -reverse -has-icon', 'podcast','-sm', 'Apple Podcasts') }}
+
+{% set code %}{% verbatim %}{{ global.iconLink('', 'btn -xs -media', 'sharp-play', '-sm', 'Watch 14.48') }}{%
 endverbatim %}{% endset %}
 {{ guide.snippet(code, 'css') }}
 

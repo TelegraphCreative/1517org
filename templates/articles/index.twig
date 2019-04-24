@@ -1,36 +1,46 @@
 {% extends "_layouts/_base" %}
 {% import '_macros/global' as global %}
-{% set indexList = craft.categories.group('podcastShows').level(1) %}
+{% set indexList = craft.entries.section('articles') %}
 
 {% block content %}
 
     <section class="space-menu">
+
         {# Page Header #}
         {% include "_components/page-header" with { content: entry } %}
+
     </section>
 
     {# Topics List #}
     {% if indexList.count > 0 %}
     
-        <div id="podcasts" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+        <div id="events" class="container--sm gutter-md | md:flex-grid | space-b--sm">
             {# Latest Cards #}
             <div class="flex-grid">
                 
                 {% for entry in indexList.all() %}
-                    {# Content Card - Stacked #}
-                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, 'classes': '' } %}
+
+                    <a href="{{ entry.url }}">{{ entry.title }}</a>
+
                 {% endfor %}
 
             </div>
+        </div>
+    
+    {% else %}
+        
+        {# No Entries #}
+        <div class="text-center space-b">
+            There are no Articles available right now.  
         </div>
 
     {% endif %}
     
     {# Billboard #}
-    {% if entry.showBillboardText %}
+    {# {% if entry.showBillboardText %}
         
         <div id="advertise" class="">
-            {# Billboard Content #}
+            Billboard Content
             {% set billboardContent = { 
                     header: entry.billboardHeader,
                     description: entry.billboardDescription,
@@ -38,24 +48,10 @@
                     buttonStyle: entry.billboardButtonStyle,
                     background: entry.billboardBackground,
                 }%}
-            {# Text Billboard - text #}
+            Text Billboard - text
             {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
         </div>
 
-    {% endif %}
+    {% endif %} #}
 
-    {# Notes:
-    {% set group = craft.categories.group('podcastShows').level(1) %}
-
-    <ul>
-        {% for category in group.all() %}
-            <li>
-                <a href="{{ category.url }}">
-                    {{ category.title }}
-                </a>
-
-            </li>
-        {% endfor %}
-    </ul> #}
-
-    {% endblock %}
+{% endblock %}

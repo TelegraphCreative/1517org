@@ -2,7 +2,7 @@
 
     {% set entryTopics = entry.topics %}
     {% set entryTopicsArray = [] %}
-    {% for topic in entryTopics %}
+    {% for topic in entryTopics.all() %}
         {% set entryTopicsArray = entryTopicsArray|merge([topic]) %}
     {% endfor %}
 
@@ -22,8 +22,8 @@
             {# Latest Cards #}
             <div class="flex-grid">
                 {# Content Card - Stacked #} 
-                {% for entry in relatedEntries.limit(2) %}
-                    {% include '_components/content-card--basic' with { content: entry, 'classes': '' } %}
+                {% for entry in relatedEntries.limit(2).all() %}
+                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast,  'classes': '' } %}
                 {% endfor %}
             
             </div>

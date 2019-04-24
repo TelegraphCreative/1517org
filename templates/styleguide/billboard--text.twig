@@ -14,6 +14,7 @@
                 <li>Description</li>
                 <li>Action</li>
                 <li>Background Color</li>
+                <li>Image -optional (currently a static fed component)</li>
             </ul>
         </li>
         <li>Variation Classes:
@@ -105,6 +106,22 @@
 
 {% set code %}{% verbatim %}{% include '_components/billboard--text' with { classes: '-center -sage', content: billboardContent } %}{% endverbatim %}{% endset %}
 {{ guide.snippet( code, 'css' ) }}
+
+
+<h2 class="text-lg my-6">
+    With Image
+</h2>
+{# Text Billboard - placeholder content#}
+{% set content = { 
+            header: 'Bring 1517 to your city',
+            detail: '<p>Invite a speaker to your community! Their goal is to proclaim the good news of the Gospel through their specific field
+            and area of expertise. We would love the opportunity to speak to your church, conference or class.</p>',
+            buttons: 'link -underline -light', 
+            action: 'Request a speaker',
+            image: '/assets/placeholder/placeholder_08.jpg'
+        }%}
+{# Text Billboard - basic #}
+{% include '_components/static/billboard--text' with { classes: '-image-left -sage', content: content } %}
 
 
 {% endblock %}
