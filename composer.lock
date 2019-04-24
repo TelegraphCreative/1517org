@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d32ad41db936fb5948d80bd44030abb",
+    "content-hash": "6fa0ec4c34978be40769ad9fdc524f14",
     "packages": [
         {
             "name": "99designs/phumbor",
@@ -815,11 +815,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.1.21.1",
+            "version": "3.1.24",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/f2ef5da6693a3aa89bd2585b3a8c366ee5d7ab70",
-                "reference": "f2ef5da6693a3aa89bd2585b3a8c366ee5d7ab70",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373",
+                "reference": "aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373",
                 "shasum": ""
             },
             "require": {
@@ -848,7 +848,7 @@
                 "seld/cli-prompt": "^1.0.3",
                 "symfony/yaml": "^3.2|^4.0",
                 "true/punycode": "^2.1.0",
-                "twig/twig": "^2.7.2",
+                "twig/twig": "~2.8.1",
                 "yii2tech/ar-softdelete": "^1.0.2",
                 "yiisoft/yii2": "~2.0.17.0",
                 "yiisoft/yii2-debug": "^2.0.10",
@@ -895,7 +895,57 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2019-04-04T19:07:09+00:00"
+            "time": "2019-04-23T17:11:18+00:00"
+        },
+        {
+            "name": "craftcms/commerce",
+            "version": "2.1.3.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/commerce/zipball/94a97b0245927e6f9c6f532ad827e80db83ee1bb",
+                "reference": "94a97b0245927e6f9c6f532ad827e80db83ee1bb",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.20",
+                "dompdf/dompdf": "~0.8.2",
+                "ibericode/vat": "^1.1.2",
+                "moneyphp/money": "^3.1.3",
+                "phpoffice/phpspreadsheet": "^1.4"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "commerce",
+                "name": "Craft Commerce",
+                "description": "An amazingly powerful and flexible e-commerce platform for Craft CMS.",
+                "developer": "Pixel & Tonic",
+                "documentationUrl": "https://docs.craftcms.com/commerce/v2/"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\commerce\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Craft Commerce",
+            "homepage": "https://craftcommerce.com",
+            "keywords": [
+                "cms",
+                "commerce",
+                "craftcms",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/commerce/issues?state=open",
+                "forum": "https://craftcms.stackexchange.com/",
+                "source": "https://github.com/craftcms/commerce",
+                "docs": "https://docs.craftcms.com/commerce/v2/",
+                "rss": "https://github.com/craftcms/commerce/releases.atom"
+            },
+            "time": "2019-04-10T23:45:08+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -1298,6 +1348,62 @@
             "time": "2014-09-09T13:34:57+00:00"
         },
         {
+            "name": "dompdf/dompdf",
+            "version": "v0.8.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/75f13c700009be21a1965dc2c5b68a8708c22ba2",
+                "reference": "75f13c700009be21a1965dc2c5b68a8708c22ba2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "phenx/php-font-lib": "0.5.*",
+                "phenx/php-svg-lib": "0.3.*",
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "ext-gd": "Needed to process images",
+                "ext-gmagick": "Improves image processing performance",
+                "ext-imagick": "Improves image processing performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dompdf\\": "src/"
+                },
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                },
+                {
+                    "name": "Brian Sweeney",
+                    "email": "eclecticgeek@gmail.com"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com"
+                }
+            ],
+            "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+            "homepage": "https://github.com/dompdf/dompdf",
+            "time": "2018-12-14T02:40:31+00:00"
+        },
+        {
             "name": "egulias/email-validator",
             "version": "2.1.7",
             "dist": {
@@ -1684,6 +1790,62 @@
             "time": "2019-03-29T13:30:59+00:00"
         },
         {
+            "name": "fruitstudios/linkit",
+            "version": "1.1.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fruitstudios/craft-linkit/zipball/354ec959094c6e8ae05af1ff345709e4776a7f66",
+                "reference": "354ec959094c6e8ae05af1ff345709e4776a7f66",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.8"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Linkit",
+                "handle": "linkit",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/fruitstudios/craft-linkit/master/CHANGELOG.md",
+                "class": "fruitstudios\\linkit\\Linkit",
+                "components": {
+                    "services": "fruitstudios\\linkit\\services\\LinkitService"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "fruitstudios\\linkit\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Fruit Studios",
+                    "homepage": "https://fruitstudios.co.uk"
+                }
+            ],
+            "description": "One link field to rule them all.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "fruit studios",
+                "link it",
+                "linkit"
+            ],
+            "support": {
+                "email": "hi@fruitstudios.co.uk",
+                "issues": "https://github.com/fruitstudios/craft-linkit/issues?state=open",
+                "source": "https://github.com/fruitstudios/craft-linkit",
+                "docs": "https://github.com/fruitstudios/craft-linkit"
+            },
+            "time": "2019-04-03T09:54:55+00:00"
+        },
+        {
             "name": "giggsey/libphonenumber-for-php",
             "version": "8.10.10",
             "dist": {
@@ -1957,6 +2119,44 @@
                 "url"
             ],
             "time": "2018-12-04T20:46:45+00:00"
+        },
+        {
+            "name": "ibericode/vat",
+            "version": "1.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ibericode/vat/zipball/1d24382454481384bbc987dcbc959cfef17d6baa",
+                "reference": "1d24382454481384bbc987dcbc959cfef17d6baa",
+                "shasum": ""
+            },
+            "require": {
+                "ext-soap": "*",
+                "php": ">=7.1",
+                "psr/simple-cache": "^1.0"
+            },
+            "provide": {
+                "psr/simple-cache-implementation": "1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DvK\\Vat\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danny van Kooten",
+                    "email": "hi@dvk.co"
+                }
+            ],
+            "description": "PHP library for dealing with VAT in Europe",
+            "keywords": [
+                "vat"
+            ],
+            "time": "2019-01-08T09:21:39+00:00"
         },
         {
             "name": "icanboogie/inflector",
@@ -2471,6 +2671,139 @@
             "time": "2018-11-22T18:33:57+00:00"
         },
         {
+            "name": "markbaker/complex",
+            "version": "1.4.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarkBaker/PHPComplex/zipball/1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+                "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6.0|^7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Complex\\": "classes/src/"
+                },
+                "files": [
+                    "classes/src/functions/abs.php",
+                    "classes/src/functions/acos.php",
+                    "classes/src/functions/acosh.php",
+                    "classes/src/functions/acot.php",
+                    "classes/src/functions/acoth.php",
+                    "classes/src/functions/acsc.php",
+                    "classes/src/functions/acsch.php",
+                    "classes/src/functions/argument.php",
+                    "classes/src/functions/asec.php",
+                    "classes/src/functions/asech.php",
+                    "classes/src/functions/asin.php",
+                    "classes/src/functions/asinh.php",
+                    "classes/src/functions/atan.php",
+                    "classes/src/functions/atanh.php",
+                    "classes/src/functions/conjugate.php",
+                    "classes/src/functions/cos.php",
+                    "classes/src/functions/cosh.php",
+                    "classes/src/functions/cot.php",
+                    "classes/src/functions/coth.php",
+                    "classes/src/functions/csc.php",
+                    "classes/src/functions/csch.php",
+                    "classes/src/functions/exp.php",
+                    "classes/src/functions/inverse.php",
+                    "classes/src/functions/ln.php",
+                    "classes/src/functions/log2.php",
+                    "classes/src/functions/log10.php",
+                    "classes/src/functions/negative.php",
+                    "classes/src/functions/pow.php",
+                    "classes/src/functions/rho.php",
+                    "classes/src/functions/sec.php",
+                    "classes/src/functions/sech.php",
+                    "classes/src/functions/sin.php",
+                    "classes/src/functions/sinh.php",
+                    "classes/src/functions/sqrt.php",
+                    "classes/src/functions/tan.php",
+                    "classes/src/functions/tanh.php",
+                    "classes/src/functions/theta.php",
+                    "classes/src/operations/add.php",
+                    "classes/src/operations/subtract.php",
+                    "classes/src/operations/multiply.php",
+                    "classes/src/operations/divideby.php",
+                    "classes/src/operations/divideinto.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker",
+                    "email": "mark@lange.demon.co.uk"
+                }
+            ],
+            "description": "PHP Class for working with complex numbers",
+            "homepage": "https://github.com/MarkBaker/PHPComplex",
+            "keywords": [
+                "complex",
+                "mathematics"
+            ],
+            "time": "2018-10-13T23:28:42+00:00"
+        },
+        {
+            "name": "markbaker/matrix",
+            "version": "1.1.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarkBaker/PHPMatrix/zipball/6ea97472b5baf12119b4f31f802835b820dd6d64",
+                "reference": "6ea97472b5baf12119b4f31f802835b820dd6d64",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6.0|^7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Matrix\\": "classes/src/"
+                },
+                "files": [
+                    "classes/src/functions/adjoint.php",
+                    "classes/src/functions/antidiagonal.php",
+                    "classes/src/functions/cofactors.php",
+                    "classes/src/functions/determinant.php",
+                    "classes/src/functions/diagonal.php",
+                    "classes/src/functions/identity.php",
+                    "classes/src/functions/inverse.php",
+                    "classes/src/functions/minors.php",
+                    "classes/src/functions/trace.php",
+                    "classes/src/functions/transpose.php",
+                    "classes/src/operations/add.php",
+                    "classes/src/operations/directsum.php",
+                    "classes/src/operations/subtract.php",
+                    "classes/src/operations/multiply.php",
+                    "classes/src/operations/divideby.php",
+                    "classes/src/operations/divideinto.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker",
+                    "email": "mark@lange.demon.co.uk"
+                }
+            ],
+            "description": "PHP Class for working with matrices",
+            "homepage": "https://github.com/MarkBaker/PHPMatrix",
+            "keywords": [
+                "mathematics",
+                "matrix",
+                "vector"
+            ],
+            "time": "2018-11-04T22:12:12+00:00"
+        },
+        {
             "name": "masterminds/html5",
             "version": "2.6.0",
             "dist": {
@@ -2643,6 +2976,65 @@
             ],
             "description": "Filters out profanities from strings.",
             "time": "2016-05-11T00:19:07+00:00"
+        },
+        {
+            "name": "moneyphp/money",
+            "version": "v3.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moneyphp/money/zipball/f6085de6c565e98d2f9a7311a605987b54e06d5e",
+                "reference": "f6085de6c565e98d2f9a7311a605987b54e06d5e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.6"
+            },
+            "suggest": {
+                "ext-bcmath": "Calculate without integer limits",
+                "ext-gmp": "Calculate without integer limits",
+                "ext-intl": "Format Money objects with intl",
+                "florianv/exchanger": "Exchange rates library for PHP",
+                "florianv/swap": "Exchange rates library for PHP",
+                "psr/cache-implementation": "Used for Currency caching"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Money\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "Mathias Verraes",
+                    "email": "mathias@verraes.net",
+                    "homepage": "http://verraes.net"
+                },
+                {
+                    "name": "Frederik Bosch",
+                    "email": "f.bosch@genkgo.nl"
+                }
+            ],
+            "description": "PHP implementation of Fowler's Money pattern",
+            "homepage": "http://moneyphp.org",
+            "keywords": [
+                "Value Object",
+                "money",
+                "vo"
+            ],
+            "time": "2019-02-07T18:01:35+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2930,11 +3322,11 @@
         },
         {
             "name": "nystudio107/craft-imageoptimize",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-imageoptimize/zipball/18b6e609af1dfc4f953b1ab73b0c64a7b8199646",
-                "reference": "18b6e609af1dfc4f953b1ab73b0c64a7b8199646",
+                "url": "https://api.github.com/repos/nystudio107/craft-imageoptimize/zipball/6a90a61847e66daef745eab25dc7a6a901ceafe3",
+                "reference": "6a90a61847e66daef745eab25dc7a6a901ceafe3",
                 "shasum": ""
             },
             "require": {
@@ -2989,7 +3381,7 @@
                 "docs": "https://github.com/nystudio107/craft-imageoptimize/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-imageoptimize/issues"
             },
-            "time": "2019-02-23T03:27:15+00:00"
+            "time": "2019-04-22T17:11:44+00:00"
         },
         {
             "name": "nystudio107/craft-imageoptimize-imgix",
@@ -3131,11 +3523,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.1.47",
+            "version": "3.1.49",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/b2e2d3715edccfdca68942404aeeeb82dcba95d9",
-                "reference": "b2e2d3715edccfdca68942404aeeeb82dcba95d9",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/f6432ec96659a760ab8b628fcb025714cb4805f3",
+                "reference": "f6432ec96659a760ab8b628fcb025714cb4805f3",
                 "shasum": ""
             },
             "require": {
@@ -3198,7 +3590,7 @@
                 "docs": "https://github.com/nystudio107/craft-seomatic/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-seomatic/issues"
             },
-            "time": "2019-04-02T17:47:17+00:00"
+            "time": "2019-04-23T03:23:57+00:00"
         },
         {
             "name": "ostark/yii2-artisan-bridge",
@@ -3282,6 +3674,65 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+            "name": "phenx/php-font-lib",
+            "version": "0.5.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/760148820110a1ae0936e5cc35851e25a938bc97",
+                "reference": "760148820110a1ae0936e5cc35851e25a938bc97",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FontLib\\": "src/FontLib"
+                }
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2017-09-13T16:14:37+00:00"
+        },
+        {
+            "name": "phenx/php-svg-lib",
+            "version": "v0.3.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/ccc46ef6340d4b8a4a68047e68d8501ea961442c",
+                "reference": "ccc46ef6340d4b8a4a68047e68d8501ea961442c",
+                "shasum": ""
+            },
+            "require": {
+                "sabberworm/php-css-parser": "8.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Svg\\": "src/"
+                }
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse and export to PDF SVG files.",
+            "homepage": "https://github.com/PhenX/php-svg-lib",
+            "time": "2018-06-03T10:10:03+00:00"
+        },
+        {
             "name": "php-science/textrank",
             "version": "1.1.1",
             "dist": {
@@ -3324,6 +3775,83 @@
                 "textrank"
             ],
             "time": "2018-10-08T08:50:14+00:00"
+        },
+        {
+            "name": "phpoffice/phpspreadsheet",
+            "version": "1.6.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/bf00f0cc5f55c354018f9a9ef15e6e3e1a229051",
+                "reference": "bf00f0cc5f55c354018f9a9ef15e6e3e1a229051",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-dom": "*",
+                "ext-fileinfo": "*",
+                "ext-gd": "*",
+                "ext-iconv": "*",
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
+                "ext-xml": "*",
+                "ext-xmlreader": "*",
+                "ext-xmlwriter": "*",
+                "ext-zip": "*",
+                "ext-zlib": "*",
+                "markbaker/complex": "^1.4",
+                "markbaker/matrix": "^1.1",
+                "php": "^5.6|^7.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "suggest": {
+                "dompdf/dompdf": "Option for rendering PDF with PDF Writer",
+                "jpgraph/jpgraph": "Option for rendering charts, or including charts with PDF or HTML Writers",
+                "mpdf/mpdf": "Option for rendering PDF with PDF Writer",
+                "tecnickcom/tcpdf": "Option for rendering PDF with PDF Writer"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\PhpSpreadsheet\\": "src/PhpSpreadsheet"
+                }
+            },
+            "license": [
+                "LGPL-2.1-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Erik Tilt"
+                },
+                {
+                    "name": "Adrien Crivelli"
+                },
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "https://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker",
+                    "homepage": "https://markbakeruk.net"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "https://rootslabs.net"
+                }
+            ],
+            "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "https://github.com/PHPOffice/PhpSpreadsheet",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "gnumeric",
+                "ods",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2019-01-02T04:42:54+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -3550,6 +4078,48 @@
             "time": "2018-11-20T15:27:04+00:00"
         },
         {
+            "name": "psr/simple-cache",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
             "name": "ralouphie/getallheaders",
             "version": "2.0.5",
             "dist": {
@@ -3583,6 +4153,41 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
+            "name": "sabberworm/php-css-parser",
+            "version": "8.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/850cbbcbe7fbb155387a151ea562897a67e242ef",
+                "reference": "850cbbcbe7fbb155387a151ea562897a67e242ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Sabberworm\\CSS": "lib/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "time": "2016-07-19T19:14:21+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -3711,6 +4316,53 @@
             "time": "2015-10-13T18:44:15+00:00"
         },
         {
+            "name": "spicyweb/craft-fieldlabels",
+            "version": "1.0.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spicywebau/craft-fieldlabels/zipball/4e729d0c95c5c74af1691d553ce727d7d1f25ee8",
+                "reference": "4e729d0c95c5c74af1691d553ce727d7d1f25ee8",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.20"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "fieldlabels",
+                "name": "Field Labels",
+                "schemaVersion": "1.0.0",
+                "class": "spicyweb\\fieldlabels\\Plugin",
+                "changelogUrl": "https://github.com/spicywebau/craft-fieldlabels/blob/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/spicywebau/craft-fieldlabels/archive/master.zip"
+            },
+            "autoload": {
+                "psr-4": {
+                    "spicyweb\\fieldlabels\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Spicy Web",
+                    "homepage": "https://spicyweb.com.au"
+                }
+            ],
+            "description": "Override Craft CMS field labels and instructions in the field layout designer",
+            "homepage": "https://spicyweb.com.au/",
+            "keywords": [
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "email": "craft@spicyweb.com.au",
+                "issues": "https://github.com/spicywebau/craft-fieldlabels/issues"
+            },
+            "time": "2019-04-03T09:19:10+00:00"
+        },
+        {
             "name": "sunra/php-simple-html-dom-parser",
             "version": "v1.5.2",
             "dist": {
@@ -3754,11 +4406,11 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.0",
+            "version": "v6.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707",
-                "reference": "6fa3232ff9d3f8237c0fae4b7ff05e1baa4cd707",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
+                "reference": "5397cd05b0a0f7937c47b0adcb4c60e5ab936b6a",
                 "shasum": ""
             },
             "require": {
@@ -3767,10 +4419,6 @@
                 "symfony/polyfill-iconv": "^1.0",
                 "symfony/polyfill-intl-idn": "^1.10",
                 "symfony/polyfill-mbstring": "^1.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9.1",
-                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
             },
             "suggest": {
                 "ext-intl": "Needed to support internationalized email addresses",
@@ -3787,7 +4435,6 @@
                     "lib/swift_required.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3807,7 +4454,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2019-03-10T07:52:41+00:00"
+            "time": "2019-04-21T09:21:45+00:00"
         },
         {
             "name": "symfony/console",
@@ -4657,11 +5304,6 @@
                 "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "^1.3"
             },
-            "require-dev": {
-                "psr/container": "^1.0",
-                "symfony/debug": "^2.7",
-                "symfony/phpunit-bridge": "^3.4.19|^4.1.8"
-            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -4676,7 +5318,6 @@
                     "Twig\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -4856,11 +5497,11 @@
         },
         {
             "name": "wrav/oembed",
-            "version": "1.1.4",
+            "version": "1.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wrav/oembed/zipball/30e660938b716633bac7167bcb88942e0b340d86",
-                "reference": "30e660938b716633bac7167bcb88942e0b340d86",
+                "url": "https://api.github.com/repos/wrav/oembed/zipball/94f7f02a282b8723421a6e53076209feb9526963",
+                "reference": "94f7f02a282b8723421a6e53076209feb9526963",
                 "shasum": ""
             },
             "require": {
@@ -4871,8 +5512,8 @@
             "extra": {
                 "name": "oEmbed",
                 "handle": "oembed",
-                "schemaVersion": "1.0.0",
-                "hasCpSettings": false,
+                "schemaVersion": "1.0.1",
+                "hasCpSettings": true,
                 "hasCpSection": false,
                 "changelogUrl": "https://raw.githubusercontent.com/wrav/oembed/master/CHANGELOG.md",
                 "components": {
@@ -4885,7 +5526,6 @@
                     "wrav\\oembed\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4897,8 +5537,8 @@
             ],
             "description": "A simple plugin to extract media information from websites, like youtube videos, twitter statuses or blog articles.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "facebook",
@@ -4909,7 +5549,11 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2019-04-04T05:46:45+00:00"
+            "support": {
+                "docs": "https://github.com/wrav/oembed/blob/master/README.md",
+                "issues": "https://github.com/wrav/oembed/issues"
+            },
+            "time": "2019-04-22T04:26:36+00:00"
         },
         {
             "name": "yii2tech/ar-softdelete",

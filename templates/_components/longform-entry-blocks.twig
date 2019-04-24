@@ -1,0 +1,90 @@
+{% import '_macros/global' as global %}
+
+{% if blocks|length %}
+
+    {% for block in blocks %}
+        {% switch block.type %}
+
+        {# Article Body #}
+        {% case "articleBody" %}
+            <div class="article-body | narrow-block gutter-xl | paragraphs -md -loose | article-content">
+                {{ block.article }}
+            </div>
+
+        {# Big List - Assets #}
+        {% case "bigListAssets" %}
+            <div class="big-list-assets | narrow-block gutter-xl | space-b">
+                {% if block.header|length %}
+                    <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">{{ block.header }}</h3>
+                {% endif %}
+                
+                <ul class="list-assets -hover-effect">
+                    {% for item in block.list.all() %}
+
+                    <li class="list-asset | flex-grid">
+                        
+                        <div class="list-asset__content">
+                            <a href="{{ item.resource }}">
+                                <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                                {% if item.supportingCopy|length %}
+                                    <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
+                                {% endif %}
+                            </a>
+                        </div>
+                        
+                        <div class="list-asset__action">
+                            {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-sm' ) }}
+                        </div>
+                        
+                    </li>
+                    {% endfor %}
+                </ul>
+                
+            </div>
+        
+        {# Button Group #}
+        {% case "buttonGroup" %}
+            <div class="button-group | narrow-block gutter-xl | pt-4 pb-14">
+                {# Header #}
+                {% if block.header|length %}
+                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
+                {% endif %}
+                
+                {# Actions #}
+                <div class="button-group__actions">
+                    {% for item in block.button.all() %}
+                        {{ global.link(item.button, item.buttonStyle)}}                
+                    {% endfor %}
+                </div>
+            </div>
+        
+        {# Hero Image - full-bleed #}
+        {% case "heroImageFullBleed" %}
+            <div class="hero-image">
+                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
+            </div>
+
+        {# Entry Callout #}
+        {% case "entryCallout" %}
+            <div class="entry-callout | gutter-xl | space-t space-b--sm">
+                {# Header #}
+                {% if block.header|length %}
+                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
+                {% endif %}
+
+                {# Content Card - Podcast #} 
+                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
+            </div>
+
+        {# Billboard - floated image #}
+        {% case "billboardFloatedImage" %}
+            <div class="billboard-floated-image | space-t space-b">
+                {# Billboard #}
+                {% include "_components/billboard--floated-img" with { content: block } %}
+            </div>
+            
+        {% endswitch %}
+    {% endfor %}
+    
+
+{% endif %}

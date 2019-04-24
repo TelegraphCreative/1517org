@@ -11,7 +11,7 @@
         <div class="item filter | mb-2">
             <select_box :opt="{ name: 'format', variant: '-md' }">
                 <option value="All Formats" selected>All Series</option>
-                {% for series in relatedSeries %}
+                {% for series in relatedSeries.all() %}
                     <option value="{{ series.url }}">{{ series.title }}</option>
                 {% endfor %}
             </select_box>

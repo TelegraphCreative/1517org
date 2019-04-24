@@ -4,29 +4,68 @@
 {% set section = craft.entries.section('podcasts') %}
 {% set entries = section.relatedTo(category) %}
 {% set count = entries.count %} 
+{% set shows = craft.categories.group('podcastShows') %}
 {% set topics = craft.categories.group('topics') %}
-{% set relatedTopics = craft.categories.group('topics').relatedTo(entries).all() %}
-{% set relatedSeries = craft.categories.group('podcastShows').level(2).relatedTo(entries) %}
+{% set relatedTopics = topics.relatedTo(entries).all() %}
+{% set relatedSeries = shows.level(2).relatedTo(entries) %}
 {% set hasSeries = false %}
-{% for category in relatedSeries %}
+{% for category in relatedSeries.all() %}
     {% set hasSeries = true %}
 {% endfor %}
 
 {% block content %} 
 
     <section class="space-menu ">
-        {# Page Header #}
-        {# Temp content for Header #}
+        {# Page Header Content #}
         {% set content = { 
                 title: category.title, 
                 category: 'Podcast', 
                 detail: category.shortDescription,
-                image: category.cardImagePodcast.one().optimize
+                image: category.cardImagePodcast.one(),
+                action: category.headerAction
             }
         %} 
+        {# Page Header - Action #}
         {% include "_components/page-header--action" with { content: content } %}
 
     </section>
+
+    {# Featured Card #}
+    {% if category.featuredPodcast|length %}
+        {% set featuredSingle = '' %}
+        {% set background = '' %}
+        {% for method in category.featuredPodcast.all() %}
+            {# Data based on Method #}
+            {% switch method.type %}
+                
+                {# Pull Latest #}
+                {% case "pullLatest" %}
+                    {% set sources = [] %}
+
+                    {% for source in method.latestFrom.all() %}
+                        {% set sources = sources|merge([source]) %}
+                    {% endfor %}
+                    {% set featuredAll = section.relatedTo(sources) %}
+                    {% set featuredSingle = featuredAll[0] %}
+                
+                {# Pull Featured #}
+                {% case "pullFeatured" %}
+
+                    {% set featuredSingle = method.featuredPodcast.one() %}
+
+            {% endswitch %}
+
+            {# Set Background #}
+            {% set background = method.background %}
+
+        {% endfor %}
+        <div id="featured" class="container | space-b">
+
+            {# Content Card - Hero #} 
+            {% include '_components/content-hero--podcast' with { content: featuredSingle, 'classes': background } %}
+
+        </div>
+    {% endif %}
 
 
     <div id="filters" class="container">
@@ -45,6 +84,17 @@
         
     </div>
 
+    {# Subscribe Billboard  #}
+    {% set subscribeContent = category %}
+    {% if category.level > 1 %}
+        {% set subscribeContent = craft.categories.group('podcastShows').ancestorOf(category).one() %}
+    {% endif %}
+
+    {% if subscribeContent.subscribeHeader|length > 1 and category.showSubscribeBillboard  %}
+        
+        {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: subscribeContent } %}
+
+    {% endif %}
 
 {# <h1>
     {{ category.title }}
