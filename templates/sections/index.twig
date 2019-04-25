@@ -1,116 +1,35 @@
-{% extends "_layouts/_base" %} 
+{% extends "_layouts/_base" %}
 {% import '_macros/global' as global %}
+{% set indexList = craft.categories.group('sections').level(1) %}
 
-{% set sourceSections = ['articles' 'podcasts', 'events', 'videos', 'courses'] %}
-{% set sections = craft.entries({ section: sourceSections }) %}
-{% set entries = section.relatedTo(category) %}
-{% set count = entries.count %} 
+{% block content %}
 
-{% set topics = craft.categories.group('topics') %}
-{% set relatedTopics = topics.relatedTo(entries).all() %}
-
-
-{% block content %} 
-
-    <section class="space-menu ">
-        {# Page Header Content #}
-        {% set content = { 
-                title: category.title, 
-                category: 'Sections', 
-                detail: category.shortDescription,
-                image: category.cardImagePodcast.one(),
-                action: category.headerAction
+    <section class="space-menu">
+        {# Page Header #}
+        {% set pageHeaderContent = { 
+                title: '1517 Sections', 
+                category: 'Sections'
             }
         %} 
-        {# Page Header - Action #}
-        {% include "_components/page-header--action" with { content: content } %}
-
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
     </section>
 
-    {# Featured Card #}
-    {% if category.featuredPodcast|length %}
-        {% set featuredSingle = '' %}
-        {% set background = '' %}
-        {% for method in category.featuredPodcast.all() %}
-            {# Data based on Method #}
-            {% switch method.type %}
-                
-                {# Pull Latest #}
-                {% case "pullLatest" %}
-                    {% set sources = [] %}
-
-                    {% for source in method.latestFrom.all() %}
-                        {% set sources = sources|merge([source]) %}
-                    {% endfor %}
-                    {% set featuredAll = section.relatedTo(sources) %}
-                    {% set featuredSingle = featuredAll[0] %}
-                
-                {# Pull Featured #}
-                {% case "pullFeatured" %}
-
-                    {% set featuredSingle = method.featuredPodcast.one() %}
-
-            {% endswitch %}
-
-            {# Set Background #}
-            {% set background = method.background %}
-
-        {% endfor %}
-
-        <div id="featured" class="container | space-b">
-
-            {# Content Card - Hero #} 
-            {# {% include '_components/content-hero--podcast' with { content: featuredSingle, 'classes': background } %} #}
+    {# Topics List #}
+    {% if indexList.count > 0 %}
+    
+        <div id="sections" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            
+            {# Sections #}    
+            {% for entry in indexList.all() %}
+                {# Content Card - Stacked #}
+                {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true} %}
+            {% endfor %}
 
         </div>
+
     {% endif %}
-
-
-    <div id="filters" class="container">
-        {# Filters #} 
-        {% include "_components/filters-page--sections" with {topics: relatedTopics} %}
-    </div>
-
-
-    {# Topics List #}
-    <div id="content" class="container--sm gutter-md | space-b">
-
-        {# Content Card - Podcast #} 
-        {% for entry in entries.all() %}
-        {{ entry.type }}
-            {# {% include '_components/content-card--podcast' with { content: entry, 'classes': '' } %} #}
-        {% endfor %}
-        
-    </div>
-
-   
-
-{# <h1>
-    {{ category.title }}
-</h1>
-<h4>
-    {% if category.level > 1 %}
-        (series of <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
-    {% endif %}
-</h4>
-
-
-<h2>Episodes</h2>
     
-<!-- Fetch all of the entries related to this category -->
-{% set section = craft.entries.section('podcasts') %}
-{% set entries = section.relatedTo(category) %}
+    {# Billboard #}
+    
 
-<ul>
-    {% for entry in entries.all() %}
-        <li>
-            <a href="{{ entry.url }}">
-                {{ entry.title }}
-            </a>
-        </li>
-    {% endfor %}
-</ul> #}
-
-
-
-{% endblock %}
+    {% endblock %}

@@ -19,7 +19,7 @@
         <h1 class="header-xl font-serif">{{ content.title }}</h2>
     </div>
 
-    {% if content.detail is defined %}
+    {% if content.detail is defined and content.action|length %}
     <div class="page-header__detail">
 
         <div class="paragraphs -sm -loose">

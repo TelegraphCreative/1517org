@@ -1,0 +1,19 @@
+{% import '_macros/global' as global %}
+
+{% switch content.type %}
+
+    {% case "article" %}
+        {% include '_components/content-hero--article' with { content: content, 'classes': classes } %}
+    {% case "podcast" %}
+        {% include '_components/content-hero--podcast' with { content: content, 'classes': classes } %}
+
+    {% case "video" %}
+        {% include '_components/content-hero--video' with { content: content, 'classes': classes } %}
+
+    {% case "event" %}
+        {% include '_components/content-hero--event' with { content: content, 'classes': classes } %}
+
+    {% case "course" %}
+        {% include '_components/content-hero--course' with { content: content, 'classes': classes } %}
+
+{% endswitch %}

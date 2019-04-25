@@ -85,7 +85,7 @@ categoryGroups:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         hasUrls: true
         uriFormat: 'sections/{slug}'
-        template: sections/index
+        template: sections/_category
     fieldLayouts:
       32914909-f583-472d-9317-301345052744:
         tabs:
@@ -96,12 +96,15 @@ categoryGroups:
               d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                 required: true
                 sortOrder: 1
+              ca88b718-b5ea-4d62-907a-b2746232ec5a:
+                required: true
+                sortOrder: 2
               32236621-f50a-48af-a121-8ff8282224f3:
                 required: false
-                sortOrder: 2
+                sortOrder: 3
               d346861d-be5b-43ad-84db-cec8cb55d41e:
                 required: false
-                sortOrder: 3
+                sortOrder: 4
 commerce:
   orderStatuses:
     e4306305-81b8-4056-a5c5-0288ad6a682d:
@@ -180,7 +183,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556210593
+dateModified: 1556216136
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -208,6 +211,12 @@ fieldGroups:
     name: Articles
   be9d0501-091e-4361-b500-24f03019fa0b:
     name: Product
+fieldlabels:
+  b4e5ef6f-db34-41a4-bedd-074aa3acae21:
+    field: ca88b718-b5ea-4d62-907a-b2746232ec5a
+    fieldLayout: 32914909-f583-472d-9317-301345052744
+    name: 'Card Image'
+    instructions: null
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -1191,20 +1200,12 @@ fields:
     searchable: false
     translationMethod: site
     translationKeyFormat: null
-    type: craft\fields\Entries
+    type: craft\fields\Matrix
     settings:
-      sources:
-        - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
-        - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
-        - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
-        - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
-        - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
-      source: null
-      targetSiteId: null
-      viewMode: null
-      limit: '1'
-      selectionLabel: Content
-      localizeRelations: false
+      minBlocks: ''
+      maxBlocks: '1'
+      contentTable: '{{%matrixcontent_featuredcontent}}'
+      localizeBlocks: false
     contentColumnType: string
     fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
   01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
@@ -2156,6 +2157,122 @@ matrixBlockTypes:
               e2675153-316a-43c5-ab7a-e7e2890aab22:
                 required: true
                 sortOrder: 1
+  9733e782-bce9-4a22-ac53-ec21895b6108:
+    field: d346861d-be5b-43ad-84db-cec8cb55d41e
+    name: 'Pull Latest'
+    handle: pullLatest
+    sortOrder: 1
+    fields:
+      46e9bd00-bbf9-4538-824a-60e2159248fc:
+        name: 'Latest related content'
+        handle: latestRelatedContent
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: '1'
+        contentColumnType: boolean
+        fieldGroup: null
+      b3e2395d-4b9f-4f0b-acb0-094bf0d74748:
+        name: Background
+        handle: background
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Dark
+              value: '-dark'
+              default: '1'
+            -
+              label: Red
+              value: '-red'
+              default: ''
+            -
+              label: Ivory
+              value: '-ivory'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      1788684a-de00-430f-bb17-376581326915:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              46e9bd00-bbf9-4538-824a-60e2159248fc:
+                required: true
+                sortOrder: 1
+              b3e2395d-4b9f-4f0b-acb0-094bf0d74748:
+                required: true
+                sortOrder: 2
+  fd37e60f-7144-421a-8d97-74013ff087f3:
+    field: d346861d-be5b-43ad-84db-cec8cb55d41e
+    name: 'Pull Featured'
+    handle: pullFeatured
+    sortOrder: 2
+    fields:
+      91a1e86b-9ace-40bc-8a47-bc6032e48244:
+        name: 'Featured from'
+        handle: featuredFrom
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Entries
+        settings:
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: '1'
+          selectionLabel: Entry
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      77a205d7-7563-403f-8d2f-3e7b2e2e1865:
+        name: Background
+        handle: background
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Dark
+              value: '-dark'
+              default: '1'
+            -
+              label: Red
+              value: '-red'
+              default: ''
+            -
+              label: Ivory
+              value: '-ivory'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      d31ef5e8-09e1-4b43-93f0-3e2c69dd7d5b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              91a1e86b-9ace-40bc-8a47-bc6032e48244:
+                required: true
+                sortOrder: 1
+              77a205d7-7563-403f-8d2f-3e7b2e2e1865:
+                required: true
+                sortOrder: 2
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -2377,12 +2494,15 @@ sections:
                   56055b61-5ad3-45e5-b59a-ddc4a5b454cb:
                     required: false
                     sortOrder: 1
-                  982c618e-7295-4cca-ba1a-7ab255da5b1e:
+                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
                     required: false
                     sortOrder: 2
+                  982c618e-7295-4cca-ba1a-7ab255da5b1e:
+                    required: true
+                    sortOrder: 3
                   044102bf-2640-48b6-9408-aafe7d83a5bc:
                     required: false
-                    sortOrder: 3
+                    sortOrder: 4
   b0598134-0d64-4c98-9d73-351145a9c276:
     name: Articles
     handle: articles

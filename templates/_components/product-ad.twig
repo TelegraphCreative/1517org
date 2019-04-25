@@ -17,11 +17,16 @@
                 
             {% case "productLink" %}
                 <div class="meta-summary-block">
-                    <div class="meta-summary__media">
-                        {{ global.image( block.product.one().cardImageProduct.one(), '-fit-cover bg-ivory-lightest')}}
-                    </div>
+                    <a href="{{ block.product.one().url }}" class="meta-summary__media block">
+                        {{ global.image( block.product.one().cardImageProduct.one(), '-fit-cover -hover-scale bg-ivory-lightest')}}
+                    </a>
                     <div class="meta-summary__detail">
-                        <h6>{{ block.product.one().title }}</h6>
+                        <h6>
+                            <a href="{{ block.product.one().url }}" class="hover:text-bronze">
+                                {{ block.product.one().title }}
+                            </a>
+                        </h6>
+
                         <p>{{ block.product.one().shortDescription }}</p>
                         <p>{{ block.product.one().defaultVariant.salePrice|commerceCurrency(cart.currency) }}</p>
                     </div>

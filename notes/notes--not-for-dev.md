@@ -7,9 +7,9 @@
 [x] subscribe blog cast billboard
 
 # -Te Section
-[] featured entry hero
-[] switch statement for entry formats
-[] filter lists
+[x] featured entry hero
+[x] switch statement for entry formats
+[x] filter lists
 
 
 
