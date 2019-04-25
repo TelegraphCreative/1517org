@@ -1,8 +1,21 @@
 ---- Templating Notes ----
 
+# -Te Article Entry
+[] product link
+[] blogcast, video, or hero image
+[] product ad link
+[] subscribe blog cast billboard
+
+# -Te Section
+[] featured entry hero
+[] switch statement for entry formats
+[] filter lists
+
+
+
 # FED for Podcast Entry
 
-[ ] big list*
+[x] big list*
 [x] subscribe billboard\*^^ (needs service icons)
 [x] button group ^^
 [x] entry callout*^^

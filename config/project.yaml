@@ -153,7 +153,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556061871
+dateModified: 1556139603
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -618,8 +618,8 @@ fields:
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   24c123a8-1d09-4025-a414-fa85da64ab81:
-    name: 'Content Blocks (podcast, article)'
-    handle: contentBlocksPodcast
+    name: 'Content Blocks (podcast, article, video)'
+    handle: contentBlocksStandard
     instructions: ''
     searchable: true
     translationMethod: site
@@ -628,7 +628,7 @@ fields:
     settings:
       minBlocks: ''
       maxBlocks: ''
-      contentTable: '{{%matrixcontent_contentblockspodcast}}'
+      contentTable: '{{%matrixcontent_contentblocksstandard}}'
       localizeBlocks: false
     contentColumnType: string
     fieldGroup: 0d9ac9ee-3b17-4cf3-8207-afeb2dbe0f44
@@ -1663,6 +1663,11 @@ matrixBlockTypes:
               sources: '*'
               customSelectionLabel: ''
               userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
           allowCustomText: '1'
           defaultText: ''
           allowTarget: '1'
@@ -2178,19 +2183,19 @@ sections:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: true
                     sortOrder: 1
-                  ede86204-99a0-40e1-b93c-ec303474603f:
-                    required: false
-                    sortOrder: 2
                   94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
-                    required: false
-                    sortOrder: 3
+                    required: true
+                    sortOrder: 2
               -
                 name: Main
                 sortOrder: 2
                 fields:
+                  ede86204-99a0-40e1-b93c-ec303474603f:
+                    required: false
+                    sortOrder: 1
                   24c123a8-1d09-4025-a414-fa85da64ab81:
                     required: true
-                    sortOrder: 1
+                    sortOrder: 2
               -
                 name: Sidebar
                 sortOrder: 3
@@ -2658,6 +2663,11 @@ superTableBlockTypes:
               sources: '*'
               customSelectionLabel: ''
               userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
           allowCustomText: ''
           defaultText: ''
           allowTarget: ''
@@ -2746,6 +2756,11 @@ superTableBlockTypes:
               sources: '*'
               customSelectionLabel: ''
               userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
           allowCustomText: '1'
           defaultText: ''
           allowTarget: '1'

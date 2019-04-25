@@ -17,6 +17,13 @@
            
         </article>
         
+        {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
+            <video_player_full
+                img-src="{{ entry.vimeoEmbed.media.image }}"
+                video-url="{{ entry.vimeoEmbed.media.url }}"
+                aspect-ratio="{{ entry.vimeoEmbed.media.aspectRatio }}"
+            />
+        {% endif %}
         
     
     

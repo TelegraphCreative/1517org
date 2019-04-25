@@ -28,7 +28,7 @@
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksPodcast.one() } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %}
 
             </div>
             
@@ -59,7 +59,7 @@
 
 
         {# Article + Aside (top) #}
-        {% if entry.contentBlocksPodcast|length>1 %}
+        {% if entry.contentBlocksStandard|length>1 %}
             
             {# Content #}
             <article class="entry-main -wide">
@@ -68,7 +68,7 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast.offset(1).all() } %}
+                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %}
 
                     {# Citation #}
                     {% if entry.citation is defined %}
@@ -89,7 +89,7 @@
     </div>
 
     {# Related Content #}
-    {% include '_components/related-content-cards' with { section: 'podcasts', 'classes': '' } %}
+    {% include '_components/related-content-cards' with { section: 'podcasts', podcastCard: true } %}
 
 
     {# Subscribe Billboard  #}
