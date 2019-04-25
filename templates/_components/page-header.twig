@@ -19,11 +19,11 @@
         <h1 class="header-xl font-serif">{{ content.title }}</h2>
     </div>
 
-    {% if content.detail is defined and content.action|length %}
+    {% if content.detail is defined and content.detail|length %}
     <div class="page-header__detail">
 
         <div class="paragraphs -sm -loose">
-            {{ content.shortDescription | chop(limit=40, unit='w', append= '…') }}
+            {{ content.detail | chop(limit=40, unit='w', append= '…') }}
         </div>
 
     </div>

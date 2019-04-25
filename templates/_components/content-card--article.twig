@@ -1,0 +1,67 @@
+{% import '_macros/global' as global %}
+
+{# 
+    Templating Notes: 
+    Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
+    event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
+#}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<article class="content-card -topic | {{ classes }}">
+
+    <div class="content-card__container | flex-grid md:flex-row-reverse">
+        
+        {# Media #}
+        <a href="#" class="content-card__media | no-print">
+            {{ global.image(content.cardImage.one(), '-is2x1 -fit-cover -hover-scale')}}
+        </a>    
+        
+        {# Content #}
+        <div class="content-card__content">  
+
+            <a href="#">
+                {# Header #}
+                <div class="content-card__header | mb-4">
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h1>
+                </div>
+            </a>
+            
+            {# Primary Meta #}
+            <div class="content-card__meta -primary mb-4 | flex-grid">
+                <ul class="items-bar">
+                    <li>
+                        {% for author in content.authorLink.all() %}
+                            <a href="{{ author.url }}" class="align-items-center">
+                                {{ global.utilityIcon('book', '-sm') }}
+                                <div class="meta-label | ml-3">
+                                    By {{ author.firstName }} {{ author.lastName }}
+                                    <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                                </div>
+                            </a>
+                        {% endfor %}
+
+                    </li>
+                </ul>        
+            </div>
+            
+            {# Detail #}
+            <div class="content-card__detail | paragraphs -xs -loose | mb-5">
+                {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
+            </div>
+
+            {# Secondary Meta #}
+            <div class="content-card__meta -secondary">
+                {{ global.relatedTopics() }}                            
+            </div>
+
+        </div>
+        
+    </div>
+
+</article>

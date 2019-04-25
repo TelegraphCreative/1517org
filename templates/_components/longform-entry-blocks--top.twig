@@ -2,7 +2,7 @@
 
     {# Article Body #}
     {% case "articleBody" %}
-        <div class="article-body -drop-cap | paragraphs -md -loose | article-content">
+        <div class="article-body  {% if dropCap is defined %}-drop-cap{% endif %} | paragraphs -md -loose | article-content">
 
             {{ block.article }}
         </div>

@@ -40,6 +40,7 @@
                 <div class="w-1/2">
 
                     <div class="align-items-center">
+                        
                         {% for author in content.authorLink.all() %}
                             <a href="{{ author.url }}" class="align-items-center">
                                 {{ global.utilityIcon('book', '-sm') }}
@@ -49,7 +50,7 @@
                             </a>
                         {% endfor %}
                         
-                        </div>
+                    </div>
                 </div>
                 
                 <div class="w-1/2 | text-right">

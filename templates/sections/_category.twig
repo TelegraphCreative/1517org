@@ -68,19 +68,16 @@
     </div>
 
 
-    {# Topics List #}
+    {# Card List #}
     <div id="content" class="container--sm gutter-md | space-b">
 
+        
         {# Content Card - Podcast #} 
         {% for entry in entries.all() %}
-            {% switch entry.type %}
+
+            {# Content Cards - Switches based on Format #} 
+            {% include '_components/content-cards' with { content: entry } %}
             
-                {% case "article" %}
-                {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImage, 'classes': '' } %}
-                {% case "podcast" %}
-                    {% include '_components/content-card--podcast' with { content: entry, 'classes': '' } %}
-            
-            {% endswitch %}
         {% endfor %}
         
     </div>
