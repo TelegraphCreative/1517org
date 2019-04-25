@@ -5,14 +5,8 @@
 
     <section class="space-menu | space-b">
 
-        {# Video Player Full #}
-        {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %}
-            <video_player_full
-                img-src="{{ entry.vimeoEmbed.media.image }}"
-                video-url="{{ entry.vimeoEmbed.media.url }}"
-                aspect-ratio="{{ entry.vimeoEmbed.media.aspectRatio }}"
-            />
-        {% endif %}
+        {# Media Hero #}
+        {% include '_components/page-hero--media' with { content: entry.articleHeroContent } %}
         
 
     </section>
@@ -26,6 +20,11 @@
             {# Header #}
             <header class="entry__header">
                 <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+                {% if entry.shortDescription|length %}
+                    <div class="paragraphs -md">
+                        <p>{{ entry.shortDescription }}</p>
+                    </div>
+                {% endif %}
             </header>
 
             {# Blocks #}
@@ -49,18 +48,19 @@
                     {{ global.relatedTopics(entry.topics.all(), '') }}
                 </li>
                 <li>
-                    {% include "_components/list-social" with { content: '', classes: '-inline', share: true } %}
+                    {% include "_components/list-social" with { content: '', classes: '-inline', size: '-sm', share: true } %}
                 </li>
             </ul>
 
             {# Author #}
+            
             <div class="meta-summary-block">
                 <div class="meta-summary__media -narrow">
-                    {{ global.image('', '-is1x1 -fit-cover | rounded-full ', '/assets/placeholder/placeholder_05.png')}}
+                    {{ global.image(entry.authorLink.one().photo.one(), '-is1x1 -force -fit-cover | rounded-full ')}}
                 </div>
                 <div class="author-bio__detail">
-                    <h6>About the Author (static)</h6>
-                    <p>Kelsi is a freelance writer who writes for nonprofits and small businesses all over the world. She is currently pursuing an MA in Reformation studies from Concordia University Irvine. She lives with her husband, Doug, in Dallas, Texas.</p>
+                    <h6>About the Author</h6>
+                    <p>{{ entry.authorLink.one().shortDescription }}</p>
                 </div>
             </div>
             
@@ -102,6 +102,12 @@
 
     {# Related Content #}
     {% include '_components/related-content-cards' with { section: 'articles' } %}
+
+    {# Subscribe Billboard  #}
+    {% set billboardContent = entry.blogcastSubscribeBillboard.one() %}
+    {% if billboardContent|length %}
+        {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: billboardContent } %}
+    {% endif %}
 
 
 {% endblock %}

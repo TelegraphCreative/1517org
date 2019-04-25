@@ -145,6 +145,33 @@ commerce:
           hasUrls: true
           uriFormat: 'events/paid/{slug}'
           template: events/_entry
+    4ff35716-4989-4e57-8e09-be19b8a93f91:
+      name: Books
+      handle: books
+      hasDimensions: false
+      hasVariants: false
+      hasVariantTitleField: false
+      titleFormat: '{product.title}'
+      skuFormat: '{product.slug}'
+      descriptionFormat: '{product.shortDescription}'
+      siteSettings:
+        fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+          hasUrls: true
+          uriFormat: 'books/{slug}'
+          template: books/_product
+      productFieldLayouts:
+        af102d65-d110-405c-9af6-7bddad20c029:
+          tabs:
+            -
+              name: Details
+              sortOrder: 1
+              fields:
+                a23427d8-fb4f-4131-919c-b13434ae43df:
+                  required: true
+                  sortOrder: 1
+                d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                  required: true
+                  sortOrder: 2
   gateways:
     c75c0b95-9c3a-4869-a35e-4ed562c66d66:
       name: Dummy
@@ -153,7 +180,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556139603
+dateModified: 1556210593
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -179,6 +206,8 @@ fieldGroups:
     name: Events
   4748bdfa-3553-4647-96f4-932d64fcec02:
     name: Articles
+  be9d0501-091e-4361-b500-24f03019fa0b:
+    name: Product
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -1093,7 +1122,7 @@ fields:
     fieldGroup: 18fa1806-d926-4b54-a367-a29143312bbf
   6f8a5e6f-6027-4c82-8abc-d681013cc10f:
     name: Author
-    handle: author
+    handle: authorLink
     instructions: ''
     searchable: false
     translationMethod: site
@@ -1195,6 +1224,66 @@ fields:
       limit: null
       selectionLabel: Section
       localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  a23427d8-fb4f-4131-919c-b13434ae43df:
+    name: 'Card Image (product)'
+    handle: cardImageProduct
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      singleUploadLocationSubpath: products
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: 'May vary. Range example: 438 x 644'
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
+  c3ab6d3e-9d48-41c1-a240-9e9d6b028eb3:
+    name: 'Blogcast Subscribe Billboard'
+    handle: blogcastSubscribeBillboard
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: Billboard
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  a4c109f4-6908-4b21-a93d-03feb588f245:
+    name: 'Article Hero Content'
+    handle: articleHeroContent
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: '1'
+      maxBlocks: '1'
+      contentTable: '{{%matrixcontent_articleherocontent}}'
+      localizeBlocks: false
     contentColumnType: string
     fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
 globalSets:
@@ -1926,6 +2015,147 @@ matrixBlockTypes:
               3537ffb6-9075-4e8b-8f35-b82ec025d094:
                 required: false
                 sortOrder: 2
+  3cef879b-0650-43fd-84c7-8968c0a43a40:
+    field: a4c109f4-6908-4b21-a93d-03feb588f245
+    name: 'Hero Image'
+    handle: heroImage
+    sortOrder: 1
+    fields:
+      2ab27cb1-2974-452c-ae75-4f4a5c74bfe8:
+        name: Image
+        handle: image
+        instructions: '1280 x 560'
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: heroes
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Hero
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      f5675b00-062c-4398-971f-731bb8ae11d4:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              2ab27cb1-2974-452c-ae75-4f4a5c74bfe8:
+                required: true
+                sortOrder: 1
+  b3c2ac3a-d520-48f2-8b6c-d0b9c3a3a94f:
+    field: a4c109f4-6908-4b21-a93d-03feb588f245
+    name: 'Audio Embed'
+    handle: audioEmbed
+    sortOrder: 2
+    fields:
+      e64c816f-9619-4b00-b219-08a3a6f121ab:
+        name: Audio
+        handle: audio
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSubpath: ''
+          restrictFiles: '1'
+          allowedKinds:
+            - audio
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: list
+          limit: '1'
+          selectionLabel: 'Add a podcast or blogcast'
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      9491785b-8e5c-4635-b5f9-a79566f414d3:
+        name: Image
+        handle: image
+        instructions: '1280 x 560'
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: heroes
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Image
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      3fc2b479-5e07-46b7-acf8-9d2a4cdf7b6e:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              e64c816f-9619-4b00-b219-08a3a6f121ab:
+                required: true
+                sortOrder: 1
+              9491785b-8e5c-4635-b5f9-a79566f414d3:
+                required: true
+                sortOrder: 2
+  a89d3611-5d35-4e86-8eae-8a32b92af760:
+    field: a4c109f4-6908-4b21-a93d-03feb588f245
+    name: VimeoEmbed
+    handle: vimeoEmbed
+    sortOrder: 3
+    fields:
+      e2675153-316a-43c5-ab7a-e7e2890aab22:
+        name: 'Vimeo '
+        handle: vimeo
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: wrav\oembed\fields\OembedField
+        settings:
+          url: ''
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      7cb5cdbb-d9c3-420a-a7eb-b16d5ec7dd16:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              e2675153-316a-43c5-ab7a-e7e2890aab22:
+                required: true
+                sortOrder: 1
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -2187,18 +2417,22 @@ sections:
                     required: true
                     sortOrder: 2
               -
-                name: Main
+                name: Top
                 sortOrder: 2
                 fields:
-                  ede86204-99a0-40e1-b93c-ec303474603f:
-                    required: false
+                  a4c109f4-6908-4b21-a93d-03feb588f245:
+                    required: true
                     sortOrder: 1
+              -
+                name: Main
+                sortOrder: 3
+                fields:
                   24c123a8-1d09-4025-a414-fa85da64ab81:
                     required: true
-                    sortOrder: 2
+                    sortOrder: 1
               -
                 name: Sidebar
-                sortOrder: 3
+                sortOrder: 4
                 fields:
                   6f8a5e6f-6027-4c82-8abc-d681013cc10f:
                     required: true
@@ -2211,7 +2445,7 @@ sections:
                     sortOrder: 3
               -
                 name: 'Additional Info'
-                sortOrder: 4
+                sortOrder: 5
                 fields:
                   01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
                     required: false
@@ -2219,6 +2453,9 @@ sections:
                   044102bf-2640-48b6-9408-aafe7d83a5bc:
                     required: false
                     sortOrder: 2
+                  c3ab6d3e-9d48-41c1-a240-9e9d6b028eb3:
+                    required: false
+                    sortOrder: 3
   a820e5c3-2900-4e71-9dab-1daa6e72b273:
     name: Authors
     handle: authors
@@ -2496,6 +2733,51 @@ sections:
         titleLabel: null
         titleFormat: '{section.name|raw}'
         sortOrder: 1
+  c08282c7-d5d0-4fa0-baa5-79fbdab206a9:
+    name: 'Blogcast Subscribe Billboards'
+    handle: blogcastSubscribeBillboards
+    type: structure
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: false
+        uriFormat: null
+        template: null
+    structure:
+      uid: 763fc86d-6aef-4493-b67a-ac20639cfda0
+      maxLevels: 1
+    entryTypes:
+      0b737461-edd4-41f3-9ca3-9b8b886ebdbc:
+        name: 'Blogcast Subscribe Billboards'
+        handle: blogcastSubscribeBillboards
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          c616228f-0231-44e7-8b36-f0cbd4065227:
+            tabs:
+              -
+                name: 'Billboard (Subscribe)'
+                sortOrder: 1
+                fields:
+                  ce742a26-47ad-4871-a052-7c25a110bf4a:
+                    required: false
+                    sortOrder: 1
+                  eb22cdff-17f7-419e-b076-b24ce26578d4:
+                    required: false
+                    sortOrder: 2
+                  ddcdbf02-d299-4f04-a9b9-8efc7f0840ed:
+                    required: false
+                    sortOrder: 3
+                  3707ea53-b09b-49bf-81e8-89c02f16bdfe:
+                    required: false
+                    sortOrder: 4
+                  81b1fffd-00d4-4255-9952-644a4702765f:
+                    required: false
+                    sortOrder: 5
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'

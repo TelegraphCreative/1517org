@@ -1,10 +1,10 @@
 ---- Templating Notes ----
 
 # -Te Article Entry
-[] product link
-[] blogcast, video, or hero image
-[] product ad link
-[] subscribe blog cast billboard
+[x] product link
+[x] blogcast, video, or hero image
+[x] author
+[x] subscribe blog cast billboard
 
 # -Te Section
 [] featured entry hero

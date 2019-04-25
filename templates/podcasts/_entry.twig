@@ -22,6 +22,11 @@
             {# Header #}
             <header class="entry__header">
                 <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+                {% if entry.shortDescription|length %}
+                <div class="paragraphs -md">
+                    <p>{{ entry.shortDescription }}</p>
+                </div>
+                {% endif %}
             </header>
 
             {# Blocks #}
