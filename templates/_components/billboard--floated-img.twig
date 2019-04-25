@@ -16,10 +16,10 @@
 #}
 
 
-<div class="billboard -text -floated-img | {{ block.backgroundColor }} | no-print">
+<div class="billboard -text {% if block.image|length %} -floated-img{% else %} -center{% endif%} | {{ block.backgroundColor }} | no-print">
     <div class="billboard__container container">
 
-        {% if block.image is defined %}
+        {% if block.image|length %}
             <div class="billboard__media">
                 <div class="billboard__floated">
                         {{ global.image( block.image.one(), '-is1x1 -fit-cover -hover-scale' )}}
@@ -29,7 +29,7 @@
 
         <header class="billboard__content | gutter">
 
-            <div class="billboard__context-max">
+            <div class="billboard__content-max">
                 {# Header #}
                 {% if block.header is defined %}
                     <div class="billboard__header">

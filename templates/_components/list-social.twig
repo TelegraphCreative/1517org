@@ -1,6 +1,12 @@
 {% import '_macros/global' as global %}
 {# Defaults to stacked #}
 {# Check for imported properties #}
+{% if size is defined %}
+    {% set size = size %}
+{% else %}
+    {% set size = '-sm' %}
+{% endif %}
+
 {% if classes is defined %}
     {% set classes = classes %}
 {% else %}
@@ -34,41 +40,26 @@
     {% if share %}
         <li>
             <share :target="'https://github.com/TelegraphCreative/'" rel="Share on facebook">
-                {{ global.socialIcon('facebook') }}
+                {{ global.socialIcon( 'facebook', size ) }}
             </share>
         </li>
         <li>
             <share :target="'https://github.com/TelegraphCreative/'" rel="Share on twitter">
-                {{ global.socialIcon('twitter') }}
+                {{ global.socialIcon( 'twitter', size ) }}
             </share>
         </li>
         <li>
             <share :subject="'A Subject'" :message="'A message'" rel="Share on twitter">
-                {{ global.socialIcon('email') }}
+                {{ global.socialIcon( 'email', size ) }}
             </share>
         </li>
-        {# <li>
-            <a href="#" target="_blank" rel="Share on facebook">
-                {{ global.socialIcon('facebook') }}
-            </a>
-        </li>
-        <li>
-            <a href="#" target="_blank" rel="Share on twitter">
-                {{ global.socialIcon('twitter') }}
-            </a>
-        </li>
-        <li>
-            <a href="#" target="_blank" rel="Share via email">
-                {{ global.socialIcon('email') }}
-            </a>
-        </li> #}
 
     {# Social Icons #}
     {% else %}
         {% for link in content.all() %}
         <li>
             <a href="{{ link.href }}" target="_blank" rel="{{ link.channel }}">
-                {{ global.socialIcon(link.channel) }}
+                {{ global.socialIcon(link.channel, size) }}
             </a>
         </li>
         {% endfor %}

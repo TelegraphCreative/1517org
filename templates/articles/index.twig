@@ -7,20 +7,25 @@
     <section class="space-menu">
 
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
+        {% set pageHeaderContent = { 
+            title: entry.title, 
+            detail: entry.shortDescription
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
 
     </section>
 
     {# Topics List #}
     {% if indexList.count > 0 %}
     
-        <div id="events" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+        <div id="articles" class="container--sm gutter-md | md:flex-grid | space-b--sm">
             {# Latest Cards #}
             <div class="flex-grid">
                 
                 {% for entry in indexList.all() %}
 
-                    <a href="{{ entry.url }}">{{ entry.title }}</a>
+                {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImage, 'classes': '' } %}
 
                 {% endfor %}
 

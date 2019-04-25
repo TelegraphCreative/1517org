@@ -23,7 +23,11 @@
             <div class="flex-grid">
                 {# Content Card - Stacked #} 
                 {% for entry in relatedEntries.limit(2).all() %}
-                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast,  'classes': '' } %}
+                    {% if podcastCard is defined %}
+                        {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true } %}
+                    {% else %}
+                        {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImage } %}
+                    {% endif %}
                 {% endfor %}
             
             </div>
