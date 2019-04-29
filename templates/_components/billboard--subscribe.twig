@@ -1,0 +1,51 @@
+{% import '_macros/global' as global %}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+{% set classes = classes %}
+{% else %}
+{% set classes = '' %}
+{% endif %}
+
+<div class="billboard -text -subscribe | {{classes}} | no-print">
+    <div class="billboard__container container">
+
+        <header class="billboard__content | gutter">
+
+            {# Header #}
+            {% if content.header is defined %}
+            <div class="billboard__header">
+                <h4 class="billboard-title">{{ content.subscribeHeader  }}</h4>
+            </div>
+            {% endif %}
+
+            {# Detail #}
+            {% if content.detail is defined %}
+            <div class="billboard__detail | paragraphs -sm">
+                {{ content.subscribeDescription  }}
+            </div>
+            {% endif %}
+
+            {# Action #}
+            {% if content.action is defined %}
+            <div class="billboard__action">
+                {{ global.iconLink(content.applePodcastLink, 'btn -outline -reverse', 'podcast', '-sm') }}
+
+                {# Streaming Services #}
+                <div class="pt-8">
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -rounded -white' } %}
+                </div>
+            </div>
+            {% endif %}
+
+        </header>
+
+        {% if content.image is defined %}
+            <div class="billboard__media">
+
+                {{ global.devices('iphone', content.subscribeImage.one().optimize.src) }}
+
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,30 @@
+ul.-hover-effect {
+    li {
+        @apply relative overflow-hidden
+        property-all duration-1 timing-1;
+
+        &:after,
+        &:before {
+            @apply absolute pseudo pin-b pin-l w-full;
+        }
+
+        &:before {
+            @apply border-b border-slate;
+        }
+
+        &:after {
+            @apply border-b-2 border-red
+            property-all duration-3 timing-1;
+
+            transform: translate(100%, 0);
+        }
+
+        &:hover {
+            @apply bg-ivory-lightest text-red;
+
+            &:after {
+                transform: translate(0, 0);
+            }
+        }
+    }
+}

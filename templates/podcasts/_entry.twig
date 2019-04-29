@@ -1,69 +1,105 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %}
 
 {% block content %}
+
+    <section class="space-menu | space-b">
+
+        {# Podcast Player Full #}
+        {% set rel = entry.podcastEmbed.one() %}
+        {% if rel %}
+            <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+        {% endif %}
+
+    </section>
+
+    {# Article + Aside (top) #}
+    <div class="entry-detail-layout | container | space-b | flex-grid">
+
+        {# Content #}
+        <article class="entry-main | gutter-xl">
+        
+            {# Header #}
+            <header class="entry__header">
+                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+                {% if entry.shortDescription|length %}
+                <div class="paragraphs -md">
+                    <p>{{ entry.shortDescription }}</p>
+                </div>
+                {% endif %}
+            </header>
+
+            {# Blocks #}
+            <div class="entry__blocks | longform-entry-blocks -top">
+
+                {# Longform Content #}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %}
+
+            </div>
+            
+        </article>
+        
+        {# Aside #}
+        <aside class="entry-aside">
+            {# Meta List #}
+            <ul class="meta-list">
+                <li>
+                    <time class="meta-label | text-slate-light" datetime="{{ entry.postDate | date( 'm-d-y') }}">{{ entry.postDate | date( 'M d, Y') }}</time>
+                </li>
+                <li>
+                    {{ global.relatedTopics(entry.topics.all(), '') }}
+                </li>
+                <li>
+                    {% include "_components/list-social" with { content: '', classes: '-inline', share: true } %}
+                </li>
+                <li>
+                    <a href="{{ entry.podcastShow.level(1)[0].url }}" class="link -meta">Browse all Episodes</a>
+                </li>
+            </ul>
+            
+            {# Ad #}
+            {% include "_components/product-ad" with { content: entry.productAd } %}
+            
+        </aside>
+
+
+        {# Article + Aside (top) #}
+        {% if entry.contentBlocksStandard|length>1 %}
+            
+            {# Content #}
+            <article class="entry-main -wide">
+
+                {# Blocks #}
+                <div class="entry__blocks | longform-entry-blocks">
+
+                    {# Longform Content #}
+                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %}
+
+                    {# Citation #}
+                    {% if entry.citation is defined %}
+                        <div class="narrow-block gutter-xl">
+                            <div class="article-content entry-footnote">
+                                <small>{{ entry.citation }}</small>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                </div>
+                
+            </article>
+            
+
+        {% endif %}
     
-    {# Margin just for testing #}
-    <h1 class="mt-24">
-        {{ entry.title }}
-    </h1>
+    </div>
 
-    {# {{ entry.podcastEmbed }} #}
-
-    {% set rel = entry.podcastEmbed.one() %}
-    {% if rel %}
-        <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
-    {% endif %}
-
-    <p>
-        {{ entry.description }}
-    </p>
-
-    {% if entry.podcastShow|length %}
-        <h2>Show</h2>
-        <ul>
-            {% for category in entry.podcastShow.level(1).all() %}
-                <li>
-                    <a href="{{ category.url }}">
-                        {{ category.title }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    {% if entry.podcastShow.level(2)|length %}
-        <h2>Series</h2>
-        <ul>
-            {% for category in entry.podcastShow.level(2).all() %}
-                <li>
-                    <a href="{{ category.url }}">
-                        {{ category.title }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    {# Related Content #}
+    {% include '_components/related-content-cards' with { section: 'podcasts', podcastCard: true } %}
 
 
+    {# Subscribe Billboard  #}
+    {% set podcastShow = entry.podcastShow.level(1)[0] %}
+    {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: podcastShow } %}
 
-    <h2>Topics</h2>
-    {% if entry.topics|length %}
-        <ul>
-            {% for category in entry.topics.all() %}
-                <li>
-                    {% if category.level == 2 %}
-                        <ul><li>
-                    {% endif %}
-
-                    <a href="{{ category.url }}">
-                        {{ category.title }}
-                    </a>
-                    {% if category.level == 2 %}
-                        </li></ul>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
 
 {% endblock %}

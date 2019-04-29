@@ -1,0 +1,31 @@
+{% import '_macros/global' as global %}
+
+{% for block in content %}
+    {% switch block.type %}
+    
+    {% case "heroImage" %}
+    {# Image #}
+    {{ global.image( block.image.one(), '-fit-cover' )}}
+
+    {% case "audioEmbed" %}
+    {# Image #}
+    {{ global.image( block.image.one(), '-fit-cover' )}}
+    {# Podcast Player Full #}
+    {% set rel = block.audio.one() %}
+    {% if rel %}
+        <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+    {% endif %}
+
+    {% case "vimeoEmbed" %}
+    {# Video Player Full #}
+    {% if block.vimeo and block.vimeo.valid %}
+        <video_player_full
+            img-src="{{ block.vimeo.media.image }}"
+            video-url="{{ block.vimeo.media.url }}"
+            aspect-ratio="{{ block.vimeo.media.aspectRatio }}"
+        />
+    {% endif %}
+
+
+    {% endswitch %}
+{% endfor %}

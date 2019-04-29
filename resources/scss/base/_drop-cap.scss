@@ -1,0 +1,20 @@
+.drop-cap {
+    display: inline-block;
+    position: relative;
+    height: 56px;
+    width: 62px;
+    float: left;
+
+    &:before {
+        content: 'W';
+        padding: 6px;
+        margin-right: 4px;
+        position: absolute;
+        line-height: 1;
+        z-index: -1;
+        margin-left: -22px;
+        margin-top: -18px;
+        font-size: 48px;
+        @apply font-serif text-red text-4xl border-ivory-light border-12;
+    }
+}

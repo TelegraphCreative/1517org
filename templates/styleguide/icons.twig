@@ -6,6 +6,17 @@
 
     <h2 class="text-3xl space-b">Icons</h2>
     
+    
+    {# Icon #}
+    {{ global.utilityIcon('material-play', '-xl') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('material-play', '-xl') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    <h2 class="text-lg space-b">Shadow on Hover</h2>
+    {{ global.utilityIcon('material-play', '-xl hover:svg-shadow') }}
+    {% set code %}{% verbatim %}{{ global.utilityIcon('material-play', '-xl hover:svg-shadow') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
     {# Icon #}
     {{ global.utilityIcon('arrow-left', '-sm') }}
 {% set code %}{% verbatim %}{{ global.utilityIcon('arrow-left', '-sm') }}{% endverbatim %}{% endset %}
@@ -29,6 +40,11 @@
     {# Icon #}
     {{ global.utilityIcon('play', '-sm') }}
 {% set code %}{% verbatim %}{{ global.utilityIcon('play', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
+
+    {# Icon #}
+    {{ global.utilityIcon('sharp-play', '-sm') }}
+    {% set code %}{% verbatim %}{{ global.utilityIcon('sharp-play', '-sm') }}{% endverbatim %}{% endset %}
     {{ guide.snippet( code, 'css' ) }}
 
     
@@ -56,5 +72,10 @@
     {{ global.utilityIcon('cart', '-sm') }}
 {% set code %}{% verbatim %}{{ global.utilityIcon('cart', '-sm') }}{% endverbatim %}{% endset %}
     {{ guide.snippet( code, 'css' ) }}    
+
+    {# Icon #}
+    {{ global.utilityIcon('spotify', '-sm') }}
+{% set code %}{% verbatim %}{{ global.utilityIcon('spotify', '-sm') }}{% endverbatim %}{% endset %}
+    {{ guide.snippet( code, 'css' ) }}
 
 {% endblock %}

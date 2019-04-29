@@ -1,0 +1,40 @@
+{% import '_macros/global' as global %}
+{# Page Header -Action 
+    Required Content: 
+    - category
+    - title
+    Optional Content:
+    - Detail
+    - action
+    - image
+#}
+<header class="page-header -action -left | container--sm gutter-md | space-t space-b--sm">
+
+    <div class="page-header__title | label-title-group">
+        <h3 class="meta-label text-bronze-light | label-title-group__label">{{ content.category }}</h3>
+        <h1 class="header-xl font-serif | label-title-group__title">{{ content.title }}</h2>
+    </div>
+
+    {% if content.detail is defined %}
+        <div class="page-header__detail">
+            
+            <div class="paragraphs -sm -loose -inline | w-3/4">
+                {% if content.detail is defined and content.detail|length %}
+                    <p>
+                        {{ content.detail }}
+                    </p>
+                {% endif %}
+                {% if content.action is defined and content.action|length %}
+                    {# <a href="" class="">Keep Reading</a> #}
+                    {{ global.link( content.action, 'link | meta-label | ml-2' ) }}
+                {% endif %}
+            </div>
+            {% if content.image is defined and content.image|length %}
+                <div class="page-header__badge | w-1/4">
+                    {{ global.image(content.image, '-is1x1 rounded-full -fit-cover')}}
+                </div>
+            {% endif %}
+            
+        </div>
+    {% endif %}
+</header>

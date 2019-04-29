@@ -1,31 +1,71 @@
 .social-list {
     @apply list-reset leading-none;
 
+    // Defaults
+    a, button {
+        @apply inline-block
+            text-slate
+            flex justify-center items-center;
+
+        &:hover {
+            @apply text-bronze;
+        }
+    }
+
+    
+    // Inline
     &.-inline li {
         @apply inline-block mx-1;
     }
 
-    a {
-        @apply w-4 h-4
-            inline-block
-            text-slate;
-
-        &:hover {
-            @apply text-slate;
-        }
-    }
-
     // Rounded
-    &.-rounded a {
-        @apply border rounded-full;
-        padding: 0.4375rem 0.5rem 0.375rem;
-        height: 1.875rem;
-        width: 1.875rem;
+    &.-rounded {
+        a {
+            @apply border rounded-full;
+            height: 1.875rem;
+            width: 1.875rem;
+        }
+
+        .icon {
+            @apply w-3;
+        }
+
+
+        // Rounded White
+        &.-white {
+            a {
+                @apply text-white border-transparent;
+                height: 3rem;
+                width: 3rem;
+
+                &:hover {
+                    @apply text-bronze border-white bg-white;
+                }
+
+                .icon {
+                    @apply w-6
+                }
+            }
+        }
+
+        
+    
     }
 
     // Light
     &.-light a {
         @apply text-slate-light border-slate-light;
+
+        &:hover {
+            @apply text-white 
+            border-bronze 
+            bg-bronze;
+        }
+    }
+
+    // White
+    &.-white a {
+        @apply text-white border-white;
 
         &:hover {
             @apply text-white 

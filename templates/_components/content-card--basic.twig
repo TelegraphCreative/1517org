@@ -1,0 +1,43 @@
+{% import '_macros/global' as global %}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<article class="content-card -basic | space-b {{ classes }}">
+
+    <div class="content-card__container">
+
+        {# Media #}
+        <a href="{{ content.url }}" class="content-card__media | mb-6 | no-print | block">
+            {% if coverImage is defined %}
+                {{ global.coverImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+            {% else %}
+                {{ global.cardImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+            {% endif %}
+        </a>
+        
+        {# Content #}
+        <div class="content-card__content">  
+           
+            <a href="{{ content.url }}">
+                {# Header #}
+                <div class="content-card__header">
+                    <h2 class="card-title | header-md font-serif">{{ content.title }}</h1>
+                </div>
+                
+                {# Detail #}
+                <div class="content-card__detail | paragraphs -xs | pt-1">
+                    {{ content.shortDescription | chop(limit=40, unit='w', append= '…') }}
+                </div>
+            </a>
+
+        </div>
+        
+    
+    </div>
+
+</article>

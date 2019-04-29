@@ -7,7 +7,7 @@
             name: "Home (mostly static)", 
             url: "/static/home" 
         },{
-        name: "Channels"
+            name: "Channels"
         },{ 
             name: "Category Section Index", 
             url: "/static/category-section-index" 
@@ -26,6 +26,17 @@
         },{
             name: "Event Index", 
             url: "/static/event-index" 
+        },{
+            name: "Detail"
+        },{ 
+            name: "Podcast Detail", 
+            url: "/static/podcast-detail" 
+        },{ 
+            name: "Article Detail", 
+            url: "/static/article-detail" 
+        },{ 
+            name: "Video Detail", 
+            url: "/static/video-detail" 
         }
     ]} 
 %} 
@@ -41,7 +52,7 @@
         {% for item in menu.layouts %} 
 
             {# Item #}
-            <li class="list-article">
+            <li class="list-article -hover-effect">
                 <div class="list-article__content">
                     {# Header #}
                     {% if item.url is defined %}

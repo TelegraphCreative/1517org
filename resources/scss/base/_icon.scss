@@ -9,10 +9,13 @@
         @apply w-3 h-3 block;
     }
     &.-sm {
-        @apply w-5 h-5 block;
+        @apply w-4 h-4 block;
     }
     &.-md {
         @apply w-6 h-6 block;
+    }
+    &.-xl {
+        @apply w-24 h-24 block;
     }
 
     // Transforms
@@ -25,19 +28,27 @@
     }
 }
 
+// Hide Text
+.-icon-only {
+    .btn__text {
+        @apply hidden;
+    }
+}
+
+// Logo
 .logo,
 .logo-icon {
     @apply w-full block;
 }
 
-@screen md {
-    // Logo
-    .logo {
-        max-width: 11rem;
+// SVG Shadow Utility
+.hover\:svg-shadow {
+    &:hover svg {
+        filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.9));
     }
 }
 
-// Utility Classes
+// SVG Fill/Stroke Utilities
 .f {
     fill: currentColor;
     stroke-width: 1.5;
@@ -51,6 +62,29 @@
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-miterlimit: 10;
+
+    &-2 {
+        fill: none;
+        stroke: #000000;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
 }
 // .-s3 {stroke-width: 3;}
 // .-s4 {stroke-width: 4;}
+
+// Screen
+// MD
+@screen md {
+    // Logo
+    .logo {
+        max-width: 11rem;
+    }
+
+    // Icons
+    .icon {
+        &.-xl {
+            @apply w-48 h-48;
+        }
+    }
+}

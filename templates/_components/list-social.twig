@@ -1,18 +1,69 @@
 {% import '_macros/global' as global %}
 {# Defaults to stacked #}
 {# Check for imported properties #}
+{% if size is defined %}
+    {% set size = size %}
+{% else %}
+    {% set size = '-sm' %}
+{% endif %}
+
 {% if classes is defined %}
     {% set classes = classes %}
 {% else %}
     {% set classes = '' %}
 {% endif %}
 
-<ul class="social-list {{ classes }}">
-    {% for link in content.all() %}
-    <li>
-        <a href="{{ link.href }}" target="_blank" rel="{{ link.channel }}">
-            {{ global.socialIcon(link.channel) }}
-        </a>
-    </li>
-    {% endfor %}
+
+{% if print is defined %}
+    {% set print = true %}
+{% else %}
+    {% set print = false %}
+{% endif %}
+
+
+{% if share is defined %}
+    {% set share = true %}
+{% else %}
+    {% set share = false %}
+{% endif %}
+
+<ul class="social-list {{ classes }} | no-print">
+    
+    {# Print #}
+    {% if print %}
+        <li>
+            <print />
+        </li>
+    {% endif %}
+
+    {# Share Icons #}
+    {% if share %}
+        <li>
+            <share :target="'https://github.com/TelegraphCreative/'" rel="Share on facebook">
+                {{ global.socialIcon( 'facebook', size ) }}
+            </share>
+        </li>
+        <li>
+            <share :target="'https://github.com/TelegraphCreative/'" rel="Share on twitter">
+                {{ global.socialIcon( 'twitter', size ) }}
+            </share>
+        </li>
+        <li>
+            <share :subject="'A Subject'" :message="'A message'" rel="Share on twitter">
+                {{ global.socialIcon( 'email', size ) }}
+            </share>
+        </li>
+
+    {# Social Icons #}
+    {% else %}
+        {% for link in content.all() %}
+        <li>
+            <a href="{{ link.href }}" target="_blank" rel="{{ link.channel }}">
+                {{ global.socialIcon(link.channel, size) }}
+            </a>
+        </li>
+        {% endfor %}
+    
+    {% endif %}
+
 </ul>

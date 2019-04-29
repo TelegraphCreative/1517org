@@ -1,3 +1,4 @@
+// Magic Calculation: padding-top: calc(591.44 / 1127.34 * 100%); 
 .image {
   @apply relative
         overflow-hidden;
@@ -17,6 +18,20 @@
     background-size: cover;
   }
 
+  // Cove
+  &.-cover {
+    padding-top: 56.25% !important;
+
+    img {
+      width: 36%;
+      left: 50%;
+      top: 50%;
+      height: 60%;
+      margin-left: -18%;
+      margin-top: -18%;
+    }
+  }
+
   // Show Overflow
   &.-show-overflow {
     @apply .overflow-visible;
@@ -24,7 +39,10 @@
 
   // Ratios
   &.-is1x1 {
-    padding-top: 100%;
+    padding-top: 100% !important; 
+    &.-force {
+      padding-top: 100% !important; 
+    }
   }
 
   &.-is12x16 {
@@ -44,7 +62,7 @@
   }
 
   &.-is16x9 {
-    padding-top: 65.25%;
+    padding-top: 56.25%;
   }
 
   &.-is2x1 {
