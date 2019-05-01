@@ -32,6 +32,29 @@
     @apply link text-xs font-sans tracking-normal uppercase leading-none;
 }
 
+// Currency Amount
+.currency-amount-label {
+    .currency {
+        @apply text-md font-sans
+        relative;
+        left: 3px;
+    }
+    .amount {
+        @apply text-xl mr-2 font-serif;
+    }
+}
+
+// Address
+.addr-label {
+    @apply block leading-normal;
+    p {
+        @apply mb-0;
+    }
+    a {
+        @apply pt-3 block text-bronze;
+    }
+}
+
 // Category + Title Group
 .label-title-group {
     @apply flex items-center;
