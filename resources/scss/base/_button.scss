@@ -75,6 +75,10 @@
     }
 
     // Small
+    &.-md {
+        @apply text-sm py-3 px-6;
+    }
+    // Small
     &.-sm {
         @apply py-3 text-sm;
     }
@@ -172,11 +176,10 @@
     }
 }
 
-
 // Button Group
 .button-group {
     .btn {
-        @apply mr-4 inline-block; 
+        @apply mr-4 inline-block;
         &:last-child {
             @apply mr-0;
         }

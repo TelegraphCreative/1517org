@@ -1,0 +1,24 @@
+// Product Bar (inline menu)
+.product-bar {
+    &__container {
+        @apply bg-ivory-lighter py-3 px-4
+          flex flex-wrap
+          justify-between
+          items-center;
+    }
+
+    .title {
+        @apply flex items-center;
+    }
+
+    .meta-label {
+        @apply text-slate-light;
+    }
+
+    // Screen
+    @screen md {
+        &__container {
+            @apply py-5 px-6;
+        }
+    }
+}
