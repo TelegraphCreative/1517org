@@ -113,8 +113,8 @@
 
     {# Subscribe Billboard  #}
     
-    {# {% set podcastShow = entry.podcastShow.level(1)[0] %} #}
-    {# {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: podcastShow } %} #}
+    {% set podcastShow = entry.podcastShow.level(1)[0] %}
+    {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: podcastShow } %}
 
 
 {% endblock %}
