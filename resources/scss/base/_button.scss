@@ -76,7 +76,9 @@
 
     // Small
     &.-md {
-        @apply text-sm py-3 px-6;
+        @apply text-sm px-6;
+        padding-top: 0.9375rem;
+        padding-bottom: 0.9375rem;
     }
     // Small
     &.-sm {

@@ -62,6 +62,7 @@
 
 // Content: Detail
 @import 'components/entry-detail-layout';
+@import 'components/product-detail-layout';
 @import 'components/entry-footnote';
 @import 'components/meta-summary-block';
 
@@ -79,9 +80,10 @@
 @import 'components/list-hover';
 
 // Forms
+@import 'components/form-base';
 @import 'components/form-signup';
 @import 'components/form-search';
-@import 'components/form-base';
+@import 'components/form-purchase';
 @import 'components/option-group';
 
 // Billboards

@@ -1,96 +1,108 @@
 .article-content {
-  
-  // Headers
-  h2 {
-    @apply text-3lg;
-  }
-  
-  h2,h3,h4,h5 {
-    @apply font-serif;
-  }
-
-  h6 {
-    @apply text-md;
-  }
-  
-  // Dropcap (fallback)
-  // &.-drop-cap {
-  //   p:first-of-type {
-  //     &:first-letter {
-  //       @apply font-serif text-red text-4lg;
-  //     }
-  //   }
-  // }
-
-  // Links
-  p a {
-      @apply text-slate-light font-light border-slate-light;
-      &:hover {
-          @apply text-red;
-      }
-  }
-
-  // Lists
-  > ul, > ol {
-      @apply pt-5 pb-8;
-  }
-
-  // Images
-  .image, img {
-    @apply my-10;
-  }
-
-  // Blockquotes
-  blockquote {
-      @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
-
-      &:before {
-        @apply absolute pin-t pin-l px-4 border-12 border-ivory-light mt-2 -ml-4;
-
-        content:'\201C';
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        font-size: 4rem;
-        font-family: 'Lucida Grande';
-        z-index: -1;
-        line-height: .5rem;
-        padding-top: 32px;
-      }
-
-      &:after {
-        content: '\201D';
-        font-family: 'Lucida Grande';
-      }
-  }
-
-  // Screen 
-  // MD
-  @screen md {
-    
     // Headers
     h2 {
-      @apply text-4lg;
+        @apply text-3lg;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply font-serif;
+    }
+
+    h6 {
+        @apply text-md;
+    }
+
+    // Dropcap (fallback)
+    // &.-drop-cap {
+    //   p:first-of-type {
+    //     &:first-letter {
+    //       @apply font-serif text-red text-4lg;
+    //     }
+    //   }
+    // }
+
+    // Links
+    p a {
+        @apply text-slate-light font-light border-slate-light;
+        &:hover {
+            @apply text-red;
+        }
+    }
+
+    // Lists
+    > ul,
+    > ol {
+        @apply mt-5 mb-10 list-reset;
+
+        li {
+            @apply py-3 pl-6 border-b border-ivory-light relative;
+
+            &:before {
+                @apply absolute pseudo bg-bronze rounded-full align-y pin-l;
+                height: 0.25rem;
+                width: 0.25rem;
+            }
+        }
+    }
+
+    // Images
+    .image,
+    img {
+        @apply my-10;
     }
 
     // Blockquotes
     blockquote {
-      @apply text-4lg px-16 py-16;
+        @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
 
-      &:before {
-        @apply absolute border-12 mt-8 -ml-4;
-        padding-left: 0.875rem;
-        padding-right: 0.875rem;
-        font-size: 5.5rem;
-        line-height: 1rem;
-        padding-top: 2.75rem;
-      }
+        &:before {
+            @apply absolute pin-t pin-l px-4 border-12 border-ivory-light mt-2 -ml-4;
+
+            content: '\201C';
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            font-size: 4rem;
+            font-family: 'Lucida Grande';
+            z-index: -1;
+            line-height: 0.5rem;
+            padding-top: 32px;
+        }
+
+        &:after {
+            content: '\201D';
+            font-family: 'Lucida Grande';
+        }
     }
 
-    // Images
-  .image, img {
-    @apply my-16;
-  }
+    // Screen
+    // MD
+    @screen md {
+        // Headers
+        h2 {
+            @apply text-4lg;
+        }
 
+        // Blockquotes
+        blockquote {
+            @apply text-4lg px-16 py-16;
 
-  }
+            &:before {
+                @apply absolute border-12 mt-8 -ml-4;
+                padding-left: 0.875rem;
+                padding-right: 0.875rem;
+                font-size: 5.5rem;
+                line-height: 1rem;
+                padding-top: 2.75rem;
+            }
+        }
+
+        // Images
+        .image,
+        img {
+            @apply my-16;
+        }
+    }
 }
