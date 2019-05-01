@@ -194,7 +194,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556682916
+dateModified: 1556728149
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -2757,6 +2757,9 @@ sections:
                   24c123a8-1d09-4025-a414-fa85da64ab81:
                     required: true
                     sortOrder: 1
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                    required: false
+                    sortOrder: 2
               -
                 name: Sidebar
                 sortOrder: 3
