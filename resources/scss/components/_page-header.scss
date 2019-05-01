@@ -8,6 +8,13 @@
     // Detail
     &__detail {
         @apply max-w-md  mx-auto mt-6 text-slate-light;
+
+        .link {
+            @apply text-red border-0;
+            &:hover {
+                @apply text-bronze;
+            }
+        }
     }
 
     // - Category

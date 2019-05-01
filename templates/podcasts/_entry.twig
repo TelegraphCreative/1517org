@@ -13,6 +13,15 @@
 
     </section>
 
+    {# Layout Notes: 
+        First, we grab block 1 from the matrix and wrap that in the first `article.entry-main` element
+        Then, we go back out and close `article` element to insert the sidebar
+        Lastly, close the `aside` element and reopen `article.entry-main` with the modifier `-wide` 
+        This lets us do a 2 things efficiently:
+            - Styles force a reorder on small screens to push the sidebar to the bottom and show article content first as one piece.
+            - While also letting us get a fullwidth area for the matrix blocks on large screens to accomodate fullbleed elements (like images).
+    #}
+
     {# Article + Aside (top) #}
     <div class="entry-detail-layout | container | space-b | flex-grid">
 
@@ -22,13 +31,18 @@
             {# Header #}
             <header class="entry__header">
                 <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+                {% if entry.shortDescription|length %}
+                <div class="paragraphs -md">
+                    <p>{{ entry.shortDescription }}</p>
+                </div>
+                {% endif %}
             </header>
 
             {# Blocks #}
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksPodcast.one() } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %}
 
             </div>
             
@@ -58,8 +72,8 @@
         </aside>
 
 
-        {# Article + Aside (top) #}
-        {% if entry.contentBlocksPodcast|length>1 %}
+        {# Article + Aside (bottom) #}
+        {% if entry.contentBlocksStandard|length>1 %}
             
             {# Content #}
             <article class="entry-main -wide">
@@ -68,7 +82,7 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksPodcast.offset(1).all() } %}
+                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %}
 
                     {# Citation #}
                     {% if entry.citation is defined %}
@@ -89,7 +103,7 @@
     </div>
 
     {# Related Content #}
-    {% include '_components/related-content-cards' with { section: 'podcasts', 'classes': '' } %}
+    {% include '_components/related-content-cards' with { section: 'podcasts', podcastCard: true } %}
 
 
     {# Subscribe Billboard  #}

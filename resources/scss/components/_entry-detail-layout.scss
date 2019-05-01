@@ -7,11 +7,11 @@
     // Aside
     &-aside {
         @apply w-full;
-        order:3;
+        order: 3;
     }
     // Header
     &__header {
-        @apply mb-6;
+        @apply mb-12;
 
         .paragraphs {
             @apply pt-4 text-slate-light;
@@ -26,6 +26,10 @@
 // Md
 @screen md {
     .entry {
+        // Header
+        &__header {
+            @apply mb-16;
+        }
         // Aside
         &-aside {
             @apply w-1/4;
@@ -45,17 +49,12 @@
         // Entry Block
         &__blocks {
             @apply flex flex-col;
-            
+
             // Narrow
             .narrow-block {
                 @apply w-3/4 self-end;
             }
         }
 
-        // Header
-        &__header {
-            @apply mb-10;
-        }
-        
     }
 }

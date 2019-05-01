@@ -1,0 +1,35 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+{% set indexList = craft.categories.group('sections').level(1) %}
+
+{% block content %}
+
+    <section class="space-menu">
+        {# Page Header #}
+        {% set pageHeaderContent = { 
+                title: '1517 Sections', 
+                category: 'Sections'
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
+    </section>
+
+    {# Topics List #}
+    {% if indexList.count > 0 %}
+    
+        <div id="sections" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            
+            {# Sections #}    
+            {% for entry in indexList.all() %}
+                {# Content Card - Stacked #}
+                {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true} %}
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+    
+    {# Billboard #}
+    
+
+    {% endblock %}

@@ -112,6 +112,9 @@
                 sizes="100vw"
                 class="lazyload" />
         </figure>
+        {% else %}
+        <figure class="image -cover | {{ classes }}" style="background: #B1C4BF;">
+        </figure>
     {% endif %}
 
 {% endmacro %}

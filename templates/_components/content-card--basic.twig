@@ -13,7 +13,11 @@
 
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | mb-6 | no-print | block">
-            {{ global.coverImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+            {% if coverImage is defined %}
+                {{ global.coverImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+            {% else %}
+                {{ global.cardImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+            {% endif %}
         </a>
         
         {# Content #}

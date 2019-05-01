@@ -6,7 +6,12 @@
 
     <section class="space-menu">
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
+        {% set pageHeaderContent = { 
+            title: entry.title, 
+            detail: entry.shortDescription
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
     </section>
 
     {# Topics List #}
@@ -18,7 +23,7 @@
                 
                 {% for entry in indexList.all() %}
                     {# Content Card - Stacked #}
-                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, 'classes': '' } %}
+                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true} %}
                 {% endfor %}
 
             </div>

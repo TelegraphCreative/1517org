@@ -19,15 +19,17 @@
         <div class="page-header__detail">
             
             <div class="paragraphs -sm -loose -inline | w-3/4">
-                <p>
-                    {{ content.detail }}
-                </p>
-                {% if content.action is defined %}
+                {% if content.detail is defined and content.detail|length %}
+                    <p>
+                        {{ content.detail }}
+                    </p>
+                {% endif %}
+                {% if content.action is defined and content.action|length %}
                     {# <a href="" class="">Keep Reading</a> #}
-                    {{ global.link( content.action, 'link | meta-label | text-red hover:text-bronze | ml-2' ) }}
+                    {{ global.link( content.action, 'link | meta-label | ml-2' ) }}
                 {% endif %}
             </div>
-            {% if content.image is defined %}
+            {% if content.image is defined and content.image|length %}
                 <div class="page-header__badge | w-1/4">
                     {{ global.image(content.image, '-is1x1 rounded-full -fit-cover')}}
                 </div>
