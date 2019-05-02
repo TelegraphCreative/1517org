@@ -13,6 +13,15 @@
 
     </section>
 
+    {# Layout Notes: 
+        First, we grab block 1 from the matrix and wrap that in the first `article.entry-main` element
+        Then, we go back out and close `article` element to insert the sidebar
+        Lastly, close the `aside` element and reopen `article.entry-main` with the modifier `-wide` 
+        This lets us do a 2 things efficiently:
+            - Styles force a reorder on small screens to push the sidebar to the bottom and show article content first as one piece.
+            - While also letting us get a fullwidth area for the matrix blocks on large screens to accomodate fullbleed elements (like images).
+    #}
+
     {# Article + Aside (top) #}
     <div class="entry-detail-layout | container | space-b | flex-grid">
 
@@ -63,7 +72,7 @@
         </aside>
 
 
-        {# Article + Aside (top) #}
+        {# Article + Aside (bottom) #}
         {% if entry.contentBlocksStandard|length>1 %}
             
             {# Content #}

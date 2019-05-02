@@ -1,5 +1,4 @@
 {% import '_macros/global' as global %}
-
 {% if blocks|length %}
 
     {% for block in blocks %}
@@ -13,7 +12,7 @@
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="big-list-assets | narrow-block gutter-xl | space-b">
+            <div class="big-list -assets | narrow-block gutter-xl | space-b">
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">{{ block.header }}</h3>
                 {% endif %}
@@ -82,7 +81,8 @@
                 {# Billboard #}
                 {% include "_components/billboard--floated-img" with { content: block } %}
             </div>
-            
+        
+        
         {% endswitch %}
     {% endfor %}
     

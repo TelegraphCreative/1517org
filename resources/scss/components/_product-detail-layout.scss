@@ -1,0 +1,37 @@
+// Product Detail
+.product-detail-layout {
+    .entry {
+        // Main
+        &-main {
+            @apply w-full pt-10 px-6;
+        }
+
+        // Aside
+        &-aside {
+            @apply w-full py-10 px-4;
+            background: rgba(245, 241, 237, 0.5);
+            figure {
+                @apply w-4/5 mx-auto;
+            }
+        }
+    }
+
+    // Screen MD
+    @screen md {
+        .entry {
+            // Main
+            &-main {
+                @apply w-1/2 pt-20  pb-24;
+            }
+
+            // Aside
+            &-aside {
+                @apply w-1/2 pt-20;
+            }
+
+            // Header
+            &__header {
+            }
+        }
+    }
+}

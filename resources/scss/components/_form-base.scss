@@ -21,6 +21,20 @@
         }
     }
 
+    input[type='number'] {
+        @apply border-2 border-ivory text-center p-3;
+        width: 5rem;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
     // Labels
     .standard-label {
         @apply text-xs font-sans font-semibold .uppercase
@@ -43,8 +57,14 @@
     // Form Group
     .form-group {
         @apply flex justify-between flex-wrap
-    mb-8 
-    -mx-4;
+                mb-8 
+                -mx-4;
+        &.-start {
+            @apply justify-start;
+            .field-group {
+                flex-grow: inherit;
+            }
+        }
     }
 
     // Form Block (elements like headers and buttons that are not a field group - this applies the correct margins)
@@ -122,6 +142,6 @@
 @screen md {
     // Field Group
     .field-group {
-        @apply px-4;
+        @apply px-3;
     }
 }

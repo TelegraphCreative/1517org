@@ -105,6 +105,17 @@ categoryGroups:
               d346861d-be5b-43ad-84db-cec8cb55d41e:
                 required: false
                 sortOrder: 4
+  ddfd324b-5230-4c7b-8e1c-71ac9ac00d8d:
+    name: Videos
+    handle: videos
+    structure:
+      uid: 9f3bcecc-d33c-4bb6-9f50-a376180375c2
+      maxLevels: 1
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        hasUrls: true
+        uriFormat: 'videos/{slug}'
+        template: ''
 commerce:
   orderStatuses:
     e4306305-81b8-4056-a5c5-0288ad6a682d:
@@ -183,7 +194,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1556216136
+dateModified: 1556682916
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -1869,7 +1880,6 @@ matrixBlockTypes:
         type: craft\fields\Entries
         settings:
           sources:
-            - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
             - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
           source: null
           targetSiteId: null
@@ -2708,8 +2718,8 @@ sections:
                     required: false
                     sortOrder: 1
   af5b313a-5a09-4aee-805b-a7df6ed731a7:
-    name: Video
-    handle: video
+    name: Videos
+    handle: videos
     type: channel
     enableVersioning: false
     propagateEntries: true
@@ -2721,12 +2731,48 @@ sections:
         template: videos/_entry
     entryTypes:
       14b46485-af4a-4be1-8d76-3cdce5fbb820:
-        name: Video
-        handle: video
+        name: Videos
+        handle: videos
         hasTitleField: true
         titleLabel: Title
-        titleFormat: null
+        titleFormat: ''
         sortOrder: 1
+        fieldLayouts:
+          169d46c8-008b-4c0d-8d45-47153e669d2b:
+            tabs:
+              -
+                name: Introduction
+                sortOrder: 1
+                fields:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: true
+                    sortOrder: 1
+                  ede86204-99a0-40e1-b93c-ec303474603f:
+                    required: true
+                    sortOrder: 2
+              -
+                name: Main
+                sortOrder: 2
+                fields:
+                  24c123a8-1d09-4025-a414-fa85da64ab81:
+                    required: true
+                    sortOrder: 1
+              -
+                name: Sidebar
+                sortOrder: 3
+                fields:
+                  8e7cd322-96ae-4173-9807-4a103598e9c9:
+                    required: true
+                    sortOrder: 1
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: true
+                    sortOrder: 2
+                  6f8a5e6f-6027-4c82-8abc-d681013cc10f:
+                    required: false
+                    sortOrder: 3
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 4
   4cfc45f7-e2aa-4bb7-a468-bfe079a34104:
     name: 'Articles Index'
     handle: articlesIndex
