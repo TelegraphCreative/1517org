@@ -3,24 +3,22 @@
 
 {% block content %}
 
-    {# TEMP: Grab example podcast content #}
-    {# Notes: For example only: once this template is moved to the actual homepage, 
-        'entry' will be set to podcast section automatically and this line can be removed #}
-    {% set entry = craft.entries.section('articles')[1] %}
-    {% set placeholderImage = entry.articleHeroContent.one().image.one() %}
-    {% set placeholderShortCopy = "Optional short support copy" %}
+{# TEMP: Grab example content #}
+{% set entry = craft.entries.section('articles')[1] %}
+{% set placeholderImage = entry.articleHeroContent.one().image.one() %}
+{% set placeholderShortCopy = "Optional short support copy" %}
 
-    <section class="space-menu | space-b | no-print">
+<section class="space-menu | space-b | no-print">
 
-        {# TEMP: Use `page-hero--media` partial #}
-        {{ global.image( placeholderImage, '-fit-cover' )}}
+    {# TEMP: Use `page-hero--media` partial #}
+    {{ global.image( placeholderImage, '-fit-cover' )}}
 
-        {# Product Bar #}
-        {% include "_components/static/product-bar" %}
-        
-    </section>
+    {# Product Bar #}
+    {% include "_components/static/product-bar" %}
 
-    {# Layout Notes: 
+</section>
+
+{# Layout Notes: 
         First, we grab block 1 from the matrix and wrap that in the first `article.entry-main` element
         Then, we go back out and close `article` element to insert the sidebar
         Lastly, close the `aside` element and reopen `article.entry-main` with the modifier `-wide` 
@@ -29,255 +27,251 @@
             - While also letting us get a fullwidth area for the matrix blocks on large screens to accomodate fullbleed elements (like images).
     #}
 
-    {# Article + Aside  #}
-    <div class="entry-detail-layout | container | space-b | flex-grid">
+{# Article + Aside  #}
+<div class="entry-detail-layout | container | space-b | flex-grid">
 
-        {# Content #}
-        <article class="entry-main | gutter-xl">
+    {# Content #}
+    <article class="entry-main | gutter-xl">
 
-            {# Header #}
-            <header class="entry__header">
-                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
-                <div class="paragraphs -md">
-                    {{ entry.shortDescription }}
-                </div>
-            </header>
-
-            {# Blocks #}
-            <div class="entry__blocks | longform-entry-blocks -top">
-            
-                {# Longform Content #}
-                {# Use actual partial, something like: #}
-                {# {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %} #}
-                
-                {# Example Content #}
-                <div class="paragraphs -md -loose | article-content">
-                    <p>It’s not that David is <u>unrepentant</u> of the harm he has caused <strong>Bathsheba</strong>,
-                        Uriah, and countless others. The point is that David is repenting of the sin that lies beneath these
-                        actions, the sin all of us would rather avoid. He names this sin right after in verse 5: “I was
-                        brought forth in iniquity, and in sin did my mother conceive me.” </p>
-                </div>
-
+        {# Header #}
+        <header class="entry__header">
+            <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            <div class="paragraphs -md">
+                {{ entry.shortDescription }}
             </div>
-        </article>
+        </header>
 
-        {# Aside #}
-        <aside class="entry-aside">
-            {# Meta List #}
-            <ul class="meta-list">
-                {# Date #}
-                <li class="display-print">
-                    <time class="meta-label | text-slate-light"
-                        datetime="{{ now | date( 'm-d-y') }}-{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}-{{ now | date( 'M d, Y') }}</time>
-                </li>
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks -top">
 
-                {# Address #}
-                <li class="display-print">
-                    <div class="addr-label | meta-label | text-slate-light" >
-                        <p>Grandview University</p>
-                        <p>5001 Fleur Drive</p>
-                        <p>Des Moines, Iowa, 50321</p>
+            {# Longform Content #}
+            {# Use actual partial, something like: #}
+            {# {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %} #}
 
-                        <p>
-                            <a href="#">
-                                Get Directions
-                            </a>
-                        </p>
-                    </div>
-                </li>
+            {# Example Content #}
+            <div class="paragraphs -md -loose | article-content">
+                <p>It’s not that David is <u>unrepentant</u> of the harm he has caused <strong>Bathsheba</strong>,
+                    Uriah, and countless others. The point is that David is repenting of the sin that lies beneath these
+                    actions, the sin all of us would rather avoid. He names this sin right after in verse 5: “I was
+                    brought forth in iniquity, and in sin did my mother conceive me.” </p>
+            </div>
 
-                {# Info #}
-                <li class="display-print">
-                    <div class="addr-label | meta-label | text-slate-light">
-                        <p>Recommended Hotel:</p>
+        </div>
+    </article>
+
+    {# Aside #}
+    <aside class="entry-aside">
+        {# Meta List #}
+        <ul class="meta-list">
+            {# Date #}
+            <li class="display-print">
+                <time class="meta-label | text-slate-light"
+                    datetime="{{ now | date( 'm-d-y') }}-{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}-{{ now | date( 'M d, Y') }}</time>
+            </li>
+
+            {# Address #}
+            <li class="display-print">
+                <div class="addr-label | meta-label | text-slate-light">
+                    <p>Grandview University</p>
+                    <p>5001 Fleur Drive</p>
+                    <p>Des Moines, Iowa, 50321</p>
+
+                    <p>
                         <a href="#">
-                            Hampton Inn Des Moines-Airport
+                            Get Directions
                         </a>
-                    </div>
-                </li>
+                    </p>
+                </div>
+            </li>
 
-                {# Share/Print #}
-                <li>
-                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
-                </li>
-            </ul>
-            
-        </aside>
+            {# Info #}
+            <li class="display-print">
+                <div class="addr-label | meta-label | text-slate-light">
+                    <p>Recommended Hotel:</p>
+                    <a href="#">
+                        Hampton Inn Des Moines-Airport
+                    </a>
+                </div>
+            </li>
 
-        {# Article + Aside (bottom) #}
-        <article class="entry-main -wide">
-        
-            {# Blocks #}
-            <div class="entry__blocks | longform-entry-blocks">
-        
-                {# Longform Content #}
-                {# Use actual partial, something like: #}
-                {# {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %} #}
+            {# Share/Print #}
+            <li>
+                {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
+            </li>
+        </ul>
 
-                {# Example Content — 
+    </aside>
+
+    {# Article + Aside (bottom) #}
+    <article class="entry-main -wide">
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks">
+
+            {# Longform Content #}
+            {# Use actual partial, something like: #}
+            {# {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %} #}
+
+            {# Example Content — 
                     IMPORTANT: 
                     create a matrix field following the outline in the airtable for event format entry type
                     add the block types to longform-entry-blocks field once using real data and bring the static layouts into
                     `longform-entry-blocks` partial with additional `case` conditions.
                     #}
-                
-                {# Case - Syllabus List #}
-                <div class="big-list -syllabus | narrow-block gutter-xl | space-b">
 
-                    <h3 class="header-lg text-bronze-lighter font-serif pb-6">Day 1 Schedule</h3>
-                
-                    <ul class="list-syllabus -hover-effect">
-                
-                        {# Switch types: #}
-                        
-                        {# Default #}
-                        <li class="syllabus-item">
-                            
-                            <div class="syllabus-item__main">
-                                <h4 class="title | header-sm font-serif">Doors Open</h4>
-                                {% if placeholderShortCopy|length %}
-                                <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6>
-                                {# or <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p> #}
-                                {% endif %}
-                            </div>
-                            <div class="syllabus-item__aside">
-                                <time class="time | text-md text-slate-light" datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
-                            </div>
-                            
-                        </li>
-                        
-                        {# Default #}
-                        <li class="syllabus-item">
-                            
-                            <div class="syllabus-item__main">
-                                <h4 class="title | header-sm font-serif">Daniel Emery Price</h4>
-                                {% if placeholderShortCopy|length %}
-                                <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
-                                {# or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
-                                {% endif %}
-                            </div>
-                            <div class="syllabus-item__aside">
-                                <time class="time | text-md text-slate-light" datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
-                            </div>
-                        
-                        </li>
-                        
-                        {# -break #}
-                        <li class="syllabus-item -break">
-                            
-                            <div class="syllabus-item__main">
-                                <h4 class="title | header-sm font-serif">Lunch</h4>
-                                {% if placeholderShortCopy|length %}
-                                {#  optional <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+            {# Case - Syllabus List #}
+            <div class="big-list -syllabus | narrow-block gutter-xl | space-b">
+
+                <h3 class="header-lg text-bronze-lighter font-serif pb-6">Day 1 Schedule</h3>
+
+                <ul class="list-syllabus -hover-effect">
+
+                    {# Switch types: #}
+
+                    {# Default #}
+                    <li class="syllabus-item">
+
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Doors Open</h4>
+                            {% if placeholderShortCopy|length %}
+                            <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6>
+                            {# or <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p> #}
+                            {% endif %}
+                        </div>
+                        <div class="syllabus-item__aside">
+                            <time class="time | text-md text-slate-light"
+                                datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
+                        </div>
+
+                    </li>
+
+                    {# Default #}
+                    <li class="syllabus-item">
+
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Daniel Emery Price</h4>
+                            {% if placeholderShortCopy|length %}
+                            <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+                            {# or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            {% endif %}
+                        </div>
+                        <div class="syllabus-item__aside">
+                            <time class="time | text-md text-slate-light"
+                                datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
+                        </div>
+
+                    </li>
+
+                    {# -break #}
+                    <li class="syllabus-item -break">
+
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Lunch</h4>
+                            {% if placeholderShortCopy|length %}
+                            {#  optional <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
                                 or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
-                                {% endif %}
-                            </div>
-                        
-                        </li>
+                            {% endif %}
+                        </div>
 
-                        {# Default #}
-                        <li class="syllabus-item">
-                        
-                            <div class="syllabus-item__main">
-                                <h4 class="title | header-sm font-serif">Daniel Emery Price</h4>
-                                {% if placeholderShortCopy|length %}
-                                <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
-                                {# or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
-                                {% endif %}
-                            </div>
-                            <div class="syllabus-item__aside">
-                                <time class="time | text-md text-slate-light"
-                                    datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
-                            </div>
-                        
-                        </li>
+                    </li>
 
-                    </ul>
+                    {# Default #}
+                    <li class="syllabus-item">
 
-                    <div class="big-list__action mt-8">
-                        {{ global.link('', 'btn  -red -md', 'Register') }}
-                    </div>
-                
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Daniel Emery Price</h4>
+                            {% if placeholderShortCopy|length %}
+                            <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+                            {# or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            {% endif %}
+                        </div>
+                        <div class="syllabus-item__aside">
+                            <time class="time | text-md text-slate-light"
+                                datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
+                        </div>
+
+                    </li>
+
+                </ul>
+
+                <div class="big-list__action mt-8">
+                    {{ global.link('', 'btn  -red -md', 'Register') }}
                 </div>
 
-                {# Case - Bio Cards (3up) #}
-                <div class="bio-cards | narrow-block gutter-xl | space-b">
-                    <h3 class="header-lg text-bronze-lighter font-serif pb-10">Speakers</h3>
+            </div>
 
-                    <ul class="list-bios">
-                        <li class="bio-item">
-                            <div class="bio-item__media">
-                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
+            {# Case - Bio Cards (3up) #}
+            <div class="bio-cards | narrow-block gutter-xl | space-b">
+                <h3 class="header-lg text-bronze-lighter font-serif pb-10">Speakers</h3>
 
-                        <li class="bio-item">
-                            <div class="bio-item__media">
-                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
+                <ul class="list-bios">
+                    <li class="bio-item">
+                        <div class="bio-item__media">
+                            {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                        </div>
+                        <div class="bio-item__content">
+                            <h3 class="title">Jane Smith</h3>
+                            <a href="#" class="link | meta-label">See Bio</a>
+                        </div>
+                    </li>
 
-                        <li class="bio-item">
-                            <div class="bio-item__media">
-                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
+                    <li class="bio-item">
+                        <div class="bio-item__media">
+                            {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                        </div>
+                        <div class="bio-item__content">
+                            <h3 class="title">Jane Smith</h3>
+                            <a href="#" class="link | meta-label">See Bio</a>
+                        </div>
+                    </li>
 
-                        <li class="bio-item">
-                            <div class="bio-item__media">
-                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                    <li class="bio-item">
+                        <div class="bio-item__media">
+                            {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                        </div>
+                        <div class="bio-item__content">
+                            <h3 class="title">Jane Smith</h3>
+                            <a href="#" class="link | meta-label">See Bio</a>
+                        </div>
+                    </li>
 
-
-
-
-                
-                
-
-
-    </div>
-
-    {# Related Content #}
-    <div class="container--sm gutter-md | space-b--sm">
-        {# Header #}
-        <h3 class="header-lg text-bronze-lighter font-serif pb-8">Discover Related Content</h3>
-
-        {# Latest Cards #}
-        <div class="flex-grid">
-            {# Content Card - Stacked #}
-            {% include '_components/static/content-card--basic' with { 'classes': '' } %}
-            {% include '_components/static/content-card--basic' with { 'classes': '' } %}
+                    <li class="bio-item">
+                        <div class="bio-item__media">
+                            {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                        </div>
+                        <div class="bio-item__content">
+                            <h3 class="title">Jane Smith</h3>
+                            <a href="#" class="link | meta-label">See Bio</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </article>
+</div>
 
-    {# Text Billboard - placeholder content#}
-    {% set content = { 
+{# Related Content #}
+<div class="container--sm gutter-md | space-b--sm">
+    {# Header #}
+    <h3 class="header-lg text-bronze-lighter font-serif pb-8">Discover Related Content</h3>
+
+    {# Latest Cards #}
+    <div class="flex-grid">
+        {# Content Card - Stacked #}
+        {% include '_components/static/content-card--basic' with { 'classes': '' } %}
+        {% include '_components/static/content-card--basic' with { 'classes': '' } %}
+    </div>
+</div>
+
+{# Text Billboard - placeholder content#}
+{% set content = { 
             header: 'Subscribe to You Are Forgiven',
             detail: '<p>Subscribe (it’s free!) in your favorite podcast app.</p>',
             buttons: 'btn -outline -reverse', 
             action: 'Apple Podcasts',
             image: '/assets/placeholder/placeholder_05.png'
         }%}
-    {# Text Billboard - basic #}
-    {% include '_components/static/billboard--subscribe' with { classes: '-bronze-light', content: content } %}
+{# Text Billboard - basic #}
+{% include '_components/static/billboard--subscribe' with { classes: '-bronze-light', content: content } %}
 
 {% endblock %}
