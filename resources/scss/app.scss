@@ -2,6 +2,11 @@
     display: none;
 }
 
+:root {
+    --slate-darkest: #262626;
+    --bronze: #baa188;
+}
+
 @tailwind preflight;
 @tailwind components;
 @tailwind utilities;
@@ -91,6 +96,7 @@
 @import 'components/billboard--text';
 @import 'components/billboard--floated-img';
 @import 'components/billboard--subscribe';
+@import 'components/billboard--courses';
 
 // Players
 // @import 'components/podcast-player-full';

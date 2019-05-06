@@ -4,8 +4,9 @@
     input[type='text'],
     input[type='password'],
     input[type='email'] {
-        // border-b border-grey-darkest bg-oat-lightest
-        @apply w-full 
+        //
+        @apply bg-transparent border-b border-bronze
+          w-full 
           text-base
           pb-2 pt-8
           property-colors duration-3 timing-1;
@@ -41,24 +42,24 @@
       absolute pin-t pin-l
       z-10
       mt-2
-      ml-4;
+      ml-3;
 
         &.-standalone {
             @apply static
-        ml-4 mt-0 mb-3;
+        ml-3 mt-0 mb-3;
         }
     }
 
     // Field Group
     .field-group {
-        @apply relative flex-grow px-4;
+        @apply relative flex-grow px-3;
     }
 
     // Form Group
     .form-group {
         @apply flex justify-between flex-wrap
-                mb-8 
-                -mx-4;
+                mb-6 
+                -mx-3;
         &.-start {
             @apply justify-start;
             .field-group {
@@ -70,6 +71,10 @@
     // Form Block (elements like headers and buttons that are not a field group - this applies the correct margins)
     .form-block {
         @apply mb-8;
+
+        &:last-child {
+            @apply mb-0;
+        }
     }
 
     // Helper Text
@@ -96,44 +101,22 @@
     }
 
     // White Fields
-    &.-white-fields {
+    // &.-white-fields {
+    //     textarea,
+    //     input[type='text'],
+    //     input[type='password'],
+    //     input[type='email'] {
+    //         @apply bg-white;
+    //     }
+    // }
+
+    // Bronze Fields (on dark backgrounds)
+    &.-bronze-fields {
         textarea,
         input[type='text'],
         input[type='password'],
         input[type='email'] {
-            @apply bg-white;
-        }
-    }
-
-    // Locked Form
-    &.-locked {
-        // Fields
-        textarea,
-        input {
-            @apply bg-white;
-
-            &::placeholder {
-                @apply opacity-0;
-            }
-        }
-
-        .helper-text {
-            @apply hidden;
-        }
-
-        // Choices
-        .choices.-standard .choices__list--dropdown,
-        .choices.-standard .choices__inner {
-            @apply bg-white;
-        }
-        .choices[data-type*='select-one']
-            .choices__inner
-            .choices__item--selectable:after {
-            @apply hidden;
-        }
-
-        .field-group {
-            @apply pointer-events-none;
+            @apply border-bronze text-white;
         }
     }
 }
@@ -145,3 +128,22 @@
         @apply px-3;
     }
 }
+
+// Unuglify Chrome Autocomplete
+/* autoprefixer: off */
+.-bronze-fields {
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        border-bottom: 1px solid var(--bronze);
+        -webkit-text-fill-color: white;
+        -webkit-box-shadow: 0 0 0px 1000px var(--slate-darkest) inset;
+    }
+}
+/* autoprefixer: off */
