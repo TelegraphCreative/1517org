@@ -1,4 +1,112 @@
-{# TEMP: Grab example content #}
 {% import '_macros/global' as global %}
 
-Hey, sign up!
+<div class="billboard -courses | no-print">
+    <header class="billboard__content | container gutter">
+        <div class="billboard__content-inner">
+
+            {# Header #}
+            <div class="billboard__header">
+                <h4 class="billboard-title | header-base">Enroll Now</h4>
+            </div>
+
+            {# Detail #}
+            <div class="billboard__detail | paragraphs -sm | pt-2">
+                <p>Enroll today to view course content, take evaluation quizzes, and connect directly with Dr.
+                    Mallison.</p>
+            </div>
+
+            {# Action #}
+            <div class="billboard__action | pt-4">
+
+                <div class="form-base | -bronze-fields">
+                    {# Notes
+                    
+                        This form needs:
+
+                        - validation
+                        - integration w/ Mailchimp
+
+                     #}
+                    <form method="post" accept-charset="UTF-8">
+                        {{ csrfInput() }}
+                        <input type="hidden" name="action" value="users/save-user">
+                        {{ redirectInput('') }}
+
+                        {% macro errorList(errors) %}
+                        {% if errors %}
+                        <ul class="errors">
+                            {% for error in errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endmacro %}
+
+                        {% from _self import errorList %}
+
+                        <div class="form-group">
+                            <div class="field-group | w-1/2">
+                                <label class="standard-label" for="username">
+                                    Username
+                                </label>
+                                <input type="text" id="username" name="username" required {%- if user is defined %}
+                                    value="{{ user.username }}" {% endif -%} />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('username')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="field-group | w-1/2">
+                                <label class="standard-label" for="email">
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" required {%- if user is defined %}
+                                    value="{{ user.email }}" {% endif %} />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('email')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="field-group | w-full">
+                                <label class="standard-label" for="password">
+                                    Password
+                                </label>
+                                <input type="password" id="password" name="password" required />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('password')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="field-group | w-full">
+                                <input class="btn -md" type="submit" value="Submit">
+                            </div>
+                        </div>
+
+
+
+                        
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    {% if content.image is defined %}
+    <div class="billboard__media">
+        {{ global.image( '', '-is1x1 -fit-cover -hover-scale', content.image )}}
+    </div>
+    {% endif %}
+
+</div>
