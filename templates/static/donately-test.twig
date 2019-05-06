@@ -4,19 +4,20 @@
 {% block content %}
 
 
-<section class="space-menu | space-b | no-print">
+<section class="space-menu | container gutter | space-b | no-print">
 
-   <h1>Donately test</h1>
-    {% set queryDonately  = craft.app.request.param('donately') %}
-    {% set selectedAmount = false %}
-    {% if queryDonately|length %}
-    {% set selectedAmount = true %}
+   <h1 class="mb-4 mt-10">Donately test</h1>
+   <a class="btn -sm mb-10" href="?donately=15">Test user input</a>
+    {% set selectedAmount  = craft.app.request.param('donately') %}
+    {% set userInput = false %}
+    {% if selectedAmount|length %}
+    {% set userInput = true %}
     {% endif %}
 
-   {% if selectedAmount %}
+   {% if userInput %}
     <iframe class="donately-donation-iframe" frameborder="0" allowtransparency="true"
         style="background-color: transparent; border: 0px none transparent; overflow: hidden; display: inline-block; visibility: visible; margin: 0px; padding: 0px; height: 800px; width: 100%;"
-        src="https://cdn.donately.com/dntly-core/current/iframe.html?donately_id=act_1e9e5132651d&amp;stripe_publishable_key=pk_live_B6wEFSVNah8eygeD7EYHO933&amp;donately_ga_account=UA-1654521-7&amp;donately_address=true&amp;donately_amount={{ queryDonately }}&amp;donately_anonymous=true&amp;donately_billing_zip=true&amp;donately_currency=true&amp;donately_duration=default_recurring&amp;donately_presets=25,50,75,100"></iframe>
+        src="https://cdn.donately.com/dntly-core/current/iframe.html?donately_id=act_1e9e5132651d&amp;stripe_publishable_key=pk_live_B6wEFSVNah8eygeD7EYHO933&amp;donately_ga_account=UA-1654521-7&amp;donately_address=true&amp;donately_amount={{ selectedAmount }}&amp;donately_anonymous=true&amp;donately_billing_zip=true&amp;donately_currency=true&amp;donately_duration=default_recurring&amp;donately_presets=25,50,75,100"></iframe>
    {% else %}
     
     <iframe class="donately-donation-iframe" frameborder="0" allowtransparency="true"
