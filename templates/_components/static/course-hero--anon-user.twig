@@ -1,8 +1,26 @@
 {% import '_macros/global' as global %}
 
-<div class="billboard -courses | no-print">
+{#
+    @jjjohn => 
+
+    Structure Content (cms editable):
+    - billboard bg img (fades to color)
+    - billboard bg color
+    - billboard badge (logo)
+    - Header
+    - Description
+
+    This form needs:
+    - validation (email valid, all fields required)
+    - integration w/ Craft User Registration form
+    - add users to Craft group: 'Courses Subscribers'
+    - add Mailchimp Craft plugin to add users to Mailchimp list
+
+#}
+
+<div class="billboard -courses | no-print" style="background-color: #10181B;">
     <header class="billboard__content | container gutter">
-        <div class="billboard__content-inner">
+        <div class="billboard__content-inner | md:ml-0 mx-auto">
 
             {# Header #}
             <div class="billboard__header">
@@ -19,14 +37,7 @@
             <div class="billboard__action | pt-4">
 
                 <div class="form-base | -bronze-fields">
-                    {# Notes
                     
-                        This form needs:
-
-                        - validation
-                        - integration w/ Mailchimp
-
-                     #}
                     <form method="post" accept-charset="UTF-8">
                         {{ csrfInput() }}
                         <input type="hidden" name="action" value="users/save-user">
@@ -45,6 +56,22 @@
                         {% from _self import errorList %}
 
                         <div class="form-group">
+                            <div class="field-group | w-full">
+
+                                <label class="standard-label" for="email">
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" required {%- if user is defined %} value="{{ user.email }}"
+                                    {% endif %} />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('email')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="field-group | w-1/2">
                                 <label class="standard-label" for="username">
                                     Username
@@ -58,21 +85,6 @@
                                 {% endif %}
                             </div>
                             <div class="field-group | w-1/2">
-                                <label class="standard-label" for="email">
-                                    Email
-                                </label>
-                                <input type="email" id="email" name="email" required {%- if user is defined %}
-                                    value="{{ user.email }}" {% endif %} />
-                                {% if user is defined %}
-                                <div class="helper-text -error">
-                                    {{ errorList(user.getErrors('email')) }}
-                                </div>
-                                {% endif %}
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="field-group | w-full">
                                 <label class="standard-label" for="password">
                                     Password
                                 </label>
@@ -91,22 +103,23 @@
                             </div>
                         </div>
 
-
-
-                        
                     </form>
                 </div>
 
+            </div>  
+
+            {# Course Badge #}
+            <div class="billboard__badge">
+                <div class="w-full max-w-xxs | md:ml-0 mx-auto">
+                    {{ global.image( '', '-is3x2 -fit-cover', '/assets/placeholder/logo_placeholder_01.png' )}}
+                </div>
             </div>
 
         </div>
 
     </header>
 
-    {% if content.image is defined %}
-    <div class="billboard__media">
-        {{ global.image( '', '-is1x1 -fit-cover -hover-scale', content.image )}}
+    <div class="billboard__media -bg" style="background:no-repeat top center/contain url(/assets/placeholder/hero_01.jpg)">
     </div>
-    {% endif %}
 
 </div>
