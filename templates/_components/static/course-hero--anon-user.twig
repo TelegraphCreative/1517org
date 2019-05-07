@@ -1,0 +1,125 @@
+{% import '_macros/global' as global %}
+
+{#
+    @jjjohn => 
+
+    Structure Content (cms editable):
+    - billboard bg img (fades to color)
+    - billboard bg color
+    - billboard badge (logo)
+    - Header
+    - Description
+
+    This form needs:
+    - validation (email valid, all fields required)
+    - integration w/ Craft User Registration form
+    - add users to Craft group: 'Courses Subscribers'
+    - add Mailchimp Craft plugin to add users to Mailchimp list
+
+#}
+
+<div class="billboard -courses | no-print" style="background-color: #10181B;">
+    <header class="billboard__content | container gutter">
+        <div class="billboard__content-inner | md:ml-0 mx-auto">
+
+            {# Header #}
+            <div class="billboard__header">
+                <h4 class="billboard-title | header-base">Enroll Now</h4>
+            </div>
+
+            {# Detail #}
+            <div class="billboard__detail | paragraphs -sm | pt-2">
+                <p>Enroll today to view course content, take evaluation quizzes, and connect directly with Dr.
+                    Mallison.</p>
+            </div>
+
+            {# Action #}
+            <div class="billboard__action | pt-4">
+
+                <div class="form-base | -bronze-fields">
+                    
+                    <form method="post" accept-charset="UTF-8">
+                        {{ csrfInput() }}
+                        <input type="hidden" name="action" value="users/save-user">
+                        {{ redirectInput('') }}
+
+                        {% macro errorList(errors) %}
+                        {% if errors %}
+                        <ul class="errors">
+                            {% for error in errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {% endmacro %}
+
+                        {% from _self import errorList %}
+
+                        <div class="form-group">
+                            <div class="field-group | w-full">
+
+                                <label class="standard-label" for="email">
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" required {%- if user is defined %} value="{{ user.email }}"
+                                    {% endif %} />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('email')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="field-group | w-1/2">
+                                <label class="standard-label" for="username">
+                                    Username
+                                </label>
+                                <input type="text" id="username" name="username" required {%- if user is defined %}
+                                    value="{{ user.username }}" {% endif -%} />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('username')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="field-group | w-1/2">
+                                <label class="standard-label" for="password">
+                                    Password
+                                </label>
+                                <input type="password" id="password" name="password" required />
+                                {% if user is defined %}
+                                <div class="helper-text -error">
+                                    {{ errorList(user.getErrors('password')) }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="field-group | w-full">
+                                <input class="btn -md" type="submit" value="Submit">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>  
+
+            {# Course Badge #}
+            <div class="billboard__badge">
+                <div class="w-full max-w-xxs | md:ml-0 mx-auto">
+                    {{ global.image( '', '-is3x2 -fit-cover', '/assets/placeholder/logo_placeholder_01.png' )}}
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="billboard__media -bg" style="background:no-repeat top center/contain url(/assets/placeholder/hero_01.jpg)">
+    </div>
+
+</div>
