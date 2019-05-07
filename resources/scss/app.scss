@@ -5,6 +5,7 @@
 :root {
     --slate-darkest: #262626;
     --bronze: #baa188;
+    --ivory-light-50: rgba(245, 241, 237, 0.5);
 }
 
 @tailwind preflight;
@@ -33,6 +34,7 @@
 @import 'base/toggle-text';
 @import 'base/device';
 @import 'base/drop-cap';
+@import 'base/pagination';
 // @import "base/blockquote";
 // @import "base/video";
 // @import "base/ornament";
@@ -64,6 +66,7 @@
 @import 'components/content-card--stacked';
 @import 'components/content-card--basic';
 @import 'components/content-card--topic-types';
+@import 'components/product-card';
 
 // Content: Detail
 @import 'components/entry-detail-layout';

@@ -9,7 +9,8 @@
         // Aside
         &-aside {
             @apply w-full py-10 px-4;
-            background: rgba(245, 241, 237, 0.5);
+            background-color: var(--ivory-light-50);
+
             figure {
                 @apply w-4/5 mx-auto;
             }

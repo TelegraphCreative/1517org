@@ -3,23 +3,23 @@
 
 {% block content %}
 
-{# TEMP: Grab some random example content #}
-{% set entry = craft.entries.section('articles')[0] %}
-{% set placeholderImage = entry.articleHeroContent.one().image.one() %}
-{% set placeholderShortCopy = "Optional short support copy" %}
+    {# TEMP: Grab some random example content #}
+    {% set entry = craft.entries.section('articles')[0] %}
+    {% set placeholderImage = entry.articleHeroContent.one().image.one() %}
+    {% set placeholderShortCopy = "Optional short support copy" %}
 
     {# Layout #}
-    <section class="product-detail-layout | space-menu | flex-grid">
+    <section
+        class="product-detail-layout | space-menu | flex-grid">
 
         {# Main #}
         <article class="entry-main">
 
             {# Nav #}
             {# Notes: This just links back out to all products of this type. Shouldn't be more than 1 link, but the markup is structured to accomodate future scaling. #}
-            <nav class="breadcrumbs" aria-label="Browse all products in this section">
-                <ul class="list-reset">
+                <nav aria-label="Browse all products in this section" class="breadcrumbs"> <ul class="list-reset">
                     <li>
-                        <a href="#" class="link -underline -sm ">
+                        <a class="link -underline -sm " href="#">
                             Shop / Books
                         </a>
                     </li>
@@ -33,7 +33,7 @@
                     Steven D. Paulson & Scott L. Keith
                 </div>
                 <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <meta itemprop="priceCurrency" content="USD" />
+                    <meta content="USD" itemprop="priceCurrency"/>
                     $<span class="amount" itemprop="price">4.99</span>
                 </div>
 
@@ -42,7 +42,7 @@
                     <div class="form-group -start">
                         <div class="field-group">
                             <select_box :opt="{ name: 'format', variant: '-md' }">
-                                <option value="All Formats" selected>All Formats</option>
+                                <option selected value="All Formats">All Formats</option>
                                 <option value="ebook">ebook</option>
                                 <option value="Another">Another</option>
                             </select_box>
@@ -50,14 +50,14 @@
                     </div>
                     <div class="form-group -start">
                         <div class="field-group">
-                            <input type="number" value="1" min="1">
+                            <input min="1" type="number" value="1">
                         </div>
                         <div class="field-group">
                             <button class="btn -red -md">Add to Cart</button>
                         </div>
                     </div>
-                    
-                    
+
+
                 </form>
             </header>
 
@@ -66,11 +66,11 @@
                 <div class="paragraphs -md -loose | article-content">
 
                     <p>This book offers a radically different perspective from that of many best-selling authors concerning how the Christian
-                    should measure and evaluate travel along God’s path of righteousness. It will endeavor to persuade the reader that by
-                    feeding regularly on the Gospel in the Preached Word and The Supper, God promises to have His way with the Christian and
-                    He alone will accomplish all that is needed for life in Him to be complete. He is not waiting or requiring you to do
-                    anything first (during or after) to provide you with every blessing of the Gospel.</p>
-                    
+                                                                    should measure and evaluate travel along God’s path of righteousness. It will endeavor to persuade the reader that by
+                                                                    feeding regularly on the Gospel in the Preached Word and The Supper, God promises to have His way with the Christian and
+                                                                    He alone will accomplish all that is needed for life in Him to be complete. He is not waiting or requiring you to do
+                                                                    anything first (during or after) to provide you with every blessing of the Gospel.</p>
+
                     <p>The audio book version of this title is available through these retailers:</p>
 
                     <ul>
@@ -83,7 +83,8 @@
         </article>
 
         {# Aside #}
-        <div class="entry-aside">
+        <div
+            class="entry-aside">
 
             {# TEMP: Use `page-hero--media` partial #}
             {{ global.image( placeholderImage, '-fit-cover' )}}
