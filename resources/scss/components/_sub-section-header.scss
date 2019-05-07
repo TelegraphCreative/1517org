@@ -1,4 +1,8 @@
 // Sub Section Header
 .sub-section-header {
-  @apply py-12;
+    @apply pb-12;
+
+    .paragraphs {
+        @apply pt-4 pr-12;
+    }
 }

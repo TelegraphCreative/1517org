@@ -2,18 +2,35 @@
 {% import '_macros/global' as global %}
 
 {% block content %}
-
+    {# Header #}
     <section
-        class="space-menu">
+        class="space-menu space-b">
         {# Placeholder Header Content #}
         {% set content = { title: 'Contact Us' } %}
 
         {# Page Header #}
         {% include "_components/static/page-header" with { content: content } %}</section>
 
-    {# Contact Form #}
-    <div class="container gutter | space-b" id="contact">
+    {# Content #}
+    <div class="container--sm gutter-xl | space-b--lg" id="contact">
+        
+        {# Contact Form Header #}
+        <header class="sub-section-header | space-b--sm">
+            <h2 class="title | header-lg font-serif">
+                Subheading Here
+            </h2>
+            <div class="paragraphs -md">
+                <p>Each of these provide a message of hope to strengthen individuals and congregations, as well as model ways of
+                    engaging
+                    the culture in a manner that is thoughtful, courageous, and Christ-centered.</p>
+            </div>
+        </header>
+        {# Contact Form #}
         {% include '_components/static/form-contact'  %}
     </div>
+
+
+    {# Billboard Newsletter #}
+    {% include '_components/static/billboard--newsletter'  %}
 
 {% endblock %}

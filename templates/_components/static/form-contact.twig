@@ -23,7 +23,7 @@ Notes:
 {% from _self import errorList %}
 
 
-<form accept-charset="UTF-8" action="" method="post">
+<form accept-charset="UTF-8" action="" class="form-base" method="post">
 
     {{ csrfInput() }}
     <input name="action" type="hidden" value="contact-form/send">
@@ -36,9 +36,20 @@ Notes:
             <label class="standard-label" for="firstName">
                 First Name
             </label>
-            <input type="text" id="firstName" name="firstName" required {%- if user is defined %} value="{{ message.firstName }}" {% endif -%}/>
+            <input
+            type="text" id="firstName" name="firstName" required {%- if user is defined %} value="{{ message.firstName }}" {% endif -%}/>
+
+            <!-- For example only 
+                        - For error styles add class like so: .form-group.-error -->
+
+            <div class="helper-text">
+                Example of helper text
+            </div>
+            <!-- /end For example only -->
+
             {% if user is defined %}
                 <div class="helper-text -error">
+                    Example of an error
                     {{ errorList(message.getErrors('firstName')) }}
                 </div>
             {% endif %}
@@ -68,19 +79,6 @@ Notes:
         </div>
     </div>
 
-    {# Subject #}
-    <div class="form-group">
-        <div class="field-group | w-full">
-
-            <label class="standard-label" for="email">
-                Email Address
-            </label>
-            <input type="email" id="email" name="email" required {%- if user is defined %} value="{{ message.email }}" {% endif %}/>
-
-        </div>
-    </div>
-
-
     {# Message #}
     <div class="form-group">
         <div class="field-group | w-full">
@@ -88,7 +86,7 @@ Notes:
             <label class="standard-label" for="message">
                 Message
             </label>
-            <textarea id="message" name="message" required rows="6"/>
+            <textarea id="message" name="message" required rows="6"></textarea>
 
         </div>
     </div>
@@ -96,7 +94,7 @@ Notes:
 
     <div class="form-group">
         <div class="field-group | w-full">
-            <input class="btn -wide -red" type="submit" value="Submit Form">
+            <input class="btn -full -red" type="submit" value="Submit Form">
         </div>
     </div>
 
