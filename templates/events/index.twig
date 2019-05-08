@@ -1,0 +1,57 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+{% set indexList = craft.entries.section('events') %}
+
+{% block content %}
+
+    <section class="space-menu">
+
+        {# Page Header #}
+        {% include "_components/page-header" with { content: entry } %}
+
+    </section>
+
+    {# Topics List #}
+    {% if indexList.count > 0 %}
+    
+        <div id="events" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            {# Latest Cards #}
+            <div class="flex-grid">
+                
+                {% for entry in indexList.all() %}
+
+                    <a href="{{ entry.url }}">{{ entry.title }}</a>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    
+    {% else %}
+        
+        {# No Entries #}
+        <div class="text-center space-b">
+            There are no Courses available right now.  
+        </div>
+
+    {% endif %}
+    
+    {# Billboard #}
+    {# {% if entry.showBillboardText %}
+        
+        <div id="advertise" class="">
+            Billboard Content
+            {% set billboardContent = { 
+                    header: entry.billboardHeader,
+                    description: entry.billboardDescription,
+                    button: entry.billboardButton,
+                    buttonStyle: entry.billboardButtonStyle,
+                    background: entry.billboardBackground,
+                }%}
+            Text Billboard - text
+            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+        </div>
+
+    {% endif %} #}
+
+{% endblock %}

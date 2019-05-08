@@ -1,0 +1,55 @@
+{% import '_macros/styleguide' as guide %}
+{% import '_macros/global' as global %}
+{% extends "_layouts/_styleguide" %}
+{% block content %}
+
+
+<h2 class="text-3xl space-b">Content Hero</h2>
+<div class="notes leading-normal border-b space-b">
+    <h3>Notes:</h3>
+    <ul>
+        <li>Content:
+            <ul>
+                <li>Entry
+                    <ul>
+                        <li>Header</li>
+                        <li>Topic</li>
+                        <li>Show</li>
+                        <li>Description</li>
+                        <li>Image</li>
+                        <li>Date</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Variation Classes:
+            <ul>
+                <li>-red</li>
+                <li>-dark</li>
+                <li>-ivory</li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
+{# Content Hero - Podcast #}
+{% set featuredPodcast =  craft.entries.section('podcasts')[0] %}
+{% include '_components/content-hero--podcast' with { content: featuredPodcast, 'classes': '-ivory' } %}
+
+{% set code %}{% verbatim %}{% include '_components/content-hero--podcast' with { content: featuredPodcast, 'classes': '-ivory' } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+{% include '_components/content-hero--podcast' with { content: featuredPodcast, 'classes': '-red' } %}
+
+{% set code %}{% verbatim %}{% include '_components/content-hero--podcast' with { content: featuredPodcast, 'classes': '-red' } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+{% include '_components/content-hero--podcast' with { content: featuredPodcast, 'classes': '-dark' } %}
+
+{% set code %}{% verbatim %}{% include '_components/content-hero--podcast' with { content: featuredPodcast, 'classes': '-dark' } %}{% endverbatim %}{% endset %}
+{{ guide.snippet( code, 'css' ) }}
+
+
+
+{% endblock %}

@@ -1,0 +1,276 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+{# TEMP: Grab example content #}
+{% set entry = craft.entries.section('articles')[1] %}
+{% set placeholderImage = entry.articleHeroContent.one().image.one() %}
+{% set placeholderShortCopy = "Optional short support copy" %}
+
+{# Setup Placeholder Logic for Anon/SignedIn:
+    Add ?user=signedin to the url to trigger that view
+    This will work off of actual logged in status ultimately 
+#}
+{% set signedIn = false %}
+{% if craft.app.request.param('user')|length %}
+    {% set signedIn = true %}
+{% endif %}
+
+<section class="space-menu | space-b | no-print">
+    {# TEMP: Anon/SignedIn Placeholder Logic #}
+    {% if signedIn %}
+    {# Signed In View:
+        - Hides `course-hero--anon` partial
+        - Shows full article #}
+
+        {# TEMP: Use `page-hero--media` partial #}
+        {{ global.image( placeholderImage, '-fit-cover' )}}
+
+    {% else %}
+    {# Anon User View:
+        - Shows `course-hero--anon` partial
+        - Shows first 2 blocks from entry long-form matrix field #}
+
+        {# Course Billboard #}
+        {% include "_components/static/course-hero--anon-user" %}
+
+    {% endif %}
+
+</section>
+
+{# Article + Aside  (all users get first article and aside elements #}
+<div class="entry-detail-layout | container | space-b | flex-grid">
+
+    {# Content #}
+    <article class="entry-main | gutter-xl">
+
+        {# Header #}
+        <header class="entry__header">
+            <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            <div class="paragraphs -md">
+                {{ entry.shortDescription }}
+            </div>
+        </header>
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks -top">
+
+            {# Longform Content #}
+            {# Use actual partial, something like: #}
+            {# {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %} #}
+
+            {# Example Content #}
+            {# Case - Article Block #}
+            <div class="paragraphs -md -loose | article-content">
+                <p>It’s not that David is <u>unrepentant</u> of the harm he has caused <strong>Bathsheba</strong>,
+                    Uriah, and countless others. The point is that David is repenting of the sin that lies beneath these
+                    actions, the sin all of us would rather avoid. He names this sin right after in verse 5: “I was
+                    brought forth in iniquity, and in sin did my mother conceive me.” </p>
+            </div>
+
+            
+            {# Case - Syllabus List #}
+            <div class="big-list -syllabus | space-b space-t--sm">
+            
+                <h3 class="header-lg text-bronze-lighter font-serif pb-6">Syllabus</h3>
+            
+                <ul class="list-syllabus -hover-effect">
+            
+                    {# Switch types: #}
+            
+                    {# -break #}
+                    <li class="syllabus-item -break">
+            
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Doors Open</h4>
+                            {% if placeholderShortCopy|length %}
+                            {#  optional <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+                                                                    or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            {% endif %}
+                        </div>
+            
+                    </li>
+            
+            
+                    {# Default #}
+                    <li class="syllabus-item">
+            
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Daniel Emery Price</h4>
+                            {% if placeholderShortCopy|length %}
+                            <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+                            {# or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            {% endif %}
+                        </div>
+                        <div class="syllabus-item__aside">
+                            <time class="time | text-md text-slate-light"
+                                datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
+                        </div>
+            
+                    </li>
+            
+                    {# -break #}
+                    <li class="syllabus-item -break">
+            
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Lunch</h4>
+                            {% if placeholderShortCopy|length %}
+                            {#  optional <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+                                                or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            {% endif %}
+                        </div>
+            
+                    </li>
+            
+                    {# Default #}
+                    <li class="syllabus-item">
+            
+                        <div class="syllabus-item__main">
+                            <h4 class="title | header-sm font-serif">Daniel Emery Price</h4>
+                            {% if placeholderShortCopy|length %}
+                            <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
+                            {# or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            {% endif %}
+                        </div>
+                        <div class="syllabus-item__aside">
+                            <time class="time | text-md text-slate-light"
+                                datetime="{{ now | date( 'h:ma') }}">{{ now | date( 'n:ma') }}</time>
+                        </div>
+            
+                    </li>
+            
+                </ul>
+            
+                <div class="big-list__action mt-8">
+                    {{ global.link('', 'btn  -red -md', 'Register') }}
+                </div>
+            
+            </div>
+
+        </div>
+    </article>
+
+    {# Aside #}
+    <aside class="entry-aside">
+        {# Meta List #}
+        <ul class="meta-list">
+            <li class="display-print">
+                <time class="meta-label | text-slate-light"
+                    datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}</time>
+            </li>
+            <li>
+                {{ global.relatedTopics('', '') }}
+            </li>
+            <li>
+                {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
+            </li>
+            <li>
+                <a href="{{ url('/') }}" class="link -meta">Browse all Episodes</a>
+            </li>
+        </ul>
+
+        {# Author #}
+        <div class="meta-summary-block">
+            <div class="meta-summary__media -narrow">
+                {{ global.image('', '-is1x1 -fit-cover | rounded-full ', '/assets/placeholder/placeholder_05.png')}}
+            </div>
+            <div class="author-bio__detail">
+                <h6>About the Author</h6>
+                <p>Kelsi is a freelance writer who writes for nonprofits and small businesses all over the world. She is
+                    currently pursuing an MA in Reformation studies from Concordia University Irvine. She lives with her
+                    husband, Doug, in Dallas, Texas.</p>
+            </div>
+        </div>
+
+    </aside>
+
+    {% if signedIn %}
+        {# Article + Aside (bottom) - Only signed in users get this #}
+        <article class="entry-main -wide">
+
+            {# Blocks #}
+            <div class="entry__blocks | longform-entry-blocks">
+
+                {# Longform Content #}
+                {# Use actual partial, something like: #}
+                {# {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %} #}
+
+                {# Example Content #}
+
+                {# Case - Bio Cards (3up) #}
+                <div class="bio-cards | narrow-block gutter-xl | space-b">
+                    <h3 class="header-lg text-bronze-lighter font-serif pb-10">Speakers</h3>
+
+                    <ul class="list-bios">
+                        <li class="bio-item">
+                            <div class="bio-item__media">
+                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                            </div>
+                            <div class="bio-item__content">
+                                <h3 class="title">Jane Smith</h3>
+                                <a href="#" class="link | meta-label">See Bio</a>
+                            </div>
+                        </li>
+
+                        <li class="bio-item">
+                            <div class="bio-item__media">
+                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                            </div>
+                            <div class="bio-item__content">
+                                <h3 class="title">Jane Smith</h3>
+                                <a href="#" class="link | meta-label">See Bio</a>
+                            </div>
+                        </li>
+
+                        <li class="bio-item">
+                            <div class="bio-item__media">
+                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                            </div>
+                            <div class="bio-item__content">
+                                <h3 class="title">Jane Smith</h3>
+                                <a href="#" class="link | meta-label">See Bio</a>
+                            </div>
+                        </li>
+
+                        <li class="bio-item">
+                            <div class="bio-item__media">
+                                {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
+                            </div>
+                            <div class="bio-item__content">
+                                <h3 class="title">Jane Smith</h3>
+                                <a href="#" class="link | meta-label">See Bio</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    {% endif %}
+</div>
+
+{# Related Content #}
+<div class="container--sm gutter-md | space-b--sm">
+    {# Header #}
+    <h3 class="header-lg text-bronze-lighter font-serif pb-8">Discover Related Content</h3>
+
+    {# Latest Cards #}
+    <div class="flex-grid">
+        {# Content Card - Stacked #}
+        {% include '_components/static/content-card--basic' with { 'classes': '' } %}
+        {% include '_components/static/content-card--basic' with { 'classes': '' } %}
+    </div>
+</div>
+
+{# Text Billboard - placeholder content#}
+{% set content = { 
+            header: 'Subscribe to You Are Forgiven',
+            detail: '<p>Subscribe (it’s free!) in your favorite podcast app.</p>',
+            buttons: 'btn -outline -reverse', 
+            action: 'Apple Podcasts',
+            image: '/assets/placeholder/placeholder_05.png'
+        }%}
+{# Text Billboard - basic #}
+{% include '_components/static/billboard--subscribe' with { classes: '-bronze-light', content: content } %}
+
+{% endblock %}

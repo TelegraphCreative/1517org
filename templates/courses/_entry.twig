@@ -1,0 +1,26 @@
+{% extends "_layouts/_base" %} 
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+  
+    {# Article + Aside (top) #}
+    <div class="entry-detail-layout | container | space-b space-menu | flex-grid">
+
+        {# Content #}
+        <article class="entry-main | gutter-xl">
+        
+            {# Header #}
+            <header class="entry__header">
+                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            </header>
+           
+        </article>
+        
+        
+    
+    
+    </div>
+
+
+{% endblock %}

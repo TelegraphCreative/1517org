@@ -1,3 +1,44 @@
+---- Templating Notes ----
+
+# -Te Article Entry
+[x] product link
+[x] blogcast, video, or hero image
+[x] author
+[x] subscribe blog cast billboard
+
+# -Te Section
+[x] featured entry hero
+[x] switch statement for entry formats
+[x] filter lists
+
+
+
+# FED for Podcast Entry
+
+[x] big list*
+[x] subscribe billboard\*^^ (needs service icons)
+[x] button group ^^
+[x] entry callout*^^
+[x] billboard (floated)_
+[x] related entry cards_^^
+
+# FED for Podcast Section
+
+[x] Featured Podcast*^^
+[x] Add action*
+
+-   needs templating
+    ^^ fed done, needs tweaked
+
+# Notes
+
+[x] Billboard themes auto update inner buttons/links (text)
+
+# Structures/Misc
+
+[x] Podcast Index
+[ ] Match Article to Podcast
+
 ---- Archived Colors ----
 
 # Grey

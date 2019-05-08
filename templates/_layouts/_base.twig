@@ -4,6 +4,7 @@
 {# {% set work = craft.entries().section('caseStudies').all() %} #} 
 {% set firstSegment = craft.app.request.segment(1) %} 
 {% set lastSegment = craft.app.request.segments|last %} 
+{% set cart = craft.commerce.carts.cart %}
 
 {# Base Layout #}
 <!DOCTYPE html>
@@ -36,5 +37,6 @@
     </body>
 
     {% do view.registerJsFile( mix('/js/app.js') ) %}
+    {% do view.registerCssFile( mix('/css/print.css') ) %} 
 </html>
 {%- endminify -%}

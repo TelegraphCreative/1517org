@@ -1,0 +1,20 @@
+.meta-list {
+    @apply list-reset;
+
+    > li {
+        @apply p-6 border-b border-ivory-light;
+
+        &:first-child {
+            @apply border-t;
+        }
+    }
+
+
+    // Screen
+    // Md
+    @screen md {
+        > li {
+            @apply px-8;
+        }
+    }
+}

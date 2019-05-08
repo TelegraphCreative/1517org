@@ -1,0 +1,31 @@
+{# Basic Page Header
+    Variation Classes: 
+    - `-left`
+
+    Optional Content:
+    - Detail
+#}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<header class="page-header {{ classes }} | container--sm gutter-md | space-t space-b--sm">
+
+    <div class="page-header__title">
+        <h1 class="header-xl font-serif">{{ content.title }}</h2>
+    </div>
+
+    {% if content.detail is defined and content.detail|length %}
+    <div class="page-header__detail">
+
+        <div class="paragraphs -sm -loose">
+            {{ content.detail | chop(limit=40, unit='w', append= '…') }}
+        </div>
+
+    </div>
+    {% endif %}
+</header>

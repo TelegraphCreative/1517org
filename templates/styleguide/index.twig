@@ -7,7 +7,7 @@
             name: "Home (mostly static)", 
             url: "/static/home" 
         },{
-        name: "Channels"
+            name: "Channels"
         },{ 
             name: "Category Section Index", 
             url: "/static/category-section-index" 
@@ -26,6 +26,27 @@
         },{
             name: "Event Index", 
             url: "/static/event-index" 
+        },{
+            name: "Detail"
+        },
+        {
+            name: "Course Detail",
+            url: "/static/course-detail"
+        },{
+            name: "Event Detail",
+            url: "/static/event-detail"
+        },{
+            name: "Product Detail",
+            url: "/static/product-detail"
+        },{ 
+            name: "Podcast Detail", 
+            url: "/static/podcast-detail" 
+        },{ 
+            name: "Article Detail", 
+            url: "/static/article-detail" 
+        },{ 
+            name: "Video Detail", 
+            url: "/static/video-detail" 
         }
     ]} 
 %} 
@@ -37,7 +58,7 @@
     </header>
     
     {# List #}
-    <ul class="list-articles">
+    <ul class="list-articles -hover-effect">
         {% for item in menu.layouts %} 
 
             {# Item #}

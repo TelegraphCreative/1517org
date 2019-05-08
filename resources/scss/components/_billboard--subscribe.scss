@@ -1,0 +1,46 @@
+// Subscribe Billboard
+
+// Default
+.billboard.-subscribe {
+
+    @apply relative;
+    
+    // Content
+    .billboard {
+        &__media {
+            @apply hidden;
+
+        }
+    }
+
+
+    // Screen
+    // MD
+    @screen md {
+        @apply pt-20 mt-20;
+
+        // Device
+        .marvel-device {
+            @apply absolute pin-t pin-l center-x;
+            margin-top: -10rem;
+        }
+
+        // Content
+        .billboard {
+
+            &__container {
+                @apply flex flex-row-reverse justify-end;
+            }
+        
+            &__content {
+                @apply w-3/5;
+            }
+            &__media {
+                @apply w-2/5 relative block;
+            }
+            // &-title {
+            //     @apply text-4lg;
+            // }
+        }
+    }
+}
