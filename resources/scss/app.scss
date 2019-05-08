@@ -2,6 +2,11 @@
     display: none;
 }
 
+:root {
+    --slate-darkest: #262626;
+    --bronze: #baa188;
+}
+
 @tailwind preflight;
 @tailwind components;
 @tailwind utilities;
@@ -45,6 +50,7 @@
 @import 'components/filter-bar';
 @import 'components/items-bar';
 @import 'components/menu-bar';
+@import 'components/product-bar';
 @import 'components/site-menu';
 @import 'components/site-footer';
 
@@ -61,6 +67,7 @@
 
 // Content: Detail
 @import 'components/entry-detail-layout';
+@import 'components/product-detail-layout';
 @import 'components/entry-footnote';
 @import 'components/meta-summary-block';
 
@@ -70,14 +77,18 @@
 @import 'components/list-social';
 @import 'components/list-podcast';
 @import 'components/list-articles';
+@import 'components/big-list';
+@import 'components/list-bios';
 @import 'components/list-assets';
+@import 'components/list-syllabus';
 @import 'components/list-events';
 @import 'components/list-hover';
 
 // Forms
+@import 'components/form-base';
 @import 'components/form-signup';
 @import 'components/form-search';
-@import 'components/form-base';
+@import 'components/form-purchase';
 @import 'components/option-group';
 
 // Billboards
@@ -85,6 +96,7 @@
 @import 'components/billboard--text';
 @import 'components/billboard--floated-img';
 @import 'components/billboard--subscribe';
+@import 'components/billboard--courses';
 
 // Players
 // @import 'components/podcast-player-full';

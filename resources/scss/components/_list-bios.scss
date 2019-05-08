@@ -1,0 +1,36 @@
+// Bio List
+.list-bios {
+    @apply list-reset 
+    flex flex-wrap justify-between;
+}
+
+// Bio Items
+.bio-item {
+    @apply text-center mb-12 w-1/2 pr-8;
+    &__media {
+        @apply mb-6;
+    }
+    .title {
+        @apply font-light text-lg;
+    }
+    .link {
+        @apply mt-4 text-red;
+    }
+}
+
+// Screen
+@screen md {
+    // Bio Items
+    .bio-item {
+        @apply w-1/3 pr-12;
+        .link {
+            @apply opacity-0 text-slate;
+            &:hover {
+                @apply text-red;
+            }
+        }
+        &:hover .link {
+            @apply opacity-100;
+        }
+    }
+}

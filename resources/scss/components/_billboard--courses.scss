@@ -1,0 +1,49 @@
+.billboard.-courses {
+    // Default Colors
+    @apply bg-slate-darkest text-bronze relative;
+
+    .billboard {
+        &-title {
+            @apply text-white font-serif;
+        }
+
+        // Layout
+        &__content {
+            @apply pt-24 pb-16;
+
+            &-inner {
+                @apply max-w-sm;
+            }
+        }
+    }
+
+    // Screen
+    @screen md {
+        // Layout
+        .billboard {
+            // Content
+            &__content {
+                @apply w-1/2 relative mr-0;
+
+                // Align
+                &.-align {
+                    min-height: 32rem;
+                    .billboard__content-inner {
+                        @apply absolute align-y;
+                    }
+                }
+            }
+            // Media (bg)
+            &__media {
+                &.-bg {
+                    @apply absolute pin-l pin-t h-full w-1/3 
+                    bg-contain bg-no-repeat;
+                }
+            }
+            // Badge (logo)
+            &__badge {
+                @apply flex justify-end;
+            }
+        }
+    }
+}

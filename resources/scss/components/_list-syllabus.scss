@@ -1,0 +1,49 @@
+.syllabus-item {
+    @apply flex flex-row-reverse;
+
+    &__main {
+        @apply flex-grow pl-6;
+    }
+
+    p {
+        @apply text-md mt-2;
+    }
+    h6 {
+        @apply pt-2;
+    }
+
+    // Mod
+    &.-break {
+        @apply py-8 timing-1 duration-1 property-all;
+
+        background: repeating-linear-gradient(
+            -45deg,
+            #f0ede9,
+            #f0ede9 1px,
+            #fff 1px,
+            #fff 8px
+        );
+
+        .syllabus-item__main {
+            @apply pl-17;
+        }
+
+        // Hide Hover Effect
+        &:after {
+            @apply hidden;
+        }
+        &:hover {
+            color: inherit;
+        }
+
+        // &:hover {
+        //     background: repeating-linear-gradient(
+        //         -45deg,
+        //         #fff,
+        //         #fff 1px,
+        //         #fbf9f8 1px,
+        //         #fbf9f8 8px
+        //     );
+        // }
+    }
+}
