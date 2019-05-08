@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-  import play_icon from '../icons/icon-play'
+  import play_icon from '../icons/icon-play-sharp'
   import pause_icon from '../icons/icon-pause'
   
   export default {
