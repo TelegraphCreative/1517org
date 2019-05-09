@@ -22,7 +22,7 @@
       </span>
     </a>
     <audio
-      :src="audioUrl"
+      :src="url"
       @timeupdate="updateCurrentTime"
       @ended="resetPlayer"
       class="hidden"
@@ -38,7 +38,7 @@
   
   export default {
     props: {
-      audioUrl: {
+      url: {
         type: String,
         required: true,
       },

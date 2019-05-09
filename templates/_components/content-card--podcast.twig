@@ -51,8 +51,7 @@
 
             {# Play Button #}
             <div class="content-card__action -play-podcast | mb-6">
-                {% set rel = content.podcastEmbed.one() %}
-                <podcast_player_compact audio-url="{{ rel.filename }}" />
+                <podcast_player_compact url="{{ content.podcastLink }}" />
             </div>
 
             {# Secondary Meta #}
