@@ -15,6 +15,14 @@
 
 <header class="page-header {{ classes }} | container--sm gutter-md | space-t space-b--sm">
 
+    {% if content.label is defined %}
+        <div class="page-header__label mb-4">
+            <div class="link -underline -sm ">
+                {{ content.label }}
+            </div>
+        </div>
+    {% endif %}
+
     <div class="page-header__title">
         <h1 class="header-xl font-serif">{{ content.title }}</h2>
     </div>

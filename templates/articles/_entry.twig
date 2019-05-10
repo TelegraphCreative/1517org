@@ -31,7 +31,7 @@
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one(), dropCap: true} %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one(), dropCap: true, layoutClasses: 'narrow-block gutter-xl' } %}
 
             </div>
             
@@ -80,7 +80,7 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %}
+                    {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %}
 
                     {# Citation #}
                     {% if entry.citation is defined %}

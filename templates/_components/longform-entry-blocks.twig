@@ -6,13 +6,13 @@
 
         {# Article Body #}
         {% case "articleBody" %}
-            <div class="article-body | narrow-block gutter-xl | paragraphs -md -loose | article-content">
+            <div class="article-body{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | paragraphs -md -loose | article-content">
                 {{ block.article }}
             </div>
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="big-list -assets | narrow-block gutter-xl | space-b">
+            <div class="big-list -assets{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | space-b">
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">{{ block.header }}</h3>
                 {% endif %}
@@ -41,9 +41,10 @@
                 
             </div>
         
+       
         {# Button Group #}
         {% case "buttonGroup" %}
-            <div class="button-group | narrow-block gutter-xl | pt-4 pb-14">
+            <div class="button-group{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | pt-4 pb-14">
                 {# Header #}
                 {% if block.header|length %}
                     <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>

@@ -111,13 +111,13 @@
             <div class="entry__blocks | longform-entry-blocks">
         
                 {# Longform Content #}
-                {# Use actual partial, something like: #}
-                {# {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %} #}
+                {# Use actual partial: #}
+                {# {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %} #}
 
-                {# Example Content — 
+                {# Example Content -
                     IMPORTANT: 
-                    create a matrix field following the outline in the airtable for event format entry type
-                    add the block types to longform-entry-blocks field once using real data and bring the static layouts into
+                    create a matrix field following the outline in the airtable for general content entry type
+                    add the block types to longform-entry-blocks field once using real data. Then bring the static layouts into
                     `longform-entry-blocks` partial with additional `case` conditions.
                     #}
                 

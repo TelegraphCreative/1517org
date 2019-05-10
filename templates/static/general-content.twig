@@ -1,0 +1,52 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+    {# Header #}
+    <section
+        class="space-menu space-b">
+        {# Placeholder Header Content #}
+        {% set content = { title: 'Our Story', label: 'Page Group Label' } %}
+
+        {# Page Header #}
+        {% include "_components/static/page-header" with { content: content } %}</section>
+
+    {# Content #}
+    <div class="container--sm gutter-xl | space-b--lg">
+
+        
+        <div class="article-content">
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks -top">
+        
+            {# Longform Content #}
+            {# Use actual partial: #}
+            {# {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %} #}
+            
+            {# Example Content -
+                IMPORTANT: 
+                create a matrix field following the outline in the airtable for general content entry type
+                add the block types to longform-entry-blocks field once using real data. Then bring the static layouts into
+                `longform-entry-blocks` partial with additional `case` conditions.
+                #}
+
+            {# Lead In Block #}
+            <div class="paragraphs -lead">
+                <p>Upholding the legacy of proclaiming the Gospel of Jesus Christ to as many people as possible in as many ways as possible
+            as was rediscovered through the Lutheran Reformation in 1517.</p>
+            </div>
+
+            {# Article Body  #}
+            <div class="paragraphs -md -loose">
+                    <p>Upholding the legacy of proclaiming the Gospel of Jesus Christ to as many people as possible in as many ways as
+                        possible
+                        as was rediscovered through the Lutheran Reformation in 1517.</p>
+            </div>
+
+
+            
+        </div>
+   
+    </div>
+{% endblock %}
