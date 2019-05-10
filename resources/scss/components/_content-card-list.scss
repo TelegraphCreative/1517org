@@ -1,0 +1,8 @@
+.content-card-list {
+    @apply pt-10 mb-10;
+
+    // Screen
+    @screen md {
+        @apply pt-20 mb-20;
+    }
+}

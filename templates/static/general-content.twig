@@ -1,6 +1,15 @@
 {% extends "_layouts/_base" %}
 {% import '_macros/global' as global %}
 
+{# Placeholder Loop #}
+{% set placeholderLoop = [
+    {},
+    {},
+    {},
+    {}
+    ]
+%}
+
 {% block content %}
     {# Header #}
     <section
@@ -9,44 +18,183 @@
         {% set content = { title: 'Our Story', label: 'Page Group Label' } %}
 
         {# Page Header #}
-        {% include "_components/static/page-header" with { content: content } %}</section>
+        {% include "_components/static/page-header" with { content: content } %}
+    </section>
 
     {# Content #}
-    <div class="container--sm gutter-xl | space-b--lg">
+    <div class="longform-entry-blocks">
 
+
+        {# Longform Content #}
+        {# Use actual partial: #}
+        {# {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'container--sm gutter-xl' } %} #}
+        {% set layoutClasses = 'container--sm gutter-xl' %}
         
-        <div class="article-content">
+        {# Example Content -
+            IMPORTANT: 
+            create a matrix field following the outline in the airtable for general content entry type
+            add the block types to longform-entry-blocks field once using real data. Then bring the static layouts into
+            `longform-entry-blocks` partial with additional `case` conditions.
 
-        {# Blocks #}
-        <div class="entry__blocks | longform-entry-blocks -top">
+            Notes:
+            block--{blockName} are classes for making code more findable. They don't actually apply styles. I've found this helpful when debugging from the interface side—it saves time looking through the code for the corresponding block.
+        #}
         
-            {# Longform Content #}
-            {# Use actual partial: #}
-            {# {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %} #}
-            
-            {# Example Content -
-                IMPORTANT: 
-                create a matrix field following the outline in the airtable for general content entry type
-                add the block types to longform-entry-blocks field once using real data. Then bring the static layouts into
-                `longform-entry-blocks` partial with additional `case` conditions.
-                #}
-
-            {# Lead In Block #}
-            <div class="paragraphs -lead">
-                <p>Upholding the legacy of proclaiming the Gospel of Jesus Christ to as many people as possible in as many ways as possible
-            as was rediscovered through the Lutheran Reformation in 1517.</p>
-            </div>
-
-            {# Article Body  #}
-            <div class="paragraphs -md -loose">
-                    <p>Upholding the legacy of proclaiming the Gospel of Jesus Christ to as many people as possible in as many ways as
-                        possible
-                        as was rediscovered through the Lutheran Reformation in 1517.</p>
-            </div>
-
-
-            
+        {# Case: Article Lead In Block #}
+        <div class="block--articleLead | article-content | paragraphs -lead{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %}">
+            <h2>Our Mission</h2>
+            <p>Upholding the legacy of proclaiming the Gospel of Jesus Christ to as many people as possible in as many ways as
+                possible as was rediscovered through the Lutheran Reformation in 1517.</p>
         </div>
-   
+        
+        {# Hero Image - full-bleed #}
+        <div class="hero-image">
+            {{ global.image('', '-is3x2 -fit-cover bg-ivory-lightest', '/assets/placeholder/hero_03.jpg' )}}
+            {# {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}} #}
+        </div>
+        
+        
+        {# Case: Article Body  #}
+        <div class="block--articleBody | article-content | paragraphs -md -loose{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %}">
+            <p>1517 provides oversight and powers a variety of theological resource platforms including a podcast network, a
+                publishing
+                house, an online Academy, a speaker network and an annual national conference. Each of these provide a message
+                of hope
+                to strengthen individuals and congregations, as well as model ways of engaging the culture in a manner that is
+                thoughtful, courageous, and Christ-centered.</p>
+            <p>We apply these vision distinctives to all our efforts:</p>
+            <ul>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+            </ul>
+        </div>
+        
+        {# Case: Article Body  #}
+        <div class="block--articleBody | article-content | paragraphs -md -loose{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %}">
+            <h2>Our Beliefs & Claimed Values</h2>
+            <h6>The Header H6</h6>
+            <p>We believe God works through physical means in order to connect sinners with knowledge of Him and the saving
+                power of
+                Christ. By using everyday, normal means such as bread and wine in the Lord’s Supper and water in Baptism, we
+                receive
+                God’s gift of His Son.</p>
+            <h6>The Header H6</h6>
+            <p>Because Holy Scripture is the means by which God has chosen to reveal His Son to us, and thus how He reveals His
+                purpose, promises and own character to us, we want to encourage knowing and understanding His word better.</p>
+            <h6>The Header H6</h6>
+            <p>We believe audibly hearing, “You are forgiven!” is at the root of the Gospel of Christ. We want to encourage this
+                proclamation within churches and communities as well as between individuals.</p>
+            {# This would be a simple inline image, no image sets #}
+            <img src="/assets/placeholder/placeholder_11.jpg" alt=""/>
+        </div>
+        
+        {# Case: Blockquote w/ Cite 
+                Notes: <blockquote> element will be styled out when inside .article-content but to add a <cite> element, this needs its own matrix block: #}
+        <div class="block--blockquote blockquote{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %}">
+            <blockquote>
+                <p>The Gospel is that God the Son freely agreed to die our death for us, to suffer our deserved condemnation and
+                    doom in
+                    our place. And He didn’t just agree from eternity to do that. He actually did it. On the cross. For free!
+                    And
+                    for each
+                    one of us.</p>
+            </blockquote>
+            <cite>Dr. Rod Rosenbladt</cite>
+        </div>
+
+        {# Case: ArticleImageBlocks Article L / R Swap 
+            Notes: these layouts will swap automatically on large screens #}
+        <div class="block--articleImageBlocks | article-image-blocks -swap">
+            {% for block in placeholderLoop %}
+                
+                <div class="article-image-block | container--sm gutter-md">
+                    <div class="article-image-block__media">
+                        {{ global.image('', '-is16x12 -fit-cover bg-ivory-lightest', '/assets/placeholder/placeholder_13.jpg' )}}
+                    </div>
+                    <article class="article-image-block__content | article-content | paragraphs -md -loose">
+                        <h2>What We Do</h2>
+                        <p>1517 provides oversight and powers a variety of theological resource platforms including a podcast network, a publishing
+                        house, an online Academy, a speaker network and an annual national conference. Each of these provide a message of hope
+                        to strengthen individuals and congregations, as well as model ways of engaging the culture in a manner that is
+                        thoughtful, courageous, and Christ-centered.</p>
+                    </article>
+                </div>
+
+            {% endfor %}
+        </div>
+
+
+        {# Case: Billboard w/ Floated Image or Centered Text
+            Notes: this is already templated in a switch block in longoform-entry-blocks and ready for data #}
+        {% set placeholderData = craft.entries.section('podcasts')[2] %}
+        {% set placeholderBillboard = placeholderData.contentBlocksStandard[6] %}
+        {# Billboard - Floated #}
+        {% include "_components/billboard--floated-img" with { block: placeholderBillboard } %}
+
+
+        {# Case: Big List - Assets 
+            Notes: this is already templated for data in longform-entry-blocks but here's a static version #}
+        <div class="block--bigListAssets big-list -assets{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | space-t space-b">
+        
+            <h3 class="header-lg font-serif | mb-5 pt-10 | mb-6">List Name</h3>
+        
+            <ul class="list-assets -hover-effect">
+        
+                <li class="list-asset | flex-grid">
+        
+                    <div class="list-asset__content">
+                        <a href="#">
+                            <h4 class="header-sm font-serif">Asset Name</h4>
+                            <h6 class="meta-label text-slate-light">Optional supporting copy</h6>
+                        </a>
+                    </div>
+        
+                    <div class="list-asset__action">
+                        {{ global.iconLink( '', '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
+                    </div>
+        
+                </li>
+            </ul>
+        
+        </div>
+        
+        {# Case: Entry Callouts (Content Card - Topic Types) #}
+        <div class="block--entryCallouts | content-card-list | container--sm gutter-md">
+
+            {# Header #}
+            <header class="sub-section-header | space-b--sm">
+                <h2 class="title | header-lg font-serif">
+                    Subheading Here
+                </h2>
+                {# Placeholder #} {{ global.link('', 'link -underline -sm mt-4', 'See All')}}
+                {# Actual: {{ global.link(block.button, block.buttonStyle)}} #}
+            </header>
+
+            {# Templating Notes: Run a switch statement
+                    on the entry type to build logic for which card to include, handling
+                    conditional elements like event meta vs podcast show, author, podcast
+                    player, video button+player, icons, etc. #}
+            
+            {# Course #}
+            {% include '_components/static/content-card--course' with { 'classes': '' } %}
+            {% include '_components/static/content-card--course' with { 'classes': '' } %}
+        </div>
+
+        {# Case: Billboard Text w/ Image #}
+        <div class="block--billboardText">
+            {# Text Billboard - placeholder content#}
+            {% set content = { 
+                        header: 'Bring 1517 to your city',
+                        detail: '<p>Invite a speaker to your community! Their goal is to proclaim the good news of the Gospel through their specific field
+                        and area of expertise. We would love the opportunity to speak to your church, conference or class.</p>',
+                        buttons: 'link -underline -light', 
+                        action: 'Request a speaker',
+                        image: '/assets/placeholder/placeholder_08.jpg'
+                    }%}
+            {# Text Billboard - basic #}
+            {% include '_components/static/billboard--text' with { classes: '-image-left -bronze-light', content: content } %}
+        </div>
     </div>
+
 {% endblock %}

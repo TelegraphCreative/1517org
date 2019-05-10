@@ -12,7 +12,7 @@
     }
 
     h6 {
-        @apply text-md;
+        @apply meta-label text-bronze tracking-none block mb-3;
     }
 
     // Dropcap (fallback)
@@ -54,49 +54,21 @@
         @apply my-10;
     }
 
-    // Blockquotes
-    blockquote {
-        @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
-
-        &:before {
-            @apply absolute pin-t pin-l px-4 border-12 border-ivory-light mt-2 -ml-4;
-
-            content: '\201C';
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-            font-size: 4rem;
-            font-family: 'Lucida Grande';
-            z-index: -1;
-            line-height: 0.5rem;
-            padding-top: 32px;
-        }
-
-        &:after {
-            content: '\201D';
-            font-family: 'Lucida Grande';
-        }
-    }
-
     // Screen
     // MD
     @screen md {
-        // Headers
-        h2 {
-            @apply text-4lg;
+        // Paragraphs
+        &.paragraphs.-md p {
+            @apply mb-8;
+
+            &:last-of-type {
+                @apply mb-0;
+            }
         }
 
-        // Blockquotes
-        blockquote {
-            @apply text-4lg px-16 py-16;
-
-            &:before {
-                @apply absolute border-12 mt-8 -ml-4;
-                padding-left: 0.875rem;
-                padding-right: 0.875rem;
-                font-size: 5.5rem;
-                line-height: 1rem;
-                padding-top: 2.75rem;
-            }
+        // Headers
+        h2 {
+            @apply text-4lg mb-4;
         }
 
         // Images

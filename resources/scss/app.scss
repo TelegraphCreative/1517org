@@ -35,7 +35,7 @@
 @import 'base/device';
 @import 'base/drop-cap';
 @import 'base/pagination';
-// @import "base/blockquote";
+@import 'base/blockquote';
 // @import "base/video";
 // @import "base/ornament";
 // @import "base/pattern";
@@ -75,6 +75,7 @@
 @import 'components/meta-summary-block';
 
 // Lists
+@import 'components/content-card-list';
 @import 'components/list-meta';
 @import 'components/list-menu';
 @import 'components/list-social';
@@ -106,6 +107,7 @@
 
 // Articles
 @import 'components/article-content';
+@import 'components/article-image-blocks';
 @import 'components/longform-entry-blocks';
 
 // --
