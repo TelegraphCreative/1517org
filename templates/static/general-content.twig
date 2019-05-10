@@ -230,6 +230,21 @@
             {# Text Billboard - basic #}
             {% include '_components/static/billboard--text' with { classes: '-image-left -bronze-light', content: content } %}
         </div>
+
+        {# Case: Bio Cards #}
+        <div class="block--bioCards | container--sm gutter-md | space-t space-b">
+            {# Bio Cards #}
+            <div class="bio-cards">
+
+                {% for block in placeholderLoop %}
+
+                    {# Bio Card #}
+                    {% include '_components/static/bio-card' with { content: '' } %}
+
+                {% endfor %}
+
+            </div>
+        </div>
     </div>
 
 {% endblock %}
