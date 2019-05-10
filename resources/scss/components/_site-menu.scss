@@ -10,13 +10,13 @@
 
 // Menu
 .site-menu {
+    @apply bg-white shadow-md;
     // Layout
     &__container {
         @apply flex justify-between 
         items-center
         py-6
-        relative z-20
-        shadow-md;
+        relative z-20;
     }
 
     // Utility Bar
