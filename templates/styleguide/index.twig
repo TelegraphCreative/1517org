@@ -1,11 +1,13 @@
 {% extends "_layouts/_styleguide" %}
 {% set menu = { 
     layouts: [
-        {
-        name: "Singles"
-        },{ 
+        { name: "Singles" },{ 
             name: "Home (mostly static)", 
             url: "/static/home" 
+        },
+        { name: "Structures" },{
+            name: "General Content",
+            url: "/static/general-content"
         },{
             name: "Channels"
         },{ 
@@ -28,8 +30,7 @@
             url: "/static/event-index" 
         },{
             name: "Detail"
-        },
-        {
+        },{
             name: "Course Detail",
             url: "/static/course-detail"
         },{
