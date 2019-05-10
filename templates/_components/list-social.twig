@@ -14,14 +14,14 @@
 {% endif %}
 
 
-{% if print is defined %}
+{% if print is defined and print == true %}
     {% set print = true %}
 {% else %}
     {% set print = false %}
 {% endif %}
 
 
-{% if share is defined %}
+{% if share is defined and share == true%}
     {% set share = true %}
 {% else %}
     {% set share = false %}
