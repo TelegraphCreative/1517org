@@ -38,6 +38,8 @@
 }
 
 .billboard.-text.-center {
+    @apply text-center;
+
     // Content
     .billboard {
         &__content-max {

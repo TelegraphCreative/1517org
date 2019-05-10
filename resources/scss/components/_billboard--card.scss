@@ -1,0 +1,14 @@
+.billboard.-card {
+    // Screen
+    @screen md {
+        @apply border-12 border-transparent
+        timing-1 duration-1 property-all
+        pt-24 pb-20 px-12;
+
+        &:hover {
+            @apply border-ivory-lighter;
+        }
+
+        width: 48%;
+    }
+}
