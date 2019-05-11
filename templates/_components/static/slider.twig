@@ -1,0 +1,25 @@
+{% set sliderContent = [] %}
+
+{% set placeholderSlides = [
+
+        { 
+            caption: "", 
+            imageUrl: "/assets/placeholder/placeholder_07.jpg" 
+        },
+        { 
+            caption: "", 
+            imageUrl: "/assets/placeholder/placeholder_08.jpg" 
+        }
+
+    ]
+%} 
+
+
+{% for item in placeholderSlides %}
+    {% set sliderContent = sliderContent|merge([{
+        caption: item.caption,
+        imageUrl: item.imageUrl
+    }]) %}
+{% endfor %}
+
+<image_slider :items="{{ sliderContent | json_encode }}"></image_slider>
