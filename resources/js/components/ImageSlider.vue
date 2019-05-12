@@ -1,5 +1,5 @@
 <template>
-  <div class="image-slider">
+  <div class="image-slider slier-reset -no-controls">
     <ul class="slider-items list-reset">
       <li v-for="(item, index) in items" :key="index" class="slider-item">
         <figure>
@@ -10,6 +10,9 @@
         </figcaption>
       </li>
     </ul>
+    <div class="flex justify-end">
+      <div class="duration-timer mt-4"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -27,7 +30,7 @@ export default {
             slideBy: 1,
             autoplay: true,
             autoplayTimeout: 6000,
-            autoplayHoverPause: true,
+            autoplayHoverPause: false,
         })
     },
 }

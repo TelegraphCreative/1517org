@@ -54,6 +54,11 @@
         @apply my-10;
     }
 
+    // Reset Slider
+    .slider-item img {
+        @apply my-0;
+    }
+
     // Blockquotes
     blockquote {
         @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;

@@ -19,6 +19,8 @@
 @import 'base/grid';
 @import 'base/gutter';
 @import 'base/transition';
+@import 'base/keyframes';
+@import 'base/animations';
 @import 'base/space';
 @import 'base/link';
 @import 'base/button';
@@ -121,8 +123,8 @@
 // @import "components/profile-modal";
 // @import "components/content-modal";
 
-// // Sliders
-// @import "components/slider";
+// Sliders
+@import 'components/slider';
 // @import "components/profile-slider";
 // @import "components/info-slider";
 // @import "components/gallery-slider";
