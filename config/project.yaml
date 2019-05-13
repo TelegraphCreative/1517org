@@ -186,7 +186,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557775582
+dateModified: 1557779273
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -2333,7 +2333,7 @@ navigation:
         maxLevels: '2'
       instructions: ''
       propagateNodes: false
-      sortOrder: null
+      sortOrder: 1
     62708f5a-91bd-4dba-89bf-66d9efec1ee5:
       name: 'Footer Menu (L)'
       handle: footerMenuL
@@ -2342,7 +2342,7 @@ navigation:
         maxLevels: '1'
       instructions: ''
       propagateNodes: false
-      sortOrder: 2
+      sortOrder: 5
     ad0f5836-360c-4f72-b923-6b5c4c8b8698:
       name: 'Footer Menu (R)'
       handle: footerMenuR
@@ -2351,7 +2351,34 @@ navigation:
         maxLevels: '1'
       instructions: ''
       propagateNodes: false
+      sortOrder: 6
+    443effa9-7334-4781-9b06-c02bd0788afe:
+      name: 'Main Menu (B)'
+      handle: mainMenuB
+      structure:
+        uid: 93625af7-ba45-4231-accd-10639084498d
+        maxLevels: '2'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 2
+    661f9b47-b337-4e84-adeb-b7594ccbdde7:
+      name: 'Main Menu (C)'
+      handle: mainMenuC
+      structure:
+        uid: fd817163-9846-4e0b-b871-ee745bf372ca
+        maxLevels: '2'
+      instructions: ''
+      propagateNodes: false
       sortOrder: 3
+    74c51b5e-c7ef-4c92-9166-e8afe510eb85:
+      name: 'Main Menu (D)'
+      handle: mainMenuD
+      structure:
+        uid: bc288b52-d7a4-423d-96d4-9fdae0ad078d
+        maxLevels: '2'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 4
 plugins:
   minify:
     edition: standard
