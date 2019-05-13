@@ -28,7 +28,7 @@
             <a href="#">
                 {# Header #}
                 <div class="content-card__header | mb-4">
-                    <h2 class="card-title | header-sm font-serif">Radical, Dude: Sin, Love, and Wrath</h1>
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h1>
                 </div>
             </a>
             
@@ -36,18 +36,22 @@
             <div class="content-card__meta -primary mb-4 | flex-grid">
                 <ul class="items-bar">
                     <li>
-                        <a href="#" class="align-items-center">
+                    {% for author in content.authorLink.all() %}
+                        <a href="{{ author.url }}" class="align-items-center">
                             {{ global.utilityIcon('camera', '-sm') }}
-                            <div class="meta-label | ml-3">Video Guest Name</div>
-                            <time class="meta-label | ml-5" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'm/d/y') }}</time>
+                            <div class="meta-label | ml-3">
+                                By {{ author.firstName }} {{ author.lastName }}
+                                <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                            </div>
                         </a>
+                    {% endfor %}
                     </li>
                 </ul>        
             </div>
             
             {# Detail #}
             <div class="content-card__detail | paragraphs -xs -loose | mb-5">
-                <p>On the fourth episode of our series on the history of the Reformation, Dr. Keith walks listeners through the early stages of Melanchthon’s theological development…</p>
+                {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
             </div>
 
         </template>

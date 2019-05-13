@@ -13,18 +13,13 @@
 
     {# Topics List #}
     {% if indexList.count > 0 %}
-    
-        <div id="events" class="container--sm gutter-md | md:flex-grid | space-b--sm">
-            {# Latest Cards #}
-            <div class="flex-grid">
-                
-                {% for entry in indexList.all() %}
 
-                    {% include '_components/content-card--video' with { content: entry, 'classes': '' } %}
+        <div id="videos" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            {% for entry in indexList.all() %}
 
-                {% endfor %}
+                {% include '_components/content-card--video' with { content: entry, 'classes': '' } %}
 
-            </div>
+            {% endfor %}
         </div>
     
     {% else %}
