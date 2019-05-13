@@ -1,0 +1,65 @@
+{% import '_macros/global' as global %}
+
+{# 
+    Templating Notes: 
+    Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
+    event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
+#}
+
+{# Check for imported properties #}
+{% if classes is defined %}
+    {% set classes = classes %}
+{% else %}
+    {% set classes = '' %}
+{% endif %}
+
+<article class="content-card -topic | {{ classes }}">
+
+{# {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %} #}
+    <video_content_card
+        img-src="https://i.vimeocdn.com/video/762743169_640.jpg"
+        video-url="https://player.vimeo.com/video/320342557"
+        aspect-ratio="56.25"
+    >
+        
+        {# Content #}
+        <template v-slot:main>  
+
+            <a href="#">
+                {# Header #}
+                <div class="content-card__header | mb-4">
+                    <h2 class="card-title | header-sm font-serif">Radical, Dude: Sin, Love, and Wrath</h1>
+                </div>
+            </a>
+            
+            {# Primary Meta #}
+            <div class="content-card__meta -primary mb-4 | flex-grid">
+                <ul class="items-bar">
+                    <li>
+                        <a href="#" class="align-items-center">
+                            {{ global.utilityIcon('camera', '-sm') }}
+                            <div class="meta-label | ml-3">Video Guest Name</div>
+                            <time class="meta-label | ml-5" datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'm/d/y') }}</time>
+                        </a>
+                    </li>
+                </ul>        
+            </div>
+            
+            {# Detail #}
+            <div class="content-card__detail | paragraphs -xs -loose | mb-5">
+                <p>On the fourth episode of our series on the history of the Reformation, Dr. Keith walks listeners through the early stages of Melanchthon’s theological development…</p>
+            </div>
+
+        </template>
+
+        <template v-slot:related-topics>
+            <div class="content-card__meta -secondary">
+                {{ global.relatedTopics() }}                            
+            </div>
+        </template>
+        
+    </video_content_card>
+
+{# {% endif %} #}
+
+</article>
