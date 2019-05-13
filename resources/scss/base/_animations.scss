@@ -1,19 +1,13 @@
-// Fade In
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.duration-timer {
+    @apply relative
+  w-full max-w-xxs bg-ivory-light h-1 overflow-hidden;
+
+    &:before {
+        @apply absolute pseudo pin-b pin-l 
+      w-full max-w-xxs bg-red h-1;
+
+        animation: progressBar 6s ease-in-out infinite;
+    }
 }
 
-// Fade Out
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+// transform: translate(0, 0);

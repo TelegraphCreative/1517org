@@ -19,6 +19,8 @@
 @import 'base/grid';
 @import 'base/gutter';
 @import 'base/transition';
+@import 'base/keyframes';
+@import 'base/animations';
 @import 'base/space';
 @import 'base/width';
 @import 'base/link';
@@ -48,7 +50,7 @@
 // -- Vendor
 @import 'vendor/choices';
 @import 'vendor/addthis';
-// @import "vendor/tiny-slider";
+@import 'vendor/tiny-slider';
 
 // -- Components
 // Menus
@@ -127,8 +129,8 @@
 // @import "components/profile-modal";
 // @import "components/content-modal";
 
-// // Sliders
-// @import "components/slider";
+// Sliders
+@import 'components/slider';
 // @import "components/profile-slider";
 // @import "components/info-slider";
 // @import "components/gallery-slider";

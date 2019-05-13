@@ -54,6 +54,34 @@
         @apply my-10;
     }
 
+    // Reset Slider
+    .slider-item img {
+        @apply my-0;
+    }
+
+    // Blockquotes
+    blockquote {
+        @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
+
+        &:before {
+            @apply absolute pin-t pin-l px-4 border-12 border-ivory-light mt-2 -ml-4;
+
+            content: '\201C';
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            font-size: 4rem;
+            font-family: 'Lucida Grande';
+            z-index: -1;
+            line-height: 0.5rem;
+            padding-top: 32px;
+        }
+
+        &:after {
+            content: '\201D';
+            font-family: 'Lucida Grande';
+        }
+    }
+
     // Screen
     // MD
     @screen md {
