@@ -22,14 +22,15 @@
         {% if block.image|length %}
             <div class="billboard__media">
                 <div class="billboard__floated">
-                        {{ global.image( block.image.one(), '-is1x1 -fit-cover -hover-scale' )}}
+                    {{ global.image( block.image.one(), '-fit-cover' )}}
                 </div>
             </div>
         {% endif %}
 
         <header class="billboard__content | gutter">
 
-            <div class="billboard__content-max">
+            <div
+                class="billboard__content-max">
                 {# Header #}
                 {% if block.header is defined %}
                     <div class="billboard__header">
@@ -47,7 +48,7 @@
                 {# Action #}
                 {% if block.button is defined %}
                     <div class="billboard__action">
-                        {{ global.link(block.button, block.buttonStyle)}}   
+                        {{ global.link(block.button, block.buttonStyle)}}
                     </div>
                 {% endif %}
             </div>

@@ -1,0 +1,30 @@
+.product-card {
+    width: 48%;
+
+    @apply border-8 border-transparent mb-4;
+
+    &__media {
+        @apply py-8 px-10;
+        background-color: var(--ivory-light-50);
+    }
+    &__content {
+        @apply py-6 px-4;
+    }
+
+    &__detail {
+        @apply pt-4;
+    }
+
+    // Screen
+    @screen lg {
+        width: 32%;
+        @apply mb-10 timing-1 duration-1 property-all;
+
+        &__media {
+            @apply py-10 px-12;
+        }
+        &:hover {
+            @apply border-ivory-light;
+        }
+    }
+}

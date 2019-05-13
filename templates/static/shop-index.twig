@@ -1,0 +1,49 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+{% block content %}
+
+    <section class="space-menu">
+        {# Page Header #}
+        {# Notes:
+            Filter by 'Product Type' #}
+        {% set content = { title: 'Shop' } %}
+        {% include "_components/static/page-header--filters" with { content: content, classes: '-left' } %}
+    </section>
+
+    {# Featured  #}
+    <div class="container | space-b--sm" id="featured"> {# Billboard - Placeholder Content #}
+        {% set placeholderEntry = craft.entries.section('podcasts')[2] %}
+        {% set placeholderBillboard = placeholderEntry.contentBlocksStandard[6] %}
+
+        {# Billboard - Floated #}
+        {% include "_components/billboard--floated-img" with { block: placeholderBillboard } %}
+    </div>
+
+
+    {# Product List #}
+    <div class="container--sm gutter-md | space-b" id="products">
+
+        {# Placeholder Loop #}
+        {% set shop = [
+            {},
+            {},
+            {},
+            {}
+            ]
+        %}
+
+        <div class="flex-grid">
+            {# Product Grid #}
+            {% for product in shop %}
+                {# Product Card #}
+                {% include '_components/static/product-card' with { 'classes': '' } %}
+            {% endfor %}
+        </div>
+
+        <div class="inf-pagination-control">
+            {{ global.link('', 'btn -light -bronze', 'Show more products') }}
+        </div>
+
+    </div>
+
+{% endblock %}

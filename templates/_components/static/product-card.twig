@@ -1,0 +1,41 @@
+{% import '_macros/global' as global %}
+
+{#
+    
+    Required Content Structure:
+
+    Title
+    Image
+    Price
+    Author(s)
+    
+    #}
+
+<a href="#" class="product-card">
+    <div
+        class="product-card__inner">
+        {# Media #}
+        <div class="product-card__media">
+            <div class="max-w-xxs w-full mx-auto">
+                {{ global.image( '', '-is12x16 -fit-cover bg-ivory-lightest', '/assets/placeholder/book-cover-sm_02.png' )}}
+            </div>
+        </div>
+        {# Content #}
+        <div class="product-card__content" itemscope itemtype="http://schema.org/Product">
+            <div
+                class="product-card__header">
+                {# Truncate title with Wordsmith chop filter to about 10 words or 60 char: chop(limit=60, unit='c', append= '…') #}
+                <div class="title | font-serif header-xs" itemprop="name">The Word of the Cross: Martin Luther’s Heidelberg Disputation</div>
+            </div>
+            <div class="product-card__detail">
+                <div class="price | meta-label text-slate-light text-xs" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta content="USD" itemprop="priceCurrency"/>
+                    From $<span class="amount" itemprop="price">4.99</span>
+                </div>
+                <div class="detail | text-slate-light text-md | mt-1" itemprop="description">
+                    Steven D. Paulson & Scott L. Keith
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

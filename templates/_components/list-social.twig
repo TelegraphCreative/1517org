@@ -38,20 +38,26 @@
 
     {# Share Icons #}
     {% if share %}
-        <li>
-            <share :target="'https://github.com/TelegraphCreative/'" rel="Share on facebook">
-                {{ global.socialIcon( 'facebook', size ) }}
-            </share>
-        </li>
-        <li>
-            <share :target="'https://github.com/TelegraphCreative/'" rel="Share on twitter">
-                {{ global.socialIcon( 'twitter', size ) }}
-            </share>
-        </li>
-        <li>
-            <share :subject="'A Subject'" :message="'A message'" rel="Share on twitter">
-                {{ global.socialIcon( 'email', size ) }}
-            </share>
+        <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+        <li class="addthis-tools | relative">
+            <div class="addthis_inline_share_toolbox | absolute w-full pin-t pin-l"></div>
+            <ul class="addthis-tools__custom-icons | list-reset">
+                <li>
+                    <share :target="'https://github.com/TelegraphCreative/'" rel="Share on facebook">
+                        {{ global.socialIcon( 'facebook', size ) }}
+                    </share>
+                </li>
+                <li>
+                    <share :target="'https://github.com/TelegraphCreative/'" rel="Share on twitter">
+                        {{ global.socialIcon( 'twitter', size ) }}
+                    </share>
+                </li>
+                <li>
+                    <share :subject="'A Subject'" :message="'A message'" rel="Share on twitter">
+                        {{ global.socialIcon( 'email', size ) }}
+                    </share>
+                </li>
+            </ul>
         </li>
 
     {# Social Icons #}

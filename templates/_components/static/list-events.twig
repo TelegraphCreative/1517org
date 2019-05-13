@@ -7,7 +7,8 @@
     {% set classes = '' %}
 {% endif %}
 
-<ul class="list-events | flex-grid | list-reset {{ classes }}">
+<ul
+    class="list-events | flex-grid | list-reset {{ classes }}">
 
     {# Placeholder Loop #}
     {% set content = [
@@ -17,11 +18,12 @@
                 {}
             ]
         %}
-    
+
     {% for entry in content %}
         <li class="list-event">
             <div class="list-event__container | flex-grid">
-                <a href="#" class="list-event__media">
+                <a
+                    class="list-event__media" href="#">
                     {# Label #}
                     <h4 class="content-label -date -light -flush">
                         <div class="content-label__mo">Mar</div>
@@ -50,8 +52,8 @@
                         <div class="list-event__detail | paragraphs -xs | mb-2">
                             <p>
                                 Dr. Francisco will be the featured speaker at the
-                                annual men’s retreat on Sat March 16, for Our
-                                Shepherd Lutheran Church in Birmingham, MI.
+                                                                annual men’s retreat on Sat March 16, for Our
+                                                                Shepherd Lutheran Church in Birmingham, MI.
                             </p>
                         </div>
                     </a>

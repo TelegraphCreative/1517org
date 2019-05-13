@@ -59,7 +59,7 @@
                     {{ global.relatedTopics(entry.topics.all(), '') }}
                 </li>
                 <li>
-                    {% include "_components/list-social" with { content: '', classes: '-inline', share: true } %}
+                    {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
                 </li>
                 <li>
                     <a href="{{ entry.podcastShow.level(1)[0].url }}" class="link -meta">Browse all Episodes</a>
