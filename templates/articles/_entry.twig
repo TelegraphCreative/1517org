@@ -108,5 +108,6 @@
         {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: billboardContent } %}
     {% endif %}
 
+    {% do view.registerJsFile('https://static.esvmedia.org/crossref/crossref.min.js') %}
 
 {% endblock %}
