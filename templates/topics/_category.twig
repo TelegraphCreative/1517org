@@ -1,18 +1,45 @@
 {% extends "_layouts/_base" %}
 {% import '_macros/global' as global %}
 
+{% set sourceSections = ['articles', 'podcasts', 'events', 'videos', 'courses'] %}
+{% set sections = craft.entries({ section: sourceSections }) %}
+{% set indexList = sections.relatedTo(category) %}
+{% set indexCount = indexList.count %}
 
 {% block content %}
 
     {# Page Header #}
     <section class="space-menu ">
-        <header class="page-header | space-t space-b--sm">
-            <h1 class="header-xl font-serif">Topics</h2>
-                <p><strong>Note:</strong> This is purely data output, not reflective of intended layout</p>
-        </header>
+        {# Page Header Content #}
+        {% set content = { 
+                title: category.title, 
+                category: 'Topic', 
+                detail: category.shortDescription,
+                image: category.cardImage.one(),
+                action: category.headerAction
+            }
+        %} 
+        {# Page Header - Action #}
+        {% include "_components/page-header--action" with { content: content } %}
     </section>
 
-    <h4>
+    <div id="filters" class="container">
+        {# Filters #} 
+        {% include "_components/static/filters-page" with { count: indexCount }%}
+    </div>
+
+    <div id="related" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+        
+        {# Sections #}    
+        {% for entry in indexList.all() %}
+            {# Content Card - Stacked #}
+            {% include '_components/content-cards' with { content: entry } %}
+        {% endfor %}
+
+    </div>
+
+
+    {# <h4>
         {% if category.level > 1 %}
             (part of a group, <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
             <br>
@@ -20,7 +47,7 @@
         see all <a href="/{{ firstSegment }}">{{ category.group.name }}</a>
     </h4>
         
-    {# Fetch all of the entries related to this category #}
+    <!-- Fetch all of the entries related to this category -->
     {% set entries = craft.entries.relatedTo(category) %}
 
     <ul>
@@ -31,6 +58,6 @@
                 </a>
             </li>
         {% endfor %}
-    </ul>
+    </ul> #}
 
 {% endblock %}
