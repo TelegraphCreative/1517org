@@ -19,7 +19,11 @@
       
         {# Media #}
         <a href="#" class="content-card__media | no-print">
+            {# Placeholder: #}
             {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_09.jpg')}}
+            {# Once structure is complete, use:
+            {{ global.image(content.cardImage.one(), '-is2x1 -fit-cover -hover-scale')}}
+             #}
         </a>
 
         {# Content #}
@@ -38,7 +42,7 @@
                     <li>
                         <a href="#" class="align-items-center">
                             {{ global.utilityIcon('calendar', '-sm') }}
-                            <div class="meta-label | ml-3">{{ now | date( 'M d, Y') }}</div>
+                            <div class="meta-label | ml-3">{{ content.postDate | date( 'M d, Y') }}</div>
                         </a>
                     </li>
                     <li>
@@ -52,7 +56,7 @@
             
             {# Detail #}
             <div class="content-card__detail | paragraphs -xs -loose | mb-4">
-                <p>The theme is The Christ, the Cross and the Christian. Come join us for this one day event full of singing, teaching and fellowship.</p>
+                <p>This partial is not fully integrated with dynamic content <b>(needs location, image, tags, possibly date).</b></p>
             </div>
 
             {# Secondary Meta #}
