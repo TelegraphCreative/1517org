@@ -1,62 +1,51 @@
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
 
-<ul class="menu-list {{ classes }}">
-    {% set mainMenu = craft.navigation.nodes(content)%} {% set mainMenu =
-    mainMenu.all() %} {#
-    <h4 class="dropdown-menu__name">Section</h4>
-    #} {% for node in mainMenu %} {% if node.level == 1 %}
-    <h4 class="menu-list__group-name">
-        {% set link = false %} {% if node.url | length %} {% set link = true %}
-        {% endif %} {% if link %}
-        <a
-            href="{{ node.url }}"
-            {%
-            if
-            node.target
-            %}target="_blank"
-            rel="noopener"
-            {%
-            endif
-            %}
-            role="menuitem"
-            aria-haspopup="false"
-            class="menu-bar__link"
-            tabindex="0"
-        >
-            {{ node.title }}
-        </a>
+{% set mainMenu = craft.navigation.nodes(content)%} 
+
+{% if mainMenu|length %}
+    <ul class="menu-list {% if classes is defined %} | {{ classes }}{% endif %}">
+        {% set mainMenu = mainMenu.all() %} 
+        
+        {# <h4 class="dropdown-menu__name">Section</h4> #}
+
+        {% for node in mainMenu %} 
+        {% if node.level == 1 %}
+
+        <h4 class="menu-list__group-name">
+
+            {% set link = false %} 
+            {% if node.url | length %} 
+                {% set link = true %}
+            {% endif %} 
+            
+            {% if link %}
+            <a href="{{ node.url }}"
+                {% if node.target %}
+                    target="_blank"
+                    rel="noopener"
+                {% endif %}
+                role="menuitem"
+                aria-haspopup="false"
+                class="menu-bar__link"
+                tabindex="0">
+                {{ node.title }} </a>
+            {% else %}
+                {{ node.title }}
+            {% endif %}
+        </h4>
         {% else %}
-        {{ node.title }}
-        {% endif %}
-    </h4>
-    {% else %}
 
-    <li
-        class="menu-list__item{% if node.classes|length %}| {{
-            node.classes
-        }}{% endif %}"
-    >
-        <a
-            href="{{ node.url }}"
-            {%
-            if
-            node.target
-            %}target="_blank"
-            rel="noopener"
-            {%
-            endif
-            %}
-            role="menuitem"
-            aria-haspopup="false"
-            class="menu-bar__link"
-            tabindex="0"
-            >{{ node.title }}</a
-        >
-    </li>
-    {% endif %} {% endfor %}
-</ul>
+        <li class="menu-list__item{% if node.classes|length %}| {{ node.classes }}{% endif %}">
+            <a href="{{ node.url }}"
+                {% if node.target %}
+                    target="_blank"
+                    rel="noopener"
+                {% endif %}
+                role="menuitem"
+                aria-haspopup="false"
+                class="menu-bar__link"
+                tabindex="0">
+                {{ node.title }}</a>
+        </li>
+        {% endif %} {% endfor %}
+    </ul>
+{% endif %}
