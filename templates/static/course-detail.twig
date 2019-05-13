@@ -163,7 +163,7 @@
                 {{ global.relatedTopics('', '') }}
             </li>
             <li>
-                {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
+                {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
             </li>
             <li>
                 <a href="{{ url('/') }}" class="link -meta">Browse all Episodes</a>
