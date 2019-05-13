@@ -1,10 +1,10 @@
 .duration-timer {
     @apply relative
-  w-full max-w-xxs bg-ivory-light h-2 overflow-hidden;
+  w-full max-w-xxs bg-ivory-light h-1 overflow-hidden;
 
     &:before {
         @apply absolute pseudo pin-b pin-l 
-      w-full max-w-xxs bg-red h-2;
+      w-full max-w-xxs bg-red h-1;
 
         animation: progressBar 6s ease-in-out infinite;
     }
