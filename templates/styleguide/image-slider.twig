@@ -1,0 +1,50 @@
+{% import '_macros/styleguide' as guide %} {% import '_macros/global' as global
+%} {% extends "_layouts/_styleguide" %} {% block content %}
+
+<h2 class="text-3xl space-b">Image Slider</h2>
+
+{# Slider #}
+<div id="app">
+    {# Image Slider #}
+    {% include '_components/static/slider' %}
+</div>
+
+{% set code %}{% verbatim %}{% include '_components/static/slider' %}{% endverbatim
+%}{% endset %}
+{{ guide.snippet(code, 'css') }}
+
+{% set sliderContent = '' %}
+<h3 class="mb-8">Partial Contents</h3>
+
+{% set code %}
+{% verbatim %}
+{% set sliderContent = [] %}
+
+{% set placeholderSlides = [
+
+        { 
+            caption: "", 
+            imageUrl: "/assets/placeholder/placeholder_07.jpg" 
+        },
+        { 
+            caption: "", 
+            imageUrl: "/assets/placeholder/placeholder_08.jpg" 
+        }
+
+    ]
+%}
+
+
+{% for item in placeholderSlides %}
+{% set sliderContent = sliderContent|merge([{
+        caption: item.caption,
+        imageUrl: item.imageUrl
+    }]) %}
+{% endfor %}
+{% endverbatim %}
+{% endset %}
+{{ guide.snippet(code, 'css') }}
+{% set code %}{% verbatim %}<image_slider :items="{{ sliderContent | json_encode }}"></image_slider>{% endverbatim %}{% endset %}
+{{ guide.snippet(code, 'twig') }}
+
+{% endblock %}
