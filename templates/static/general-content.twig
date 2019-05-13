@@ -69,6 +69,11 @@
                 <li>List Item</li>
             </ul>
         </div>
+
+        {# Case: Image Slider #}
+        <div class="block--imageSlider | space-t--sm space-b">
+            {% include '_components/static/slider' %}
+        </div>
         
         {# Case: Article Body  #}
         <div class="block--articleBody | article-content | paragraphs -md -loose{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %}">
