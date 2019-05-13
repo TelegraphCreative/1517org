@@ -18,7 +18,7 @@
     <div class="content-card__container | flex-grid md:flex-row-reverse">
       
         {# Media #}
-        <a href="#" class="content-card__media | no-print">
+        <a href="{{ content.url }}" class="content-card__media | no-print">
             {# Placeholder: #}
             {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_09.jpg')}}
             {# Once structure is complete, use:
@@ -29,10 +29,10 @@
         {# Content #}
         <div class="content-card__content">  
 
-            <a href="#">
+            <a href="{{ content.url }}">
                 {# Header #}
                 <div class="content-card__header | mb-4">
-                    <h2 class="card-title | header-sm font-serif">{{ content.title }} </h1>
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h2>
                 </div>
             </a>
             
@@ -40,12 +40,13 @@
             <div class="content-card__meta -primary mb-4 | flex-grid">
                 <ul class="items-bar">
                     <li>
-                        <a href="#" class="align-items-center">
+                        <a href="{{ content.url }}" class="align-items-center">
                             {{ global.utilityIcon('calendar', '-sm') }}
                             <div class="meta-label | ml-3">{{ content.postDate | date( 'M d, Y') }}</div>
                         </a>
                     </li>
                     <li>
+                        {# Needs Location #}
                         <a href="#" class="align-items-center">
                             {{ global.utilityIcon('map-pin', '-sm') }}
                             <div class="meta-label | ml-2">Austin, TX</div>
@@ -56,12 +57,14 @@
             
             {# Detail #}
             <div class="content-card__detail | paragraphs -xs -loose | mb-4">
-                <p>This partial is not fully integrated with dynamic content <b>(needs location, image, tags, possibly date).</b></p>
+                <p>This partial is not fully integrated with dynamic content <b>(needs location, image, possibly date).</b></p>
+                {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
             </div>
 
             {# Secondary Meta #}
             <div class="content-card__meta -secondary">
-                {{ global.relatedTopics() }}                            
+                {{ global.relatedTopics() }}    
+                {# Once structure and fields are setup: {{ global.relatedTopics(content.topics.all(), '') }} #}
             </div>
 
         </div>

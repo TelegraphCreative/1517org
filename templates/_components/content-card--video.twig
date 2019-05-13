@@ -25,10 +25,10 @@
         {# Content #}
         <template v-slot:main>  
 
-            <a href="#">
+            <a href="{{ content.url }}">
                 {# Header #}
                 <div class="content-card__header | mb-4">
-                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h1>
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h2>
                 </div>
             </a>
             
@@ -51,6 +51,7 @@
             
             {# Detail #}
             <div class="content-card__detail | paragraphs -xs -loose | mb-5">
+                <b>This partial uses placeholder media data (vid, image poster).</b>
                 {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
             </div>
 
@@ -58,7 +59,7 @@
 
         <template v-slot:related-topics>
             <div class="content-card__meta -secondary">
-                {{ global.relatedTopics() }}                            
+                {{ global.relatedTopics(content.topics.all(), '') }}
             </div>
         </template>
         
