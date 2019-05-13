@@ -183,7 +183,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557355916
+dateModified: 1557763749
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -852,7 +852,7 @@ fields:
   32236621-f50a-48af-a121-8ff8282224f3:
     name: 'Header Action'
     handle: headerAction
-    instructions: 'e.g.: Link to a GC page for full description about this Show'
+    instructions: 'e.g.: Link to a GC page to include more information about this content'
     searchable: false
     translationMethod: none
     translationKeyFormat: null
@@ -2655,6 +2655,9 @@ sections:
                   2d8ecd0c-5f0b-4fa5-903a-a8e49166151d:
                     required: false
                     sortOrder: 4
+                  32236621-f50a-48af-a121-8ff8282224f3:
+                    required: false
+                    sortOrder: 5
               -
                 name: Bio
                 sortOrder: 2
