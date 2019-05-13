@@ -1,0 +1,45 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{% set authorName = entry.firstName ~ ' ' ~ entry.lastName %}
+
+{% set sourceSections = ['articles', 'podcasts', 'events', 'videos', 'courses'] %}
+
+{% set sections = craft.entries({ section: sourceSections }) %}
+{% set indexList = sections.relatedTo(entry.id) %}
+
+{% block content %}
+
+    <section class="space-menu">
+        {# Page Header Content #}
+        {% set content = { 
+                title: authorName, 
+                category: 'Authors', 
+                detail: entry.shortDescription,
+                image: entry.photo.one(),
+                action: entry.headerAction
+            }
+        %} 
+        {# Page Header - Action #}
+        {% include "_components/page-header--action" with { content: content } %}
+    </section>
+
+    {# Topics List #}
+    {% if indexList.count > 0 %}
+    
+        <div id="sections" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+            
+            {# Sections #}    
+            {% for entry in indexList.all() %}
+                {# Content Card - Stacked #}
+                {% include '_components/content-cards' with { content: entry } %}
+            {% endfor %}
+
+        </div>
+
+    {% endif %}
+    
+    {# Billboard #}
+    
+
+    {% endblock %}
