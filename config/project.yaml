@@ -70,11 +70,14 @@ categoryGroups:
             sortOrder: 1
             fields:
               d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                required: false
+                required: true
                 sortOrder: 1
-              32236621-f50a-48af-a121-8ff8282224f3:
+              94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                 required: false
                 sortOrder: 2
+              32236621-f50a-48af-a121-8ff8282224f3:
+                required: false
+                sortOrder: 3
   159851d0-e6a0-4c39-8346-d994125c7f4a:
     name: Sections
     handle: sections
@@ -183,7 +186,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557763749
+dateModified: 1557775582
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'

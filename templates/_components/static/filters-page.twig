@@ -6,6 +6,7 @@
                 <option value="All Formats" selected>All Formats</option>
                 <option value="Articles">Articles</option>
                 <option value="Events">Events</option>
+                <option value="Events">this is static</option>
             </select_box>
         </div>
 
@@ -14,12 +15,31 @@
                 <option value="All Topics" selected>By any Author</option>
                 <option value="Articles">Articles</option>
                 <option value="Events">Events</option>
+                <option value="Articles">Articles</option>
+                <option value="Events">Events</option>
+                <option value="Articles">Articles</option>
+                <option value="Events">Events</option>
+                <option value="Articles">Articles</option>
+                <option value="Events">Events</option>
+                <option value="Articles">Articles</option>
+                <option value="Events">Events</option>
+                <option value="Events">this is static</option>
             </select_box>
         </div>
 
     </div>
     
-    <div class="page-filters__meta | md:w-1/2 w-full | text-right">
-        <div class="meta-label">248 Entries</div>
-    </div>
+    {% if count is defined %}
+        <div class="page-filters__meta | md:w-1/2 w-full | text-right">
+            <div class="meta-label">
+            {{ count }}
+            {% if count > 1 %}
+                Entries
+            {% else %}
+                Entry
+            {% endif %}
+            (static)</div>
+        </div>
+    {% endif %}
+    
 </div>
