@@ -1,26 +1,71 @@
 // Blockquote Resets
-blockquote, cite {
+blockquote,
+cite {
     @apply roman font-normal m-0 p-0;
 }
 
+// Blockquote in Article Content
+.article-content,
 // Blockquote
 .blockquote {
+    blockquote {
+        @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
+        p {
+            @apply font-serif text-red text-3lg inline;
+        }
 
-    &__source-descr {
-        @apply text-sm;
-    }  
-    
-    &__quote {
-        @apply text-2xl font-serif leading-tight
+        &:before {
+            @apply absolute pin-t pin-l px-4 border-12 border-ivory-light mt-2 -ml-4;
+
+            content: '\201C';
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            font-size: 4rem;
+            font-family: 'Lucida Grande';
+            z-index: -1;
+            line-height: 0.5rem;
+            padding-top: 32px;
+        }
+
+        &:after {
+            content: '\201D';
+            font-family: 'Lucida Grande';
+        }
+    }
+    cite {
+        @apply relative mb-8 pl-6 meta-label text-bronze roman;
+        &:before {
+            content: '\2014';
+        }
     }
 }
 
 // md Screen
 @screen md {
+    // Blockquote in Article Content
+    .article-content,
+    // Blockquote
     .blockquote {
-        &__quote {
-            @apply text-4xl;
+        // Blockquotes
+        blockquote {
+            @apply text-4lg px-16 py-16 tracking-normal;
+
+            p {
+                @apply text-4lg;
+            }
+
+            &:before {
+                @apply absolute border-12 mt-8 -ml-4;
+                padding-left: 0.875rem;
+                padding-right: 0.875rem;
+                font-size: 5.5rem;
+                line-height: 1rem;
+                padding-top: 2.75rem;
+            }
+        }
+        cite {
+            @apply pl-16;
+            top: -2rem;
         }
     }
 }
-

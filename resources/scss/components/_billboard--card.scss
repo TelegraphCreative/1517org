@@ -1,0 +1,6 @@
+.billboard.-card {
+    // Screen
+    @screen md {
+        @apply w-half-almost pt-24 pb-20 px-12;
+    }
+}

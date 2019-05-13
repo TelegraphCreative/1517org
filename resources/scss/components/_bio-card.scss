@@ -1,0 +1,52 @@
+// Grid
+.bio-cards {
+    @apply flex flex-wrap justify-center;
+
+    @screen sm {
+        .bio-card {
+            @apply w-half-almost;
+        }
+    }
+    @screen lg {
+        @apply justify-between;
+        .bio-card {
+            @apply w-third-almost;
+        }
+    }
+}
+
+// Layout
+.bio-card {
+    @apply p-3 mb-12 max-w-xs;
+
+    &__content {
+        @apply pb-4 px-3;
+    }
+    .title {
+        @apply mt-6;
+    }
+    .meta-label {
+        @apply leading-normal mt-3;
+    }
+    &__detail {
+        @apply mt-4;
+    }
+
+    // Screen
+    @screen md {
+        .bio-card__detail {
+            @apply timing-1 duration-1 property-all;
+        }
+        &:hover {
+            .bio-card__detail {
+                -webkit-mask-image: linear-gradient(
+                    to bottom,
+                    transparent,
+                    white 0px,
+                    white 100%,
+                    transparent
+                );
+            }
+        }
+    }
+}
