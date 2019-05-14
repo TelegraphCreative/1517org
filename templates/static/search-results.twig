@@ -14,28 +14,18 @@
     {# Topics List #}
     <div id="content" class="container--sm gutter-md | space-b">
 
-        {# Get the user's search query from the 'q' query-string param #}
         {% set searchQuery = craft.app.request.getParam('q') %}
 
-        <p>Your search: {{ searchQuery }}</p>
-
-        {# Fetch entries that match the search query #}
-        {% set content = craft.entries()
+        {% set entries = craft.entries()
             .search(searchQuery)
             .all() %}
 
-        {% set entriesByType = content|group('type') %}
-
-        {% for type, entriesInType in entriesByType %}
-            <p>{{ type }} ::</p>
-            <p>{{ dump(entriesInType) }}</p>
-        {% endfor %}
-
-        {% if content|length %}
-            <p>Your content: {{ dump(content) }}</p>
-            {# {% include "_components/content-cards" %} #}
+        {% if entries|length %}
+            {% for entry in entries %}
+                {% include "_components/content-cards" %}
+            {% endfor %}
         {% else %}
-            <p>Sorry, your search didn't return any results.</p>    
+            <p>Sorry, your search didn't match any results.</p>    
         {% endif %}
 
         
