@@ -22,12 +22,11 @@
 
         {% if entries|length %}
             {% for entry in entries %}
-                {% include "_components/content-cards" %}
+                {% include "_components/content-cards" with { content: entry } %}
             {% endfor %}
         {% else %}
             <p>Sorry, your search didn't match any results.</p>    
         {% endif %}
-
         
     </div>
 
