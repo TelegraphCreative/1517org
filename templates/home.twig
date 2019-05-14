@@ -4,14 +4,17 @@
 
 {% block content %}
    
-    {# Featured Card #}
+    {# Featured Content Hero #}
     <div id="featured" class="container | space-menu space-b">
+
         {# Content Card - Hero #} 
         {% include '_components/static/content-hero--article' with { 'classes': '-red' } %}
+        
         <code class="p-2">^ static component: <b>_components/static/content-hero--article</b></code>
     </div>
 
-    {# Latest Cards 
+
+    {# Latest Content Cards
        Notes: Grabs the latest entries from SELECT channels. MAX = 10
     #}
     {% set latestContentSections = [] %}
@@ -21,29 +24,107 @@
     {% set latestContentSections = latestContentSections|join(', ') %}
     {% set latestContent = craft.entries({ section: latestContentSections, limit: 10 }) %}
     {% if latestContent|length > 1 %}   
-    <div id="latest" class="container--sm gutter-md | space-b">
-        <div class="flex-grid">
-            
-            {# Show Latest Content #}
-            {% for entry in latestContent.all() %} 
-            
-                {# Content Card - Stacked #}
-                {% include '_components/content-card--stacked' with { content: entry } %} 
+        <div id="latest" class="container--sm gutter-md | space-b">
+            <div class="flex-grid">
+                
+                {# Show Latest Content #}
+                {% for entry in latestContent.all() %} 
+                
+                    {# Content Card - Stacked #}
+                    {% include '_components/content-card--stacked' with { content: entry } %} 
 
-            {% endfor %} 
+                {% endfor %} 
+            </div>
         </div>
-    </div>
     {% endif %}
 
+
+    {# Billboard CTA #}
     <div id="mission" class="space-b">
+
         {# Text Billboard - placeholder content#} 
         {% set content = { 
             header: '<strong>Needs structure. Freedom is rooted in the gospel of Christ.</strong> 1517 tells you stories you never heard before, shows you connections you never knew existed and the nuance and complexity of the world',
             buttons: 'link -underline -light', 
             action: 'Hear our Mission'
         }%}
+
         {# Text Billboard - basic #} 
         {% include '_components/static/billboard--text' with { classes: '-center -basic -bronze', content: content } %}
+        
+        <code class="p-2">^ static component: <b>_components/static/billboard--text</b></code>
+
     </div>
+    
+
+    {# Popular Content List #}
+    <div id="popular" class="container--sm gutter-md space-b">
+        <div class="flex-grid">
+            <div class="md:w-1/3 w-full">
+                {# Section Header #}
+                <header class="section-header -box">
+                    <h2 class="header-md mb-4">Heading <br />Here</h2>
+                    <div class="paragraphs -xs text-slate-light">
+                        <p>
+                            A collection of the consistently most popular articles.
+                        </p>
+                    </div>
+                </header>
+            </div>
+    
+            <div class="md:w-2/3 w-full | mt-10 | relative z-10">
+
+                {# Article List #} 
+                {% include '_components/static/list-articles' with { 'classes': '' } %}
+
+            </div>
+        </div>
+    </div>
+
+    {# Podcasts
+        Notes: Set this up like Latest Content so that based on  settings, 
+        this list will EITHER pull latest from SELECT shows, or pull the latest from all #}
+    <div id="podcasts" class="container--sm gutter-md | space-b">
+        
+        {# Header #}
+        <header class="section-header | mb-12">
+            <h6 class="meta-label mb-2 text-yellow">Newest Episodes</h6>
+            <h2 class="header-base">1517 Podcasts</h2>
+        </header>
+    
+        {# Podcast List #} 
+        {# {% include '_components/static/list-podcasts' with { 'classes': 'md:w-2/3 mx-auto' } %} #}
+    </div>
+
+
+    {# Events #}
+    <div id="events" class="bg-ivory-lighter | space-b space-t">
+        <div class="container--sm gutter-md">
+    
+            {# Header #}
+            <header class="section-header | mb-12 | md:flex-grid | items-center">
+                <h6 class="header-base">Upcoming Events</h6>
+                <a href="#" class="meta-label">
+                    <div class="align-items-center">
+                        <div class="pr-3">See all Events</div>
+                        {{ global.utilityIcon('arrow-right', '-xs') }}
+                    </div>
+                </a>
+            </header>
+    
+            {# Events List #}
+            {% include '_components/static/list-events' with {'classes': '' } %}
+    
+        </div>
+
+        <code class="p-2">^ static component: <b>_components/static/list-events</b></code>
+    </div>
+    
+
+    {# Donate #}
+    <div id="donate" class="space-b">
+        {# Donate Billboard #} {% include '_components/static/billboard--donate' with { 'classes': '' } %}
+    </div>
+
 
 {% endblock %}
