@@ -1,19 +1,40 @@
 {% import '_macros/global' as global %}
 
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
+{# Get Author/Host info #}
+{% set authorName = false %}
+
+{% if content.type == 'podcast' %}
+    {% if content.podcastShow.level(1)[0]|length %}
+        {% set authorName = content.podcastShow.level(1)[0].title %}
+        {% set authorUrl = content.podcastShow.level(1)[0].url %}
+    {% endif %}
+    
+{% elseif content.type == 'event' %}
+    {# THIS CONTENT NEEDS CRAFT STRUCTURE ADDED #}
+    {% set authorName = 'Static Content' %}
+    {% set authorUrl = '#' %}
+    
+{% elseif content.type == 'course' %}
+    {# THIS CONTENT NEEDS CRAFT STRUCTURE ADDED #}
+    {% set authorName = 'Static Content' %}
+    {% set authorUrl = '#' %}
+    
 {% else %}
-    {% set classes = '' %}
+    {# Articles, Videos #}
+    {% if content.authorLink|length %}
+        {% set authorName = content.authorLink.one().firstName ~ ' ' ~ content.authorLink.one().firstName %}
+        {% set authorUrl = content.authorLink.one().url %}
+    {% endif %}
 {% endif %}
 
-<article class="content-card -stacked | {{ classes }}">
+{# Content #}
+<article class="content-card -stacked | {% if classes is defined %}{{ classes }}{% endif %}">
 
     <div class="content-card__container">
-        
+
         {# Content #}
-        <div class="content-card__content">  
-            
+        <div class="content-card__content">
+
             {# Topic #}
             <h4 class="content-label">
                 <a href="{{ content.topics[0].url }}">{{ content.topics[0].title }}</a>
@@ -24,7 +45,7 @@
                 <div class="content-card__header">
                     <h2 class="card-title | header-base font-serif">{{ content.title }}</h2>
                 </div>
-                
+
                 {# Detail #}
                 <div class="content-card__detail | paragraphs -xs">
                     {{ content.description }}
@@ -32,7 +53,7 @@
             </a>
 
         </div>
-        
+
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | no-print">
             {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_02.jpg')}}
@@ -41,11 +62,18 @@
         {# Meta #}
         <div class="content-card__meta | flex-grid">
 
-            <a href="{{ content.url }}" class="meta-label">By {{ content.author }}</a>
-        
-            <time class="meta-label" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+            {% if authorName %}
+                <a href="{{ authorUrl }}" class="meta-label">
+                    By {{ authorName }}
+                </a>
+            {% endif %}
             
+            <time class="meta-label"
+                datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+
         </div>
     </div>
 
 </article>
+
+

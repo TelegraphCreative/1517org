@@ -8,26 +8,21 @@
     <div id="featured" class="container | space-menu space-b">
         {# Content Card - Hero #} 
         {% include '_components/static/content-hero--article' with { 'classes': '-red' } %}
+        <code class="p-2">^ static component: <b>_components/static/content-hero--article</b></code>
     </div>
 
-    {# Latest Cards #}
+    {# Latest Cards 
+       Notes: Grabs the latest entries from SELECT channels. MAX = 10
+    #}
+    {% set latestContentSections = [] %}
+    {% for section in entry.sections %}
+    {% set latestContentSections = latestContentSections|merge([section]) %}
+    {% endfor %}
+    {% set latestContentSections = latestContentSections|join(', ') %}
+    {% set latestContent = craft.entries({ section: latestContentSections, limit: 10 }) %}
+    {% if latestContent|length > 1 %}   
     <div id="latest" class="container--sm gutter-md | space-b">
         <div class="flex-grid">
-
-            {# Latest from Selected Channels #}
-            {# Notes: For example only: once this template is moved to the actual homepage, 
-            'entry' will be set to home section automatically and this line can be removed #}
-            {% set entry = craft.entries.section('home')[0] %} 
-            
-            {# Convert selected channels to array #}
-            {% set latestContentSections = [] %} 
-            {% for section in entry.sections %} 
-                {% set latestContentSections = latestContentSections|merge([section]) %} 
-            {% endfor %} 
-            {% set latestContentSections = latestContentSections|join(', ') %} 
-            
-            {# Get Latest Content #}
-            {% set latestContent = craft.entries({ section: latestContentSections, limit: 10 }) %} 
             
             {# Show Latest Content #}
             {% for entry in latestContent.all() %} 
@@ -38,6 +33,7 @@
             {% endfor %} 
         </div>
     </div>
+    {% endif %}
 
     <div id="mission" class="space-b">
         {# Text Billboard - placeholder content#} 
