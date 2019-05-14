@@ -4,6 +4,50 @@
 
 {% block content %}
    
-<div class="space-menu">moved template list <a href="/styleguide">here</a></div>
+    {# Featured Card #}
+    <div id="featured" class="container | space-menu space-b">
+        {# Content Card - Hero #} 
+        {% include '_components/static/content-hero--article' with { 'classes': '-red' } %}
+    </div>
+
+    {# Latest Cards #}
+    <div id="latest" class="container--sm gutter-md | space-b">
+        <div class="flex-grid">
+
+            {# Latest from Selected Channels #}
+            {# Notes: For example only: once this template is moved to the actual homepage, 
+            'entry' will be set to home section automatically and this line can be removed #}
+            {% set entry = craft.entries.section('home')[0] %} 
+            
+            {# Convert selected channels to array #}
+            {% set latestContentSections = [] %} 
+            {% for section in entry.sections %} 
+                {% set latestContentSections = latestContentSections|merge([section]) %} 
+            {% endfor %} 
+            {% set latestContentSections = latestContentSections|join(', ') %} 
+            
+            {# Get Latest Content #}
+            {% set latestContent = craft.entries({ section: latestContentSections, limit: 10 }) %} 
+            
+            {# Show Latest Content #}
+            {% for entry in latestContent.all() %} 
+            
+                {# Content Card - Stacked #}
+                {% include '_components/content-card--stacked' with { content: entry } %} 
+
+            {% endfor %} 
+        </div>
+    </div>
+
+    <div id="mission" class="space-b">
+        {# Text Billboard - placeholder content#} 
+        {% set content = { 
+            header: '<strong>Needs structure. Freedom is rooted in the gospel of Christ.</strong> 1517 tells you stories you never heard before, shows you connections you never knew existed and the nuance and complexity of the world',
+            buttons: 'link -underline -light', 
+            action: 'Hear our Mission'
+        }%}
+        {# Text Billboard - basic #} 
+        {% include '_components/static/billboard--text' with { classes: '-center -basic -bronze', content: content } %}
+    </div>
 
 {% endblock %}
