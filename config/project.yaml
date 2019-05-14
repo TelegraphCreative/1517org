@@ -185,8 +185,21 @@ commerce:
       type: craft\commerce\gateways\Dummy
       sortOrder: 99
       paymentType: purchase
+      isFrontendEnabled: false
+    7b0e5e76-9e6a-4786-b16d-6164fda8c92d:
+      name: Stripe
+      handle: stripe
+      type: craft\commerce\stripe\gateways\Gateway
+      settings:
+        publishableKey: $STRIPE_PUBLISHABLE_API_KEY
+        apiKey: $STRIPE_SECRET_API_KEY
+        sendReceiptEmail: ''
+        enforce3dSecure: ''
+        signingSecret: ''
+      sortOrder: 99
+      paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557780243
+dateModified: 1557846595
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -3280,6 +3293,10 @@ plugins:
     edition: lite
     enabled: true
     schemaVersion: 2.1.06
+  commerce-stripe:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
