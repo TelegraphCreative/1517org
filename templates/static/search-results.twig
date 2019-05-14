@@ -13,23 +13,31 @@
 
     {# Topics List #}
     <div id="content" class="container--sm gutter-md | space-b">
-        
-        {# Content Card - Topic Types #} 
-        {# Templating Notes: Run a switch statement
-        on the entry type to build logic for which card to include, handling
-        conditional elements like event meta vs podcast show, author, podcast
-        player, video button+player, icons, etc. #} 
-        
-        {# Course #}
-        {% include '_components/static/content-card--course' with { 'classes': '' } %} 
-        {# Video #}
-        {% include '_components/static/content-card--video' with { 'classes': '' } %} 
-        {# Podcast #}
-        {% include '_components/static/content-card--podcast' with { 'classes': '' } %} 
-        {# Article #}
-        {% include '_components/static/content-card--article' with { 'classes': '' } %} 
-        {# Event #}
-        {% include '_components/static/content-card--event' with { 'classes': '' } %}
+
+        {# Get the user's search query from the 'q' query-string param #}
+        {% set searchQuery = craft.app.request.getParam('q') %}
+
+        <p>Your search: {{ searchQuery }}</p>
+
+        {# Fetch entries that match the search query #}
+        {% set content = craft.entries()
+            .search(searchQuery)
+            .all() %}
+
+        {% set entriesByType = content|group('type') %}
+
+        {% for type, entriesInType in entriesByType %}
+            <p>{{ type }} ::</p>
+            <p>{{ dump(entriesInType) }}</p>
+        {% endfor %}
+
+        {% if content|length %}
+            <p>Your content: {{ dump(content) }}</p>
+            {# {% include "_components/content-cards" %} #}
+        {% else %}
+            <p>Sorry, your search didn't return any results.</p>    
+        {% endif %}
+
         
     </div>
 
