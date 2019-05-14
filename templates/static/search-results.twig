@@ -20,23 +20,13 @@
         <p>Your search: {{ searchQuery }}</p>
 
         {# Fetch entries that match the search query #}
-        {% set content = craft.entries()
+        {% set results = craft.entries()
             .search(searchQuery)
             .all() %}
 
-        {% set entriesByType = content|group('type') %}
-
-        {% for type, entriesInType in entriesByType %}
-            <p>{{ type }} ::</p>
-            <p>{{ dump(entriesInType) }}</p>
+        {% for entry in results %}
+            {% include "_components/content-cards" with {content: entry } %}
         {% endfor %}
-
-        {% if content|length %}
-            <p>Your content: {{ dump(content) }}</p>
-            {# {% include "_components/content-cards" %} #}
-        {% else %}
-            <p>Sorry, your search didn't return any results.</p>    
-        {% endif %}
 
         
     </div>
