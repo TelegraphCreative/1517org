@@ -1,7 +1,6 @@
 {% extends "_layouts/_base" %}
 {% import '_macros/global' as global %}
 
-
 {% block content %}
 
 {# Featured Content Hero #}
@@ -14,7 +13,9 @@
 
 
 {# Latest Content Cards
-    Notes: Grabs the latest entries from SELECT channels. MAX = 10
+    Notes:  
+        Grabs the latest entries from SELECT channels 
+        OR latest from all Articles
 #}
 {% set latestArticles = 0 %}
 {% set selectedSections = entry.latestArticles %}
@@ -30,29 +31,27 @@
         limit: entry.maxCountLatestContent
     }) %}
 {% else %}
-    {% set latestArticles = craft.entries.section('articles') %}
+    {% set latestArticles = craft.entries.section('articles').limit(entry.maxCountLatestContent) %}
 {% endif %}
 
 {% if latestArticles|length %}
+<div id="latest" class="container--sm gutter-md | space-b">
+    <div class="flex-grid">
 
-    <div id="latest" class="container--sm gutter-md | space-b">
-        <div class="flex-grid">
+        {# Show Latest Content #}
+        {% for entry in latestArticles.all() %}
 
-            {# Show Latest Content #}
-            {% for entry in latestArticles.all() %}
+            {# Content Card - Stacked #}
+            {% include '_components/content-card--stacked' with { content: entry } %}
 
-                {# Content Card - Stacked #}
-                {% include '_components/content-card--stacked' with { content: entry } %}
-
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
+</div>
 {% endif %}
 
 
 {# Billboard CTA #}
 {% if entry.showBillboardText %}
-
 <div id="mission" class="space-b">
 
     {% set billboardContent = { 
@@ -75,6 +74,7 @@
 <div id="popular" class="container--sm gutter-md space-b">
     <div class="flex-grid">
         <div class="md:w-1/3 w-full">
+
             {# Section Header #}
             <header class="section-header -box">
                 <h2 class="header-md mb-4">{{ entry.popularArticles.one().header }}</h2>
@@ -100,6 +100,24 @@
 {# Podcasts
     Notes: Set this up like Latest Content so that based on  settings, 
     this list will EITHER pull latest from SELECT shows, or pull the latest from all #}
+
+{% set latestPodcasts = 0 %}
+{% set selectedShows = entry.latestPodcasts %}
+{% if selectedShows|length %}
+    {% set sourceShows = [] %}
+    {% for show in selectedShows.all() %}
+        {% set sourceShows = sourceShows|merge([show]) %}
+    {% endfor %}
+    {% set latestPodcasts =  craft.entries({
+        section: 'podcasts',
+        relatedTo: sourceShows,
+        limit: entry.maxCountPodcasts
+    }) %}
+{% else %}
+{% set latestPodcasts = craft.entries.section('podcasts').limit(entry.maxCountPodcasts) %}
+{% endif %}
+
+{% if latestPodcasts|length %}
 <div id="podcasts" class="container--sm gutter-md | space-b">
 
     {# Header #}
@@ -109,11 +127,21 @@
     </header>
 
     {# Podcast List #}
-    {# {% include '_components/static/list-podcasts' with { 'classes': 'md:w-2/3 mx-auto' } %} #}
+    {% include '_components/list-podcasts' with { content: latestPodcasts } %}
 </div>
+{% endif %}
 
 
 {# Events #}
+{% set latestEvents = 0 %}
+{% set selectedEvents = entry.latestEvents %}
+{% if selectedEvents|length %}
+        {% set latestEvents = selectedEvents.all() %}
+    {% else %}
+        {% set latestEvents = craft.entries.section('events').limit(entry.maxCountEvents).all() %}
+{% endif %}
+
+{% if latestEvents|length %}
 <div id="events" class="bg-ivory-lighter | space-b space-t">
     <div class="container--sm gutter-md">
 
@@ -129,13 +157,12 @@
         </header>
 
         {# Events List #}
-        {% include '_components/static/list-events' with {'classes': '' } %}
+        {% include '_components/list-events' with { content: latestEvents } %}
 
     </div>
 
-    <code class="p-2">^ static component: <b>_components/static/list-events</b></code>
 </div>
-
+{% endif %}
 
 {# Donate #}
 <div id="donate" class="space-b">
