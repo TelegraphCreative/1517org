@@ -165,10 +165,16 @@ h6 {
     // Screen
     // MD
     @screen md {
-        // md - 16/18px
+        // md - 16/18
         &.-md {
             p {
                 @apply text-lg;
+            }
+        }
+        // lead - 22/18
+        &.-lead {
+            p {
+                @apply text-2lg leading-looser text-slate-light;
             }
         }
     }

@@ -1,0 +1,34 @@
+{% import '_macros/global' as global %}
+
+<div class="billboard -text -bronze -center {% if classes is defined %} | {{classes}} {% endif %}| no-print">
+    <div class="billboard__container container">
+
+        <header class="billboard__content | gutter">
+            <div class="billboard__content-max">
+
+                {# Header #}
+                <div class="billboard__header">
+                    <h4 class="billboard-title">Be in the Know</h4>
+                </div>
+                
+                {# Detail #}
+                <div class="billboard__detail | paragraphs -sm">
+                    <p>Subscribe to 1517 eNewsletter to hear the latest news, early access to upcoming events, exclusive interviews, and
+                        more.</p>
+                </div>
+                
+                {# Action #}
+                <div class="billboard__action">
+                    
+                    {# Form #}
+                    {% include "_components/static/form-signup" with { classes: '-light' } %}
+
+                    {# Social Channels #}
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, size: '-md', classes: '-inline -rounded -light | mt-8 -mb-6' } %}
+                </div>
+                
+            </div>
+        </header>
+
+    </div>
+</div>

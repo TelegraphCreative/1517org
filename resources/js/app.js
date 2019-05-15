@@ -11,6 +11,7 @@ import video_player_full from './components/VideoPlayerFull'
 import video_content_card from './components/VideoContentCard'
 import podcast_player_compact from './components/PodcastPlayerCompact'
 import podcast_player_full from './components/PodcastPlayerFull'
+import image_slider from './components/ImageSlider'
 import seconds_to_time_filter from './filters/SecondsToTime'
 import print from './components/Print'
 import share from './components/Share'
@@ -29,6 +30,7 @@ const app = new Vue({
         video_content_card,
         podcast_player_compact,
         podcast_player_full,
+        image_slider,
         print,
         share,
     },

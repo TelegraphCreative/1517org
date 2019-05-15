@@ -55,24 +55,7 @@
                 <li>
                     {% include "_components/list-social" with { content: '', classes: '-inline', share: true } %}
                 </li>
-                {# <li>
-                    <a href="{{ entry.podcastShow.level(1)[0].url }}" class="link -meta">Browse all Episodes</a>
-                </li> #}
             </ul>
-
-            {# Author #}
-            <div class="meta-summary-block">
-                <div class="meta-summary__media -narrow">
-                    {{ global.image(entry.authorLink.one().photo.one(), '-is1x1 -force -fit-cover | rounded-full ')}}
-                </div>
-                <div class="author-bio__detail">
-                    <h6>About the Author</h6>
-                    <p>{{ entry.authorLink.one().shortDescription }}</p>
-                </div>
-            </div>
-            
-            {# Ad #}
-            {% include "_components/product-ad" with { content: entry.productAd } %}
             
         </aside>
 
@@ -87,7 +70,7 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %}
+                    {% include '_components/longform-entry-blocks' with {  layoutClasses: 'narrow-block gutter-xl', blocks: entry.contentBlocksStandard.offset(1).all() } %}
 
                     {# Citation #}
                     {% if entry.citation is defined %}

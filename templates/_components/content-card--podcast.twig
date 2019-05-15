@@ -1,14 +1,8 @@
 {# Content Card --podcast (real data) #}
 {% import '_macros/global' as global %}
 
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<article class="content-card -topic | {{ classes }}">
+{# Content #}
+<article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
 
     <div class="content-card__container | flex-grid md:flex-row-reverse">
         
@@ -23,7 +17,7 @@
             <a href="{{ content.url }}">
                 {# Header #}
                 <div class="content-card__header | mb-4">
-                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h1>
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h2>
                 </div>
             </a>
             
@@ -35,9 +29,9 @@
                             <a href="{{ category.url }}" class="align-items-center">
                                 {{ global.utilityIcon('microphone', '-sm') }}
                                 <div class="meta-label | ml-3">
-                                        {{ category.title }}
-                                    </div>
-                                    <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                                    {{ category.title }}
+                                </div>
+                                <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
                             </a>
                         {% endfor %}
                     </li>
@@ -51,13 +45,12 @@
 
             {# Play Button #}
             <div class="content-card__action -play-podcast | mb-6">
-                {% set rel = content.podcastEmbed.one() %}
-                <podcast_player_compact audio-url="{{ rel.filename }}" />
+                <podcast_player_compact url="{{ content.podcastLink }}" />
             </div>
 
             {# Secondary Meta #}
             <div class="content-card__meta -secondary">
-                {{ global.relatedTopics(content.topics.all(), '') }}                         
+                {{ global.relatedTopics(content.topics.all(), '') }}
             </div>
 
         </div>

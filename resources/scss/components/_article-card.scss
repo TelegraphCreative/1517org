@@ -5,11 +5,10 @@
 
 // Card
 .article-card {
-    @apply no-underline property-all duration-2 timing-1;;
+    @apply no-underline property-all duration-2 timing-1;
 
     &__main {
         @apply py-6 w-4/5;
-
     }
     .preheader {
         @apply mb-4;
@@ -22,7 +21,7 @@
             @apply property-all duration-2 timing-1;
         }
     }
-    // Hover 
+    // Hover
     &:hover {
         .article-card__figure img {
             transform: scale(1.01);
@@ -31,13 +30,13 @@
 
     // Screen
     @screen xs {
-        width: 48%;
+        @apply w-half-almost;
     }
     @screen md {
         width: 46.8%;
         @apply mb-12;
 
-        &:nth-last-child(1), 
+        &:nth-last-child(1),
         &:nth-last-child(2) {
             @apply mb-0;
         }

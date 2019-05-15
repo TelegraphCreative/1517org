@@ -8,7 +8,7 @@
             class="site-footer__groups__container | md:flex-grid | mb-10 md:mb-0"
         >
             {# Group #}
-            <div class="site-footer__group | md:w-3/4 md:pr-10 | space-b">
+            <div class="site-footer__group | md:w-3/5 md:pr-10 | space-b">
                 <div aria-label="1517 Info" class="footer-about | max-w-sm">
                     {# Site Info #} {% if siteInfo.siteDescription | length %}
                     <div class="mb-8">
@@ -16,12 +16,12 @@
                     </div>
                     {% endif %} 
                     {# Social #} 
-                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -light -rounded', size: '-sm' } %}
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -slate-light -rounded' } %}
                 </div>
             </div>
 
             {# Group #}
-            <div class="site-footer__group | md:w-1/4">
+            <div class="site-footer__group | md:w-1/5">
                 <nav aria-label="1517 Primary Footer Menu" class="footer-menu">
                     {# Menu List #} {% include "_components/list-menu" with {
                     content: 'footerMenuL', classes: '' } %}
@@ -29,7 +29,7 @@
             </div>
 
             {# Group #}
-            <div class="site-footer__group | md:w-1/4">
+            <div class="site-footer__group | md:w-1/5">
                 <nav
                     aria-label="1517 Secondary Footer Menu"
                     class="footer-menu"

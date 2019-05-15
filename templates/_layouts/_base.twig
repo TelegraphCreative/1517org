@@ -37,6 +37,7 @@
     </body>
 
     {% do view.registerJsFile( mix('/js/app.js') ) %}
-    {% do view.registerCssFile( mix('/css/print.css') ) %} 
+    {% do view.registerCssFile( mix('/css/print.css') ) %}
+    {% include '_components/site-vendor-assets' %}
 </html>
 {%- endminify -%}

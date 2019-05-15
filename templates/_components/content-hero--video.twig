@@ -1,0 +1,62 @@
+{% import '_macros/global' as global %}
+
+{# Content #}
+<article class="content-hero -article{% if classes is defined %} | {{ classes }}{% endif %}">
+
+    <div class="content-hero__container | flex-grid flex-row-reverse">
+        
+        {# Content #}
+        <div class="content-hero__content | gutter-lg py-10 space-b--md">  
+            
+            {# Get Category Info #}
+            {% include '_components/getTopCategory' %}
+            
+            <a href="{{ content.url }}" class="block">
+                {# Header #}
+                <div class="content-hero__header">
+                    <h1 class="card-title | header-xl font-serif">
+                        {{ content.title }}
+                    </h1>
+                </div>
+
+                {# Detail #}
+                <div class="content-hero__detail | paragraphs -sm">
+                    {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
+                </div>
+            </a>
+
+            <div class="content-hero__meta | space-t flex-grid">
+
+                <div class="w-1/2">
+
+                    <div class="align-items-center">
+                        
+                        {% for author in content.authorLink.all() %}
+                            <a href="{{ author.url }}" class="align-items-center">
+                                {{ global.utilityIcon('camera', '-sm') }}
+                                <div class="meta-label | ml-3">
+                                    {{ author.firstName }} {{ author.lastName }}
+                                </div>
+                            </a>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                
+                <div class="w-1/2 | text-right">
+                    <time class="meta-label" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                </div>
+                
+            </div>
+        </div>
+        
+        {# Media #}
+        <a href="{{ content.url }}" class="content-hero__media overflow-hidden">
+            <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ content.cardImage.one().optimize.src }}')"></div>
+        </a>
+    </div>
+
+</article>
+
+{# {% if condition %}{% endif %} #}
+

@@ -2,7 +2,8 @@
     @apply list-reset leading-none;
 
     // Defaults
-    a, button {
+    a,
+    button {
         @apply inline-block
             text-slate
             flex justify-center items-center;
@@ -12,7 +13,6 @@
         }
     }
 
-    
     // Inline
     &.-inline li {
         @apply inline-block mx-1;
@@ -20,19 +20,34 @@
 
     // Rounded
     &.-rounded {
+        // Default (slate)
         a {
-            @apply border rounded-full;
+            @apply border rounded-full border-slate;
             height: 1.875rem;
             width: 1.875rem;
+
+            &:hover {
+                @apply text-bronze border-white bg-white;
+            }
         }
 
         .icon {
             @apply w-3;
         }
 
+        // Slate Light
+        &.-slate-light {
+            a {
+                @apply text-slate-light border-slate-light;
 
-        // Rounded White
-        &.-white {
+                &:hover {
+                    @apply text-bronze border-white bg-white;
+                }
+            }
+        }
+
+        // Rounded White (white color/bronze border)
+        &.-light-bronze {
             a {
                 @apply text-white border-transparent;
                 height: 3rem;
@@ -43,13 +58,27 @@
                 }
 
                 .icon {
-                    @apply w-6
+                    @apply w-6;
                 }
             }
         }
 
-        
-    
+        // Rounded White (all white)
+        &.-light {
+            a {
+                @apply text-white border-white;
+                height: 3rem;
+                width: 3rem;
+
+                &:hover {
+                    @apply text-bronze border-white bg-white;
+                }
+
+                .icon {
+                    @apply w-6;
+                }
+            }
+        }
     }
 
     // Light

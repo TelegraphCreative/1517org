@@ -1,0 +1,25 @@
+.addthis_inline_share_toolbox a.at-icon-wrapper.at-share-btn {
+    background-color: transparent !important;
+    padding: 0;
+    margin: 0 9px 0 0;
+    height: 20px;
+
+    &:last-child {
+        @apply mr-0;
+    }
+}
+
+.addthis_inline_share_toolbox a.at-icon-wrapper.at-share-btn svg {
+    width: 0px !important;
+    height: 0px !important;
+}
+
+.at-resp-share-element .at-share-btn .at-icon-wrapper {
+    height: 0px !important;
+    width: 0px !important;
+}
+
+.at-resp-share-element .at-share-btn .at-label {
+    font-size: 0px !important;
+    line-height: 0 !important;
+}

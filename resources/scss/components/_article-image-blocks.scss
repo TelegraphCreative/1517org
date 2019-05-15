@@ -1,0 +1,41 @@
+.article-image-blocks {
+    @apply pt-10;
+
+    // Screen
+    @screen md {
+        @apply pt-20;
+
+        // -Swap
+        &.-swap {
+            .article-image-block:nth-of-type(even) {
+                @apply flex-row-reverse;
+            }
+        }
+    }
+}
+
+.article-image-block {
+    @apply mb-10;
+    &:last-child {
+        @apply mb-16;
+    }
+}
+
+// Screen
+@screen md {
+    .article-image-block {
+        @apply flex justify-between mb-20;
+
+        &:last-child {
+            @apply mb-32;
+        }
+
+        &__media,
+        &__content {
+            @apply w-half-almost;
+        }
+        &__content {
+            @apply flex flex-col justify-center;
+        }
+    }
+}
