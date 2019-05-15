@@ -4,8 +4,12 @@
 
 :root {
     --slate-darkest: #262626;
-    --grey-light: #7d8082;
+      --grey-light: #7d8082;
     --red: #cc4d39;
+    --hunter: #2a4242;
+    --sage-dark: #b1c4bf;
+    --ivory-lightest: #fbf9f8;
+    --ivory: #eae2db;
     --bronze: #baa188;
     --ivory-light-50: rgba(245, 241, 237, 0.5);
 }
@@ -43,7 +47,6 @@
 @import 'base/blockquote';
 @import 'base/border';
 @import 'base/overflow';
-
 // @import "base/video";
 // @import "base/ornament";
 // @import "base/pattern";

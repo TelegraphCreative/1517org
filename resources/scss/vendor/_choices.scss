@@ -436,11 +436,11 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     &.-standard {
         .choices__list--dropdown,
         .choices__inner {
-            @apply bg-white border-ivory;
+            @apply bg-white border-slate-dark;
         }
         .choices__inner {
             @apply border-0 border-b
-      px-2 pb-2 pt-8
+      
       font-normal;
         }
         .choices__inner .choices__item--selectable:after {

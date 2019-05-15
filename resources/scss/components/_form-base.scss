@@ -3,6 +3,7 @@
     textarea,
     input[type='text'],
     input[type='password'],
+    input[type='tel'],
     input[type='email'] {
         //
         @apply bg-transparent border-b border-slate-dark
@@ -100,6 +101,13 @@
         }
     }
 
+    // Choices in -standard
+    .-standard .choices__inner {
+        @apply text-base text-slate-dark capitalize tracking-none
+        pt-8 pl-0;
+        padding-bottom: 0.625rem;
+    }
+
     // White Fields
     // &.-white-fields {
     //     textarea,
@@ -118,6 +126,16 @@
         input[type='email'] {
             @apply border-bronze text-white;
         }
+    }
+
+    // Sub Section Headers in Forms
+    .sub-section-header {
+        @apply py-6;
+    }
+
+    // Submit Button
+    [type='submit'] {
+        @apply mt-4;
     }
 }
 
