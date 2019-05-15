@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557779273
+dateModified: 1557924536
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -1321,6 +1321,26 @@ fields:
       localizeBlocks: false
     contentColumnType: string
     fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
+  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
+    name: 'Featured Topic'
+    handle: featuredTopic
+    instructions: 'If blank, the top category in the category tree will be displayed as the featured topic on content cards'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: elivz\singlecat\fields\SingleCatField
+    settings:
+      branchLimit: 1
+      showBlankOption: ''
+      sources: '*'
+      source: 'group:cc2489d2-901a-44fa-abd8-7dae85d85495'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: null
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -3177,7 +3197,6 @@ matrixBlockTypes:
               65967ff3-8a5d-49d4-966d-ee591b5fb85b:
                 required: true
                 sortOrder: 2
-
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -3325,6 +3344,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  single-cat:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -3427,9 +3450,12 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
                     sortOrder: 2
-                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
                     sortOrder: 3
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 4
               -
                 name: 'Additional Info'
                 sortOrder: 5
@@ -3503,9 +3529,12 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
                     sortOrder: 2
-                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
                     sortOrder: 3
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 4
               -
                 name: 'Additional Info'
                 sortOrder: 5
@@ -3593,7 +3622,7 @@ sections:
                 sortOrder: 1
                 fields:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                    required: true
+                    required: false
                     sortOrder: 1
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
@@ -3644,15 +3673,35 @@ sections:
           c6377610-fd87-4189-b3a9-f00bb612ad86:
             tabs:
               -
-                name: Main
+                name: Introduction
                 sortOrder: 1
+                fields:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: true
+                    sortOrder: 1
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                    required: true
+                    sortOrder: 2
+              -
+                name: Main
+                sortOrder: 2
+                fields:
+                  6a6d2bb0-5c60-45f6-bc55-5ca2ff279938:
+                    required: true
+                    sortOrder: 1
+              -
+                name: 'Additional Info'
+                sortOrder: 3
                 fields:
                   7d0ab95a-b3e4-43cb-a28a-2d77392790a5:
                     required: false
                     sortOrder: 1
-                  6a6d2bb0-5c60-45f6-bc55-5ca2ff279938:
-                    required: false
+                  a8ddce4c-468a-4ff3-b531-c61d499863de:
+                    required: true
                     sortOrder: 2
+                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
+                    required: false
+                    sortOrder: 3
   af5b313a-5a09-4aee-805b-a7df6ed731a7:
     name: Videos
     handle: videos
@@ -3703,12 +3752,15 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
                     sortOrder: 2
-                  6f8a5e6f-6027-4c82-8abc-d681013cc10f:
+                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
                     sortOrder: 3
-                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                  6f8a5e6f-6027-4c82-8abc-d681013cc10f:
                     required: false
                     sortOrder: 4
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 5
   4cfc45f7-e2aa-4bb7-a468-bfe079a34104:
     name: 'Articles Index'
     handle: articlesIndex
@@ -3737,7 +3789,7 @@ sections:
                 sortOrder: 1
                 fields:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                    required: true
+                    required: false
                     sortOrder: 1
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
@@ -3770,7 +3822,7 @@ sections:
                 sortOrder: 1
                 fields:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                    required: true
+                    required: false
                     sortOrder: 1
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
@@ -3791,8 +3843,8 @@ sections:
       79994339-08fe-44b9-9ec2-8993f47ebc8a:
         name: 'Events Index'
         handle: eventsIndex
-        hasTitleField: false
-        titleLabel: ''
+        hasTitleField: true
+        titleLabel: Title
         titleFormat: Title
         sortOrder: 1
         fieldLayouts:
@@ -3803,7 +3855,7 @@ sections:
                 sortOrder: 1
                 fields:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                    required: true
+                    required: false
                     sortOrder: 1
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
@@ -3867,9 +3919,12 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
                     sortOrder: 2
-                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
                     sortOrder: 3
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 4
   fb3fa809-9963-4430-af25-fe3ee86eff79:
     name: 'Courses Index'
     handle: coursesIndex
@@ -3886,10 +3941,23 @@ sections:
       d2573035-d2bb-438d-8c65-3a5459c016e4:
         name: 'Courses Index'
         handle: coursesIndex
-        hasTitleField: false
-        titleLabel: null
+        hasTitleField: true
+        titleLabel: Title
         titleFormat: '{section.name|raw}'
         sortOrder: 1
+        fieldLayouts:
+          c5f39a7a-8a75-478b-be1f-3c375f2a57a3:
+            tabs:
+              -
+                name: Header
+                sortOrder: 1
+                fields:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                    required: false
+                    sortOrder: 1
+                  32236621-f50a-48af-a121-8ff8282224f3:
+                    required: false
+                    sortOrder: 2
   c08282c7-d5d0-4fa0-baa5-79fbdab206a9:
     name: 'Blogcast Subscribe Billboards'
     handle: blogcastSubscribeBillboards

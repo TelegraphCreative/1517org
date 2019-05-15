@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a22438c30dc3c4192f199924542f8ce9",
+    "content-hash": "7d4da7501a609a308fcb7fc71ce360ba",
     "packages": [
         {
             "name": "99designs/phumbor",
@@ -95,16 +95,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.93.8",
+            "version": "3.93.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8b51e85e954ef232ea9c905f26454195ac72ba9b"
+                "reference": "047622ae51d49a89f4045c2daa138c2b47d2e089"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8b51e85e954ef232ea9c905f26454195ac72ba9b",
-                "reference": "8b51e85e954ef232ea9c905f26454195ac72ba9b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/047622ae51d49a89f4045c2daa138c2b47d2e089",
+                "reference": "047622ae51d49a89f4045c2daa138c2b47d2e089",
                 "shasum": ""
             },
             "require": {
@@ -174,7 +174,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-05-13T18:08:02+00:00"
+            "time": "2019-05-14T18:16:56+00:00"
         },
         {
             "name": "barrelstrength/sprout-base",
@@ -988,16 +988,16 @@
         },
         {
             "name": "craftcms/commerce",
-            "version": "2.1.5.2",
+            "version": "2.1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/commerce.git",
-                "reference": "a6a1c5d01008f978f0ea382b81cd5f5d2f2d1a58"
+                "reference": "dbf193e8e7d4cb4f97393ffad1a3ce541583db52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/commerce/zipball/a6a1c5d01008f978f0ea382b81cd5f5d2f2d1a58",
-                "reference": "a6a1c5d01008f978f0ea382b81cd5f5d2f2d1a58",
+                "url": "https://api.github.com/repos/craftcms/commerce/zipball/dbf193e8e7d4cb4f97393ffad1a3ce541583db52",
+                "reference": "dbf193e8e7d4cb4f97393ffad1a3ce541583db52",
                 "shasum": ""
             },
             "require": {
@@ -1032,7 +1032,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2019-05-08T10:52:43+00:00"
+            "time": "2019-05-15T01:44:14+00:00"
         },
         {
             "name": "craftcms/commerce-stripe",
@@ -1645,6 +1645,56 @@
                 "validator"
             ],
             "time": "2018-12-04T22:38:24+00:00"
+        },
+        {
+            "name": "elivz/craft-single-cat",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elivz/craft-single-cat.git",
+                "reference": "e18c661fce0c913d00ef225545e525da59173f65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elivz/craft-single-cat/zipball/e18c661fce0c913d00ef225545e525da59173f65",
+                "reference": "e18c661fce0c913d00ef225545e525da59173f65",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Single Cat",
+                "handle": "single-cat",
+                "changelogUrl": "https://raw.githubusercontent.com/elivz/craft-single-cat/master/CHANGELOG.md",
+                "class": "elivz\\singlecat\\SingleCat"
+            },
+            "autoload": {
+                "psr-4": {
+                    "elivz\\singlecat\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eli Van Zoeren",
+                    "homepage": "https://elivz.com"
+                }
+            ],
+            "description": "Field type that allows the user to select a single category from a drop-down.",
+            "keywords": [
+                "category",
+                "craft-plugin",
+                "craftcms",
+                "select",
+                "single cat",
+                "single category"
+            ],
+            "time": "2019-02-17T18:19:43+00:00"
         },
         {
             "name": "elvanto/litemoji",
@@ -4743,16 +4793,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v6.34.6",
+            "version": "v6.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "a9c4c0d845ae60dfe5c23d5d3faab06e357828d6"
+                "reference": "a5f6d81ad82852d34a21dfa8d50a82db98ffe6e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a9c4c0d845ae60dfe5c23d5d3faab06e357828d6",
-                "reference": "a9c4c0d845ae60dfe5c23d5d3faab06e357828d6",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a5f6d81ad82852d34a21dfa8d50a82db98ffe6e5",
+                "reference": "a5f6d81ad82852d34a21dfa8d50a82db98ffe6e5",
                 "shasum": ""
             },
             "require": {
@@ -4795,7 +4845,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2019-05-13T17:46:00+00:00"
+            "time": "2019-05-14T19:58:30+00:00"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",
