@@ -1,19 +1,6 @@
 {% import '_macros/global' as global %}
 
-{# 
-    Templating Notes: 
-    Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
-    event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
-#}
-
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<article class="content-card -topic | {{ classes }}">
+<article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
 
     <div class="content-card__container | flex-grid md:flex-row-reverse">
       

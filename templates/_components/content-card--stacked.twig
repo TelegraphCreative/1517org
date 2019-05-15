@@ -1,31 +1,10 @@
 {% import '_macros/global' as global %}
 
-{# Get Author/Host info #}
-{% set authorName = false %}
+{# Get Category Info #}
+{% include '_components/getTopCategory' %}
 
-{% if content.type == 'podcast' %}
-    {% if content.podcastShow.level(1)[0]|length %}
-        {% set authorName = content.podcastShow.level(1)[0].title %}
-        {% set authorUrl = content.podcastShow.level(1)[0].url %}
-    {% endif %}
-    
-{% elseif content.type == 'event' %}
-    {# THIS CONTENT NEEDS CRAFT STRUCTURE ADDED #}
-    {% set authorName = 'Static Content' %}
-    {% set authorUrl = '#' %}
-    
-{% elseif content.type == 'course' %}
-    {# THIS CONTENT NEEDS CRAFT STRUCTURE ADDED #}
-    {% set authorName = 'Static Content' %}
-    {% set authorUrl = '#' %}
-    
-{% else %}
-    {# Articles, Videos #}
-    {% if content.authorLink|length %}
-        {% set authorName = content.authorLink.one().firstName ~ ' ' ~ content.authorLink.one().firstName %}
-        {% set authorUrl = content.authorLink.one().url %}
-    {% endif %}
-{% endif %}
+{# Get Contributor #}
+{% include '_components/getContentContributor' %}
 
 {# Content #}
 <article class="content-card -stacked | {% if classes is defined %}{{ classes }}{% endif %}">
@@ -36,9 +15,13 @@
         <div class="content-card__content">
 
             {# Topic #}
-            <h4 class="content-label">
-                <a href="{{ content.topics[0].url }}">{{ content.topics[0].title }}</a>
-            </h4>
+            {% if categoryTitle %}
+                <h4 class="content-label">
+                    <a href="{{ categoryUrl }}">
+                        {{ categoryTitle }}
+                    </a>
+                </h4>
+            {% endif %}
 
             <a href="{{ content.url }}" class="block">
                 {# Header #}
