@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557924536
+dateModified: 1557925990
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -229,11 +229,23 @@ fieldGroups:
     name: Product
   f679b8b7-0779-4e7f-aee4-c5222d842894:
     name: Course
+  79dfa295-80d7-49be-afd3-5fc2a2080185:
+    name: Home
 fieldlabels:
   b4e5ef6f-db34-41a4-bedd-074aa3acae21:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
     fieldLayout: 32914909-f583-472d-9317-301345052744
     name: 'Card Image'
+    instructions: null
+  f2470ab9-f6b7-4fd5-9f5e-73045ce4a42b:
+    field: a202e5e1-45ca-48c6-b70d-43f5a4dc95bf
+    fieldLayout: 6fdb88bf-d327-494b-ad46-383c2f371293
+    name: 'Show Billboard'
+    instructions: null
+  a796329d-977b-4c5c-a6fa-d50a8f764e46:
+    field: e64eeb00-cca2-4173-8c38-aa9bd2920e2f
+    fieldLayout: 6fdb88bf-d327-494b-ad46-383c2f371293
+    name: 'Featured Content'
     instructions: null
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
@@ -350,9 +362,9 @@ fields:
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   4f7d056d-7505-4f1c-9360-a814abddce71:
-    name: Sections
-    handle: sections
-    instructions: ''
+    name: 'Latest Content Formats'
+    handle: latestContentFormats
+    instructions: 'Select which content formats should be pulled into the Latest Content section'
     searchable: false
     translationMethod: none
     translationKeyFormat: null
@@ -1341,6 +1353,136 @@ fields:
       localizeRelations: false
     contentColumnType: string
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  a0247a02-6d6e-40a3-b669-57d29bfa7d4a:
+    name: 'Popular Articles'
+    handle: popularArticles
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: '1'
+      contentTable: '{{%matrixcontent_populararticles}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  f7780eee-249e-4aef-bc28-90e829037d98:
+    name: 'Latest Podcasts'
+    handle: latestPodcasts
+    instructions: 'If blank, most recent episodes from ALL shows will be pulled. Or, select specific shows to grab latest episodes from below.'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      branchLimit: ''
+      sources: '*'
+      source: 'group:8f5fdb8b-9210-4728-a9e2-9c50a543eac5'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: Shows
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  f90d45de-3ab8-4b56-949c-4a0a47f79e59:
+    name: 'Latest Events'
+    handle: latestEvents
+    instructions: 'If blank, the most recent events will be pulled. Or, select upcoming events to feature below:'
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: Event
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
+  e64eeb00-cca2-4173-8c38-aa9bd2920e2f:
+    name: 'Featured Content (single select)'
+    handle: featuredContentSingleSelect
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: Feature
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
+  c419de66-eb35-4011-aaf9-cfca51f23a70:
+    name: 'Max Count - Events'
+    handle: maxCountEvents
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '2'
+      max: '10'
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: ''
+    contentColumnType: smallint(2)
+    fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
+  4223b4c9-999a-45fe-9ed2-96c209230d00:
+    name: 'Max Count - Latest Content'
+    handle: maxCountLatestContent
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '2'
+      max: null
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
+  8c7f2b27-2ab6-4768-a810-4806f156d968:
+    name: 'Max Count - Podcasts'
+    handle: maxCountPodcasts
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '1'
+      max: null
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -3197,6 +3339,81 @@ matrixBlockTypes:
               65967ff3-8a5d-49d4-966d-ee591b5fb85b:
                 required: true
                 sortOrder: 2
+  30f7d0d0-2e0c-4d3c-8d45-e2d7a87c3396:
+    field: a0247a02-6d6e-40a3-b669-57d29bfa7d4a
+    name: 'Popular Articles'
+    handle: header
+    sortOrder: 1
+    fields:
+      291edaf2-add2-4346-b23a-1fc83b0fe8a9:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      a13e2f51-5166-4708-8092-33f9639bfc69:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      fc31136d-9be9-4a3d-b10e-4380bcd142e7:
+        name: 'Popular '
+        handle: popular
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Entries
+        settings:
+          sources:
+            - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: '10'
+          selectionLabel: Article
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      56a4dd3e-aeee-46cd-9fce-5824e5b32036:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              291edaf2-add2-4346-b23a-1fc83b0fe8a9:
+                required: false
+                sortOrder: 1
+              a13e2f51-5166-4708-8092-33f9639bfc69:
+                required: false
+                sortOrder: 2
+              fc31136d-9be9-4a3d-b10e-4380bcd142e7:
+                required: false
+                sortOrder: 3
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -3384,12 +3601,67 @@ sections:
           6fdb88bf-d327-494b-ad46-383c2f371293:
             tabs:
               -
-                name: Common
+                name: 'Featured Content'
                 sortOrder: 1
                 fields:
+                  e64eeb00-cca2-4173-8c38-aa9bd2920e2f:
+                    required: true
+                    sortOrder: 1
                   4f7d056d-7505-4f1c-9360-a814abddce71:
+                    required: true
+                    sortOrder: 2
+                  4223b4c9-999a-45fe-9ed2-96c209230d00:
+                    required: true
+                    sortOrder: 3
+              -
+                name: 'Recent/Popular Articles'
+                sortOrder: 2
+                fields:
+                  a0247a02-6d6e-40a3-b669-57d29bfa7d4a:
                     required: false
                     sortOrder: 1
+              -
+                name: 'Latest Podcasts'
+                sortOrder: 3
+                fields:
+                  f7780eee-249e-4aef-bc28-90e829037d98:
+                    required: false
+                    sortOrder: 1
+                  8c7f2b27-2ab6-4768-a810-4806f156d968:
+                    required: true
+                    sortOrder: 2
+              -
+                name: Billboard
+                sortOrder: 4
+                fields:
+                  8508760c-14c2-44da-a895-fd4af6d00528:
+                    required: false
+                    sortOrder: 1
+                  212e918c-9afb-4494-9513-5a941b622699:
+                    required: false
+                    sortOrder: 2
+                  e0cc44bc-a00c-45bf-a7c2-619ef73bb788:
+                    required: false
+                    sortOrder: 3
+                  b3e26680-82f0-49eb-acde-3ea50bc98657:
+                    required: false
+                    sortOrder: 4
+                  37e2f268-73ca-493b-85cb-bc05c4fb7bcc:
+                    required: false
+                    sortOrder: 5
+                  a202e5e1-45ca-48c6-b70d-43f5a4dc95bf:
+                    required: false
+                    sortOrder: 6
+              -
+                name: 'Recent Events'
+                sortOrder: 5
+                fields:
+                  f90d45de-3ab8-4b56-949c-4a0a47f79e59:
+                    required: false
+                    sortOrder: 1
+                  c419de66-eb35-4011-aaf9-cfca51f23a70:
+                    required: true
+                    sortOrder: 2
   6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1:
     name: Podcasts
     handle: podcasts

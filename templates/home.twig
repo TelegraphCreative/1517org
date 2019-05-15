@@ -18,7 +18,7 @@
     Notes: Grabs the latest entries from SELECT channels. MAX = 10
 #}
 {% set latestContentSections = [] %}
-{% for section in entry.sections %}
+{% for section in entry.latestContentFormats %}
 {% set latestContentSections = latestContentSections|merge([section]) %}
 {% endfor %}
 {% set latestContentSections = latestContentSections|join(', ') %}
