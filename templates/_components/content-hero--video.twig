@@ -28,14 +28,19 @@
             <div class="content-hero__meta | space-t flex-grid">
 
                 <div class="w-1/2">
-                    {% for category in content.podcastShow.level(1).limit(1).all() %}
-                        <a href="{{ category.url }}" class="align-items-center">
-                            {{ global.utilityIcon('microphone', '-sm') }}
-                            <div class="meta-label | ml-3">
-                                {{ category.title }}
-                            </div>
-                        </a>
-                    {% endfor %}
+
+                    <div class="align-items-center">
+                        
+                        {% for author in content.authorLink.all() %}
+                            <a href="{{ author.url }}" class="align-items-center">
+                                {{ global.utilityIcon('camera', '-sm') }}
+                                <div class="meta-label | ml-3">
+                                    {{ author.firstName }} {{ author.lastName }}
+                                </div>
+                            </a>
+                        {% endfor %}
+                        
+                    </div>
                 </div>
                 
                 <div class="w-1/2 | text-right">
@@ -47,8 +52,11 @@
         
         {# Media #}
         <a href="{{ content.url }}" class="content-hero__media overflow-hidden">
-            <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ content.cardImagePodcast.one().optimize.src }}')"></div>
+            <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ content.cardImage.one().optimize.src }}')"></div>
         </a>
     </div>
 
 </article>
+
+{# {% if condition %}{% endif %} #}
+

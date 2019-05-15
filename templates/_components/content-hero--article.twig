@@ -1,8 +1,5 @@
 {% import '_macros/global' as global %}
 
-{# Get Category Info #}
-{% include '_components/getTopCategory' %}
-
 {# Content #}
 <article class="content-hero -article{% if classes is defined %} | {{ classes }}{% endif %}">
 
@@ -11,14 +8,8 @@
         {# Content #}
         <div class="content-hero__content | gutter-lg py-10 space-b--md">  
             
-            {# Topic #}
-            {% if categoryTitle %}
-                <h4 class="content-label">
-                    <a href="{{ categoryUrl }}">
-                        {{ categoryTitle }}
-                    </a>
-                </h4>
-            {% endif %}
+            {# Get Category Info #}
+            {% include '_components/getTopCategory' %}
             
             <a href="{{ content.url }}" class="block">
                 {# Header #}
@@ -66,6 +57,3 @@
     </div>
 
 </article>
-
-{# {% if condition %}{% endif %} #}
-

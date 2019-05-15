@@ -1,11 +1,5 @@
 {% import '_macros/global' as global %}
 
-{# Get Category Info #}
-{% include '_components/getTopCategory' %}
-
-{# Get Contributor #}
-{% include '_components/getContentContributor' %}
-
 {# Content #}
 <article class="content-card -stacked | {% if classes is defined %}{{ classes }}{% endif %}">
 
@@ -15,13 +9,7 @@
         <div class="content-card__content">
 
             {# Topic #}
-            {% if categoryTitle %}
-                <h4 class="content-label">
-                    <a href="{{ categoryUrl }}">
-                        {{ categoryTitle }}
-                    </a>
-                </h4>
-            {% endif %}
+            {% include '_components/getTopCategory' %}
 
             <a href="{{ content.url }}" class="block">
                 {# Header #}
@@ -45,11 +33,8 @@
         {# Meta #}
         <div class="content-card__meta | flex-grid">
 
-            {% if authorName %}
-                <a href="{{ authorUrl }}" class="meta-label">
-                    By {{ authorName }}
-                </a>
-            {% endif %}
+            {# Get Contributor #}
+            {% include '_components/getContentContributor' %}
             
             <time class="meta-label"
                 datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>

@@ -16,3 +16,12 @@
     {% set categoryUrl = categoryAll.url %}
         
 {% endif %}
+
+{# Output #}
+{% if categoryTitle %}
+    <h4 class="content-label">
+        <a href="{{ categoryUrl }}">
+            {{ categoryTitle }}
+        </a>
+    </h4>
+{% endif %} 

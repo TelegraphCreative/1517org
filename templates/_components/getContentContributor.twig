@@ -24,3 +24,10 @@
         {% set authorUrl = content.authorLink.one().url %}
     {% endif %}
 {% endif %}
+
+{# Output #}
+{% if authorName %}
+    <a href="{{ authorUrl }}" class="meta-label">
+        By {{ authorName }}
+    </a>
+{% endif %}

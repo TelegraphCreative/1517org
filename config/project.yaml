@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557931069
+dateModified: 1557934708
 email:
   fromEmail: accounts@wearetelegraph.com
   fromName: '1517'
@@ -1379,7 +1379,7 @@ fields:
     settings:
       branchLimit: ''
       sources: '*'
-      source: 'group:8f5fdb8b-9210-4728-a9e2-9c50a543eac5'
+      source: 'group:159851d0-e6a0-4c39-8346-d994125c7f4a'
       targetSiteId: null
       viewMode: null
       limit: null
@@ -1483,6 +1483,25 @@ fields:
       suffix: ''
     contentColumnType: integer(10)
     fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
+  ece72bc0-2c04-47f9-b8ac-df6dff3eded2:
+    name: 'Latest Articles'
+    handle: latestArticles
+    instructions: 'If blank, most recent articles from ALL 1517 Sections will be pulled. Or, select specific Sections to grab latest articles from below.'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      branchLimit: ''
+      sources: '*'
+      source: 'group:159851d0-e6a0-4c39-8346-d994125c7f4a'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: '1517 Section'
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -3569,6 +3588,12 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      toEmail: lindseyb@wearetelegraph.com
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from 1517'
+      allowAttachments: ''
+      successFlashMessage: 'Your message has been sent.'
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -3611,8 +3636,8 @@ sections:
                   e64eeb00-cca2-4173-8c38-aa9bd2920e2f:
                     required: true
                     sortOrder: 1
-                  4f7d056d-7505-4f1c-9360-a814abddce71:
-                    required: true
+                  ece72bc0-2c04-47f9-b8ac-df6dff3eded2:
+                    required: false
                     sortOrder: 2
                   4223b4c9-999a-45fe-9ed2-96c209230d00:
                     required: true
@@ -4008,9 +4033,12 @@ sections:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: true
                     sortOrder: 1
-                  ede86204-99a0-40e1-b93c-ec303474603f:
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                     required: true
                     sortOrder: 2
+                  ede86204-99a0-40e1-b93c-ec303474603f:
+                    required: true
+                    sortOrder: 3
               -
                 name: Main
                 sortOrder: 2

@@ -24,6 +24,7 @@
             <div class="content-card__meta -primary mb-4 | flex-grid">
                 <ul class="items-bar">
                     <li>
+                        {% set author = content.authorLink.one() %}
                         {% for author in content.authorLink.all() %}
                             <a href="{{ author.url }}" class="align-items-center">
                                 {{ global.utilityIcon('book', '-sm') }}
