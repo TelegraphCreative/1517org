@@ -1,11 +1,5 @@
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
 
-<ul class="list-articles | {{ classes }}">
+<ul class="list-articles{% if classes is defined %} | {{ classes }}{% endif %}">
     
     {# Item #}
     <li class="list-article">

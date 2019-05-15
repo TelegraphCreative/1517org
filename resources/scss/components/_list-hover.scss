@@ -27,4 +27,13 @@ ul.-hover-effect {
             }
         }
     }
+
+    // -bg transparent
+    &.-bg-transparent {
+        li {
+            &:hover {
+                @apply bg-transparent;
+            }
+        }
+    }
 }

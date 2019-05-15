@@ -1,0 +1,47 @@
+{% import '_macros/global' as global %}
+
+<article class="content-hero -event{% if classes is defined %} | {{ classes }}{% endif %}">
+
+    <div class="content-hero__container | flex-grid flex-row-reverse">
+        {# Content #}
+        <div class="content-hero__content | gutter-lg py-10 space-b--md">
+            
+            {# Label #}
+            <h4 class="content-label -date">
+                <div class="content-label__mo">{{ content.postDate | date( 'M') }}</div>
+                <div class="content-label__day">{{ content.postDate | date( 'd') }}</div>
+            </h4>
+
+            <a href="{{ content.url }}" class="block">
+                {# Header #}
+                <div class="content-hero__header">
+                    <h1 class="card-title | header-lg font-serif">
+                        {{ content.title }}
+                    </h1>
+                </div>
+
+                <div class="content-hero__meta | mb-4">
+                    <a href="{{ content.url }}" class="align-items-center">
+                        {{ global.utilityIcon('map-pin', '-sm') }}
+                        <div class="meta-label | ml-3">Static, Location</div>
+                    </a>
+                </div>
+
+                {# Detail #}
+                <div class="content-hero__detail | paragraphs -sm">
+                    {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
+                </div>
+
+                {# Secondary Meta #}
+                <div class="content-hero__meta -secondary | space-t">
+                    {{ global.relatedTopics(content.topics.all(), '') }}    
+                </div>
+            </a>
+        </div>
+
+        {# Media #}
+        <a href="{{ content.url }}" class="content-hero__media overflow-hidden">
+            <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ content.cardImage.one().optimize.src }}')"></div>
+        </a>
+    </div>
+</article>

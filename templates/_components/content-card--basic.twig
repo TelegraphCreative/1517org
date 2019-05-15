@@ -1,13 +1,6 @@
 {% import '_macros/global' as global %}
 
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<article class="content-card -basic | space-b {{ classes }}">
+<article class="content-card -basic | space-b{% if classes is defined %} | {{ classes }}{% endif %}">
 
     <div class="content-card__container">
 
