@@ -86,7 +86,7 @@
                             <h4 class="title | header-sm font-serif">Doors Open</h4>
                             {% if placeholderShortCopy|length %}
                             {#  optional <p class="text-slate-light">{{ placeholderShortCopy }} (p)</p>
-                                                                    or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
+                            or <h6 class="meta-label text-slate-light">{{ placeholderShortCopy }} (H6)</h6> #}
                             {% endif %}
                         </div>
             
@@ -163,7 +163,7 @@
                 {{ global.relatedTopics('', '') }}
             </li>
             <li>
-                {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline', print: true } %}
+                {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
             </li>
             <li>
                 <a href="{{ url('/') }}" class="link -meta">Browse all Episodes</a>
@@ -193,17 +193,17 @@
             <div class="entry__blocks | longform-entry-blocks">
 
                 {# Longform Content #}
-                {# Use actual partial, something like: #}
-                {# {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksStandard.offset(1).all() } %} #}
+                {# Use actual partial: #}
+                {# {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %} #}
 
                 {# Example Content #}
 
-                {# Case - Bio Cards (3up) #}
-                <div class="bio-cards | narrow-block gutter-xl | space-b">
+                {# Case - Bio Cards --simple (3up) #}
+                <div class="bio-cards--simple | narrow-block gutter-xl | space-b">
                     <h3 class="header-lg text-bronze-lighter font-serif pb-10">Speakers</h3>
 
                     <ul class="list-bios">
-                        <li class="bio-item">
+                        <li class="bio-item -hover-links">
                             <div class="bio-item__media">
                                 {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
                             </div>
@@ -213,7 +213,7 @@
                             </div>
                         </li>
 
-                        <li class="bio-item">
+                        <li class="bio-item -hover-links">
                             <div class="bio-item__media">
                                 {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
                             </div>
@@ -223,7 +223,7 @@
                             </div>
                         </li>
 
-                        <li class="bio-item">
+                        <li class="bio-item -hover-links">
                             <div class="bio-item__media">
                                 {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
                             </div>
@@ -233,7 +233,7 @@
                             </div>
                         </li>
 
-                        <li class="bio-item">
+                        <li class="bio-item -hover-links">
                             <div class="bio-item__media">
                                 {{ global.image( placeholderImage, '-is1x1 -fit-cover rounded-full' )}}
                             </div>

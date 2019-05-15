@@ -1,0 +1,20 @@
+{% set latestContentSections = [] %}
+{% for section in entry.latestContentFormats %}
+{% set latestContentSections = latestContentSections|merge([section]) %}
+{% endfor %}
+{% set latestContentSections = latestContentSections|join(', ') %}
+{% set latestContent = craft.entries({ section: latestContentSections, limit: entry.maxCountLatestContent }) %}
+{% if latestContent|length > 1 %}
+<div id="latest" class="container--sm gutter-md | space-b">
+    <div class="flex-grid">
+
+        {# Show Latest Content #}
+        {% for entry in latestContent.all() %}
+
+        {# Content Card - Stacked #}
+        {% include '_components/content-card--stacked' with { content: entry } %}
+
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

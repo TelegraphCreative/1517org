@@ -1,42 +1,39 @@
-
 // Container
 .container {
-  @apply mx-auto;
-  max-width: 90rem; // 1440
-
-  &--sm {
-    max-width: 67rem; 
     @apply mx-auto;
-  }
+    max-width: 90rem; // 1440
+
+    &--sm {
+        max-width: 67rem;
+        @apply mx-auto;
+    }
 }
 
 // Flex Grid
 .flex-grid {
-  @apply flex justify-between flex-wrap;
+    @apply flex justify-between flex-wrap;
 }
-
 
 // Medium Screen
 @screen md {
-
-  // Flex Grid
-  .flex-grid {
-    // offset-content
-    &__offset {
-      @apply relative;
-      left: -3rem;
+    // Flex Grid
+    .flex-grid {
+        // offset-content
+        &__offset {
+            @apply relative;
+            left: -3rem;
+        }
     }
-  }
 
-  // md only
-  .md\:flex-grid {
-    @apply flex justify-between;
-  }
-
+    // md only
+    .md\:flex-grid {
+        @apply flex justify-between flex-wrap;
+    }
 }
-
-// Screens
-// MD
-// @screen md {}
-
-
+// SM
+@screen sm {
+    // sm only
+    .sm\:flex-grid {
+        @apply flex justify-between flex-wrap;
+    }
+}

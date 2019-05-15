@@ -13,23 +13,20 @@
 
     {# Topics List #}
     <div id="content" class="container--sm gutter-md | space-b">
-        
-        {# Content Card - Topic Types #} 
-        {# Templating Notes: Run a switch statement
-        on the entry type to build logic for which card to include, handling
-        conditional elements like event meta vs podcast show, author, podcast
-        player, video button+player, icons, etc. #} 
-        
-        {# Course #}
-        {% include '_components/static/content-card--course' with { 'classes': '' } %} 
-        {# Video #}
-        {% include '_components/static/content-card--video' with { 'classes': '' } %} 
-        {# Podcast #}
-        {% include '_components/static/content-card--podcast' with { 'classes': '' } %} 
-        {# Article #}
-        {% include '_components/static/content-card--article' with { 'classes': '' } %} 
-        {# Event #}
-        {% include '_components/static/content-card--event' with { 'classes': '' } %}
+
+        {% set searchQuery = craft.app.request.getParam('q') %}
+
+        {% set entries = craft.entries()
+            .search(searchQuery)
+            .all() %}
+
+        {% if entries|length %}
+            {% for entry in entries %}
+                {% include "_components/content-cards" with { content: entry } %}
+            {% endfor %}
+        {% else %}
+            <p>Sorry, your search didn't match any results.</p>    
+        {% endif %}
         
     </div>
 

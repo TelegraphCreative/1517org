@@ -12,7 +12,7 @@
     }
 
     h6 {
-        @apply text-md;
+        @apply meta-label text-bronze tracking-none block mb-3;
     }
 
     // Dropcap (fallback)
@@ -54,6 +54,11 @@
         @apply my-10;
     }
 
+    // Reset Slider
+    .slider-item img {
+        @apply my-0;
+    }
+
     // Blockquotes
     blockquote {
         @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
@@ -80,23 +85,18 @@
     // Screen
     // MD
     @screen md {
-        // Headers
-        h2 {
-            @apply text-4lg;
+        // Paragraphs
+        &.paragraphs.-md p {
+            @apply mb-8;
+
+            &:last-of-type {
+                @apply mb-0;
+            }
         }
 
-        // Blockquotes
-        blockquote {
-            @apply text-4lg px-16 py-16;
-
-            &:before {
-                @apply absolute border-12 mt-8 -ml-4;
-                padding-left: 0.875rem;
-                padding-right: 0.875rem;
-                font-size: 5.5rem;
-                line-height: 1rem;
-                padding-top: 2.75rem;
-            }
+        // Headers
+        h2 {
+            @apply text-4lg mb-4;
         }
 
         // Images

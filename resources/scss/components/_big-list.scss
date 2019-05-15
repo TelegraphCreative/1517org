@@ -1,4 +1,6 @@
 .big-list {
+    max-width: 53.75rem;
+
     ul {
         @apply list-reset;
         li {

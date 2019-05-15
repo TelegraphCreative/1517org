@@ -1,0 +1,57 @@
+{% import '_macros/global' as global %}
+
+<article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
+
+{# {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %} #}
+    <video_content_card
+        img-src="https://i.vimeocdn.com/video/762743169_640.jpg"
+        video-url="https://player.vimeo.com/video/320342557"
+        aspect-ratio="56.25"
+    >
+        
+        {# Content #}
+        <template v-slot:main>  
+
+            <a href="{{ content.url }}">
+                {# Header #}
+                <div class="content-card__header | mb-4">
+                    <h2 class="card-title | header-sm font-serif">{{ content.title }}</h2>
+                </div>
+            </a>
+            
+            {# Primary Meta #}
+            <div class="content-card__meta -primary mb-4 | flex-grid">
+                <ul class="items-bar">
+                    <li>
+                    {% for author in content.authorLink.all() %}
+                        <a href="{{ author.url }}" class="align-items-center">
+                            {{ global.utilityIcon('camera', '-sm') }}
+                            <div class="meta-label | ml-3">
+                                By {{ author.firstName }} {{ author.lastName }}
+                                <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                            </div>
+                        </a>
+                    {% endfor %}
+                    </li>
+                </ul>        
+            </div>
+            
+            {# Detail #}
+            <div class="content-card__detail | paragraphs -xs -loose | mb-5">
+                <b>This partial uses placeholder media data (vid, image poster).</b>
+                {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
+            </div>
+
+        </template>
+
+        <template v-slot:related-topics>
+            <div class="content-card__meta -secondary">
+                {{ global.relatedTopics(content.topics.all(), '') }}
+            </div>
+        </template>
+        
+    </video_content_card>
+
+{# {% endif %} #}
+
+</article>

@@ -189,3 +189,18 @@ button {
 //     color: #53c07d !important;
 //   }
 // }
+
+// Hover Links
+@screen md {
+    .-hover-links {
+        .link {
+            @apply opacity-0 text-slate;
+            &:hover {
+                @apply text-red;
+            }
+        }
+        &:hover .link {
+            @apply opacity-100;
+        }
+    }
+}

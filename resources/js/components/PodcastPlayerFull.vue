@@ -38,7 +38,7 @@
     </div>
     <div class="clearfix"></div>
     <audio
-      :src="`https://s3.us-east-2.amazonaws.com/1517-podcast-files/${filename}`"
+      :src="url"
       @timeupdate="updateCurrentTime"
       @ended="resetPlayer"
       class="hidden"
@@ -58,7 +58,7 @@
         type: String,
         required: true,
       },
-      filename: {
+      url: {
         type: String,
         required: true,
       },
@@ -74,7 +74,7 @@
 
     computed: {
       progress() {
-        if (this.playing) {
+        if (this.currentTime) {
           return this.currentTime / this.player.duration * 100
         } else {
           return 0
@@ -95,7 +95,11 @@
 
       updateCurrentTime() {
         if (!this.player) return
-        this.currentTime = this.player.currentTime
+        // performace/sustainability tweak so that we don't update ~4 times/sec
+        let playerTime = Math.round(this.player.currentTime)
+        if (playerTime > this.currentTime) {
+          this.currentTime = playerTime
+        }
       },
 
       resetPlayer() {

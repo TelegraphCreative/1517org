@@ -1,10 +1,15 @@
 .content-card {
     // Topic Type (general layout rules)
     &.-topic {
+        &:first-of-type {
+            .content-card__container {
+                @apply border-t pt-12;
+            }
+        }
         .content-card {
             // Space, Border
             &__container {
-                @apply pb-10 mb-12 border-b border-ivory-light;
+                @apply pb-12 mb-12 border-b border-ivory-light;
             }
             &__content,
             &__media {

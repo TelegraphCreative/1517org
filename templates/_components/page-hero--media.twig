@@ -11,10 +11,7 @@
     {# Image #}
     {{ global.image( block.image.one(), '-fit-cover' )}}
     {# Podcast Player Full #}
-    {% set rel = block.audio.one() %}
-    {% if rel %}
-        <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
-    {% endif %}
+    <podcast_player_full title="{{ entry.title }}" url="{{ block.audio }}" />
 
     {% case "vimeoEmbed" %}
     {# Video Player Full #}

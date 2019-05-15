@@ -1,0 +1,11 @@
+// Screen
+@screen md {
+    .-hover-border {
+        @apply border-12 border-transparent
+        timing-1 duration-1 property-all;
+
+        &:hover {
+            @apply border-ivory-lighter;
+        }
+    }
+}

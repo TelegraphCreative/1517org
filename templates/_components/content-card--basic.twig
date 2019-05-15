@@ -1,13 +1,6 @@
 {% import '_macros/global' as global %}
 
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<article class="content-card -basic | space-b {{ classes }}">
+<article class="content-card -basic | space-b{% if classes is defined %} | {{ classes }}{% endif %}">
 
     <div class="content-card__container">
 
@@ -26,7 +19,7 @@
             <a href="{{ content.url }}">
                 {# Header #}
                 <div class="content-card__header">
-                    <h2 class="card-title | header-md font-serif">{{ content.title }}</h1>
+                    <h2 class="card-title | header-md font-serif">{{ content.title }}</h2>
                 </div>
                 
                 {# Detail #}
