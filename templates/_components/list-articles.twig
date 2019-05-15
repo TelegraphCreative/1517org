@@ -1,0 +1,30 @@
+
+<ul class="list-articles -hover-effect -bg-transparent{% if classes is defined %} | {{ classes }}{% endif %}">
+
+    {% for item in content %}    
+        {# Item #}
+        <li class="list-article">
+
+            <div class="list-article__content">
+                
+                {# Header #}
+                <h3 class="list-title | header-xs font-serif mb-4">
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </h3>
+                
+                {# Meta #}
+                <div class="content-card__meta | flex-grid">
+                    {% set author = item.authorLink.one() %}
+                    <div class="meta-label">
+                        <a href="{{ author.url }}">By {{ author.firstName }} {{ author.lastName }}</a>
+                    </div>
+                
+                    <time class="meta-label" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+
+                </div>
+            </div>
+
+        </li>  
+    {% endfor %}      
+    
+</ul>

@@ -1,0 +1,40 @@
+{% import '_macros/global' as global %}
+
+<ul class="list-events | flex-grid | list-reset{% if classes is defined %} | {{ classes }}{% endif %}">
+
+    {% for item in content %}
+        <li class="list-event">
+            
+
+            <div class="list-event__container | flex-grid">
+                <a
+                    class="list-event__media" href="#">
+                    {# Label #}
+                    <h4 class="content-label -date -light -flush">
+                        <div class="content-label__mo">{{ item.postDate | date( 'M') }}</div>
+                        <div class="content-label__day">{{ item.postDate | date( 'd') }}</div>
+                    </h4>
+
+                    <div class="md:pl-6">
+                        {{ global.image( item.cardImage.one(), '-is1x1 -fit-cover -hover-scale | rounded-full' )}}
+                    </div>
+                </a>
+
+                <div class="list-event__content">
+                    <a href="#">
+                        <h3 class="header -sm font-serif | mb-2 mt-6">
+                            {{ item.title }}
+                        </h3>
+
+                        <div class="meta-label text-slate-light mb-2">Static, Location</div>
+
+                        <div class="list-event__detail | paragraphs -xs | mb-2">
+                            {{ item.shortDescription | chop(limit=40, unit='w', append= '…') }}
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </li>
+    {% endfor %}
+</ul>

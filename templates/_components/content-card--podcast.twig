@@ -1,14 +1,8 @@
 {# Content Card --podcast (real data) #}
 {% import '_macros/global' as global %}
 
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<article class="content-card -topic | {{ classes }}">
+{# Content #}
+<article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
 
     <div class="content-card__container | flex-grid md:flex-row-reverse">
         
@@ -35,9 +29,9 @@
                             <a href="{{ category.url }}" class="align-items-center">
                                 {{ global.utilityIcon('microphone', '-sm') }}
                                 <div class="meta-label | ml-3">
-                                        {{ category.title }}
-                                    </div>
-                                    <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                                    {{ category.title }}
+                                </div>
+                                <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
                             </a>
                         {% endfor %}
                     </li>
