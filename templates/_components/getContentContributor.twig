@@ -1,0 +1,33 @@
+{# Get Author/Host info #}
+{% set authorName = false %}
+
+{% if content.type == 'podcast' %}
+    {% if content.podcastShow.level(1)[0]|length %}
+        {% set authorName = content.podcastShow.level(1)[0].title %}
+        {% set authorUrl = content.podcastShow.level(1)[0].url %}
+    {% endif %}
+    
+{% elseif content.type == 'event' %}
+    {# THIS CONTENT NEEDS CRAFT STRUCTURE ADDED #}
+    {% set authorName = 'Static Content' %}
+    {% set authorUrl = '#' %}
+    
+{% elseif content.type == 'course' %}
+    {# THIS CONTENT NEEDS CRAFT STRUCTURE ADDED #}
+    {% set authorName = 'Static Content' %}
+    {% set authorUrl = '#' %}
+    
+{% else %}
+    {# Articles, Videos #}
+    {% if content.authorLink|length %}
+        {% set authorName = content.authorLink.one().firstName ~ ' ' ~ content.authorLink.one().firstName %}
+        {% set authorUrl = content.authorLink.one().url %}
+    {% endif %}
+{% endif %}
+
+{# Output #}
+{% if authorName %}
+    <a href="{{ authorUrl }}" class="meta-label">
+        By {{ authorName }}
+    </a>
+{% endif %}

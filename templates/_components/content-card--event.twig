@@ -1,29 +1,12 @@
 {% import '_macros/global' as global %}
 
-{# 
-    Templating Notes: 
-    Run a switch statement on the entry type to build logic for which card to include, handling conditional elements like 
-    event meta vs podcast show, author, podcast player, video button+player, icons, etc.  
-#}
-
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<article class="content-card -topic | {{ classes }}">
+<article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
 
     <div class="content-card__container | flex-grid md:flex-row-reverse">
       
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | no-print">
-            {# Placeholder: #}
-            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_09.jpg')}}
-            {# Once structure is complete, use:
             {{ global.image(content.cardImage.one(), '-is2x1 -fit-cover -hover-scale')}}
-             #}
         </a>
 
         {# Content #}
@@ -63,8 +46,7 @@
 
             {# Secondary Meta #}
             <div class="content-card__meta -secondary">
-                {{ global.relatedTopics() }}    
-                {# Once structure and fields are setup: {{ global.relatedTopics(content.topics.all(), '') }} #}
+                {{ global.relatedTopics(content.topics.all(), '') }}
             </div>
 
         </div>
