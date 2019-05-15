@@ -19,11 +19,7 @@
       
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | no-print">
-            {# Placeholder: #}
-            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_09.jpg')}}
-            {# Once structure is complete, use:
             {{ global.image(content.cardImage.one(), '-is2x1 -fit-cover -hover-scale')}}
-             #}
         </a>
 
         {# Content #}
@@ -63,8 +59,7 @@
 
             {# Secondary Meta #}
             <div class="content-card__meta -secondary">
-                {{ global.relatedTopics() }}    
-                {# Once structure and fields are setup: {{ global.relatedTopics(content.topics.all(), '') }} #}
+                {{ global.relatedTopics(content.topics.all(), '') }}
             </div>
 
         </div>

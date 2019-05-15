@@ -1,0 +1,18 @@
+
+{# Get Category Info #}
+{% set categoryTitle = 0 %}
+
+{% set categoryFeatured = content.featuredTopic.one() %}
+{% set categoryAll = content.topics.one() %}
+
+{% if categoryFeatured|length %}
+    
+    {% set categoryTitle = categoryFeatured.title %}
+    {% set categoryUrl = categoryFeatured.url %}
+
+{% elseif categoryAll|length %}
+
+    {% set categoryTitle = categoryAll.title %}
+    {% set categoryUrl = categoryAll.url %}
+        
+{% endif %}

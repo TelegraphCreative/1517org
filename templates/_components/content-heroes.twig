@@ -3,10 +3,11 @@
 {% switch content.type %}
 
     {% case "article" %}
-        {% include '_components/content-hero--article' with { content: content, 'classes': classes } %}
+        {% include '_components/content-hero--article' with { content: content } %}
+
     {% case "podcast" %}
         {% include '_components/content-hero--podcast' with { content: content, 'classes': classes } %}
-
+    {# 
     {% case "video" %}
         {% include '_components/content-hero--video' with { content: content, 'classes': classes } %}
 
@@ -14,6 +15,6 @@
         {% include '_components/content-hero--event' with { content: content, 'classes': classes } %}
 
     {% case "course" %}
-        {% include '_components/content-hero--course' with { content: content, 'classes': classes } %}
+        {% include '_components/content-hero--course' with { content: content, 'classes': classes } %} #}
 
 {% endswitch %}
