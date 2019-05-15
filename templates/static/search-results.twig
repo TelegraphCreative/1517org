@@ -1,6 +1,33 @@
 {% extends "_layouts/_base" %} 
 {% import '_macros/global' as global %} 
-{% block content %} 
+{% block content %}
+
+    {# search query #}
+    {% set searchQuery = craft.app.request.getParam('q') %}
+
+    {# section logic #}
+    {% set allSections = craft.sections.getAllSections() %}
+    {% set sections = [] %}
+    {% for section in allSections %}
+        {% if section.type == 'channel' and section.handle != 'authors' %}
+            {% set sections = sections|merge([section]) %}
+        {% endif %}
+    {% endfor %}
+
+    {# topics query #}
+    {% set topics = craft.categories().group('topics').all() %}
+
+    {# authors query #}
+    {% set authors = craft.entries.section('authors').all() %}
+
+    {# entries query #}
+    {% set entries = craft.entries()
+        .search(searchQuery)
+        .section(sections|join(','))
+        .all() %}
+
+    {# count #}
+    {% set count = entries|length %}
 
     <section class="space-menu ">        
         <div class="space-b--sm">
@@ -13,12 +40,6 @@
 
     {# Topics List #}
     <div id="content" class="container--sm gutter-md | space-b">
-
-        {% set searchQuery = craft.app.request.getParam('q') %}
-
-        {% set entries = craft.entries()
-            .search(searchQuery)
-            .all() %}
 
         {% if entries|length %}
             {% for entry in entries %}

@@ -1,31 +1,39 @@
 <div class="page-filters flex-grid items-center | container--sm gutter-md | space-b">
     
     <div class="filter-bar | md:w-1/2 w-full">
+
+        {% if sections is defined %}
         <div class="item filter | mb-2">
             <select_box :opt="{ name: 'format', variant: '-md' }">
-                <option value="All Formats" selected>All Formats</option>
-                <option value="Articles">Articles</option>
-                <option value="Events">Events</option>
-                <option value="Events">this is static</option>
+                <option value="All Formats">All Formats</option>
+                {% for section in sections %}
+                    <option value="{{ section.handle }}">{{ section.name }}</option>
+                {% endfor %}
             </select_box>
         </div>
+        {% endif %}
 
+        {% if topics is defined %}
         <div class="item filter | mb-2">
             <select_box :opt="{ name: 'topic', variant: '-md' }">
-                <option value="All Topics" selected>By any Author</option>
-                <option value="Articles">Articles</option>
-                <option value="Events">Events</option>
-                <option value="Articles">Articles</option>
-                <option value="Events">Events</option>
-                <option value="Articles">Articles</option>
-                <option value="Events">Events</option>
-                <option value="Articles">Articles</option>
-                <option value="Events">Events</option>
-                <option value="Articles">Articles</option>
-                <option value="Events">Events</option>
-                <option value="Events">this is static</option>
+                <option value="">All Topics</option>
+                {% for topic in topics %}
+                    <option value="{{ topic.id }}">{{ topic.title }}</option>
+                {% endfor %}
             </select_box>
         </div>
+        {% endif %}
+
+        {% if authors is defined %}
+        <div class="item filter | mb-2">
+            <select_box :opt="{ name: 'author', variant: '-md' }">
+                <option value="">By any Author</option>
+                {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.title }}</option>
+                {% endfor %}
+            </select_box>
+        </div>
+        {% endif %}
 
     </div>
     
@@ -33,12 +41,12 @@
         <div class="page-filters__meta | md:w-1/2 w-full | text-right">
             <div class="meta-label">
             {{ count }}
-            {% if count > 1 %}
-                Entries
-            {% else %}
+            {% if count == 1 %}
                 Entry
+            {% else %}
+                Entries
             {% endif %}
-            (static)</div>
+            </div>
         </div>
     {% endif %}
     
