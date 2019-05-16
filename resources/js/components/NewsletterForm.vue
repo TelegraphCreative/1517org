@@ -41,6 +41,10 @@ export default {
             required: true,
             default: '{URL.region}',
         },
+        signuplocation: {
+            required: true,
+            default: 'subscribe-form',
+        },
         signuptitle: {
             required: true,
             default: 'Signup!',
@@ -92,11 +96,8 @@ export default {
                 submitBtn.disabled = false
                 if (result === true) {
                     const userEmailData = encodeURIComponent(_this.userEmail)
-                    // const url = 'http://wearetelegraph.us5.list-manage.com/subscribe/post-json?u=6ab7472048d4ea9ba49aa23e8&amp;id=8a954ea73c&c=callback&amp;'
-                    const url = 'http://' + _this.mcurl + '.list-manage.com/subscribe/post-json?u=' + _this.mcuser + '&amp;id=' + _this.mcid +'&c=callback&amp;'
-                    const data= 'EMAIL=' + userEmailData
-                    console.log(url+data)
-                    
+                    const url = 'https://' + _this.mcurl + '.list-manage.com/subscribe/post-json?u=' + _this.mcuser + '&id=' + _this.mcid +'&c=callback'
+                    const data= '&EMAIL=' + userEmailData + '&SIGNUP=' + _this.signuplocation                      
 
                     // Create & add post script to the DOM
                     var script = document.createElement("script");
@@ -120,13 +121,15 @@ export default {
                             _this.error = true
                         }
                     };
+
+                    // console.log(url+data)
         
                     
                 } else {
                     // section invalid, result is array of invalid inputs
                     Validation.focusInput(result[0])
                     submitBtn.disabled = true
-                    console.log('Error from Newsletter Form')
+                    // console.log('Error from Newsletter Form')
                 }
             })
 
