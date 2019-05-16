@@ -25,11 +25,16 @@
         }
     }
 
+    // Field Group
+    .field-group {
+        @apply px-0;
+    }
+
     .submit {
-        @apply absolute pin-r align-y
-        h-full
+        @apply absolute pin-r
         px-4 
         text-slate;
+        top: 0.75rem;
 
         &:hover,
         &:focus {
