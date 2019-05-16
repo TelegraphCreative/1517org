@@ -1,10 +1,11 @@
 {% import '_macros/global' as global %}
-{% if header is defined %}
-    <h2 class="text-white text-lg font-normal mb-2">{{ header }}</h2>
-{% endif %}
-<div class="signup-form{% if classes is defined %} | {{ classes }} {% endif %}">
-    <form action="">
-        <input type="text" class="email-input" placeholder="Email Address" />
-        <button class="submit meta-label">Submit</button>
-    </form>
+<div class="signup-form">
+    <newsletter_form
+        :mcid="'8a954ea73c'"
+        :mcuser="'6ab7472048d4ea9ba49aa23e8'"
+        :mcurl="'wearetelegraph.us5'"
+        :signuptitle="'Subscribe to 1517 eNewsletter'"
+        :confirmationtitle="'Success!'"
+        :confirmationdetail="'Thanks for signing up.'">
+    </newsletter_form>
 </div>

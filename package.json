@@ -13,6 +13,7 @@
     "body-scroll-lock": "^2.6.1",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "bunnyjs": "^0.14.41",
     "choices.js": "^7.0.0",
     "laravel-mix": "^4.0.15",
     "laravel-mix-tailwind": "^0.1.0",
