@@ -1,11 +1,18 @@
+{% set format = craft.app.request.getParam('format') %}
+{% set topic = craft.app.request.getParam('topic') %}
+{% set author = craft.app.request.getParam('author') %}
+
 <div class="page-filters flex-grid items-center | container--sm gutter-md | space-b">
     
     <div class="filter-bar | md:w-1/2 w-full">
 
         {% if sections is defined %}
         <div class="item filter | mb-2">
-            <select_box :opt="{ name: 'format', variant: '-md' }">
-                <option value="All Formats">All Formats</option>
+            <select_box
+                :opt="{ name: 'format', variant: '-md' }"
+                value="{{ format }}"
+            >
+                <option value="">All Formats</option>
                 {% for section in sections %}
                     <option value="{{ section.handle }}">{{ section.name }}</option>
                 {% endfor %}
@@ -15,7 +22,10 @@
 
         {% if topics is defined %}
         <div class="item filter | mb-2">
-            <select_box :opt="{ name: 'topic', variant: '-md' }">
+            <select_box
+                :opt="{ name: 'topic', variant: '-md' }"
+                value="{{ topic }}"
+            >
                 <option value="">All Topics</option>
                 {% for topic in topics %}
                     <option value="{{ topic.id }}">{{ topic.title }}</option>
@@ -26,7 +36,10 @@
 
         {% if authors is defined %}
         <div class="item filter | mb-2">
-            <select_box :opt="{ name: 'author', variant: '-md' }">
+            <select_box
+                :opt="{ name: 'author', variant: '-md' }"
+                value="{{ author }}"
+            >
                 <option value="">By any Author</option>
                 {% for author in authors %}
                     <option value="{{ author.id }}">{{ author.title }}</option>

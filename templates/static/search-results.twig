@@ -24,6 +24,10 @@
     {% set entries = craft.entries()
         .search(searchQuery)
         .section(sections|join(','))
+        {# .relatedTo() #}
+        {# .sectionId() #}
+        {# .relatedTo() #}
+        {# .slug?, with, type #}
         .all() %}
 
     {# count #}
