@@ -3,6 +3,10 @@
     @apply mx-auto;
     max-width: 90rem; // 1440
 
+    &--xs {
+        max-width: 57rem;
+        @apply mx-auto;
+    }
     &--sm {
         max-width: 67rem;
         @apply mx-auto;
