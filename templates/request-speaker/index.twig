@@ -12,14 +12,15 @@
         {% include "_components/static/page-header" with { content: content } %}</section>
 
     {# Content #}
-    <div class="container--xs gutter-xl | space-b--lg" id="contact">
+    <div
+        class="container--xs gutter-xl | space-b--lg" id="contact">
 
         {# Contact Form #}
-        {% include '_components/form-contact'  %}
+        {% include '_components/form-speaker'  %}
     </div>
 
 
-    {# Billboard Newsletter #}
-    {% include '_components/static/billboard--newsletter'  %}
+    {# Fullwidth Image #}
+    {{ global.image( '', '-is16x9 -fit-cover bg-ivory-lightest', '/assets/placeholder/placeholder_11.jpg' )}}
 
 {% endblock %}

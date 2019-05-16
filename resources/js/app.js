@@ -13,6 +13,7 @@ import podcast_player_compact from './components/PodcastPlayerCompact'
 import podcast_player_full from './components/PodcastPlayerFull'
 import image_slider from './components/ImageSlider'
 import newsletter_form from './components/NewsletterForm'
+import contact_form from './components/ContactForm'
 import seconds_to_time_filter from './filters/SecondsToTime'
 import print from './components/Print'
 import share from './components/Share'
@@ -33,6 +34,7 @@ const app = new Vue({
         podcast_player_full,
         image_slider,
         newsletter_form,
+        contact_form,
         print,
         share,
     },
