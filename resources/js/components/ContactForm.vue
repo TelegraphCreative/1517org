@@ -79,11 +79,12 @@ export default {
             Validation.validateSection(form).then(result => {
                 submitBtn.disabled = false
                 if (result === true) {
-                    console.log('send form')
-                    _this.handleMailchimp()
-                    _this.handleSendContactData(form)
+                    // Valid
+                    console.log('Send form')
+                    _this.subscribeUser()
+                    _this.sendData(form)
                 } else {
-                    // section invalid, result is array of invalid inputs
+                    // Invalid
                     Validation.focusInput(result[0])
                     submitBtn.disabled = true
                 }
@@ -91,7 +92,7 @@ export default {
 
             return false
         },
-        handleSendContactData(form) {
+        sendData(form) {
             const data = new FormData(form)
             const req = new XMLHttpRequest()
 
@@ -99,45 +100,53 @@ export default {
             req.send(data)
 
             this.handleConfirmation(form)
-            console.log('Form sent successfully')
+            console.log('Sent successfully')
         },
-        handleMailchimp() {
+        subscribeUser() {
             const _this = this
             const form = _this.$el
-            const userEmailVal = form.querySelector('[type="email"]').value
+            const optIn = form.querySelector('#subscribe-to-updates')
 
-            const userEmailData = encodeURIComponent(userEmailVal)
-            const url =
-                'https://' +
-                _this.mcurl +
-                '.list-manage.com/subscribe/post-json?u=' +
-                _this.mcuser +
-                '&id=' +
-                _this.mcid +
-                '&c=callback'
-            const data =
-                '&EMAIL=' + userEmailData + '&SIGNUP=' + _this.signuplocation
+            // OK to subscribe user?
+            if (optIn.checked == true) {
+                const userEmailVal = form.querySelector('[type="email"]').value
 
-            // Create & add post script to the DOM
-            var script = document.createElement('script')
-            script.src = url + data
-            document.body.appendChild(script)
+                const userEmailData = encodeURIComponent(userEmailVal)
+                const url =
+                    'https://' +
+                    _this.mcurl +
+                    '.list-manage.com/subscribe/post-json?u=' +
+                    _this.mcuser +
+                    '&id=' +
+                    _this.mcid +
+                    '&c=callback'
+                const data =
+                    '&EMAIL=' +
+                    userEmailData +
+                    '&SIGNUP=' +
+                    _this.signuplocation
 
-            // Callback function
-            var callback = 'callback'
-            window[callback] = function(data) {
-                // Remove post script from the DOM
-                delete window[callback]
-                document.body.removeChild(script)
+                // Create & add post script to the DOM
+                var script = document.createElement('script')
+                script.src = url + data
+                document.body.appendChild(script)
 
-                // Display response message
-                console.log('Response: ' + data.msg)
-                if (data.result !== 'error') {
-                    _this.formSent = true
-                    _this.error = false
-                } else {
-                    _this.errorMsg = data.msg
-                    _this.error = true
+                // Callback function
+                var callback = 'callback'
+                window[callback] = function(data) {
+                    // Remove post script from the DOM
+                    delete window[callback]
+                    document.body.removeChild(script)
+
+                    // Display response message
+                    console.log('Response: ' + data.msg)
+                    if (data.result !== 'error') {
+                        _this.formSent = true
+                        _this.error = false
+                    } else {
+                        _this.errorMsg = data.msg
+                        _this.error = true
+                    }
                 }
             }
             // console.log(url+data)
