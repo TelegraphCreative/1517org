@@ -2,10 +2,15 @@
 {% import '_macros/global' as global %} 
 {% block content %}
 
-    {# search query #}
-    {% set searchQuery = craft.app.request.getParam('q') %}
+    {# TODO: check removing filters #}
 
-    {# section logic #}
+    {# params #}
+    {% set searchQuery = craft.app.request.getParam('q') %}
+    {% set format = craft.app.request.getParam('format') %}
+    {% set topic = craft.app.request.getParam('topic') %}
+    {% set author = craft.app.request.getParam('author') %}
+
+    {# full lists for drop downs #}
     {% set allSections = craft.sections.getAllSections() %}
     {% set sections = [] %}
     {% for section in allSections %}
@@ -13,22 +18,25 @@
             {% set sections = sections|merge([section]) %}
         {% endif %}
     {% endfor %}
-
-    {# topics query #}
     {% set topics = craft.categories().group('topics').all() %}
-
-    {# authors query #}
     {% set authors = craft.entries.section('authors').all() %}
 
+    {# apply sections #}
+    {% set sectionFilter = format ?: sections|join(',') %}
+
+    {% set topicParam = topic ? { targetElement: craft.categories.group('topics').id(topic).first } : '' %}
+    {% set authorParam = author ? {
+        targetElement: craft.entries.section('authors').id(author).first,
+        field: 'authorLink'
+    } : '' %}
+    {% set relationParams = [topicParam, authorParam]|filter %}
+
     {# entries query #}
-    {% set entries = craft.entries()
-        .search(searchQuery)
-        .section(sections|join(','))
-        {# .relatedTo() #}
-        {# .sectionId() #}
-        {# .relatedTo() #}
-        {# .slug?, with, type #}
-        .all() %}
+    {% set entries = craft.entries({
+        search: searchQuery,
+        section: sectionFilter,
+        relatedTo: relationParams ? ['and']|merge(relationParams) : null
+    }) %}
 
     {# count #}
     {% set count = entries|length %}
