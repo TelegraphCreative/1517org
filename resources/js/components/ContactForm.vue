@@ -1,7 +1,17 @@
 <template>
-  <form @submit.prevent="handleSubmit">
-    <slot name="main"></slot>
-  </form>
+  <div>
+    <transition name="fade" mode="out-in">
+      <div v-if="formSent" key="success">
+        <slot name="success"></slot>
+      </div>
+      <div v-else key="default">
+        <slot name="default"></slot>
+        <form @submit.prevent="handleSubmit" accept-charset="UTF-8" class="form-base">
+          <slot name="fields"></slot>
+        </form>
+      </div>
+    </transition>
+  </div>
 </template>
 <script>
 import { Validation } from '../vendor/Validation'
@@ -9,6 +19,10 @@ import anime from 'animejs'
 
 export default {
     props: {
+        formmethod: {
+            required: true,
+            default: 'post',
+        },
         formaction: {
             required: true,
             default: '{formaction}',
@@ -29,37 +43,13 @@ export default {
             required: true,
             default: 'subscribe-form',
         },
-        signuptitle: {
-            required: true,
-            default: 'Signup!',
-        },
-        confirmationtitle: {
-            required: true,
-            default: 'Success!',
-        },
-        confirmationdetail: {
-            required: true,
-            default: 'It worked.',
-        },
     },
     data() {
         return {
-            // formSent: false,
-            // userEmail: '',
-            // error: false,
-            // errorMsg: '',
+            formSent: false,
+            form: null,
         }
     },
-    // computed: {
-    //     formTitle() {
-    //         if (this.formSent) {
-    //             return this.confirmationtitle
-    //         } else {
-    //             return this.signuptitle
-    //         }
-    //     },
-    // },
-
     mounted() {
         this.validateForm()
     },
@@ -67,22 +57,20 @@ export default {
         validateForm() {
             const _this = this
             window.addEventListener('load', function() {
-                const form = _this.$el
-                Validation.init(form, true)
+                _this.form = _this.$el.querySelector('form')
+                Validation.init(_this.form, true)
             })
         },
         handleSubmit(event) {
             const _this = this
-            const form = _this.$el
-            const submitBtn = form.querySelector('[type="submit"]')
+            const submitBtn = _this.form.querySelector('[type="submit"]')
 
-            Validation.validateSection(form).then(result => {
+            Validation.validateSection(_this.form).then(result => {
                 submitBtn.disabled = false
                 if (result === true) {
                     // Valid
-                    console.log('Send form')
+                    _this.sendData(_this.form)
                     _this.subscribeUser()
-                    _this.sendData(form)
                 } else {
                     // Invalid
                     Validation.focusInput(result[0])
@@ -93,23 +81,23 @@ export default {
             return false
         },
         sendData(form) {
+            console.log(form)
             const data = new FormData(form)
             const req = new XMLHttpRequest()
 
-            req.open(form.method, this.formaction)
+            req.open(this.formmethod, this.formaction)
             req.send(data)
 
             this.handleConfirmation(form)
-            console.log('Sent successfully')
         },
         subscribeUser() {
             const _this = this
-            const form = _this.$el
-            const optIn = form.querySelector('#subscribe-to-updates')
+            const optIn = _this.form.querySelector('#subscribe-to-updates')
 
             // OK to subscribe user?
             if (optIn.checked == true) {
-                const userEmailVal = form.querySelector('[type="email"]').value
+                const userEmailVal = _this.form.querySelector('[type="email"]')
+                    .value
 
                 const userEmailData = encodeURIComponent(userEmailVal)
                 const url =
@@ -137,65 +125,34 @@ export default {
                     // Remove post script from the DOM
                     delete window[callback]
                     document.body.removeChild(script)
-
-                    // Display response message
-                    console.log('Response: ' + data.msg)
-                    if (data.result !== 'error') {
-                        _this.formSent = true
-                        _this.error = false
-                    } else {
-                        _this.errorMsg = data.msg
-                        _this.error = true
-                    }
+                    // console.log(data.msg)
                 }
             }
             // console.log(url+data)
         },
-        clearError() {
-            this.errorMsg = ''
-            this.error = false
-        },
         handleConfirmation(form) {
+            const _this = this
             // Scroll Up
             anime({
                 targets: 'html, body',
                 scrollTop: 0,
-                duration: 500,
+                duration: 300,
                 easing: 'easeInOutQuad',
-                complete: function() {
-                    // Hide Form
-                    anime({
-                        targets: form,
-                        opacity: 0,
-                        duration: 500,
-                        easing: 'easeInOutQuad',
-                        complete: function() {
-                            form.style.display = 'none'
-                        },
-                    })
-
-                    // // Confirmation Text
-                    // anime({
-                    //     targets: headerContent,
-                    //     opacity: 0,
-                    //     duration: 500,
-                    //     easing: 'easeInOutQuad',
-                    //     complete: function() {
-
-                    //         // Trigger conf message here
-
-                    //         anime({
-                    //             targets: headerContent,
-                    //             opacity: 1,
-                    //             duration: 300,
-                    //             easing: 'easeInOutQuad',
-                    //         })
-                    //     },
-                    // })
-                },
             })
+            _this.formSent = true
         },
     },
 }
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+</style>
+
 

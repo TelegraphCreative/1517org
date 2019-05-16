@@ -1,7 +1,7 @@
 {#
 Notes:
 
-- Form needs validation for required fields and email 
+- Form needs validation for fields and email 
 
 - In the backend setup theses plugins: 
 - [Contact Form Extensions](https://plugins.craftcms.com/contact-form-extensions): Saves submissions to database and sends notifications
@@ -11,38 +11,52 @@ Notes:
 #}
 
 {% macro errorList(errors) %}
-    {% if errors %}
-        <ul class="errors">
-            {% for error in errors %}
-                <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+{% if errors %}
+<ul class="errors">
+    {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endmacro %}
 
 {% from _self import errorList %}
 
 
-<contact_form method="post" action="" accept-charset="UTF-8" class="form-base"
-    :formaction="'contact-form/send'"
-    :mcid="'8a954ea73c'"
-    :mcuser="'6ab7472048d4ea9ba49aa23e8'"
-    :mcurl="'wearetelegraph.us5'"
-    :signuplocation="'footer-subscribe-form'"
-    :signuptitle="'Subscribe to 1517 eNewsletter'"
-    :confirmationtitle="'Success!'"
-    :confirmationdetail="'Thanks for signing up.'">
+<contact_form :formmethod="'post'" :formaction="'contact-form/send'"
+    :mcid="'8a954ea73c'" :mcuser="'6ab7472048d4ea9ba49aa23e8'" :mcurl="'wearetelegraph.us5'"
+    :signuplocation="'contact-page'">
 
-    <template v-slot:main>  
+    <template v-slot:default>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">Subheading Here</h2>
+            <div class="paragraphs -md">
+                <p>Each of these provide a message of hope to strengthen individuals and congregations, as well as model
+                    ways of engaging the culture in a manner that is thoughtful, courageous, and Christ-centered.</p>
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:success>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">Success</h2>
+            <div class="paragraphs -md">
+                <p>Message received! Thanks for reaching out.</p>
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:fields>
+
 
         {% macro errorList(errors) %}
-            {% if errors %}
-                <ul class="errors">
-                    {% for error in errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+        {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         {% endmacro %}
 
         {% from _self import errorList %}
@@ -51,20 +65,22 @@ Notes:
         <input type="hidden" name="action" value="contact-form/send">
         {{ redirectInput('contact?status=success') }}
 
-        
+
         {# Full Name #}
         <div class="form-group">
             <div class="field-group | w-1/2">
                 <label class="standard-label" for="firstName">
                     First Name
                 </label>
-                <input type="text" id="firstName" name="message[firstName]" value="{{ message.message.firstName ?? '' }}"/>
+                <input type="text" id="firstName" name="message[firstName]"
+                    value="{{ message.message.firstName ?? '' }}" />
             </div>
             <div class="field-group | w-1/2">
                 <label class="standard-label" for="lastName">
                     Last Name
                 </label>
-                <input type="text" id="lastName" name="message[lastName]" value="{{ message.message.lastName ?? '' }}"/>
+                <input type="text" id="lastName" name="message[lastName]"
+                    value="{{ message.message.lastName ?? '' }}" />
             </div>
         </div>
 
@@ -75,7 +91,7 @@ Notes:
                 <label class="standard-label" for="email">
                     Email Address
                 </label>
-                <input type="email" id="email" name="fromEmail" required value="{{ message.fromEmail ?? '' }}"/>
+                <input type="email" id="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" />
 
             </div>
         </div>
@@ -87,24 +103,21 @@ Notes:
                 <label class="standard-label" for="message">
                     Message
                 </label>
-                <textarea id="message" name="message" required rows="6">{{ message.message ?? '' }}</textarea>
+                <textarea id="message" name="message" rows="6">{{ message.message ?? '' }}</textarea>
 
             </div>
         </div>
-        
+
         {# GDPR #}
         <div class="form-group">
             <div class="field-group | w-full">
 
-                <label for="subscribe-to-updates" class="control -small">       
-                    <input type="checkbox" 
-                        value="yesUpdates"
-                        name="checkbox-group-A" 
-                        id="subscribe-to-updates">
-                    
+                <label for="subscribe-to-updates" class="control -small">
+                    <input type="checkbox" value="yesUpdates" name="checkbox-group-A" id="subscribe-to-updates">
+
                     <span class="control__text">Sign up for updates?</span>
 
-                    <div class="control__indicator"></div>  
+                    <div class="control__indicator"></div>
                 </label>
 
             </div>
