@@ -18,11 +18,13 @@
     "laravel-mix": "^4.0.15",
     "laravel-mix-tailwind": "^0.1.0",
     "lazysizes": "^4.1.7",
+    "moment": "^2.24.0",
     "prismjs": "^1.16.0",
     "purgecss-webpack-plugin": "^1.4.0",
     "tiny-slider": "^2.9.2",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
+    "vuejs-datepicker": "^1.5.4",
     "webpack-dev-server": "^3.2.1"
   },
   "scripts": {

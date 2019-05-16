@@ -1,0 +1,167 @@
+{#
+Notes:
+
+- Form needs validation for required fields and email 
+
+- In the backend setup theses plugins: 
+- [Contact Form Extensions](https://plugins.craftcms.com/contact-form-extensions): Saves submissions to database and sends notifications
+- [Craft Contact Form](https://github.com/craftcms/contact-form): Standard Craft contact form supports ajax submissions
+
+- lindsey: The form errors and details below need some tweaking—just took a stab at it a real quick first pass.
+#}
+
+{# Form Errors #}
+{% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
+{% from _self import errorList %}
+
+{# Form #}
+<form accept-charset="UTF-8" action="" class="form-base" method="post">
+
+    {{ csrfInput() }}
+    <input name="action" type="hidden" value="contact-form/send">
+    {{ redirectInput('contact/thanks') }}
+
+    {# Contact Form Header #}
+    <header class="sub-section-header">
+        <h2 class="title | header-sm font-serif">
+            Who do you want to book?
+        </h2>
+    </header>
+
+    {# Select Speaker #}
+    <div class="form-group">
+        <div class="field-group | w-1/2">
+            <label class="standard-label" for="speaker">
+                Select Speaker
+            </label>
+            <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
+                <option value="Scott Kieth">Scott Kieth</option>
+                <option value="Jane Smith">Jane Smith</option>
+            </select_box>
+            {% if user is defined %}
+                <div class="helper-text -error">
+                    Example of an error
+                    {{ errorList(message.getErrors('speaker')) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {# Contact Form Header #}
+    <header class="sub-section-header">
+        <h2 class="title | header-sm font-serif">
+            Point of Contact Information
+        </h2>
+    </header>
+
+    {# Full Name #}
+    <div class="form-group">
+        <div class="field-group | w-1/2">
+            <label class="standard-label" for="firstName">
+                First Name
+            </label>
+            <input type="text" id="firstName" name="firstName" required {%- if user.firstName is defined %} value="{{ user.firstName }}" {% endif -%}/>
+
+            <!-- For example only - For error styles add class like so: .form-group.-error -->
+            <div class="helper-text">
+                Example of helper text
+            </div>
+            <!-- /end For example only -->
+
+            {% if user is defined %}
+                <div class="helper-text -error">
+                    Example of an error
+                    {{ errorList(message.getErrors('firstName')) }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="field-group | w-1/2">
+            <label class="standard-label" for="lastName">
+                Last Name
+            </label>
+            <input type="text" id="lastName" name="lastName" required {%- if user.lastName is defined %} value="{{ user.lastName }}" {% endif -%}/>
+            {% if user is defined %}
+                <div class="helper-text -error">
+                    {{ errorList(message.getErrors('lastName')) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {# Email #}
+    <div class="form-group">
+        <div class="field-group | w-full">
+
+            <label class="standard-label" for="email">
+                Email Address
+            </label>
+            <input type="email" id="email" name="email" required {%- if user is defined %} value="{{ user.email }}" {% endif %}/>
+        </div>
+    </div>
+
+    {# Phone #}
+    <div class="form-group">
+        <div class="field-group | w-full">
+
+            <label class="standard-label" for="phone">
+                Phone (optional)
+            </label>
+            <input type="tel" id="phone" name="phone"/>
+        </div>
+    </div>
+
+    {# Contact Form Header #}
+    <header class="sub-section-header">
+        <h2 class="title | header-sm font-serif">
+            Event Information
+        </h2>
+    </header>
+
+    {# Date/Topic #}
+    <div class="form-group">
+        <div class="field-group | w-1/2">
+            <label class="standard-label" for="speaker">
+                Event Date
+            </label>
+            <date_picker :opt="{ name: 'date', id: 'date' }"/>
+        </div>
+        {# Topic #}
+        <div class="field-group | w-1/2">
+            <label class="standard-label" for="topic">
+                Topic
+            </label>
+            <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
+                <option value="Topic A">Topic A</option>
+                <option value="Topic B">Topic B</option>
+                <option value="Topic C">Topic C</option>
+            </select_box>
+        </div>
+    </div>
+
+    {# Website #}
+    <div class="form-group">
+        <div class="field-group | w-full">
+            <label class="standard-label" for="website">
+                Website
+            </label>
+            <input type="text" id="website" name="website" required/>
+        </div>
+    </div>
+
+    {# Submit #}
+    <div class="form-group">
+        <div class="field-group | w-full">
+            <input class="btn -full -red" type="submit" value="Submit Form">
+        </div>
+    </div>
+
+</form>
