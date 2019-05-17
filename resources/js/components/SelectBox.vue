@@ -1,5 +1,10 @@
 <template>
-	<select v-model="selected" class="selectdrop">
+	<select
+        class="selectdrop"
+        :id="opt.id"
+        :name="opt.name"
+        v-model="selected"
+    >
 		<slot/>
 	</select>
 </template>
@@ -28,6 +33,8 @@ export default {
             },
             set(value) {
                 const url = new Url
+                console.log(value, url);
+                
                 if (value) {
                     url.query[this.opt.name] = value
                 } else {
@@ -44,9 +51,9 @@ export default {
         window.addEventListener('load', function() {
             // Handle Placeholder
             if (typeof _this.opt.prependPlaceholder !== 'undefined') {
-                var placeholderText = _this.opt.prependPlaceholder
+                var placeholderVal = _this.opt.prependPlaceholder
             } else {
-                var placeholderText = ''
+                var placeholderVal = ''
             }
 
             // Initialize Select
@@ -61,16 +68,19 @@ export default {
                     return {
                         item: (classNames, data) => {
                             return template(`
-                        <div class="${classNames.item} ${
+                        <div 
+                            class="${classNames.item} ${
                                 data.highlighted
                                     ? classNames.highlightedState
                                     : classNames.itemSelectable
-                            }" data-item data-id="${data.id}" data-value="${
-                                data.value
-                            }" ${data.active ? 'aria-selected="true"' : ''} ${
-                                data.disabled ? 'aria-disabled="true"' : ''
-                            }>
-                            ${placeholderText} ${data.label}
+                            }" 
+                            data-item 
+                            data-id="${data.id}" 
+                            data-value="${data.value}" 
+                            ${data.active ? 'aria-selected="true"' : ''} 
+                            ${data.disabled ? 'aria-disabled="true"' : ''}>
+                            ${placeholderVal} 
+                            ${data.label}
                         </div>
                         `)
                         },

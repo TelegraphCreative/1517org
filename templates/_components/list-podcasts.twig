@@ -1,0 +1,37 @@
+{% import '_macros/global' as global %}
+
+<ul class="list-podcasts | list-reset{% if classes is defined %} | {{ classes }}{% endif %}">
+
+    {% for item in content %}
+        <li class="list-podcast | max-w-lg mx-auto">
+            <div class="list-podcast__container | flex-grid">
+
+                <a href="{{ item.url }}" class="list-podcast__media">
+
+                    {{ global.image( item.cardImagePodcast.one(), '-is1x1 -fit-cover -hover-scale' )}}
+
+                </a>
+
+                <div class="list-podcast__content">
+
+                    <a href="{{ item.url }}" class="block mb-5">
+                        <h3 class="list-title | header -xs font-serif | mb-2">
+                            {{ item.title }}
+                        </h3>
+
+                        <time class="meta-label -sm | mb-2" datetime="{{ item.postDate | date( 'm-d-y') }}">{{ item.postDate | date( 'm/d/y') }}</time>
+                        
+                        <div class="list-podcast__detail | paragraphs -xs ">
+                            {{ item.shortDescription | chop(limit=40, unit='w', append= '…') }}
+                        </div>
+                    </a>
+                    
+                    <podcast_player_compact url="{{ item.podcastLink }}" />
+                
+                </div>
+                
+            </div>
+        </li>
+    {% endfor %}
+        
+</ul>

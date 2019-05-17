@@ -75,6 +75,14 @@
             }
         }
     }
+
+    // Center
+    &.-center {
+        @apply text-center;
+        .signup-form {
+            @apply mx-auto;
+        }
+    }
 }
 
 // All

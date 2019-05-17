@@ -1,13 +1,11 @@
 // Custom bunny Validation file
 
-
-import {BunnyFile} from "bunnyjs/src/file/file";
-import {BunnyImage} from "bunnyjs/src/file/image";
-import {Ajax} from "bunnyjs/src/bunny.ajax";
-import {BunnyElement} from "bunnyjs/src/BunnyElement";
+import { BunnyFile } from 'bunnyjs/src/file/file'
+import { BunnyImage } from 'bunnyjs/src/file/image'
+import { Ajax } from 'bunnyjs/src/bunny.ajax'
+import { BunnyElement } from 'bunnyjs/src/BunnyElement'
 
 export const ValidationConfig = {
-
     // div/node class name selector which contains one label, one input, one help text etc.
     classInputGroup: 'field-group',
     // class to be applied on input group node if it has invalid input
@@ -24,9 +22,8 @@ export const ValidationConfig = {
     classError: 'helper-text',
 
     // query selector to search inputs within input groups to validate
-    selectorInput: '[name]'
-
-};
+    selectorInput: '[name]',
+}
 
 /**
  * Bunny Form Validation default Translations (EN)
@@ -37,22 +34,23 @@ export const ValidationConfig = {
  * ajax error message should be received from server via JSON response in "message" key
  */
 export const ValidationLang = {
-
     required: "'{label}' is required",
     email: "'{label}' should be a valid e-mail address",
-    url: "{label} should be a valid website URL",
+    url: '{label} should be a valid website URL',
     tel: "'{label}' is not a valid telephone number",
     maxLength: "'{label}' length must be < '{maxLength}'",
     minLength: "'{label}' length must be > '{minLength}'",
-    maxFileSize: "Max file size must be < {maxFileSize}MB, uploaded {fileSize}MB",
+    maxFileSize:
+        'Max file size must be < {maxFileSize}MB, uploaded {fileSize}MB',
     image: "'{label}' should be an image (JPG or PNG)",
-    minImageDimensions: "'{label}' must be > {minWidth}x{minHeight}, uploaded {width}x{height}",
-    maxImageDimensions: "'{label}' must be < {maxWidth}x{maxHeight}, uploaded {width}x{height}",
+    minImageDimensions:
+        "'{label}' must be > {minWidth}x{minHeight}, uploaded {width}x{height}",
+    maxImageDimensions:
+        "'{label}' must be < {maxWidth}x{maxHeight}, uploaded {width}x{height}",
     requiredFromList: "Select '{label}' from list",
     confirmation: "'{label}' is not equal to '{originalLabel}'",
-    minOptions: "Please select at least {minOptionsCount} options"
-
-};
+    minOptions: 'Please select at least {minOptionsCount} options',
+}
 
 /**
  * Bunny Validation helper - get file to validate
@@ -60,7 +58,7 @@ export const ValidationLang = {
  * @returns {File|Blob|boolean} - If no file uploaded - returns false
  * @private
  */
-const _bn_getFile = (input) => {
+const _bn_getFile = input => {
     // if there is custom file upload logic, for example, images are resized client-side
     // generated Blobs should be assigned to fileInput._file
     // and can be sent via ajax with FormData
@@ -71,13 +69,15 @@ const _bn_getFile = (input) => {
     // and uses this file for validation instead of original read-only input.files[]
     if (input._file !== undefined && input._file !== '') {
         if (input._file instanceof Blob === false) {
-            console.error(`Custom file for input ${input.name} is not an instance of Blob`);
-            return false;
+            console.error(
+                `Custom file for input ${input.name} is not an instance of Blob`
+            )
+            return false
         }
-        return input._file;
+        return input._file
     }
-    return input.files[0] || false;
-};
+    return input.files[0] || false
+}
 
 /**
  * Bunny Form Validation Validators
@@ -88,112 +88,132 @@ const _bn_getFile = (input) => {
  * Invalid callback may contain argument - string of error message or object of additional params for lang error message
  */
 export const ValidationValidators = {
-
-    required(input){
+    required(input) {
         return new Promise((valid, invalid) => {
             if (input.hasAttribute('required')) {
                 // input is required, check value
                 if (
-                    input.getAttribute('type') !== 'file' && input.value === ''
-                    || ((input.type === 'radio' || input.type === 'checkbox') && input.validity.valueMissing)
-                    || input.getAttribute('type') === 'file' && _bn_getFile(input) === false) {
+                    (input.getAttribute('type') !== 'file' &&
+                        input.value === '') ||
+                    ((input.type === 'radio' || input.type === 'checkbox') &&
+                        input.validity.valueMissing) ||
+                    (input.getAttribute('type') === 'file' &&
+                        _bn_getFile(input) === false)
+                ) {
                     // input is empty or file is not uploaded
-                    invalid();
+                    invalid()
                 } else {
-                    valid();
+                    valid()
                 }
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     email(input) {
         return new Promise((valid, invalid) => {
-            if (input.value.length > 0 && input.getAttribute('type') === 'email') {
+            if (
+                input.value.length > 0 &&
+                input.getAttribute('type') === 'email'
+            ) {
                 // input is email, parse string to match email regexp
-                const Regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
+                const Regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i
                 if (Regex.test(input.value)) {
-                    valid();
+                    valid()
                 } else {
-                    invalid();
+                    invalid()
                 }
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
-    url(input){
+    url(input) {
         return new Promise((valid, invalid) => {
-            if (input.value.length > 0 && input.getAttribute('type') === 'url') {
+            if (
+                input.value.length > 0 &&
+                input.getAttribute('type') === 'url'
+            ) {
                 // input is URL, parse string to match website URL regexp
-                const Regex = /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi;
+                const Regex = /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi
                 if (Regex.test(input.value)) {
-                    valid();
+                    valid()
                 } else {
-                    invalid();
+                    invalid()
                 }
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
-    tel(input){
+    tel(input) {
         return new Promise((valid, invalid) => {
-            if (input.value.length > 0 && input.getAttribute('type') === 'tel') {
+            if (
+                input.value.length > 0 &&
+                input.getAttribute('type') === 'tel'
+            ) {
                 // input is tel, parse string to match tel regexp
-                const Regex = /^[0-9\-\+\(\)\#\ \*]{6,20}$/;
+                const Regex = /^[0-9\-\+\(\)\#\ \*]{6,20}$/
                 if (Regex.test(input.value)) {
-                    valid();
+                    valid()
                 } else {
-                    invalid();
+                    invalid()
                 }
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     maxLength(input) {
         return new Promise((valid, invalid) => {
-            if (input.getAttribute('maxlength') !== null && input.value.length > input.getAttribute('maxlength')) {
-                invalid({maxLength: input.getAttribute('maxlength')});
+            if (
+                input.getAttribute('maxlength') !== null &&
+                input.value.length > input.getAttribute('maxlength')
+            ) {
+                invalid({ maxLength: input.getAttribute('maxlength') })
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     minLength(input) {
         return new Promise((valid, invalid) => {
-            if (input.getAttribute('minlength') !== null && input.value.length < input.getAttribute('minlength')) {
-                invalid({minLength: input.getAttribute('minlength')});
+            if (
+                input.getAttribute('minlength') !== null &&
+                input.value.length < input.getAttribute('minlength')
+            ) {
+                invalid({ minLength: input.getAttribute('minlength') })
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     maxFileSize(input) {
         return new Promise((valid, invalid) => {
             if (
-                input.getAttribute('type') === 'file'
-                && input.hasAttribute('maxfilesize')
-                && _bn_getFile(input) !== false
+                input.getAttribute('type') === 'file' &&
+                input.hasAttribute('maxfilesize') &&
+                _bn_getFile(input) !== false
             ) {
-                const maxFileSize = parseFloat(input.getAttribute('maxfilesize')); // in MB
-                const fileSize = (_bn_getFile(input).size / 1000000).toFixed(2); // in MB
+                const maxFileSize = parseFloat(
+                    input.getAttribute('maxfilesize')
+                ) // in MB
+                const fileSize = (_bn_getFile(input).size / 1000000).toFixed(2) // in MB
                 if (fileSize <= maxFileSize) {
-                    valid(input);
+                    valid(input)
                 } else {
-                    invalid({maxFileSize, fileSize});
+                    invalid({ maxFileSize, fileSize })
                 }
             } else {
-                valid(input);
+                valid(input)
             }
-        });
+        })
     },
 
     // if file input has "accept" attribute and it contains "image",
@@ -201,107 +221,138 @@ export const ValidationValidators = {
     image(input) {
         return new Promise((valid, invalid) => {
             if (
-                input.getAttribute('type') === 'file'
-                && input.getAttribute('accept').indexOf('image') > -1
-                && _bn_getFile(input) !== false
+                input.getAttribute('type') === 'file' &&
+                input.getAttribute('accept').indexOf('image') > -1 &&
+                _bn_getFile(input) !== false
             ) {
-                BunnyFile.getSignature(_bn_getFile(input)).then(signature => {
-                    if (BunnyFile.isJpeg(signature) || BunnyFile.isPng(signature)) {
-                        valid();
-                    } else {
-                        invalid({signature});
-                    }
-                }).catch(e => {
-                    invalid(e);
-                });
+                BunnyFile.getSignature(_bn_getFile(input))
+                    .then(signature => {
+                        if (
+                            BunnyFile.isJpeg(signature) ||
+                            BunnyFile.isPng(signature)
+                        ) {
+                            valid()
+                        } else {
+                            invalid({ signature })
+                        }
+                    })
+                    .catch(e => {
+                        invalid(e)
+                    })
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     minImageDimensions(input) {
         return new Promise((valid, invalid) => {
-            if (input.hasAttribute('mindimensions') && _bn_getFile(input) !== false) {
-                const [minWidth, minHeight] = input.getAttribute('mindimensions').split('x');
-                BunnyImage.getImageByBlob(_bn_getFile(input)).then(img => {
-                    const width = BunnyImage.getImageWidth(img);
-                    const height = BunnyImage.getImageHeight(img);
-                    if (width < minWidth || height < minHeight) {
-                        invalid({width: width, height: height, minWidth, minHeight});
-                    } else {
-                        valid();
-                    }
-                }).catch(e => {
-                    invalid(e);
-                });
+            if (
+                input.hasAttribute('mindimensions') &&
+                _bn_getFile(input) !== false
+            ) {
+                const [minWidth, minHeight] = input
+                    .getAttribute('mindimensions')
+                    .split('x')
+                BunnyImage.getImageByBlob(_bn_getFile(input))
+                    .then(img => {
+                        const width = BunnyImage.getImageWidth(img)
+                        const height = BunnyImage.getImageHeight(img)
+                        if (width < minWidth || height < minHeight) {
+                            invalid({
+                                width: width,
+                                height: height,
+                                minWidth,
+                                minHeight,
+                            })
+                        } else {
+                            valid()
+                        }
+                    })
+                    .catch(e => {
+                        invalid(e)
+                    })
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     maxImageDimensions(input) {
         return new Promise((valid, invalid) => {
-            if (input.hasAttribute('maxdimensions') && _bn_getFile(input) !== false) {
-                const [maxWidth, maxHeight] = input.getAttribute('maxdimensions').split('x');
-                BunnyImage.getImageByBlob(_bn_getFile(input)).then(img => {
-                    const width = BunnyImage.getImageWidth(img);
-                    const height = BunnyImage.getImageHeight(img);
-                    if (width > maxWidth || height > maxHeight) {
-                        invalid({width: width, height: height, maxWidth, maxHeight});
-                    } else {
-                        valid();
-                    }
-                }).catch(e => {
-                    invalid(e);
-                });
+            if (
+                input.hasAttribute('maxdimensions') &&
+                _bn_getFile(input) !== false
+            ) {
+                const [maxWidth, maxHeight] = input
+                    .getAttribute('maxdimensions')
+                    .split('x')
+                BunnyImage.getImageByBlob(_bn_getFile(input))
+                    .then(img => {
+                        const width = BunnyImage.getImageWidth(img)
+                        const height = BunnyImage.getImageHeight(img)
+                        if (width > maxWidth || height > maxHeight) {
+                            invalid({
+                                width: width,
+                                height: height,
+                                maxWidth,
+                                maxHeight,
+                            })
+                        } else {
+                            valid()
+                        }
+                    })
+                    .catch(e => {
+                        invalid(e)
+                    })
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     requiredFromList(input) {
         return new Promise((valid, invalid) => {
-            let id;
+            let id
             if (input.hasAttribute('requiredfromlist')) {
                 id = input.getAttribute('requiredfromlist')
             } else {
-                id = input.name + '_id';
+                id = input.name + '_id'
             }
-            const srcInput = document.getElementById(id);
+            const srcInput = document.getElementById(id)
             if (srcInput) {
                 if (srcInput.value.length > 0) {
-                    valid();
+                    valid()
                 } else {
-                    invalid();
+                    invalid()
                 }
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     minOptions(input) {
         return new Promise((valid, invalid) => {
             if (input.hasAttribute('minoptions')) {
-                const minOptionsCount = parseInt(input.getAttribute('minoptions'));
-                const inputGroup = ValidationUI.getInputGroup(input);
-                const hiddenInputs = inputGroup.getElementsByTagName('input');
-                let selectedOptionsCount = 0;
-                [].forEach.call(hiddenInputs, hiddenInput => {
+                const minOptionsCount = parseInt(
+                    input.getAttribute('minoptions')
+                )
+                const inputGroup = ValidationUI.getInputGroup(input)
+                const hiddenInputs = inputGroup.getElementsByTagName('input')
+                let selectedOptionsCount = 0
+                ;[].forEach.call(hiddenInputs, hiddenInput => {
                     if (hiddenInput !== input && hiddenInput.value !== '') {
                         selectedOptionsCount++
                     }
-                });
+                })
                 if (selectedOptionsCount < minOptionsCount) {
-                    invalid({minOptionsCount});
+                    invalid({ minOptionsCount })
                 } else {
-                    valid();
+                    valid()
                 }
             } else {
-                valid();
+                valid()
             }
         })
     },
@@ -309,17 +360,24 @@ export const ValidationValidators = {
     confirmation(input) {
         return new Promise((valid, invalid) => {
             if (input.name.indexOf('_confirmation') > -1) {
-                const originalInputId = input.name.substr(0, input.name.length - 13);
-                const originalInput = document.getElementById(originalInputId);
+                const originalInputId = input.name.substr(
+                    0,
+                    input.name.length - 13
+                )
+                const originalInput = document.getElementById(originalInputId)
                 if (originalInput.value == input.value) {
-                    valid();
+                    valid()
                 } else {
-                    invalid({originalLabel: ValidationUI.getLabel(ValidationUI.getInputGroup(originalInput)).textContent});
+                    invalid({
+                        originalLabel: ValidationUI.getLabel(
+                            ValidationUI.getInputGroup(originalInput)
+                        ).textContent,
+                    })
                 }
             } else {
-                valid();
+                valid()
             }
-        });
+        })
     },
 
     // if input's value is not empty and input has attribute "data-ajax" which should contain ajax URL with {value}
@@ -333,24 +391,30 @@ export const ValidationValidators = {
     ajax(input) {
         return new Promise((valid, invalid) => {
             if (input.dataset.ajax !== undefined && input.value.length > 0) {
-                const url = input.dataset.ajax.replace('{value}', encodeURIComponent(input.value))
-                Ajax.get(url, data => {
-                    data = JSON.parse(data);
-                    if (data.message !== undefined && data.message !== '') {
-                        invalid(data.message);
-                    } else {
-                        valid();
+                const url = input.dataset.ajax.replace(
+                    '{value}',
+                    encodeURIComponent(input.value)
+                )
+                Ajax.get(
+                    url,
+                    data => {
+                        data = JSON.parse(data)
+                        if (data.message !== undefined && data.message !== '') {
+                            invalid(data.message)
+                        } else {
+                            valid()
+                        }
+                    },
+                    () => {
+                        invalid('Ajax error')
                     }
-                }, () => {
-                    invalid('Ajax error');
-                });
+                )
             } else {
-                valid();
+                valid()
             }
-        });
-    }
-
-};
+        })
+    },
+}
 
 /**
  * @package BunnyJS
@@ -364,7 +428,6 @@ export const ValidationValidators = {
  * <fieldset> is recommended to be used to wrap more then one input
  */
 export const ValidationUI = {
-
     config: ValidationConfig,
 
     /* ************************************************************************
@@ -378,10 +441,8 @@ export const ValidationUI = {
      * @param {HTMLElement} errorNode
      */
     insertErrorNode(inputGroup, errorNode) {
-        inputGroup.appendChild(errorNode);
+        inputGroup.appendChild(errorNode)
     },
-
-
 
     /**
      * DOM algorithm - where to add/remove error class
@@ -389,10 +450,8 @@ export const ValidationUI = {
      * @param {HTMLElement} inputGroup
      */
     toggleErrorClass(inputGroup) {
-        inputGroup.classList.toggle(this.config.classInputGroupError);
+        inputGroup.classList.toggle(this.config.classInputGroupError)
     },
-
-
 
     /**
      * Create DOM element for error message
@@ -400,12 +459,10 @@ export const ValidationUI = {
      * @returns {HTMLElement}
      */
     createErrorNode() {
-        const el = document.createElement(this.config.tagNameError);
-        el.classList.add(this.config.classError);
-        return el;
+        const el = document.createElement(this.config.tagNameError)
+        el.classList.add(this.config.classError)
+        return el
     },
-
-
 
     /**
      * Find error message node within input group or false if not found
@@ -415,10 +472,11 @@ export const ValidationUI = {
      * @returns {HTMLElement|boolean}
      */
     getErrorNode(inputGroup) {
-        return inputGroup.getElementsByClassName(this.config.classError)[0] || false;
+        return (
+            inputGroup.getElementsByClassName(this.config.classError)[0] ||
+            false
+        )
     },
-
-
 
     /**
      * Removes error node and class from input group if exists
@@ -426,27 +484,23 @@ export const ValidationUI = {
      * @param {HTMLElement} inputGroup
      */
     removeErrorNode(inputGroup) {
-        const el = this.getErrorNode(inputGroup);
+        const el = this.getErrorNode(inputGroup)
         if (el) {
-            el.parentNode.removeChild(el);
-            this.toggleErrorClass(inputGroup);
+            el.parentNode.removeChild(el)
+            this.toggleErrorClass(inputGroup)
         }
     },
 
-
-
-  /**
-   * Removes all error node and class from input group if exists within section
-   *
-   * @param {HTMLElement} section
-   */
+    /**
+     * Removes all error node and class from input group if exists within section
+     *
+     * @param {HTMLElement} section
+     */
     removeErrorNodesFromSection(section) {
-      [].forEach.call(this.getInputGroupsInSection(section), inputGroup => {
-        this.removeErrorNode(inputGroup);
-      });
+        ;[].forEach.call(this.getInputGroupsInSection(section), inputGroup => {
+            this.removeErrorNode(inputGroup)
+        })
     },
-
-
 
     /**
      * Creates and includes into DOM error node or updates error message
@@ -455,18 +509,16 @@ export const ValidationUI = {
      * @param {String} message
      */
     setErrorMessage(inputGroup, message) {
-        let errorNode = this.getErrorNode(inputGroup);
+        let errorNode = this.getErrorNode(inputGroup)
         if (errorNode === false) {
             // container for error message doesn't exists, create new
-            errorNode = this.createErrorNode();
-            this.toggleErrorClass(inputGroup);
+            errorNode = this.createErrorNode()
+            this.toggleErrorClass(inputGroup)
             this.insertErrorNode(inputGroup, errorNode)
         }
         // set or update error message
-        errorNode.textContent = message;
+        errorNode.textContent = message
     },
-
-
 
     /**
      * Marks input as valid
@@ -474,10 +526,8 @@ export const ValidationUI = {
      * @param {HTMLElement} inputGroup
      */
     setInputValid(inputGroup) {
-      inputGroup.classList.add(this.config.classInputGroupSuccess);
+        inputGroup.classList.add(this.config.classInputGroupSuccess)
     },
-
-
 
     /* ************************************************************************
      * SEARCH DOM
@@ -491,10 +541,8 @@ export const ValidationUI = {
      * @returns {HTMLElement|boolean}
      */
     getInput(inputGroup) {
-        return inputGroup.querySelector(this.config.selectorInput) || false;
+        return inputGroup.querySelector(this.config.selectorInput) || false
     },
-
-
 
     /**
      * Find closest parent inputGroup element by Input element
@@ -504,12 +552,13 @@ export const ValidationUI = {
      * @returns {HTMLElement}
      */
     getInputGroup(input) {
-        let el = input;
-        while ((el = el.parentNode) && !el.classList.contains(this.config.classInputGroup));
-        return el;
+        let el = input
+        while (
+            (el = el.parentNode) &&
+            !el.classList.contains(this.config.classInputGroup)
+        );
+        return el
     },
-
-
 
     /**
      * Find inputs in section
@@ -522,40 +571,38 @@ export const ValidationUI = {
      * @returns {Array|Object}
      */
     getInputsInSection(node, resolving = false) {
-        const inputGroups = this.getInputGroupsInSection(node);
-        let inputs;
+        const inputGroups = this.getInputGroupsInSection(node)
+        let inputs
         if (resolving) {
             inputs = {
                 inputs: {},
                 invalidInputs: {},
                 length: 0,
                 unresolvedLength: 0,
-                invalidLength: 0
-            };
+                invalidLength: 0,
+            }
         } else {
-            inputs = [];
+            inputs = []
         }
         for (let k = 0; k < inputGroups.length; k++) {
-            const input = this.getInput(inputGroups[k]);
+            const input = this.getInput(inputGroups[k])
             if (input === false) {
-                console.error(inputGroups[k]);
-                throw new Error('Bunny Validation: Input group has no input');
+                console.error(inputGroups[k])
+                throw new Error('Bunny Validation: Input group has no input')
             }
             if (resolving) {
                 inputs.inputs[k] = {
                     input: input,
-                    isValid: null
-                };
-                inputs.length++;
-                inputs.unresolvedLength++;
+                    isValid: null,
+                }
+                inputs.length++
+                inputs.unresolvedLength++
             } else {
-                inputs.push(input);
+                inputs.push(input)
             }
         }
-        return inputs;
+        return inputs
     },
-
-
 
     /**
      * Find label associated with input within input group
@@ -565,10 +612,8 @@ export const ValidationUI = {
      * @returns {HTMLElement|boolean}
      */
     getLabel(inputGroup) {
-        return inputGroup.getElementsByTagName('label')[0] || false;
+        return inputGroup.getElementsByTagName('label')[0] || false
     },
-
-
 
     /**
      * Find all input groups within section
@@ -578,252 +623,281 @@ export const ValidationUI = {
      * @returns {HTMLCollection}
      */
     getInputGroupsInSection(node) {
-        return node.getElementsByClassName(this.config.classInputGroup);
-    }
-
-};
+        return node.getElementsByClassName(this.config.classInputGroup)
+    },
+}
 
 export const Validation = {
-
     validators: ValidationValidators,
     lang: ValidationLang,
     ui: ValidationUI,
 
     init(form, inline = false) {
         // disable browser built-in validation
-        form.setAttribute('novalidate', '');
+        form.setAttribute('novalidate', '')
 
         form.addEventListener('submit', e => {
-            e.preventDefault();
-            const submitBtns = form.querySelectorAll('[type="submit"]');
-            [].forEach.call(submitBtns, submitBtn => {
-                submitBtn.disabled = true;
-            });
+            e.preventDefault()
+            const submitBtns = form.querySelectorAll('[type="submit"]')
+            ;[].forEach.call(submitBtns, submitBtn => {
+                submitBtn.disabled = true
+            })
             this.validateSection(form).then(result => {
-                [].forEach.call(submitBtns, submitBtn => {
-                    submitBtn.disabled = false;
-                });
+                ;[].forEach.call(submitBtns, submitBtn => {
+                    submitBtn.disabled = false
+                })
                 if (result === true) {
                     // form.submit();
                 } else {
-                    this.focusInput(result[0]);
+                    this.focusInput(result[0])
                 }
             })
-        });
+        })
 
         if (inline) {
-            this.initInline(form);
+            this.initInline(form)
         }
     },
 
     initInline(node) {
-        const inputs = this.ui.getInputsInSection(node);
+        const inputs = this.ui.getInputsInSection(node)
         inputs.forEach(input => {
             input.addEventListener('change', () => {
-                this.checkInput(input).catch(e => {});
+                this.checkInput(input).catch(e => {})
             })
         })
     },
 
     validateSection(node) {
         if (node.__bunny_validation_state === undefined) {
-            node.__bunny_validation_state = true;
+            node.__bunny_validation_state = true
         } else {
-            throw new Error('Bunny Validation: validation already in progress.');
+            throw new Error('Bunny Validation: validation already in progress.')
         }
         return new Promise(resolve => {
-            const resolvingInputs = this.ui.getInputsInSection(node, true);
+            const resolvingInputs = this.ui.getInputsInSection(node, true)
             if (resolvingInputs.length === 0) {
                 // nothing to validate, end
-                this._endSectionValidation(node, resolvingInputs, resolve);
+                this._endSectionValidation(node, resolvingInputs, resolve)
             } else {
                 // run async validation for each input
                 // when last async validation will be completed, call validSection or invalidSection
-                let promises = [];
-                for(let i = 0; i < resolvingInputs.length; i++) {
-                    const input = resolvingInputs.inputs[i].input;
+                let promises = []
+                for (let i = 0; i < resolvingInputs.length; i++) {
+                    const input = resolvingInputs.inputs[i].input
 
-                    this.checkInput(input).then(() => {
-                        this._addValidInput(resolvingInputs, input);
-                        if (resolvingInputs.unresolvedLength === 0) {
-                            this._endSectionValidation(node, resolvingInputs, resolve);
-                        }
-                    }).catch(errorMessage => {
-                        this._addInvalidInput(resolvingInputs, input);
-                        if (resolvingInputs.unresolvedLength === 0) {
-                            this._endSectionValidation(node, resolvingInputs, resolve);
-                        }
-                    });
+                    this.checkInput(input)
+                        .then(() => {
+                            this._addValidInput(resolvingInputs, input)
+                            if (resolvingInputs.unresolvedLength === 0) {
+                                this._endSectionValidation(
+                                    node,
+                                    resolvingInputs,
+                                    resolve
+                                )
+                            }
+                        })
+                        .catch(errorMessage => {
+                            this._addInvalidInput(resolvingInputs, input)
+                            if (resolvingInputs.unresolvedLength === 0) {
+                                this._endSectionValidation(
+                                    node,
+                                    resolvingInputs,
+                                    resolve
+                                )
+                            }
+                        })
                 }
 
                 // if there are not resolved promises after 3s, terminate validation, mark pending inputs as invalid
                 setTimeout(() => {
                     if (resolvingInputs.unresolvedLength > 0) {
-                        let unresolvedInputs = this._getUnresolvedInputs(resolvingInputs);
+                        let unresolvedInputs = this._getUnresolvedInputs(
+                            resolvingInputs
+                        )
                         for (let i = 0; i < unresolvedInputs.length; i++) {
-                            const input = unresolvedInputs[i];
-                            const inputGroup = this.ui.getInputGroup(input);
-                            this._addInvalidInput(resolvingInputs, input);
-                            this.ui.setErrorMessage(inputGroup, 'Validation terminated after 3s');
+                            const input = unresolvedInputs[i]
+                            const inputGroup = this.ui.getInputGroup(input)
+                            this._addInvalidInput(resolvingInputs, input)
+                            this.ui.setErrorMessage(
+                                inputGroup,
+                                'Validation terminated after 3s'
+                            )
                             if (resolvingInputs.unresolvedLength === 0) {
-                                this._endSectionValidation(node, resolvingInputs, resolve);
+                                this._endSectionValidation(
+                                    node,
+                                    resolvingInputs,
+                                    resolve
+                                )
                             }
                         }
                     }
-                }, 3000);
+                }, 3000)
             }
-        });
+        })
     },
 
     focusInput(input, delay = 500, offset = -50) {
-        BunnyElement.scrollTo(input, delay, offset);
-        input.focus();
+        BunnyElement.scrollTo(input, delay, offset)
+        input.focus()
         if (
-            input.offsetParent !== null
-            && input.setSelectionRange !== undefined
-            && ['text', 'search', 'url', 'tel', 'password'].indexOf(input.type) !== -1
-            && typeof input.setSelectionRange === 'function'
+            input.offsetParent !== null &&
+            input.setSelectionRange !== undefined &&
+            ['text', 'search', 'url', 'tel', 'password'].indexOf(input.type) !==
+                -1 &&
+            typeof input.setSelectionRange === 'function'
         ) {
-            input.setSelectionRange(input.value.length, input.value.length);
+            input.setSelectionRange(input.value.length, input.value.length)
         }
     },
 
     checkInput(input) {
         return new Promise((valid, invalid) => {
-            this._checkInput(input, 0, valid, invalid);
-        });
-
+            this._checkInput(input, 0, valid, invalid)
+        })
     },
 
     _addValidInput(resolvingInputs, input) {
-        resolvingInputs.unresolvedLength--;
+        resolvingInputs.unresolvedLength--
         for (let k in resolvingInputs.inputs) {
             if (input === resolvingInputs.inputs[k].input) {
-                resolvingInputs.inputs[k].isValid = true;
-                break;
+                resolvingInputs.inputs[k].isValid = true
+                break
             }
         }
     },
 
     _addInvalidInput(resolvingInputs, input) {
-        resolvingInputs.unresolvedLength--;
-        resolvingInputs.invalidLength++;
+        resolvingInputs.unresolvedLength--
+        resolvingInputs.invalidLength++
         for (let k in resolvingInputs.inputs) {
             if (input === resolvingInputs.inputs[k].input) {
-                resolvingInputs.inputs[k].isValid = false;
-                resolvingInputs.invalidInputs[k] = input;
-                break;
+                resolvingInputs.inputs[k].isValid = false
+                resolvingInputs.invalidInputs[k] = input
+                break
             }
         }
     },
 
     _getUnresolvedInputs(resolvingInputs) {
-        let unresolvedInputs = [];
+        let unresolvedInputs = []
         for (let k in resolvingInputs.inputs) {
             if (!resolvingInputs.inputs[k].isValid) {
-                unresolvedInputs.push(resolvingInputs.inputs[k].input);
+                unresolvedInputs.push(resolvingInputs.inputs[k].input)
             }
         }
-        return unresolvedInputs;
+        return unresolvedInputs
     },
 
     _endSectionValidation(node, resolvingInputs, resolve) {
-        delete node.__bunny_validation_state;
+        delete node.__bunny_validation_state
 
         if (resolvingInputs.invalidLength === 0) {
             // form or section is valid
-            return resolve(true);
+            return resolve(true)
         } else {
-            let invalidInputs = [];
-            for(let k in resolvingInputs.invalidInputs) {
-                invalidInputs.push(resolvingInputs.invalidInputs[k]);
+            let invalidInputs = []
+            for (let k in resolvingInputs.invalidInputs) {
+                invalidInputs.push(resolvingInputs.invalidInputs[k])
             }
             // form or section has invalid inputs
-            return resolve(invalidInputs);
+            return resolve(invalidInputs)
         }
     },
 
     _checkInput(input, index, valid, invalid) {
-        const validators = Object.keys(this.validators);
-        const currentValidatorName = validators[index];
-        const currentValidator = this.validators[currentValidatorName];
-        currentValidator(input).then(() => {
-            index++;
-            if (validators[index] !== undefined) {
-                this._checkInput(input, index, valid, invalid)
-            } else {
-                const inputGroup = this.ui.getInputGroup(input);
-                // if has error message, remove it
-                this.ui.removeErrorNode(inputGroup);
+        const validators = Object.keys(this.validators)
+        const currentValidatorName = validators[index]
+        const currentValidator = this.validators[currentValidatorName]
+        currentValidator(input)
+            .then(() => {
+                index++
+                if (validators[index] !== undefined) {
+                    this._checkInput(input, index, valid, invalid)
+                } else {
+                    const inputGroup = this.ui.getInputGroup(input)
+                    // if has error message, remove it
+                    this.ui.removeErrorNode(inputGroup)
 
-                if (input.form && input.form.hasAttribute('showvalid')) {
-                    // mark input as valid
-                    this.ui.setInputValid(inputGroup);
+                    if (input.form && input.form.hasAttribute('showvalid')) {
+                        // mark input as valid
+                        this.ui.setInputValid(inputGroup)
+                    }
+
+                    valid()
+                }
+            })
+            .catch(data => {
+                // Check if Data is system Exception
+                if (data !== undefined && data.message !== undefined) {
+                    throw data
                 }
 
-                valid();
-            }
-        }).catch(data => {
-            // Check if Data is system Exception
-            if (data !== undefined && data.message !== undefined) {
-                throw data;
-            }
+                // get input group and label
+                const inputGroup = this.ui.getInputGroup(input)
+                const label = this.ui.getLabel(inputGroup)
 
-            // get input group and label
-            const inputGroup = this.ui.getInputGroup(input);
-            const label = this.ui.getLabel(inputGroup);
+                // get error message
+                const errorMessage = this._getErrorMessage(
+                    currentValidatorName,
+                    input,
+                    label,
+                    data
+                )
 
-            // get error message
-            const errorMessage = this._getErrorMessage(currentValidatorName, input, label, data);
-
-            // set error message
-            this.ui.setErrorMessage(inputGroup, errorMessage);
-            invalid(errorMessage);
-        });
+                // set error message
+                this.ui.setErrorMessage(inputGroup, errorMessage)
+                invalid(errorMessage)
+            })
     },
 
     _getErrorMessage(validatorName, input, label, data) {
-        let message = '';
+        let message = ''
         if (typeof data === 'string') {
             // if validator returned string (from ajax for example), use it
-            message = data;
+            message = data
         } else {
             if (this.lang[validatorName] === undefined) {
-                throw new Error('Bunny Validation: Lang message not found for validator: ' + validatorName);
+                throw new Error(
+                    'Bunny Validation: Lang message not found for validator: ' +
+                        validatorName
+                )
             }
-            message = this.lang[validatorName];
+            message = this.lang[validatorName]
         }
 
         // replace params in error message
-        message = message.replace('{label}', this._getInputTitle(input, label));
+        message = message.replace('{label}', this._getInputTitle(input, label))
 
         for (let paramName in data) {
-            message = message.replace('{' + paramName + '}', data[paramName]);
+            message = message.replace('{' + paramName + '}', data[paramName])
         }
-        return message;
+        return message
     },
 
     _getInputTitle(input, label) {
-      if (label !== false) {
-        return label.textContent;
-      } else if (input.placeholder && input.placeholder !== '') {
-        return input.placeholder;
-      } else if (input.getAttribute('aria-label') && input.getAttribute('aria-label') !== '') {
-        return input.getAttribute('aria-label');
-      } else if (input.name && input.name !== '') {
-        return input.name;
-      } else {
-        return '';
-      }
-    }
-
-};
+        if (label !== false) {
+            return label.textContent
+        } else if (input.placeholder && input.placeholder !== '') {
+            return input.placeholder
+        } else if (
+            input.getAttribute('aria-label') &&
+            input.getAttribute('aria-label') !== ''
+        ) {
+            return input.getAttribute('aria-label')
+        } else if (input.name && input.name !== '') {
+            return input.name
+        } else {
+            return ''
+        }
+    },
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-    [].forEach.call(document.forms, form => {
+    ;[].forEach.call(document.forms, form => {
         if (form.getAttribute('validator') === 'bunny') {
-            const inline = form.hasAttribute('validator-inline');
-            Validation.init(form, inline);
+            const inline = form.hasAttribute('validator-inline')
+            Validation.init(form, inline)
         }
-    });
-});
+    })
+})
