@@ -6,6 +6,7 @@
 <script>
 import Choices from 'choices.js'
 import Url from 'domurl'
+
 export default {
     props: {
         value: {
@@ -27,7 +28,11 @@ export default {
             },
             set(value) {
                 const url = new Url
-                url.query[this.opt.name] = value
+                if (value) {
+                    url.query[this.opt.name] = value
+                } else {
+                    delete url.query[this.opt.name]
+                }
                 window.location = url
             },
         },

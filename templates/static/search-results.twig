@@ -2,8 +2,6 @@
 {% import '_macros/global' as global %} 
 {% block content %}
 
-    {# TODO: check removing filters #}
-
     {# params #}
     {% set searchQuery = craft.app.request.getParam('q') %}
     {% set format = craft.app.request.getParam('format') %}
@@ -24,11 +22,11 @@
     {# apply sections #}
     {% set sectionFilter = format ?: sections|join(',') %}
 
-    {% set topicParam = topic ? { targetElement: craft.categories.group('topics').id(topic).first } : '' %}
-    {% set authorParam = author ? {
-        targetElement: craft.entries.section('authors').id(author).first,
-        field: 'authorLink'
-    } : '' %}
+    {# build out relationships #}
+    {% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
+    {% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+    {% set topicParam = topicCat ? { targetElement: topicCat } %}
+    {% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
     {% set relationParams = [topicParam, authorParam]|filter %}
 
     {# entries query #}
