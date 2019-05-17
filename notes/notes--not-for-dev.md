@@ -1,17 +1,35 @@
----- Templating Notes ----
+---- LB Hit List ----
+
+x Require - Contact Form Ext. - Contact Email Template Ext.
+
+-   Fix dep warnings
+-   Setup GC Structure
+-   Setup GC Template
+-   Commerce Styles
+-   Test Contact Form Ext
+-   Setup Speaker Form
+-   Setup Course Registration Form
+    -   Groupie Plugin assigns them to a group
+    -   Add checkbox and Mailchimp Subscribe
+-   Post Mailgun access
+    -   Test Contact Form Email Templates Ext
+-   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
+
+-   Add Login / Forgot Pw page - test notifications
+    ---- Templating Notes ----
 
 # -Te Article Entry
+
 [x] product link
 [x] blogcast, video, or hero image
 [x] author
 [x] subscribe blog cast billboard
 
 # -Te Section
+
 [x] featured entry hero
 [x] switch statement for entry formats
 [x] filter lists
-
-
 
 # FED for Podcast Entry
 
