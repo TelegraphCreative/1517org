@@ -2,7 +2,7 @@
 
 <ul class="list-podcasts | list-reset{% if classes is defined %} | {{ classes }}{% endif %}">
 
-    {% for item in content %}
+    {% for item in content.all() %}
         <li class="list-podcast | max-w-lg mx-auto">
             <div class="list-podcast__container | flex-grid">
 

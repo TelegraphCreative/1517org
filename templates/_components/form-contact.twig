@@ -1,5 +1,5 @@
 
-<contact_form :formmethod="'post'" :formaction="'/contact-form/send'"
+<contact_form :formmethod="'post'" :formaction="'https://formspree.io/xlogpbwm'"
     :mcid="'8a954ea73c'" :mcuser="'6ab7472048d4ea9ba49aa23e8'" :mcurl="'wearetelegraph.us5'"
     :signuplocation="'contact-page'">
 
@@ -24,25 +24,8 @@
 
     <template v-slot:fields>
 
-
-        {% macro errorList(errors) %}
-        {% if errors %}
-        <ul class="errors">
-            {% for error in errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endmacro %}
-
-        {% from _self import errorList %}
-
-        {{ csrfInput() }}
-        <input type="hidden" name="action" value="contact-form/send">
-        {{ redirectInput('contact?status=success') }}
-        <input type="hidden" name="message[template]" value="{{ 'user-confirmations/default-confirmation'|hash }}">
-        <input id="subject" type="text" name="subject" value="1517 Contact Form Message" class="hidden">
-
+        <input id="favoriteboulder" name="_gotcha" type="text">
+        <input type="text" id="subject"  name="subject" value="1517 Contact Form Message" class="hidden">
 
         {# Full Name #}
         <div class="form-group">
@@ -50,15 +33,13 @@
                 <label class="standard-label" for="firstName">
                     First Name
                 </label>
-                <input type="text" id="firstName" name="message[firstName]"
-                    value="{{ message.message.firstName ?? '' }}" />
+                <input type="text" id="firstName" name="firstName" {%- if user.firstName is defined %} value="{{ user.firstName }}" {% endif -%}/>
             </div>
             <div class="field-group | w-1/2">
                 <label class="standard-label" for="lastName">
                     Last Name
                 </label>
-                <input type="text" id="lastName" name="message[lastName]"
-                    value="{{ message.message.lastName ?? '' }}" />
+                <input type="text" id="lastName" name="lastName" {%- if user.firstName is defined %} value="{{ user.lastName }}" {% endif -%}/>
             </div>
         </div>
 
@@ -69,7 +50,7 @@
                 <label class="standard-label" for="email">
                     Email Address
                 </label>
-                <input type="email" id="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}" />
+                <input type="email" id="email" name="_replyto" {%- if user is defined %} value="{{ user.email }}" {% endif %}/>
 
             </div>
         </div>
@@ -81,7 +62,7 @@
                 <label class="standard-label" for="message">
                     Message
                 </label>
-                <textarea id="message" name="message" rows="6">{{ message.message ?? '' }}</textarea>
+                <textarea id="message" name="message" rows="6"></textarea>
 
             </div>
         </div>
@@ -91,7 +72,7 @@
             <div class="field-group | w-full">
 
                 <label for="subscribe-to-updates" class="control -small">
-                    <input type="checkbox" value="yesUpdates" name="checkbox-group-A" id="subscribe-to-updates">
+                    <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates">
 
                     <span class="control__text">Sign up for updates?</span>
 
@@ -100,7 +81,8 @@
 
             </div>
         </div>
-
+        
+        {# Submit #}
         <div class="form-submit">
             <button type="submit" class="btn -full -red">Submit Form</button>
         </div>

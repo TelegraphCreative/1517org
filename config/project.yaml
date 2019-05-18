@@ -199,11 +199,20 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1557779273
+dateModified: 1558205640
 email:
-  fromEmail: accounts@wearetelegraph.com
+  fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
-  transportType: craft\mail\transportadapters\Sendmail
+  template: ''
+  transportType: craft\mail\transportadapters\Smtp
+  transportSettings:
+    host: smtp.mailgun.org
+    port: '587'
+    useAuthentication: '1'
+    username: postmaster@sandbox3523323655804f678e9ee72e76dd68ac.mailgun.org
+    password: f3f63eb274ce70aa327b3b81e7971bd6-4a62b8e8-c07ac98f
+    encryptionMethod: ''
+    timeout: '10'
 fieldGroups:
   be195220-984a-4496-a3ec-b2db4bf7dbe2:
     name: Common
@@ -231,6 +240,8 @@ fieldGroups:
     name: Course
   79dfa295-80d7-49be-afd3-5fc2a2080185:
     name: Home
+  a547f5dd-cda6-4e1b-a3f8-465f1e7a2667:
+    name: Forms
 fieldlabels:
   b4e5ef6f-db34-41a4-bedd-074aa3acae21:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
@@ -337,11 +348,13 @@ fields:
     settings:
       redactorConfig: Simple.json
       purifierConfig: ''
-      cleanupHtml: '1'
       purifyHtml: '1'
       columnType: text
       availableVolumes: '*'
       availableTransforms: '*'
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
     contentColumnType: text
     fieldGroup: bc4a29b7-7523-4b35-ad83-a925ceb3eb85
   b01177fd-3f47-40a3-a665-91c104efbd06:
@@ -467,11 +480,13 @@ fields:
     settings:
       redactorConfig: ''
       purifierConfig: ''
-      cleanupHtml: '1'
       purifyHtml: '1'
       columnType: text
       availableVolumes: '*'
       availableTransforms: '*'
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
     contentColumnType: text
     fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
   d8b6b06f-0202-413c-83b0-879f3c793a6f:
@@ -699,11 +714,13 @@ fields:
     settings:
       redactorConfig: Simple.json
       purifierConfig: ''
-      cleanupHtml: '1'
       purifyHtml: '1'
       columnType: text
       availableVolumes: '*'
       availableTransforms: '*'
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   044102bf-2640-48b6-9408-aafe7d83a5bc:
@@ -758,11 +775,13 @@ fields:
     settings:
       redactorConfig: Minimal.json
       purifierConfig: ''
-      cleanupHtml: '1'
       purifyHtml: '1'
       columnType: text
       availableVolumes: '*'
       availableTransforms: '*'
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
     contentColumnType: text
     fieldGroup: 1cd8381d-7d6a-40c0-8ee5-78474d24030d
   ddcdbf02-d299-4f04-a9b9-8efc7f0840ed:
@@ -996,11 +1015,13 @@ fields:
     settings:
       redactorConfig: Minimal.json
       purifierConfig: ''
-      cleanupHtml: '1'
       purifyHtml: '1'
       columnType: text
       availableVolumes: '*'
       availableTransforms: '*'
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
     contentColumnType: text
     fieldGroup: 18fa1806-d926-4b54-a367-a29143312bbf
   b3e26680-82f0-49eb-acde-3ea50bc98657:
@@ -1540,11 +1561,13 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
-          cleanupHtml: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -1787,11 +1810,13 @@ matrixBlockTypes:
         settings:
           redactorConfig: Simple.json
           purifierConfig: ''
-          cleanupHtml: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
       f3f9bbbd-ee14-42a2-9c51-a0507550bd22:
@@ -1870,11 +1895,13 @@ matrixBlockTypes:
         settings:
           redactorConfig: Minimal.json
           purifierConfig: ''
-          cleanupHtml: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
       924198ca-aea8-4a0a-bf18-a44265fa46af:
@@ -2491,11 +2518,13 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
-          cleanupHtml: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -2767,11 +2796,13 @@ matrixBlockTypes:
         settings:
           redactorConfig: Minimal.json
           purifierConfig: ''
-          cleanupHtml: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
       8cf81a0d-72ed-4c89-96fa-5077926aba64:
@@ -3020,11 +3051,13 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
-          cleanupHtml: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -3515,7 +3548,7 @@ plugins:
   super-table:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.10
+    schemaVersion: 2.0.11
   seomatic:
     edition: standard
     enabled: true
@@ -3531,7 +3564,7 @@ plugins:
   redactor:
     edition: standard
     enabled: true
-    schemaVersion: 2.2.2
+    schemaVersion: 2.3.0
   aws-s3:
     edition: standard
     enabled: true
@@ -3571,7 +3604,7 @@ plugins:
   fieldlabels:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 1.1.0
   commerce:
     edition: lite
     enabled: true
@@ -3579,21 +3612,33 @@ plugins:
   commerce-stripe:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: '2.0'
   single-cat:
     edition: standard
     enabled: true
     schemaVersion: 1.1.0
-  contact-form:
+  groupie:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
     settings:
-      toEmail: lindseyb@wearetelegraph.com
-      prependSender: 'On behalf of'
-      prependSubject: 'New message from 1517'
-      allowAttachments: ''
-      successFlashMessage: 'Your message has been sent.'
+      multipleGroups: ''
+      publicGroups:
+        - '1'
+      groups:
+        -
+          id: 1
+          name: 'Course Subscribers'
+          handle: courseSubscribers
+          uid: fcd91374-4e27-4852-96ca-86f2891be207
+  snitch:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+  element-map:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -5587,7 +5632,7 @@ system:
   edition: pro
   name: '1517'
   live: true
-  schemaVersion: 3.1.27
+  schemaVersion: 3.1.28
   timeZone: America/Los_Angeles
 users:
   requireEmailVerification: true
@@ -5595,6 +5640,10 @@ users:
   defaultGroup: null
   photoVolumeUid: null
   photoSubpath: ''
+  groups:
+    fcd91374-4e27-4852-96ca-86f2891be207:
+      name: 'Course Subscribers'
+      handle: courseSubscribers
 volumes:
   00cd5776-45fa-4edf-9645-ee2a9cd92708:
     name: Audio

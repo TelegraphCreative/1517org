@@ -30,7 +30,7 @@
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one(), dropCap: true, layoutClasses: 'narrow-block gutter-xl' } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: entry.contentBlocksStandard, dropCap: true } %}
 
             </div>
             
@@ -70,7 +70,7 @@
 
 
         {# Article + Aside (top) #}
-        {% if entry.contentBlocksStandard|length>1 %}
+        {% if entry.contentBlocksStandard|length>3 %}
             
             {# Content #}
             <article class="entry-main -wide">
@@ -79,7 +79,7 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %}
+                    {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(3).all(), layoutClasses: 'narrow-block gutter-xl' } %}
 
                     {# Citation #}
                     {% if entry.citation is defined %}

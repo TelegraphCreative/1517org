@@ -27,10 +27,10 @@ cite {
             padding-top: 32px;
         }
 
-        &:after {
-            content: '\201D';
-            font-family: 'Lucida Grande';
-        }
+        // &:after {
+        //     content: '\201D';
+        //     font-family: 'Lucida Grande';
+        // }
     }
     cite {
         @apply relative mb-8 pl-6 meta-label text-bronze roman;

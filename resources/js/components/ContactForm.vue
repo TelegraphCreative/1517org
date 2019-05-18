@@ -6,9 +6,9 @@
       </div>
       <div v-else key="default">
         <slot name="default"></slot>
-        <slot name="fields"></slot>
-        <!-- <form @submit.prevent="handleSubmit" accept-charset="UTF-8" class="form-base">
-        </form>-->
+        <form @submit.prevent="handleSubmit" accept-charset="UTF-8" class="form-base">
+          <slot name="fields"></slot>
+        </form>
       </div>
     </transition>
   </div>
@@ -55,12 +55,7 @@ export default {
         const _this = this
         _this.form = _this.$el.querySelector('form')
 
-        // this.validateForm()
-        // _this.form.addEventListener('submit', function(e) {
-        //     e.preventDefault()
-        //     _this.handleSubmit()
-        //     console.log('handle submission')
-        // })
+        this.validateForm()
     },
     methods: {
         validateForm() {
@@ -72,7 +67,6 @@ export default {
         handleSubmit(event) {
             const _this = this
             const submitBtn = _this.form.querySelector('[type="submit"]')
-
             Validation.validateSection(_this.form).then(result => {
                 submitBtn.disabled = false
                 if (result === true) {
@@ -110,10 +104,9 @@ export default {
         },
         subscribeUser() {
             const _this = this
-            const optIn = _this.form.querySelector('#fields-subscribeToUpdates')
+            const optIn = document.getElementById('subscribe-to-updates')
 
             // OK to subscribe user?
-
             if (optIn && optIn.checked == true) {
                 const userEmailVal = _this.form.querySelector('[type="email"]')
                     .value
@@ -147,7 +140,6 @@ export default {
                     console.log(data.msg)
                 }
             }
-            // console.log(url+data)
         },
         handleConfirmation(form) {
             const _this = this

@@ -12,55 +12,13 @@
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            <div class="block--bigListAssets{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | space-t space-b">
-            
-                <div class="big-list -assets">
-                    
-                    {% if block.header|length %}
-                        <h3 class="header-lg font-serif | mb-5 | mb-6">{{ block.header }}</h3>
-                    {% endif %}
-                    
-                    <ul class="list-assets -hover-effect">
-                        {% for item in block.list.all() %}
-
-                        <li class="list-asset | flex-grid">
-                            
-                            <div class="list-asset__content">
-                                <a href="{{ item.resource }}">
-                                    <h4 class="header-sm font-serif">{{ item.header }} </h4>
-                                    {% if item.supportingCopy|length %}
-                                        <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
-                                    {% endif %}
-                                </a>
-                            </div>
-                            
-                            <div class="list-asset__action">
-                                {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
-                            </div>
-                            
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    
-                </div>
-            </div>
+            {% include '_components/longform-blocks/big-list-assets' %}
         
        
         {# Button Group #}
         {% case "buttonGroup" %}
-            <div class="block--buttonGroup button-group{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | pt-4 pb-14">
-                {# Header #}
-                {% if block.header|length %}
-                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
-                {% endif %}
-                
-                {# Actions #}
-                <div class="button-group__actions">
-                    {% for item in block.button.all() %}
-                        {{ global.link(item.button, item.buttonStyle)}}                
-                    {% endfor %}
-                </div>
-            </div>
+            {% include '_components/longform-blocks/button-group' %}
+            
         
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}

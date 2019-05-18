@@ -1,21 +1,38 @@
 ---- LB Hit List ----
 
 x Require - Contact Form Ext. - Contact Email Template Ext.
+x Setup Speaker Form
+x Fix dep warnings
+x Add SMTP settings to .env
 
--   Fix dep warnings
+-   Add form fields in CMS
 -   Setup GC Structure
 -   Setup GC Template
--   Commerce Styles
--   Test Contact Form Ext
--   Setup Speaker Form
+
 -   Setup Course Registration Form
-    -   Groupie Plugin assigns them to a group
-    -   Add checkbox and Mailchimp Subscribe
--   Post Mailgun access
-    -   Test Contact Form Email Templates Ext
+
+-   Groupie Plugin assigns them to a group
+-   Add checkbox and Mailchimp Subscribe
+
+-   Commerce Styles
+
+-   Update Mailgun access
+-   Setup 1517 FormSpree Account
+-   Check Donate integration
+-   Check commerce payment success
+
 -   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
 
--   Add Login / Forgot Pw page - test notifications
+-   Add Login / Forgot Pw page
+
+---- Templating Notes ----
+
+-   course user signs up
+-   no notifications for now
+-   add a 'Sign In' option to the anon form
+-   need login and forgot password password
+
+
     ---- Templating Notes ----
 
 # -Te Article Entry

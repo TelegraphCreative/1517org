@@ -1,7 +1,7 @@
 
 <ul class="list-articles -hover-effect -bg-transparent{% if classes is defined %} | {{ classes }}{% endif %}">
 
-    {% for item in content %}    
+    {% for item in content.all() %}    
         {# Item #}
         <li class="list-article">
 
