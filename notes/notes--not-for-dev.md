@@ -1,26 +1,35 @@
 ---- LB Hit List ----
 
-x Require - Contact Form Ext. - Contact Email Template Ext.
-x Setup Speaker Form
-x Fix dep warnings
-x Add SMTP settings to .env
-x Cleanup longform blocks
-x Add form fields in CMS
-x Connect Social icons
+-   Misc
+    x Require - Contact Form Ext. - Contact Email Template Ext.
+    x Setup Speaker Form
+    x Fix dep warnings
+    x Add SMTP settings to .env
+    x Cleanup longform blocks
+    x Add form fields in CMS
+    x Connect Social icons
 
 -   Setup GC Structure
--   Setup GC Template
+    x bio cards
+    x slider
+    x entry callout
+    x billboard 2up
+    billboard text
+    fix bio card
+    add forms as singles (easier to link to as entries)
 
--   Setup Course Registration Form
+*   Setup GC Template
 
--   Groupie Plugin assigns them to a group
--   Add checkbox and Mailchimp Subscribe
+*   Setup Course Registration Form
 
--   Commerce Styles
+*   Groupie Plugin assigns them to a group
+*   Add checkbox and Mailchimp Subscribe
 
-*   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
+*   Commerce Styles
 
-*   Add Login / Forgot Pw page
+-   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
+
+-   Add Login / Forgot Pw page
 
 ---- Templating Notes ----
 
