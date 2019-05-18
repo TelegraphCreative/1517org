@@ -4,6 +4,7 @@ x Require - Contact Form Ext. - Contact Email Template Ext.
 x Setup Speaker Form
 x Fix dep warnings
 x Add SMTP settings to .env
+x Cleanup longform blocks
 
 -   Add form fields in CMS
 -   Setup GC Structure

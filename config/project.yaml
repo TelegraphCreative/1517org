@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558205640
+dateModified: 1558208201
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -242,6 +242,8 @@ fieldGroups:
     name: Home
   a547f5dd-cda6-4e1b-a3f8-465f1e7a2667:
     name: Forms
+  ebdfca2d-8eaa-4fd5-b4c4-e8611995edca:
+    name: 'Mailchimp Settings'
 fieldlabels:
   b4e5ef6f-db34-41a4-bedd-074aa3acae21:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
@@ -1523,6 +1525,90 @@ fields:
       localizeRelations: false
     contentColumnType: string
     fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
+    name: 'Mailchimp List Settings'
+    handle: mailchimpListSettings
+    instructions: 'From the form Audience > Embedded Forms > Copy/Paste, grab these values from the form action: <form action="https://{LIST_URL}.list-manage.com/subscribe/post?u={USER_ID}&amp;id={LIST_ID}">'
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_mailchimplistsettings}}'
+      localizeBlocks: false
+      staticField: '1'
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
+  c24fb561-3888-4270-9b0f-7d6142cbd49e:
+    name: 'Form Header'
+    handle: formHeader
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_formheader}}'
+      localizeBlocks: false
+      staticField: '1'
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
+  969b7cfa-bcc1-49f3-a48b-6ddf747e46da:
+    name: 'Request Speaker Booking Options'
+    handle: requestSpeakerBookingOptions
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_requestspeakerbookingoptions}}'
+      localizeBlocks: false
+      staticField: ''
+      fieldLayout: row
+      selectionLabel: Speaker
+    contentColumnType: string
+    fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
+  a3c71ab1-8b36-41fd-a67a-e885aae354fd:
+    name: 'Request Speaker Topic Options'
+    handle: requestSpeakerTopicOptions
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_requestspeakertopicoptions}}'
+      localizeBlocks: false
+      staticField: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
+  045c67b0-7a2f-4881-8caa-af2a082999d8:
+    name: 'Enable Form'
+    handle: enableForm
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Lightswitch
+    settings:
+      default: '1'
+    contentColumnType: boolean
+    fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -1543,6 +1629,60 @@ globalSets:
               93e4144e-c517-4c83-baa5-c9e7dde122e5:
                 required: false
                 sortOrder: 3
+  3ce61bf8-1d5d-44ab-b02c-15d1b4c290e8:
+    name: 'Forms: Request a Speaker '
+    handle: speakerFormSettings
+    fieldLayouts:
+      efbd2a89-a4f8-4671-bc4c-5fae029280ba:
+        tabs:
+          -
+            name: Settings
+            sortOrder: 1
+            fields:
+              045c67b0-7a2f-4881-8caa-af2a082999d8:
+                required: false
+                sortOrder: 1
+              c24fb561-3888-4270-9b0f-7d6142cbd49e:
+                required: true
+                sortOrder: 2
+              a3c71ab1-8b36-41fd-a67a-e885aae354fd:
+                required: true
+                sortOrder: 3
+              969b7cfa-bcc1-49f3-a48b-6ddf747e46da:
+                required: true
+                sortOrder: 4
+  d021098e-bd91-405a-a2c0-a5cd80d9f2e2:
+    name: 'Forms: Mailchimp List Settings'
+    handle: mailchimpListSettings
+    fieldLayouts:
+      b586c5a1-7712-458f-81bc-91537854b5e5:
+        tabs:
+          -
+            name: Settings
+            sortOrder: 1
+            fields:
+              045c67b0-7a2f-4881-8caa-af2a082999d8:
+                required: false
+                sortOrder: 1
+              a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
+                required: false
+                sortOrder: 2
+  2326456f-21e9-4dba-a6d4-1649f1259faf:
+    name: 'Forms: Contact Form'
+    handle: contactFormSettings
+    fieldLayouts:
+      2e5ce34e-c630-42af-8e52-c721ed5aa632:
+        tabs:
+          -
+            name: Settings
+            sortOrder: 1
+            fields:
+              045c67b0-7a2f-4881-8caa-af2a082999d8:
+                required: false
+                sortOrder: 1
+              c24fb561-3888-4270-9b0f-7d6142cbd49e:
+                required: true
+                sortOrder: 2
 matrixBlockTypes:
   5a6a40cc-2ebc-4d1b-819e-1732742c114e:
     field: 24c123a8-1d09-4025-a414-fa85da64ab81
@@ -5627,6 +5767,234 @@ superTableBlockTypes:
             fields:
               f608c16d-90a5-473b-a174-ca5ea4d988d3:
                 required: true
+                sortOrder: 1
+  89753131-39ed-4f46-be92-590761bade2c:
+    field: a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f
+    fields:
+      f67f3e7c-cfcf-4065-90b3-72eff7877d81:
+        name: 'List URL'
+        handle: listUrl
+        instructions: 'Example: wearetelegraph.us5'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      45f026b2-f683-413a-b149-9b9aed9eb98c:
+        name: 'User ID'
+        handle: userId
+        instructions: 'Example: 8a954ea73c'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      b9673b2e-bb6c-41fb-a690-6d7b4a8362d9:
+        name: 'List ID'
+        handle: listId
+        instructions: 'Example: 6ab7472048d4ea9ba49aa23e8'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      f985eaa6-9a5c-4509-ba80-a2b136bb5bf2:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              f67f3e7c-cfcf-4065-90b3-72eff7877d81:
+                required: false
+                sortOrder: 1
+              45f026b2-f683-413a-b149-9b9aed9eb98c:
+                required: false
+                sortOrder: 2
+              b9673b2e-bb6c-41fb-a690-6d7b4a8362d9:
+                required: false
+                sortOrder: 3
+  b45f8b1b-27fc-4284-9c88-4f7e131da0ee:
+    field: c24fb561-3888-4270-9b0f-7d6142cbd49e
+    fields:
+      512392a5-b04a-479a-b223-f50d69906fb6:
+        name: 'Default Header'
+        handle: defaultHeader
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      2edb480c-ab23-4a30-9892-9ba2bed08d40:
+        name: 'Default Description'
+        handle: defaultDescription
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Simple.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+      9bf98a75-3d19-425c-b751-1a8aedadd997:
+        name: 'Success Header'
+        handle: successHeader
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      e9571f4a-a818-4bf9-a372-f7f7fc46b686:
+        name: 'Success Description'
+        handle: successDescription
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Simple.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      8e9c74bd-2e9a-4ff3-ae4a-9a734b8ae855:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              512392a5-b04a-479a-b223-f50d69906fb6:
+                required: false
+                sortOrder: 1
+              2edb480c-ab23-4a30-9892-9ba2bed08d40:
+                required: false
+                sortOrder: 2
+              9bf98a75-3d19-425c-b751-1a8aedadd997:
+                required: false
+                sortOrder: 3
+              e9571f4a-a818-4bf9-a372-f7f7fc46b686:
+                required: false
+                sortOrder: 4
+  8e8f02e7-0458-4711-9f25-471358665e40:
+    field: 969b7cfa-bcc1-49f3-a48b-6ddf747e46da
+    fields:
+      8a285f8a-a474-449f-ac57-53443fbce705:
+        name: Speakers
+        handle: speakers
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      c0dab61f-9517-4030-a011-0b4f97d088ae:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              8a285f8a-a474-449f-ac57-53443fbce705:
+                required: false
+                sortOrder: 1
+  090fd814-9049-4cae-93e2-183ab5c01a8f:
+    field: a3c71ab1-8b36-41fd-a67a-e885aae354fd
+    fields:
+      b5cc1041-9660-4969-ae94-305b92342608:
+        name: Topics
+        handle: topics
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      1924437f-6101-46ac-89af-02b293a9c22b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              b5cc1041-9660-4969-ae94-305b92342608:
+                required: false
                 sortOrder: 1
 system:
   edition: pro
