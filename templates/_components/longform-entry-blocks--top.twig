@@ -3,7 +3,7 @@
     Don't include anything fullwidth like Billboards, Hero Images, etc  #}
 {% if blocks|length %}
 
-    {% for block in blocks %}
+    {% for block in blocks.all() %}
         {% switch block.type %}
 
             {# Article Body #}

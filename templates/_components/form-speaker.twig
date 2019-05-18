@@ -42,7 +42,7 @@
                     Select Speaker
                 </label>
                 <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
-                    {% for item in speakerFormSettings.requestSpeakerBookingOptions %}
+                    {% for item in speakerFormSettings.requestSpeakerBookingOptions.all() %}
                         
                         <option value="{{ item.fullName }}">{{ item.fullName }}</option>
 
@@ -117,7 +117,7 @@
                     Topic
                 </label>
                 <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
-                    {% for item in speakerFormSettings.requestSpeakerTopicOptions %}
+                    {% for item in speakerFormSettings.requestSpeakerTopicOptions.all() %}
                         
                         <option value="{{ item.topic }}">{{ item.topic }}</option>
                         
