@@ -1,5 +1,6 @@
 {% import '_macros/global' as global %}
 
+{% if mailchimpListSettings.enableForm %}
 <div class="billboard -text -bronze -center {% if classes is defined %} | {{classes}} {% endif %}| no-print">
     <div class="billboard__container container">
 
@@ -32,3 +33,4 @@
 
     </div>
 </div>
+{% endif %}

@@ -46,8 +46,7 @@ export default {
             default: 'subscribe-form',
         },
         signuptitle: {
-            required: true,
-            default: 'Signup!',
+            required: false,
         },
         confirmationtitle: {
             required: true,
@@ -55,7 +54,7 @@ export default {
         },
         confirmationdetail: {
             required: true,
-            default: "It worked.",
+            default: 'It worked.',
         },
     },
     data() {
@@ -95,9 +94,7 @@ export default {
             Validation.validateSection(form).then(result => {
                 submitBtn.disabled = false
                 if (result === true) {
-
-                    _this.mailchimpSignup();        
-                    
+                    _this.mailchimpSignup()
                 } else {
                     // section invalid, result is array of invalid inputs
                     Validation.focusInput(result[0])
@@ -107,39 +104,47 @@ export default {
 
             return false
         },
-        mailchimpSignup(){
+        mailchimpSignup() {
             const userEmailData = encodeURIComponent(_this.userEmail)
-            const url = 'https://' + _this.mcurl + '.list-manage.com/subscribe/post-json?u=' + _this.mcuser + '&id=' + _this.mcid +'&c=callback'
-            const data= '&EMAIL=' + userEmailData + '&SIGNUP=' + _this.signuplocation                      
+            const url =
+                'https://' +
+                _this.mcurl +
+                '.list-manage.com/subscribe/post-json?u=' +
+                _this.mcuser +
+                '&id=' +
+                _this.mcid +
+                '&c=callback'
+            const data =
+                '&EMAIL=' + userEmailData + '&SIGNUP=' + _this.signuplocation
 
             // Create & add post script to the DOM
-            var script = document.createElement("script");
-            script.src = url + data;
-            document.body.appendChild(script);
+            var script = document.createElement('script')
+            script.src = url + data
+            document.body.appendChild(script)
 
             // Callback function
-            var callback = "callback";
+            var callback = 'callback'
             window[callback] = function(data) {
                 // Remove post script from the DOM
-                delete window[callback];
-                document.body.removeChild(script);
+                delete window[callback]
+                document.body.removeChild(script)
 
                 // Display response message
                 console.log('Response: ' + data.msg)
-                if(data.result !== "error") {
+                if (data.result !== 'error') {
                     _this.formSent = true
                     _this.error = false
                 } else {
                     _this.errorMsg = data.msg
                     _this.error = true
                 }
-            };
+            }
             // console.log(url+data)
         },
-        clearError(){
+        clearError() {
             this.errorMsg = ''
             this.error = false
-        }
+        },
     },
 }
 </script>

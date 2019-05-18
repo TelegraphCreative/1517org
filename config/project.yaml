@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558208201
+dateModified: 1558209394
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -242,8 +242,6 @@ fieldGroups:
     name: Home
   a547f5dd-cda6-4e1b-a3f8-465f1e7a2667:
     name: Forms
-  ebdfca2d-8eaa-4fd5-b4c4-e8611995edca:
-    name: 'Mailchimp Settings'
 fieldlabels:
   b4e5ef6f-db34-41a4-bedd-074aa3acae21:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
@@ -1539,6 +1537,13 @@ fields:
       contentTable: '{{%stc_mailchimplistsettings}}'
       localizeBlocks: false
       staticField: '1'
+      columns:
+        191:
+          width: ''
+        192:
+          width: ''
+        193:
+          width: ''
       fieldLayout: row
       selectionLabel: ''
     contentColumnType: string
@@ -1575,6 +1580,9 @@ fields:
       contentTable: '{{%stc_requestspeakerbookingoptions}}'
       localizeBlocks: false
       staticField: ''
+      columns:
+        200:
+          width: ''
       fieldLayout: row
       selectionLabel: Speaker
     contentColumnType: string
@@ -1593,6 +1601,9 @@ fields:
       contentTable: '{{%stc_requestspeakertopicoptions}}'
       localizeBlocks: false
       staticField: ''
+      columns:
+        202:
+          width: ''
       fieldLayout: row
       selectionLabel: ''
     contentColumnType: string
@@ -5791,7 +5802,7 @@ superTableBlockTypes:
       45f026b2-f683-413a-b149-9b9aed9eb98c:
         name: 'User ID'
         handle: userId
-        instructions: 'Example: 8a954ea73c'
+        instructions: 'Example: 6ab7472048d4ea9ba49aa23e8'
         searchable: true
         translationMethod: none
         translationKeyFormat: null
@@ -5808,7 +5819,7 @@ superTableBlockTypes:
       b9673b2e-bb6c-41fb-a690-6d7b4a8362d9:
         name: 'List ID'
         handle: listId
-        instructions: 'Example: 6ab7472048d4ea9ba49aa23e8'
+        instructions: 'Example: 8a954ea73c'
         searchable: true
         translationMethod: none
         translationKeyFormat: null
@@ -5940,8 +5951,8 @@ superTableBlockTypes:
     field: 969b7cfa-bcc1-49f3-a48b-6ddf747e46da
     fields:
       8a285f8a-a474-449f-ac57-53443fbce705:
-        name: Speakers
-        handle: speakers
+        name: 'Full Name'
+        handle: fullName
         instructions: ''
         searchable: true
         translationMethod: none
@@ -5970,8 +5981,8 @@ superTableBlockTypes:
     field: a3c71ab1-8b36-41fd-a67a-e885aae354fd
     fields:
       b5cc1041-9660-4969-ae94-305b92342608:
-        name: Topics
-        handle: topics
+        name: Topic
+        handle: topic
         instructions: ''
         searchable: true
         translationMethod: none

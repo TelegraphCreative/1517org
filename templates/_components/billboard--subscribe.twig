@@ -1,13 +1,6 @@
 {% import '_macros/global' as global %}
 
-{# Check for imported properties #}
-{% if classes is defined %}
-{% set classes = classes %}
-{% else %}
-{% set classes = '' %}
-{% endif %}
-
-<div class="billboard -text -subscribe | {{classes}} | no-print">
+<div class="billboard -text -subscribe {% if classes is defined %} | {{classes}} {% endif %}| no-print">
     <div class="billboard__container container">
 
         <header class="billboard__content | gutter">

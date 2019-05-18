@@ -5,8 +5,9 @@ x Setup Speaker Form
 x Fix dep warnings
 x Add SMTP settings to .env
 x Cleanup longform blocks
+x Add form fields in CMS
+x Connect Social icons
 
--   Add form fields in CMS
 -   Setup GC Structure
 -   Setup GC Template
 

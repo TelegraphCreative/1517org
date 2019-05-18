@@ -1,12 +1,14 @@
 {% import '_macros/global' as global %}
 <div class="signup-form{% if classes is defined %} | {{ classes }}{% endif %}">
+
     <newsletter_form
         :mcid="'8a954ea73c'"
         :mcuser="'6ab7472048d4ea9ba49aa23e8'"
         :mcurl="'wearetelegraph.us5'"
         :signuplocation="'footer-subscribe-form'"
-        :signuptitle="'Subscribe to 1517 eNewsletter'"
+        {% if header is defined %}:signuptitle="'{{ header }}'"{% endif %}
         :confirmationtitle="'Success!'"
         :confirmationdetail="'Thanks for signing up.'">
     </newsletter_form>
 </div>
+
