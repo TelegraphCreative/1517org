@@ -6,44 +6,27 @@
 
         {# Article Body #}
         {% case "articleBody" %}
-            <div class="block--articleBody | article-body{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | paragraphs -md -loose | article-content">
-                {{ block.article }}
-            </div>
+            {% include '_components/longform-blocks/article-body' %}
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            {% include '_components/longform-blocks/big-list-assets' %}
-        
+            {% include '_components/longform-blocks/big-list-assets' %}        
        
         {# Button Group #}
         {% case "buttonGroup" %}
             {% include '_components/longform-blocks/button-group' %}
             
-        
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}
-            <div class="block--heroImageFullBleed | hero-image">
-                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
-            </div>
+            {% include '_components/longform-blocks/hero-image' %}
 
         {# Entry Callout #}
         {% case "entryCallout" %}
-            <div class="block--entryCallout | entry-callout | gutter-xl | space-t space-b--sm">
-                {# Header #}
-                {% if block.header|length %}
-                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
-                {% endif %}
-
-                {# Content Card - Podcast #} 
-                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
-            </div>
-
+            {% include '_components/longform-blocks/entry-callout' %}
+            
         {# Billboard - floated image #}
         {% case "billboardFloatedImage" %}
-            <div class="block--billboardFloatedImage | billboard-floated-image | space-t space-b">
-                {# Billboard #}
-                {% include "_components/billboard--floated-img" with { content: block } %}
-            </div>
+            {% include '_components/longform-blocks/billboard--floated' %}
         
         
         {% endswitch %}

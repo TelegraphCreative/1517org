@@ -1,24 +1,24 @@
+{# Notes: 
+    Top Blocks only include narrow Longform Content Blocks 
+    Don't include anything fullwidth like Billboards, Hero Images, etc  #}
 {% if blocks|length %}
 
-{% for block in blocks %}
-    {% switch block.type %}
+    {% for block in blocks %}
+        {% switch block.type %}
 
-        {# Article Body #}
-        {% case "articleBody" %}
-            <div class="article-body  {% if dropCap is defined %}-drop-cap{% endif %} | paragraphs -md -loose | article-content">
+            {# Article Body #}
+            {% case "articleBody" %}
+                {% include '_components/longform-blocks/article-body' %}
 
-                {{ block.article }}
-            </div>
+            {# Big List - Assets #}
+            {% case "bigListAssets" %}
+                {% include '_components/longform-blocks/big-list-assets' %}
 
-        {# Big List - Assets #}
-        {% case "bigListAssets" %}
-            {% include '_components/longform-blocks/big-list-assets' %}
+            {# Button Group #}
+            {% case "buttonGroup" %}
+                {% include '_components/longform-blocks/button-group' %}
 
-        {# Button Group #}
-        {% case "buttonGroup" %}
-            {% include '_components/longform-blocks/button-group' %}
-
-    {% endswitch %}
+        {% endswitch %}
     {% endfor %}
     
 {% endif %}
