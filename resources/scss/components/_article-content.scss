@@ -61,7 +61,7 @@
 
     // Blockquotes
     blockquote {
-        @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
+        @apply mt-10 relative font-serif text-red text-3lg px-6 pt-12 pb-8;
 
         &:before {
             @apply absolute pin-t pin-l px-4 border-12 border-ivory-light mt-2 -ml-4;
@@ -74,11 +74,6 @@
             z-index: -1;
             line-height: 0.5rem;
             padding-top: 32px;
-        }
-
-        &:after {
-            content: '\201D';
-            font-family: 'Lucida Grande';
         }
     }
 

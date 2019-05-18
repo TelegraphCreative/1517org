@@ -46,8 +46,7 @@ export default {
             default: 'subscribe-form',
         },
         signuptitle: {
-            required: true,
-            default: 'Signup!',
+            required: false,
         },
         confirmationtitle: {
             required: true,
