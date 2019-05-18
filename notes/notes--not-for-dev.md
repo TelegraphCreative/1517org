@@ -18,14 +18,9 @@ x Connect Social icons
 
 -   Commerce Styles
 
--   Update Mailgun access
--   Setup 1517 FormSpree Account
--   Check Donate integration
--   Check commerce payment success
+*   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
 
--   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
-
--   Add Login / Forgot Pw page
+*   Add Login / Forgot Pw page
 
 ---- Templating Notes ----
 
