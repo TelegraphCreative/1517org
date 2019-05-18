@@ -1,0 +1,9 @@
+<div class="block--entryCallout | entry-callout | gutter-xl | space-t space-b--sm">
+    {# Header #}
+    {% if block.header|length %}
+        <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
+    {% endif %}
+
+    {# Content Card - Podcast #} 
+    {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
+</div>

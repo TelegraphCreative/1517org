@@ -38,9 +38,11 @@
     <div class="site-footer__meta | container gutter-md | space-b">
         <div class="site-footer__meta__container | md:flex-grid">
             {# Subscribe Form #}
-            <div class="footer-meta__group | md:w-3/4 ">
-                {% include "_components/form-signup" with { header: 'Subscribe to 1517 eNewsletter' } %}
-            </div>
+            {% if mailchimpListSettings.enableForm %}
+                <div class="footer-meta__group | md:w-3/4 ">
+                    {% include "_components/form-signup" with { header: 'Subscribe to 1517 eNewsletter' } %}
+                </div>
+            {% endif %}
 
             {# Legal #}
 

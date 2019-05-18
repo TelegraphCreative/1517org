@@ -1,17 +1,54 @@
+---- LB Hit List ----
+
+x Require - Contact Form Ext. - Contact Email Template Ext.
+x Setup Speaker Form
+x Fix dep warnings
+x Add SMTP settings to .env
+x Cleanup longform blocks
+x Add form fields in CMS
+x Connect Social icons
+
+-   Setup GC Structure
+-   Setup GC Template
+
+-   Setup Course Registration Form
+
+-   Groupie Plugin assigns them to a group
+-   Add checkbox and Mailchimp Subscribe
+
+-   Commerce Styles
+
+-   Update Mailgun access
+-   Setup 1517 FormSpree Account
+-   Check Donate integration
+-   Check commerce payment success
+
+-   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
+
+-   Add Login / Forgot Pw page
+
 ---- Templating Notes ----
 
+-   course user signs up
+-   no notifications for now
+-   add a 'Sign In' option to the anon form
+-   need login and forgot password password
+
+
+    ---- Templating Notes ----
+
 # -Te Article Entry
+
 [x] product link
 [x] blogcast, video, or hero image
 [x] author
 [x] subscribe blog cast billboard
 
 # -Te Section
+
 [x] featured entry hero
 [x] switch statement for entry formats
 [x] filter lists
-
-
 
 # FED for Podcast Entry
 

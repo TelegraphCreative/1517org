@@ -39,7 +39,7 @@
                 {# Pull Latest #}
                 {% case "pullLatest" %}
 
-                    {% set featuredSingle = entries.first() %}
+                    {% set featuredSingle = entries.one() %}
                 
                 {# Pull Featured #}
                 {% case "pullFeatured" %}
