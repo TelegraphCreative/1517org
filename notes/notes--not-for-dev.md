@@ -16,7 +16,7 @@
     x billboard 2up
     billboard text
     fix bio card
-    add forms as singles (easier to link to as entries)
+    x add forms as singles (easier to link to as entries)
 
 *   Setup GC Template
 

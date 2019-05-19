@@ -2,9 +2,7 @@
 {% import '_macros/global' as global %}
 
 {% block content %}
-    {% if contactFormSettings.enableForm %}
 
-        
         {# Header #}
         <section
             class="space-menu space-b">
@@ -24,8 +22,5 @@
 
         {# Billboard Newsletter #}
         {% include '_components/static/billboard--newsletter'  %}
-    {% else %}
-        {% exit 404 %}
-    {% endif %}
 
 {% endblock %}

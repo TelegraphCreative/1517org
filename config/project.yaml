@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558218210
+dateModified: 1558279499
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -1607,7 +1607,7 @@ fields:
         202:
           width: ''
       fieldLayout: row
-      selectionLabel: ''
+      selectionLabel: Topic
     contentColumnType: string
     fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
   045c67b0-7a2f-4881-8caa-af2a082999d8:
@@ -1691,30 +1691,8 @@ globalSets:
               93e4144e-c517-4c83-baa5-c9e7dde122e5:
                 required: false
                 sortOrder: 3
-  3ce61bf8-1d5d-44ab-b02c-15d1b4c290e8:
-    name: 'Forms: Request a Speaker '
-    handle: speakerFormSettings
-    fieldLayouts:
-      efbd2a89-a4f8-4671-bc4c-5fae029280ba:
-        tabs:
-          -
-            name: Settings
-            sortOrder: 1
-            fields:
-              045c67b0-7a2f-4881-8caa-af2a082999d8:
-                required: false
-                sortOrder: 1
-              c24fb561-3888-4270-9b0f-7d6142cbd49e:
-                required: true
-                sortOrder: 2
-              a3c71ab1-8b36-41fd-a67a-e885aae354fd:
-                required: true
-                sortOrder: 3
-              969b7cfa-bcc1-49f3-a48b-6ddf747e46da:
-                required: true
-                sortOrder: 4
   d021098e-bd91-405a-a2c0-a5cd80d9f2e2:
-    name: 'Forms: Mailchimp List Settings'
+    name: 'Mailchimp List Settings'
     handle: mailchimpListSettings
     fieldLayouts:
       b586c5a1-7712-458f-81bc-91537854b5e5:
@@ -1728,22 +1706,6 @@ globalSets:
                 sortOrder: 1
               a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
                 required: false
-                sortOrder: 2
-  2326456f-21e9-4dba-a6d4-1649f1259faf:
-    name: 'Forms: Contact Form'
-    handle: contactFormSettings
-    fieldLayouts:
-      2e5ce34e-c630-42af-8e52-c721ed5aa632:
-        tabs:
-          -
-            name: Settings
-            sortOrder: 1
-            fields:
-              045c67b0-7a2f-4881-8caa-af2a082999d8:
-                required: false
-                sortOrder: 1
-              c24fb561-3888-4270-9b0f-7d6142cbd49e:
-                required: true
                 sortOrder: 2
 matrixBlockTypes:
   5a6a40cc-2ebc-4d1b-819e-1732742c114e:
@@ -5410,6 +5372,72 @@ sections:
                   d21330b2-ad68-4478-9b2a-7a0e84a8d0b8:
                     required: false
                     sortOrder: 2
+  c33a2c5c-a623-473d-af15-3e0c973fb604:
+    name: 'Contact '
+    handle: contact
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: contact
+        template: contact
+    entryTypes:
+      aa2f6685-064b-40bc-ad1c-ca79b7b74a68:
+        name: 'Contact '
+        handle: contact
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          15e0a645-b3a9-45cc-9c17-131854a92ffc:
+            tabs:
+              -
+                name: 'Form Settings'
+                sortOrder: 1
+                fields:
+                  c24fb561-3888-4270-9b0f-7d6142cbd49e:
+                    required: true
+                    sortOrder: 1
+  f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa:
+    name: 'Request a Speaker'
+    handle: requestASpeaker
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: request-a-speaker
+        template: request-speaker
+    entryTypes:
+      42ed7be2-af7f-4514-ab0d-54368419fd8c:
+        name: 'Request a Speaker'
+        handle: requestASpeaker
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          49204494-cb71-4a6c-b934-0e5873791919:
+            tabs:
+              -
+                name: 'Form Settings'
+                sortOrder: 1
+                fields:
+                  c24fb561-3888-4270-9b0f-7d6142cbd49e:
+                    required: true
+                    sortOrder: 1
+                  969b7cfa-bcc1-49f3-a48b-6ddf747e46da:
+                    required: true
+                    sortOrder: 2
+                  a3c71ab1-8b36-41fd-a67a-e885aae354fd:
+                    required: true
+                    sortOrder: 3
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
