@@ -14,29 +14,30 @@
     x slider
     x entry callout
     x billboard 2up
-    billboard text
-    fix bio card
+    x fix bio card
     x add forms as singles (easier to link to as entries)
+    \_ billboard text?
+    \_ Setup GC Template
 
-*   Setup GC Template
+-   Commerce
+    \_ Commerce Styles
 
-*   Setup Course Registration Form
+-   Courses
+    \_ Setup Course Registration Form
+    \_ Groupie Plugin assigns them to a group
+    \_ Add checkbox and Mailchimp Subscribe
+    \_ Add Login / Forgot Pw page
 
-*   Groupie Plugin assigns them to a group
-*   Add checkbox and Mailchimp Subscribe
-
-*   Commerce Styles
-
--   Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
-
--   Add Login / Forgot Pw page
+-   GDPR
+    \_ Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
 
 ---- Templating Notes ----
 
--   course user signs up
--   no notifications for now
--   add a 'Sign In' option to the anon form
--   need login and forgot password password
+-   Courses notes:
+
+*   course user signs up
+*   only notifications for are system default active your account
+*   how does that play out w/ no access to backend?
 
 
     ---- Templating Notes ----

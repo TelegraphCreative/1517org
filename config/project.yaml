@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558279499
+dateModified: 1558282762
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -260,6 +260,16 @@ fieldlabels:
     fieldLayout: 6fdb88bf-d327-494b-ad46-383c2f371293
     name: 'Featured Content'
     instructions: null
+  209a5686-25a5-4ae4-908a-9f73937dff69:
+    field: b5d246ba-1c5c-492d-80e2-5607d18a724b
+    fieldLayout: f9ec9348-63f9-4b8b-83c2-a807c5fa964e
+    name: 'Full Bio'
+    instructions: null
+  8de1868a-5190-4ec3-a7d9-03aeb38b1bd2:
+    field: 32236621-f50a-48af-a121-8ff8282224f3
+    fieldLayout: f9ec9348-63f9-4b8b-83c2-a807c5fa964e
+    name: 'Full Bio'
+    instructions: 'Link to a GC page to include more information about this content'
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -1655,8 +1665,8 @@ fields:
     contentColumnType: string
     fieldGroup: 7c6bc81e-0dc2-47ed-a6ec-d8950f98189d
   c390f04f-cf37-46b2-9e4b-0de004dde5c2:
-    name: 'Role Description'
-    handle: roleDescription
+    name: Role
+    handle: role
     instructions: ''
     searchable: true
     translationMethod: none
@@ -4346,25 +4356,27 @@ matrixBlockTypes:
     sortOrder: 10
     fields:
       e680bc68-b72a-4c62-bf84-582be5b59a2d:
-        name: 'Link to Author'
-        handle: linkToAuthor
+        name: 'Link to Author Bio'
+        handle: authorBio
         instructions: 'Create a Bio Card from an Author Entry'
         searchable: true
-        translationMethod: none
+        translationMethod: site
         translationKeyFormat: null
-        type: craft\fields\PlainText
+        type: craft\fields\Entries
         settings:
-          placeholder: ''
-          code: ''
-          multiline: ''
-          initialRows: '4'
-          charLimit: ''
-          columnType: text
-        contentColumnType: text
+          sources:
+            - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: ''
+          selectionLabel: 'Author Bio'
+          localizeRelations: false
+        contentColumnType: string
         fieldGroup: null
       9153d6c7-49ae-43b5-a347-0a2ff340c4b8:
-        name: Profile
-        handle: profile
+        name: 'Profile Bio'
+        handle: profileBio
         instructions: 'Create a "one-off" Bio Card '
         searchable: true
         translationMethod: site
@@ -4373,7 +4385,7 @@ matrixBlockTypes:
         settings:
           minRows: ''
           maxRows: ''
-          contentTable: '{{%stc_42_profile}}'
+          contentTable: '{{%stc_42_profilebio}}'
           localizeBlocks: false
           staticField: ''
           columns:
@@ -4388,7 +4400,7 @@ matrixBlockTypes:
             236:
               width: ''
           fieldLayout: matrix
-          selectionLabel: ''
+          selectionLabel: Bio
         contentColumnType: string
         fieldGroup: null
     fieldLayouts:
@@ -4598,20 +4610,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.1.0
-  groupie:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-    settings:
-      multipleGroups: ''
-      publicGroups:
-        - '1'
-      groups:
-        -
-          id: 1
-          name: 'Course Subscribers'
-          handle: courseSubscribers
-          uid: fcd91374-4e27-4852-96ca-86f2891be207
   snitch:
     edition: standard
     enabled: true
@@ -4917,13 +4915,9 @@ sections:
                   2d8ecd0c-5f0b-4fa5-903a-a8e49166151d:
                     required: false
                     sortOrder: 5
-              -
-                name: Bio
-                sortOrder: 2
-                fields:
-                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+                  32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
-                    sortOrder: 1
+                    sortOrder: 6
   1bb6bca4-50c3-47c7-8160-2dd055239822:
     name: 'Podcasts Index'
     handle: podcastsIndex
@@ -7206,9 +7200,9 @@ superTableBlockTypes:
         settings:
           placeholder: ''
           code: ''
-          multiline: ''
+          multiline: '1'
           initialRows: '4'
-          charLimit: ''
+          charLimit: '500'
           columnType: text
         contentColumnType: text
         fieldGroup: null
@@ -7256,7 +7250,7 @@ superTableBlockTypes:
               customLabel: ''
               customPlaceholder: ''
             fruitstudios\linkit\models\Entry:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -7277,7 +7271,7 @@ superTableBlockTypes:
               customSelectionLabel: ''
               userPath: ''
             fruitstudios\linkit\models\Product:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -7469,11 +7463,11 @@ system:
   schemaVersion: 3.1.28
   timeZone: America/Los_Angeles
 users:
-  requireEmailVerification: true
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoVolumeUid: null
-  photoSubpath: ''
+  requireEmailVerification: false
+  allowPublicRegistration: true
+  defaultGroup: fcd91374-4e27-4852-96ca-86f2891be207
+  photoVolumeUid: c160af80-d4b3-4032-99f1-f91b25f713d3
+  photoSubpath: profiles
   groups:
     fcd91374-4e27-4852-96ca-86f2891be207:
       name: 'Course Subscribers'
