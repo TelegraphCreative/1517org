@@ -14,7 +14,8 @@ import podcast_player_full from './components/PodcastPlayerFull'
 import image_slider from './components/ImageSlider'
 import newsletter_form from './components/NewsletterForm'
 import contact_form from './components/ContactForm'
-import registration_form from './components/RegistrationForm'
+import default_form from './components/DefaultFormWithMailhimpSubscribe'
+import validate_form from './components/ValidateForm'
 import seconds_to_time_filter from './filters/SecondsToTime'
 import print from './components/Print'
 import share from './components/Share'
@@ -36,7 +37,8 @@ const app = new Vue({
         image_slider,
         newsletter_form,
         contact_form,
-        registration_form,
+        default_form,
+        validate_form,
         print,
         share,
     },

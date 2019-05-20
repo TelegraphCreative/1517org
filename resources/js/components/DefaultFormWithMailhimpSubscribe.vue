@@ -1,15 +1,22 @@
 <template>
-  <form @submit.prevent="handleSubmit" method="post" accept-charset="UTF-8" class="form-base">
+  <form
+    @submit.prevent="handleSubmit"
+    :method="formmethod"
+    accept-charset="UTF-8"
+    class="form-base"
+  >
     <slot name="fields"></slot>
   </form>
 </template>
 <script>
 import { Validation } from '../vendor/Validation'
-// import axios from 'axios'
-// import anime from 'animejs'
 
 export default {
     props: {
+        formmethod: {
+            required: true,
+            default: 'post',
+        },
         mcid: {
             required: true,
             default: '{ID}',
@@ -36,7 +43,6 @@ export default {
     mounted() {
         const _this = this
         _this.form = _this.$el
-        console.log(_this.form)
 
         this.validateForm()
     },

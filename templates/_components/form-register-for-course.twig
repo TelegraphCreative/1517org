@@ -1,12 +1,11 @@
 
-<registration_form :formmethod="'post'" :formaction="'users/save-user'"
+<default_form :formmethod="'post'" 
     :mcid="'{{ mailchimpListSettings.mailchimpListSettings.one().listId }}'" 
     :mcuser="'{{ mailchimpListSettings.mailchimpListSettings.one().userId }}'" 
     :mcurl="'{{ mailchimpListSettings.mailchimpListSettings.one().listUrl }}'"
-    :signuplocation="'contact-page'">
+    :signuplocation="'1517-course__{{entry.url}}'">
 
     <template v-slot:fields>
-
 
         {{ csrfInput() }}
         <input type="hidden" name="action" value="users/save-user">
@@ -51,20 +50,21 @@
         </div>
 
 
-        {# GDPR #}
+        {# GDPR: for this form, we're already asking them for consent to signup so this is just to trigger the subscribe method #}
         {% if mailchimpListSettings.enableForm %}
-        
-        <div class="form-group">
-            <div class="field-group | w-full">
-
-                <label for="subscribe-to-updates" class="control -small">
-                    <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates">
-
-                    <span class="control__text">Sign up for updates?</span>
-
-                    <div class="control__indicator"></div>
-                </label>
-
+        <div class="hidden">
+            <div class="form-group">
+                <div class="field-group | w-full">
+            
+                    <label for="subscribe-to-updates" class="control -small">
+                        <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates" checked>
+            
+                        <span class="control__text | meta-label">Sign up for updates?</span>
+            
+                        <div class="control__indicator"></div>
+                    </label>
+            
+                </div>
             </div>
         </div>
         
@@ -72,9 +72,12 @@
         
         {# Submit #}
         <div class="form-submit">
-            <button type="submit" class="btn -full -red">Submit Form</button>
+            <button type="submit" class="btn -md -white -full">Register Now</button>
+            <div class="helper-text | pt-1">
+                Already have an account? <a href="/account/sign-in?redirect={{craft.app.request.url}}">Sign in</a>
+            </div>
         </div>
 
     </template>
 
-</registration_form>
+</default_form>
