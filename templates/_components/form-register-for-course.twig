@@ -1,0 +1,80 @@
+
+<registration_form :formmethod="'post'" :formaction="'users/save-user'"
+    :mcid="'{{ mailchimpListSettings.mailchimpListSettings.one().listId }}'" 
+    :mcuser="'{{ mailchimpListSettings.mailchimpListSettings.one().userId }}'" 
+    :mcurl="'{{ mailchimpListSettings.mailchimpListSettings.one().listUrl }}'"
+    :signuplocation="'contact-page'">
+
+    <template v-slot:fields>
+
+
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="users/save-user">
+        {{ redirectInput( craft.app.request.url ) }}
+
+        {% macro errorList(errors) %}
+        {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endmacro %}
+
+        {% from _self import errorList %}
+
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+
+                <label class="standard-label" for="email">
+                    Email
+                </label>
+                <input id="register-email" type="email" name="email" required autocomplete="username" {%- if user is defined %} value="{{ user.email }}" {% endif %}>
+                {% if user is defined %}
+                <div class="helper-text -error">
+                    {{ errorList(user.getErrors('email')) }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="password">
+                    Password
+                </label>
+                <input id="register-password" type="password" name="password" minlength="8" autocomplete="current-password">
+                {% if user is defined %}
+                <div class="helper-text -error">
+                    {{ errorList(user.getErrors('password')) }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+        {# GDPR #}
+        {% if mailchimpListSettings.enableForm %}
+        
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label for="subscribe-to-updates" class="control -small">
+                    <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates">
+
+                    <span class="control__text">Sign up for updates?</span>
+
+                    <div class="control__indicator"></div>
+                </label>
+
+            </div>
+        </div>
+        
+        {% endif %}
+        
+        {# Submit #}
+        <div class="form-submit">
+            <button type="submit" class="btn -full -red">Submit Form</button>
+        </div>
+
+    </template>
+
+</registration_form>
