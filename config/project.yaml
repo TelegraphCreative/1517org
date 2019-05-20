@@ -199,18 +199,18 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558209394
+dateModified: 1558364258
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
   template: ''
   transportType: craft\mail\transportadapters\Smtp
   transportSettings:
-    host: smtp.mailgun.org
-    port: '587'
+    host: $SMTP_HOST
+    port: $SMTP_PORT
     useAuthentication: '1'
-    username: postmaster@sandbox3523323655804f678e9ee72e76dd68ac.mailgun.org
-    password: f3f63eb274ce70aa327b3b81e7971bd6-4a62b8e8-c07ac98f
+    username: $SMTP_USERNAME
+    password: $SMTP_PASSWORD
     encryptionMethod: ''
     timeout: '10'
 fieldGroups:
@@ -242,6 +242,8 @@ fieldGroups:
     name: Home
   a547f5dd-cda6-4e1b-a3f8-465f1e7a2667:
     name: Forms
+  7c6bc81e-0dc2-47ed-a6ec-d8950f98189d:
+    name: General
 fieldlabels:
   b4e5ef6f-db34-41a4-bedd-074aa3acae21:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
@@ -258,6 +260,16 @@ fieldlabels:
     fieldLayout: 6fdb88bf-d327-494b-ad46-383c2f371293
     name: 'Featured Content'
     instructions: null
+  209a5686-25a5-4ae4-908a-9f73937dff69:
+    field: b5d246ba-1c5c-492d-80e2-5607d18a724b
+    fieldLayout: f9ec9348-63f9-4b8b-83c2-a807c5fa964e
+    name: 'Full Bio'
+    instructions: null
+  8de1868a-5190-4ec3-a7d9-03aeb38b1bd2:
+    field: 32236621-f50a-48af-a121-8ff8282224f3
+    fieldLayout: f9ec9348-63f9-4b8b-83c2-a807c5fa964e
+    name: 'Full Bio'
+    instructions: 'Link to a GC page to include more information about this content'
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -1605,7 +1617,7 @@ fields:
         202:
           width: ''
       fieldLayout: row
-      selectionLabel: ''
+      selectionLabel: Topic
     contentColumnType: string
     fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
   045c67b0-7a2f-4881-8caa-af2a082999d8:
@@ -1620,6 +1632,55 @@ fields:
       default: '1'
     contentColumnType: boolean
     fieldGroup: a547f5dd-cda6-4e1b-a3f8-465f1e7a2667
+  414a6315-af87-4471-b258-3dbc6034e8ba:
+    name: Label
+    handle: label
+    instructions: 'Page Group, or Subtitle'
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: '40'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 7c6bc81e-0dc2-47ed-a6ec-d8950f98189d
+  d21330b2-ad68-4478-9b2a-7a0e84a8d0b8:
+    name: 'Content Blocks (GC)'
+    handle: contentBlocksGc
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_contentblocksgc}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: 7c6bc81e-0dc2-47ed-a6ec-d8950f98189d
+  c390f04f-cf37-46b2-9e4b-0de004dde5c2:
+    name: Role
+    handle: role
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -1640,30 +1701,8 @@ globalSets:
               93e4144e-c517-4c83-baa5-c9e7dde122e5:
                 required: false
                 sortOrder: 3
-  3ce61bf8-1d5d-44ab-b02c-15d1b4c290e8:
-    name: 'Forms: Request a Speaker '
-    handle: speakerFormSettings
-    fieldLayouts:
-      efbd2a89-a4f8-4671-bc4c-5fae029280ba:
-        tabs:
-          -
-            name: Settings
-            sortOrder: 1
-            fields:
-              045c67b0-7a2f-4881-8caa-af2a082999d8:
-                required: false
-                sortOrder: 1
-              c24fb561-3888-4270-9b0f-7d6142cbd49e:
-                required: true
-                sortOrder: 2
-              a3c71ab1-8b36-41fd-a67a-e885aae354fd:
-                required: true
-                sortOrder: 3
-              969b7cfa-bcc1-49f3-a48b-6ddf747e46da:
-                required: true
-                sortOrder: 4
   d021098e-bd91-405a-a2c0-a5cd80d9f2e2:
-    name: 'Forms: Mailchimp List Settings'
+    name: 'Mailchimp List Settings'
     handle: mailchimpListSettings
     fieldLayouts:
       b586c5a1-7712-458f-81bc-91537854b5e5:
@@ -1677,22 +1716,6 @@ globalSets:
                 sortOrder: 1
               a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
                 required: false
-                sortOrder: 2
-  2326456f-21e9-4dba-a6d4-1649f1259faf:
-    name: 'Forms: Contact Form'
-    handle: contactFormSettings
-    fieldLayouts:
-      2e5ce34e-c630-42af-8e52-c721ed5aa632:
-        tabs:
-          -
-            name: Settings
-            sortOrder: 1
-            fields:
-              045c67b0-7a2f-4881-8caa-af2a082999d8:
-                required: false
-                sortOrder: 1
-              c24fb561-3888-4270-9b0f-7d6142cbd49e:
-                required: true
                 sortOrder: 2
 matrixBlockTypes:
   5a6a40cc-2ebc-4d1b-819e-1732742c114e:
@@ -1712,13 +1735,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -2046,13 +2070,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: Minimal.json
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
       924198ca-aea8-4a0a-bf18-a44265fa46af:
@@ -2262,7 +2287,13 @@ matrixBlockTypes:
         type: craft\fields\Entries
         settings:
           sources:
+            - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+            - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
+            - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+            - 'section:6360317a-4d10-440e-b3dd-27829ac33f71'
             - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+            - singles
+            - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
           source: null
           targetSiteId: null
           viewMode: null
@@ -3617,6 +3648,817 @@ matrixBlockTypes:
               fc31136d-9be9-4a3d-b10e-4380bcd142e7:
                 required: false
                 sortOrder: 3
+  e4cb6b2f-c134-4575-887e-9d150c226767:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Lead In'
+    handle: leadIn
+    sortOrder: 1
+    fields:
+      c117765b-5e73-4fc2-9c97-8a6f180789a7:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      5ce7160c-ff65-4db5-ac45-34161ac3d34f:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Simple.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      24a316d0-01bc-4aad-be63-190039ba66bb:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              c117765b-5e73-4fc2-9c97-8a6f180789a7:
+                required: false
+                sortOrder: 1
+              5ce7160c-ff65-4db5-ac45-34161ac3d34f:
+                required: false
+                sortOrder: 2
+  5c1d25e0-24c1-4bb9-a9a9-d93f3d8f10d4:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Article Body'
+    handle: articleBody
+    sortOrder: 2
+    fields:
+      87580a58-7550-46cf-b99b-c53b7a3abe05:
+        name: Article
+        handle: article
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Standard.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      010ef6d8-0de2-423f-b3e3-9597d4ca0cc4:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              87580a58-7550-46cf-b99b-c53b7a3abe05:
+                required: false
+                sortOrder: 1
+  1afd1226-a1b0-49a3-aeb2-46d0b1be6569:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Hero Image (full-bleed)'
+    handle: heroImageFullBleed
+    sortOrder: 3
+    fields:
+      e8057d3a-67e3-4d11-9c62-18d3e61a154e:
+        name: Image
+        handle: image
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: heroes
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Image
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      49831a30-b07b-4667-9b3c-87f826aac69f:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              e8057d3a-67e3-4d11-9c62-18d3e61a154e:
+                required: false
+                sortOrder: 1
+  642a606f-cbae-4bed-b84b-86fa7ba7fb50:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Big List (Assets+Links)'
+    handle: bigListAssetsLinks
+    sortOrder: 4
+    fields:
+      cf7911f7-a60a-46bb-92c8-53b4c554847c:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      dfed3728-c427-468b-88c5-fa6bafd949d1:
+        name: List
+        handle: list
+        instructions: 'Add either an asset OR a link'
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: ''
+          maxRows: ''
+          contentTable: '{{%stc_36_list}}'
+          localizeBlocks: false
+          staticField: ''
+          columns:
+            212:
+              width: ''
+            213:
+              width: ''
+            214:
+              width: ''
+          fieldLayout: matrix
+          selectionLabel: Item
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      0c7b69db-98fa-48b8-a276-99cae0a2ffb6:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              cf7911f7-a60a-46bb-92c8-53b4c554847c:
+                required: false
+                sortOrder: 1
+              dfed3728-c427-468b-88c5-fa6bafd949d1:
+                required: false
+                sortOrder: 2
+  5552aa9a-0a70-4848-9ad1-0914cef90c98:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Billboard (floated image)'
+    handle: billboardFloatedImage
+    sortOrder: 5
+    fields:
+      3ac774b6-2f19-444e-8d51-3b51e9e7fed1:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      5dd3e62a-fc3a-45c1-a60c-c8fc1369050d:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Minimal.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+      f510198a-3bf4-4f6b-8c27-ac3ebab3abe9:
+        name: Image
+        handle: image
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: products
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources:
+            - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Image
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      b7e53c2d-f6f8-430a-95a9-3fb039a57640:
+        name: Button
+        handle: button
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources:
+                - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+                - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
+                - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+                - 'section:6360317a-4d10-440e-b3dd-27829ac33f71'
+                - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+                - singles
+                - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: '1'
+        contentColumnType: text
+        fieldGroup: null
+      9b79b01e-5acc-4b95-b456-7f6cad9d136a:
+        name: 'Button Style'
+        handle: buttonStyle
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Primary
+              value: btn
+              default: ''
+            -
+              label: Text
+              value: 'link -underline'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      d153f1db-8e3e-4585-8c27-e600e7eb2bf5:
+        name: 'Background Color'
+        handle: backgroundColor
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Clay
+              value: '-red'
+              default: ''
+            -
+              label: Slate
+              value: '-slate'
+              default: ''
+            -
+              label: Sage
+              value: '-sage'
+              default: ''
+            -
+              label: Ivory
+              value: '-bronze-light'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      a531b96f-2b82-41a8-b470-55e356dbfca1:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              3ac774b6-2f19-444e-8d51-3b51e9e7fed1:
+                required: false
+                sortOrder: 1
+              5dd3e62a-fc3a-45c1-a60c-c8fc1369050d:
+                required: false
+                sortOrder: 2
+              f510198a-3bf4-4f6b-8c27-ac3ebab3abe9:
+                required: false
+                sortOrder: 3
+              b7e53c2d-f6f8-430a-95a9-3fb039a57640:
+                required: false
+                sortOrder: 4
+              9b79b01e-5acc-4b95-b456-7f6cad9d136a:
+                required: false
+                sortOrder: 5
+              d153f1db-8e3e-4585-8c27-e600e7eb2bf5:
+                required: false
+                sortOrder: 6
+  c373ca18-4178-47cb-8aa3-13c1b629b77e:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: Blockquote
+    handle: blockquote
+    sortOrder: 6
+    fields:
+      7967bd14-03e1-4a3b-adc6-74982ea3d1a4:
+        name: Quote
+        handle: quote
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      940c28f2-c422-4271-a21d-a4eb5c614392:
+        name: Source
+        handle: source
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: '40'
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      dea69363-665f-4c8d-acfc-355491a290e6:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              7967bd14-03e1-4a3b-adc6-74982ea3d1a4:
+                required: false
+                sortOrder: 1
+              940c28f2-c422-4271-a21d-a4eb5c614392:
+                required: false
+                sortOrder: 2
+  63f818f9-1507-43b1-943e-88c8c3b83182:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Article Image Blocks'
+    handle: articleImageBlocks
+    sortOrder: 7
+    fields:
+      cae916f5-08e4-4e50-9eef-2a549be71275:
+        name: Block
+        handle: block
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: ''
+          maxRows: ''
+          contentTable: '{{%stc_39_block}}'
+          localizeBlocks: false
+          staticField: ''
+          columns:
+            224:
+              width: ''
+            225:
+              width: ''
+          fieldLayout: matrix
+          selectionLabel: Block
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      63a8324b-8186-442a-87b1-ce8bc15d2123:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              cae916f5-08e4-4e50-9eef-2a549be71275:
+                required: false
+                sortOrder: 1
+  d55a3279-2f5f-486b-a7da-6e919501b464:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Image Slider'
+    handle: imageSlider
+    sortOrder: 8
+    fields:
+      a2f98f8c-929d-47da-bba3-58db0cfc746d:
+        name: Images
+        handle: images
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: article
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: list
+          limit: '20'
+          selectionLabel: Image
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      acb8b0b7-fea8-4015-9695-7c6dd638f0dd:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              a2f98f8c-929d-47da-bba3-58db0cfc746d:
+                required: false
+                sortOrder: 1
+  73bd7a79-44c1-4f48-93b5-959226d105ca:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Entry Callout'
+    handle: entryCallout
+    sortOrder: 9
+    fields:
+      1e16ceb7-8460-469c-9594-cc5b0ecc6871:
+        name: 'Header (optional)'
+        handle: headerOptional
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      62e24206-e2ee-47d4-b3b6-7b470449fdcd:
+        name: 'Header Action (optional)'
+        handle: headerAction
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources:
+                - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+                - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
+                - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+                - 'section:6360317a-4d10-440e-b3dd-27829ac33f71'
+                - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+                - singles
+                - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: ''
+        contentColumnType: text
+        fieldGroup: null
+      69f107fe-4a3a-4da1-b536-0b6b2ccd2185:
+        name: Entries
+        handle: entryCallout
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Entries
+        settings:
+          sources:
+            - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+            - 'section:038eaf80-f334-49e1-be95-efe0ff8a714d'
+            - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+            - 'section:6360317a-4d10-440e-b3dd-27829ac33f71'
+            - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+            - singles
+            - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: ''
+          selectionLabel: Entry
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      fce2cf2a-6c43-4d67-873e-8d276b69eb2b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              1e16ceb7-8460-469c-9594-cc5b0ecc6871:
+                required: false
+                sortOrder: 1
+              62e24206-e2ee-47d4-b3b6-7b470449fdcd:
+                required: false
+                sortOrder: 2
+              69f107fe-4a3a-4da1-b536-0b6b2ccd2185:
+                required: true
+                sortOrder: 3
+  af380c34-05fd-4f14-af51-a4be2bb81dc5:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Bio Cards'
+    handle: bioCards
+    sortOrder: 10
+    fields:
+      e680bc68-b72a-4c62-bf84-582be5b59a2d:
+        name: 'Link to Author Bio'
+        handle: authorBio
+        instructions: 'Create a Bio Card from an Author Entry'
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Entries
+        settings:
+          sources:
+            - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: ''
+          selectionLabel: 'Author Bio'
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      9153d6c7-49ae-43b5-a347-0a2ff340c4b8:
+        name: 'Profile Bio'
+        handle: profileBio
+        instructions: 'Create a "one-off" Bio Card '
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: ''
+          maxRows: ''
+          contentTable: '{{%stc_42_profilebio}}'
+          localizeBlocks: false
+          staticField: ''
+          columns:
+            232:
+              width: ''
+            233:
+              width: ''
+            234:
+              width: ''
+            235:
+              width: ''
+            236:
+              width: ''
+          fieldLayout: matrix
+          selectionLabel: Bio
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      24bd41d7-4347-4996-a70a-9b0bb9b749d6:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              e680bc68-b72a-4c62-bf84-582be5b59a2d:
+                required: false
+                sortOrder: 1
+              9153d6c7-49ae-43b5-a347-0a2ff340c4b8:
+                required: false
+                sortOrder: 2
+  e8c90228-ae0b-4d1c-8502-35af8e84caa9:
+    field: d21330b2-ad68-4478-9b2a-7a0e84a8d0b8
+    name: 'Billboard (2-up)'
+    handle: billboard2Up
+    sortOrder: 11
+    fields:
+      245752a6-8f30-4adf-a61f-31850382f89f:
+        name: Billboard
+        handle: billboard
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: '2'
+          maxRows: '2'
+          contentTable: '{{%stc_43_billboard}}'
+          localizeBlocks: false
+          staticField: ''
+          columns:
+            238:
+              width: ''
+            239:
+              width: ''
+            240:
+              width: ''
+            241:
+              width: ''
+          fieldLayout: matrix
+          selectionLabel: Billboard
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      b9a62270-8436-44ac-ac8a-e5d96b349bdd:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              245752a6-8f30-4adf-a61f-31850382f89f:
+                required: false
+                sortOrder: 1
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -3768,20 +4610,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.1.0
-  groupie:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-    settings:
-      multipleGroups: ''
-      publicGroups:
-        - '1'
-      groups:
-        -
-          id: 1
-          name: 'Course Subscribers'
-          handle: courseSubscribers
-          uid: fcd91374-4e27-4852-96ca-86f2891be207
   snitch:
     edition: standard
     enabled: true
@@ -4078,19 +4906,18 @@ sections:
                   cf24e239-4e4a-46f2-8aa9-5f86bcefaa56:
                     required: false
                     sortOrder: 2
-                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                  c390f04f-cf37-46b2-9e4b-0de004dde5c2:
                     required: false
                     sortOrder: 3
-                  2d8ecd0c-5f0b-4fa5-903a-a8e49166151d:
+                  d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: false
                     sortOrder: 4
-              -
-                name: Bio
-                sortOrder: 2
-                fields:
-                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+                  2d8ecd0c-5f0b-4fa5-903a-a8e49166151d:
                     required: false
-                    sortOrder: 1
+                    sortOrder: 5
+                  32236621-f50a-48af-a121-8ff8282224f3:
+                    required: false
+                    sortOrder: 6
   1bb6bca4-50c3-47c7-8160-2dd055239822:
     name: 'Podcasts Index'
     handle: podcastsIndex
@@ -4503,6 +5330,108 @@ sections:
                   81b1fffd-00d4-4255-9952-644a4702765f:
                     required: false
                     sortOrder: 5
+  6360317a-4d10-440e-b3dd-27829ac33f71:
+    name: 'General Content'
+    handle: generalContent
+    type: structure
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: '{slug}'
+        template: general/_entry
+    structure:
+      uid: a8e1f255-69c7-43b1-8e9b-90807163028e
+      maxLevels: null
+    entryTypes:
+      36845c43-65b2-4e47-9845-6481a6ebe03c:
+        name: 'General Content'
+        handle: generalContent
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          486e19de-491e-44b4-81c5-446bded5e1f2:
+            tabs:
+              -
+                name: Main
+                sortOrder: 1
+                fields:
+                  414a6315-af87-4471-b258-3dbc6034e8ba:
+                    required: false
+                    sortOrder: 1
+                  d21330b2-ad68-4478-9b2a-7a0e84a8d0b8:
+                    required: false
+                    sortOrder: 2
+  c33a2c5c-a623-473d-af15-3e0c973fb604:
+    name: 'Contact '
+    handle: contact
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: contact
+        template: contact
+    entryTypes:
+      aa2f6685-064b-40bc-ad1c-ca79b7b74a68:
+        name: 'Contact '
+        handle: contact
+        hasTitleField: false
+        titleLabel: Title
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          15e0a645-b3a9-45cc-9c17-131854a92ffc:
+            tabs:
+              -
+                name: 'Form Settings'
+                sortOrder: 1
+                fields:
+                  c24fb561-3888-4270-9b0f-7d6142cbd49e:
+                    required: true
+                    sortOrder: 1
+  f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa:
+    name: 'Request a Speaker'
+    handle: requestASpeaker
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: request-a-speaker
+        template: request-speaker
+    entryTypes:
+      42ed7be2-af7f-4514-ab0d-54368419fd8c:
+        name: 'Request a Speaker'
+        handle: requestASpeaker
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          49204494-cb71-4a6c-b934-0e5873791919:
+            tabs:
+              -
+                name: 'Form Settings'
+                sortOrder: 1
+                fields:
+                  c24fb561-3888-4270-9b0f-7d6142cbd49e:
+                    required: true
+                    sortOrder: 1
+                  969b7cfa-bcc1-49f3-a48b-6ddf747e46da:
+                    required: true
+                    sortOrder: 2
+                  a3c71ab1-8b36-41fd-a67a-e885aae354fd:
+                    required: true
+                    sortOrder: 3
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
@@ -6007,6 +6936,526 @@ superTableBlockTypes:
               b5cc1041-9660-4969-ae94-305b92342608:
                 required: false
                 sortOrder: 1
+  a58d44f1-ac40-4d49-a8a1-5fe5aa52661f:
+    field: dfed3728-c427-468b-88c5-fa6bafd949d1
+    fields:
+      8297c514-4940-4945-a27e-ed40e952c6fb:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      0a741073-37df-4367-babe-6f65fdc88565:
+        name: 'Supporting Copy (optional)'
+        handle: supportingCopy
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: '50'
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      cdd8ff37-d545-4fda-898e-739df65231f4:
+        name: Resource
+        handle: resource
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: ''
+              allowHash: ''
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: ''
+          defaultText: ''
+          allowTarget: ''
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      6d147c62-9c00-4dc9-b7eb-c0cba520692b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              8297c514-4940-4945-a27e-ed40e952c6fb:
+                required: false
+                sortOrder: 1
+              0a741073-37df-4367-babe-6f65fdc88565:
+                required: false
+                sortOrder: 2
+              cdd8ff37-d545-4fda-898e-739df65231f4:
+                required: false
+                sortOrder: 3
+  8fe8dd83-0374-4d96-90c0-78533e8cd187:
+    field: cae916f5-08e4-4e50-9eef-2a549be71275
+    fields:
+      75e1aa87-b7ed-47d6-80b9-eba60fdec2ea:
+        name: Image
+        handle: image
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: articles
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Image
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      87248c26-3115-46bf-a616-e74698eb952e:
+        name: 'Article '
+        handle: article
+        instructions: 'Use H2 for primary headings'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: ''
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      8f0071db-b910-45e2-ab41-62de8c8f35c9:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              75e1aa87-b7ed-47d6-80b9-eba60fdec2ea:
+                required: false
+                sortOrder: 1
+              87248c26-3115-46bf-a616-e74698eb952e:
+                required: false
+                sortOrder: 2
+  a9e195c6-5557-4b35-be43-d61ba91c1308:
+    field: 9153d6c7-49ae-43b5-a347-0a2ff340c4b8
+    fields:
+      5913da9f-cd9a-4692-b580-203db21b9696:
+        name: Photo
+        handle: photo
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: '1'
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: profiles
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources: '*'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Photo
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      26f3fdf3-9788-4023-a5dc-67c3200b6c7f:
+        name: 'Full Name'
+        handle: fullName
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      00de5639-4ce0-45d8-9a2b-f5c2502f8500:
+        name: Role
+        handle: role
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      77b9d164-8985-4c60-af2c-7716425e35af:
+        name: 'Short Description'
+        handle: shortDescription
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: '1'
+          initialRows: '4'
+          charLimit: '500'
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      ebfb66d5-a77c-44da-8d3a-487e8e954946:
+        name: Button
+        handle: button
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: '1'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      85b2cde9-612c-43e6-9a54-babc0e925e25:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              5913da9f-cd9a-4692-b580-203db21b9696:
+                required: true
+                sortOrder: 1
+              26f3fdf3-9788-4023-a5dc-67c3200b6c7f:
+                required: false
+                sortOrder: 2
+              00de5639-4ce0-45d8-9a2b-f5c2502f8500:
+                required: false
+                sortOrder: 3
+              77b9d164-8985-4c60-af2c-7716425e35af:
+                required: false
+                sortOrder: 4
+              ebfb66d5-a77c-44da-8d3a-487e8e954946:
+                required: false
+                sortOrder: 5
+  c5d8cc6d-2554-4ee1-80ba-ed9772247174:
+    field: 245752a6-8f30-4adf-a61f-31850382f89f
+    fields:
+      62592330-10ea-4ac9-a3c7-5347062e2b84:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      deebee88-99b7-46f5-80c4-e63775e21540:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Simple.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+      fef7f0cc-ff32-44e0-b42e-70dcccccd960:
+        name: Button
+        handle: button
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: '1'
+        contentColumnType: text
+        fieldGroup: null
+      3912e69c-6a7c-4f61-ad7f-0550713c6f0c:
+        name: 'Button Style'
+        handle: buttonStyle
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Primary
+              value: btn
+              default: ''
+            -
+              label: Text
+              value: 'link -underline'
+              default: '1'
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      ee71bedf-5da4-4a12-bda8-9806f0004adb:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              62592330-10ea-4ac9-a3c7-5347062e2b84:
+                required: false
+                sortOrder: 1
+              deebee88-99b7-46f5-80c4-e63775e21540:
+                required: false
+                sortOrder: 2
+              fef7f0cc-ff32-44e0-b42e-70dcccccd960:
+                required: false
+                sortOrder: 3
+              3912e69c-6a7c-4f61-ad7f-0550713c6f0c:
+                required: false
+                sortOrder: 4
 system:
   edition: pro
   name: '1517'
@@ -6014,11 +7463,11 @@ system:
   schemaVersion: 3.1.28
   timeZone: America/Los_Angeles
 users:
-  requireEmailVerification: true
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoVolumeUid: null
-  photoSubpath: ''
+  requireEmailVerification: false
+  allowPublicRegistration: true
+  defaultGroup: fcd91374-4e27-4852-96ca-86f2891be207
+  photoVolumeUid: c160af80-d4b3-4032-99f1-f91b25f713d3
+  photoSubpath: profiles
   groups:
     fcd91374-4e27-4852-96ca-86f2891be207:
       name: 'Course Subscribers'

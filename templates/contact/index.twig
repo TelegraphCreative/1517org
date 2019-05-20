@@ -2,9 +2,7 @@
 {% import '_macros/global' as global %}
 
 {% block content %}
-    {% if contactFormSettings.enableForm %}
 
-        
         {# Header #}
         <section
             class="space-menu space-b">
@@ -12,7 +10,8 @@
             {% set content = { title: 'Contact Us' } %}
 
             {# Page Header #}
-            {% include "_components/static/page-header" with { content: content } %}</section>
+            {% include "_components/static/page-header" with { content: content } %}
+        </section>
 
         {# Content #}
         <div class="container--xs gutter-xl | space-b--lg" id="contact">
@@ -24,8 +23,5 @@
 
         {# Billboard Newsletter #}
         {% include '_components/static/billboard--newsletter'  %}
-    {% else %}
-        {% exit 404 %}
-    {% endif %}
 
 {% endblock %}

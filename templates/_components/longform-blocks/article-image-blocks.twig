@@ -1,0 +1,17 @@
+{% import '_macros/global' as global %}
+{# Case: ArticleImageBlocks Article L / R Swap 
+    Notes: these layouts will swap automatically on large screens #}
+<div class="block--articleImageBlocks | article-image-blocks -swap">
+    {% for block in block.block %}
+        
+        <div class="article-image-block | container--sm gutter-md">
+            <div class="article-image-block__media">
+                {{ global.image(block.image.one(), '-is16x12 -fit-cover bg-ivory-lightest' )}}
+            </div>
+            <article class="article-image-block__content | article-content | paragraphs -md -loose">
+                {{ block.article }}
+            </article>
+        </div>
+
+    {% endfor %}
+</div>

@@ -17,7 +17,6 @@
     WHEN NO IMAGE IS DEFINED: This billboard automatically changes into Billboard Text Centered as a design fallback.
 #}
 
-
 <div class="billboard -text {% if block.image|length %} -floated-img{% else %} -center{% endif%} | {{ block.backgroundColor }} | no-print">
     <div class="billboard__container container">
 
@@ -48,7 +47,7 @@
                 {% endif %}
 
                 {# Action #}
-                {% if block.button is defined %}
+                {% if block.button|length %}
                     <div class="billboard__action">
                         {{ global.link(block.button, block.buttonStyle)}}
                     </div>
