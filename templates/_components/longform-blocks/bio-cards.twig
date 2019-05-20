@@ -1,0 +1,25 @@
+{% import '_macros/global' as global %}
+{# Case: Bio Cards #}
+<div class="block--bioCards | container--sm gutter-md | space-t space-b">
+    {# Bio Cards #}
+    <div class="bio-cards">
+
+        authorBio: {{ block.authorBio|length }}
+        profileBio: {{ block.profileBio|length }}
+        {# {% for item in block.authorBio %}
+            {% switch item.type %}
+            
+                {% case "authorBio" %}
+                authorBio
+            
+                {% case "profileBio" %}
+                profileBio
+            
+                {% default %}
+                
+            
+            {% endswitch %}
+            
+        {% endfor %} #}
+    </div>
+</div>

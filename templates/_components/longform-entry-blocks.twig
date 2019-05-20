@@ -11,6 +11,8 @@
         {# Big List - Assets #}
         {% case "bigListAssets" %}
             {% include '_components/longform-blocks/big-list-assets' %}        
+        {% case "bigListAssetsLinks" %}
+            {% include '_components/longform-blocks/big-list-assets' %}        
        
         {# Button Group #}
         {% case "buttonGroup" %}
@@ -28,7 +30,31 @@
         {% case "billboardFloatedImage" %}
             {% include '_components/longform-blocks/billboard--floated' %}
         
+        {# Article Body #}
+        {% case "leadIn" %}
+            {% include '_components/longform-blocks/lead-in' %}
         
+        {# Blockquote #}
+        {% case "blockquote" %}
+            {% include '_components/longform-blocks/blockquote' %}
+
+        {# Article Image Blocks #}
+        {% case "articleImageBlocks" %}
+            {% include '_components/longform-blocks/article-image-blocks' %}
+
+        {# Image Slider #}
+        {% case "imageSlider" %}
+            {% include '_components/longform-blocks/image-slider' %}
+
+        {# Bio Cards #}
+        {% case "bioCards" %}
+            {% include '_components/longform-blocks/bio-cards' %}
+
+        {# Billboard - 2up #}
+        {% case "billboard2Up" %}
+            {% include '_components/longform-blocks/billboard--2up' %}
+
+
         {% endswitch %}
     {% endfor %}
     

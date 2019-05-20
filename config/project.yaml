@@ -199,18 +199,18 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558282762
+dateModified: 1558364258
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
   template: ''
   transportType: craft\mail\transportadapters\Smtp
   transportSettings:
-    host: smtp.mailgun.org
-    port: '587'
+    host: $SMTP_HOST
+    port: $SMTP_PORT
     useAuthentication: '1'
-    username: postmaster@sandbox3523323655804f678e9ee72e76dd68ac.mailgun.org
-    password: f3f63eb274ce70aa327b3b81e7971bd6-4a62b8e8-c07ac98f
+    username: $SMTP_USERNAME
+    password: $SMTP_PASSWORD
     encryptionMethod: ''
     timeout: '10'
 fieldGroups:
@@ -5341,7 +5341,7 @@ sections:
         enabledByDefault: true
         hasUrls: true
         uriFormat: '{slug}'
-        template: general
+        template: general/_entry
     structure:
       uid: a8e1f255-69c7-43b1-8e9b-90807163028e
       maxLevels: null

@@ -25,7 +25,6 @@
 -   Courses
     \_ Setup Course Registration Form
     \_ Groupie Plugin assigns them to a group
-    \_ Add checkbox and Mailchimp Subscribe
     \_ Add Login / Forgot Pw page
 
 -   GDPR

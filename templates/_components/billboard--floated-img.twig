@@ -47,7 +47,7 @@
                 {% endif %}
 
                 {# Action #}
-                {% if block.button is defined %}
+                {% if block.button|length %}
                     <div class="billboard__action">
                         {{ global.link(block.button, block.buttonStyle)}}
                     </div>
