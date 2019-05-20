@@ -1,9 +1,25 @@
-<div class="block--entryCallout | entry-callout | gutter-xl | space-t space-b--sm">
+{% import '_macros/global' as global %}
+
+<div class="block--entryCallouts | content-card-list | container--sm gutter-md">
     {# Header #}
-    {% if block.header|length %}
-        <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
+    {% if block.headerOptional|length %}
+    <header class="sub-section-header | space-b--sm">
+        
+        
+        <h2 class="title | header-lg font-serif">
+            {{ block.headerOptional }}
+        </h2>
+        
+        {% if block.headerAction|length %}
+            {{ global.link(block.headerAction, 'link -underline -sm mt-4', 'See All')}}
+        {% endif %}
+        
+    </header>
     {% endif %}
 
-    {# Content Card - Podcast #} 
-    {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
+    {# Content Cards #} 
+    {% for entry in block.entryCallout.all() %}
+        {% include '_components/content-cards' with { content: entry } %}
+    {% endfor %}
+
 </div>

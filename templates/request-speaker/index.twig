@@ -2,7 +2,6 @@
 {% import '_macros/global' as global %}
 
 {% block content %}
-    {% if contactFormSettings.enableForm %}
         
         {# Header #}
         <section
@@ -25,8 +24,5 @@
         {# Fullwidth Image #}
         {{ global.image( '', '-is4x3 -fit-cover bg-ivory-lightest', '/assets/placeholder/placeholder_11.jpg' )}}
     
-    {% else %}
-        {% exit 404 %}
-    {% endif %}
 
 {% endblock %}

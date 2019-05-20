@@ -1,0 +1,9 @@
+
+{# Case: Blockquote w/ Cite 
+        Notes: <blockquote> element will be styled out when inside .article-content but to add a <cite> element, this needs its own matrix block: #}
+<div class="block--blockquote blockquote{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %}">
+    <blockquote>
+        <p>{{ block.quote }}</p>
+    </blockquote>
+    <cite>{{ block.source }}</cite>
+</div>            

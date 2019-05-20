@@ -54,9 +54,9 @@
             
         </header>
 
-        {% if content.image is defined %}
+        {% if content.image|length %}
             <div class="billboard__media">
-                {{ global.image( '', '-is1x1 -fit-cover -hover-scale', content.image )}}
+                {{ global.image( content.image, '-is1x1 -fit-cover -hover-scale' )}}
             </div>
         {% endif %}
     </div>
