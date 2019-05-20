@@ -1,11 +1,17 @@
 <template>
-  <select :id="opt.id" :name="opt.name" class="selectdrop">
-    <slot/>
-  </select>
-  <!-- v-model="selected" -->
+	<select
+        class="selectdrop"
+        :id="opt.id"
+        :name="opt.name"
+        v-model="selected"
+    >
+		<slot/>
+	</select>
 </template>
 <script>
 import Choices from 'choices.js'
+import Url from 'domurl'
+
 export default {
     props: {
         value: {
@@ -26,7 +32,15 @@ export default {
                 return this.value
             },
             set(value) {
-                this.$emit('input', value)
+                const url = new Url
+                console.log(value, url);
+                
+                if (value) {
+                    url.query[this.opt.name] = value
+                } else {
+                    delete url.query[this.opt.name]
+                }
+                window.location = url
             },
         },
     },
