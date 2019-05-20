@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558364258
+dateModified: 1558374913
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -211,7 +211,7 @@ email:
     useAuthentication: '1'
     username: $SMTP_USERNAME
     password: $SMTP_PASSWORD
-    encryptionMethod: ''
+    encryptionMethod: ssl
     timeout: '10'
 fieldGroups:
   be195220-984a-4496-a3ec-b2db4bf7dbe2:
