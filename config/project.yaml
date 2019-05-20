@@ -199,7 +199,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558209394
+dateModified: 1558369493
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -3202,13 +3202,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -3525,6 +3526,9 @@ matrixBlockTypes:
           contentTable: '{{%stc_31_list}}'
           localizeBlocks: false
           staticField: ''
+          columns:
+            157:
+              width: ''
           fieldLayout: matrix
           selectionLabel: ''
         contentColumnType: string
@@ -5739,10 +5743,11 @@ superTableBlockTypes:
               customLabel: ''
               customPlaceholder: ''
             fruitstudios\linkit\models\Entry:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
+              sources:
+                - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+              customSelectionLabel: 'Select Author'
             fruitstudios\linkit\models\Category:
               enabled: ''
               customLabel: ''
@@ -5754,7 +5759,7 @@ superTableBlockTypes:
               sources: '*'
               customSelectionLabel: ''
             fruitstudios\linkit\models\User:
-              enabled: '1'
+              enabled: ''
               customLabel: Speaker
               sources: '*'
               customSelectionLabel: 'Select Speaker'
