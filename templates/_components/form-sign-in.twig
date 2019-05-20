@@ -1,0 +1,61 @@
+{# Setup Redirect #}
+{% set redirect = craft.app.request.url %}
+{% if craft.app.request.param('redirect')|length %}
+    {% set redirect = craft.app.request.param('redirect') %}
+{% endif %}
+
+{# Form #}
+<validate_form method="post"
+accept-charset="UTF-8" class="form-base">
+    {{ csrfInput() }}
+    <input type="hidden" name="action" value="users/login">
+    {{ redirectInput( redirect ) }}
+
+    <div class="form-group">
+        <div class="field-group | w-1/2">
+
+            <label class="standard-label" for="email">
+                Email or Username
+            </label>
+            <input id="loginName" type="text" name="loginName" value="{{ craft.app.user.rememberedUsername }}" autocomplete="username" required>
+        </div>
+        <div class="field-group | w-1/2">
+            <label class="standard-label" for="password">
+                Password
+            </label>
+            <input id="sign-in-password" type="password" name="password" minlength="8" autocomplete="current-password" required>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="field-group | w-full">
+    
+            <label for="remember-me" class="control -small">
+                <input type="checkbox" value="1" name="rememberMe" id="remember-me" checked>
+    
+                <span class="control__text | meta-label">Remember me</span>
+    
+                <div class="control__indicator"></div>
+            </label>
+    
+        </div>
+    </div>
+
+    {% if errorMessage is defined %}
+    <div class="form-group">
+        <div class="field-group | w-full">
+            <div class="helper-text -error">{{ errorMessage }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    {# Submit #}
+    <div class="form-submit">
+        <button type="submit" class="btn -full">Login</button>
+        <div class="helper-text | pt-1">
+            <a href="{{ url('account/reset-password') }}">Forgot password?</a>
+        </div>
+    </div>
+
+</validate_form>

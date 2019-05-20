@@ -3,9 +3,12 @@
 //
 
 .control {
-    @apply block relative
-    pl-6 mb-3 
+    @apply relative  
+    block
+    leading-none
+    pl-6 
     cursor-pointer;
+    // mb-3
 
     input {
         @apply absolute 
