@@ -15,6 +15,7 @@
 </template>
 <script>
 import { Validation } from '../vendor/Validation'
+import axios from 'axios'
 import anime from 'animejs'
 
 export default {
@@ -51,20 +52,21 @@ export default {
         }
     },
     mounted() {
+        const _this = this
+        _this.form = _this.$el.querySelector('form')
+
         this.validateForm()
     },
     methods: {
         validateForm() {
             const _this = this
             window.addEventListener('load', function() {
-                _this.form = _this.$el.querySelector('form')
                 Validation.init(_this.form, true)
             })
         },
         handleSubmit(event) {
             const _this = this
             const submitBtn = _this.form.querySelector('[type="submit"]')
-
             Validation.validateSection(_this.form).then(result => {
                 submitBtn.disabled = false
                 if (result === true) {
@@ -81,21 +83,31 @@ export default {
             return false
         },
         sendData(form) {
-            console.log(form)
+            const _this = this
             const data = new FormData(form)
-            const req = new XMLHttpRequest()
-
-            req.open(this.formmethod, this.formaction)
-            req.send(data)
-
-            this.handleConfirmation(form)
+            axios({
+                method: _this.formmethod,
+                url: _this.formaction,
+                data: data,
+                config: { headers: { 'Content-Type': 'multipart/form-data' } },
+            })
+                .then(function(response) {
+                    //handle success
+                    console.log(response)
+                    _this.handleConfirmation(form)
+                })
+                .catch(function(response) {
+                    //handle error
+                    console.log(response)
+                    _this.handleConfirmation(form)
+                })
         },
         subscribeUser() {
             const _this = this
-            const optIn = _this.form.querySelector('#subscribe-to-updates')
+            const optIn = document.getElementById('subscribe-to-updates')
 
             // OK to subscribe user?
-            if (optIn.checked == true) {
+            if (optIn && optIn.checked == true) {
                 const userEmailVal = _this.form.querySelector('[type="email"]')
                     .value
 
@@ -125,10 +137,9 @@ export default {
                     // Remove post script from the DOM
                     delete window[callback]
                     document.body.removeChild(script)
-                    // console.log(data.msg)
+                    console.log(data.msg)
                 }
             }
-            // console.log(url+data)
         },
         handleConfirmation(form) {
             const _this = this

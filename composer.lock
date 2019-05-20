@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97c3f3994efa44a727d311fef5d4ada3",
+    "content-hash": "a1f8e174d4587c5328ae8666e36bbac0",
     "packages": [
         {
             "name": "99designs/phumbor",
@@ -99,6 +99,7 @@
         },
         {
             "name": "aws/aws-sdk-php",
+<<<<<<< HEAD
             "version": "3.93.11",
             "source": {
                 "type": "git",
@@ -109,6 +110,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c9f4cfeb46ce9842d6e7d3692425b7cb1449d573",
                 "reference": "c9f4cfeb46ce9842d6e7d3692425b7cb1449d573",
+=======
+            "version": "3.93.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "60f5c4bd261e19844d4263c3a8f370e88e038282"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/60f5c4bd261e19844d4263c3a8f370e88e038282",
+                "reference": "60f5c4bd261e19844d4263c3a8f370e88e038282",
+>>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
@@ -178,7 +191,11 @@
                 "s3",
                 "sdk"
             ],
+<<<<<<< HEAD
             "time": "2019-05-16T18:45:30+00:00"
+=======
+            "time": "2019-05-17T18:26:46+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "barrelstrength/sprout-base",
@@ -406,6 +423,60 @@
                 "markdown-extra"
             ],
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "charliedev/element-map",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/charliedevelopment/craft3-element-map.git",
+                "reference": "6304e9162dc481d330a4ad3f8c0fdd8a25850349"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/charliedevelopment/craft3-element-map/zipball/6304e9162dc481d330a4ad3f8c0fdd8a25850349",
+                "reference": "6304e9162dc481d330a4ad3f8c0fdd8a25850349",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Element Map",
+                "handle": "element-map",
+                "changelogUrl": "https://raw.githubusercontent.com/charliedevelopment/craft3-element-map/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/charliedevelopment/craft3-element-map/archive/master.zip",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "class": "charliedev\\elementmap\\ElementMap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "charliedev\\elementmap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Charlie Development",
+                    "email": "support@charliedev.com",
+                    "homepage": "http://charliedev.com/"
+                }
+            ],
+            "description": "Simple visualization panel that lists related elements in their associated editors.",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craftcms",
+                "element",
+                "widget"
+            ],
+            "time": "2018-09-27T16:02:27+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -906,16 +977,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.1.24",
+            "version": "3.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373"
+                "reference": "d5b2aa25fa2e7bb7527fca807b5229e99ea42218"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373",
-                "reference": "aa862bd7f2ee3a81c692f0b6c4d0aa9f20e85373",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/d5b2aa25fa2e7bb7527fca807b5229e99ea42218",
+                "reference": "d5b2aa25fa2e7bb7527fca807b5229e99ea42218",
                 "shasum": ""
             },
             "require": {
@@ -990,7 +1061,19 @@
                 "craftcms",
                 "yii2"
             ],
+<<<<<<< HEAD
             "time": "2019-04-23T17:11:18+00:00"
+=======
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/cms/issues?state=open",
+                "forum": "https://craftcms.stackexchange.com/",
+                "source": "https://github.com/craftcms/cms",
+                "docs": "https://docs.craftcms.com/v3/",
+                "rss": "https://github.com/craftcms/cms/releases.atom"
+            },
+            "time": "2019-05-14T18:43:31+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "craftcms/commerce",
@@ -1042,16 +1125,16 @@
         },
         {
             "name": "craftcms/commerce-stripe",
-            "version": "1.2.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/commerce-stripe.git",
-                "reference": "95795f5997cd4d57e3652ca12bfc3c15f182fb02"
+                "reference": "150fb63f00685096f1603d3ce0043b10049a5b8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/commerce-stripe/zipball/95795f5997cd4d57e3652ca12bfc3c15f182fb02",
-                "reference": "95795f5997cd4d57e3652ca12bfc3c15f182fb02",
+                "url": "https://api.github.com/repos/craftcms/commerce-stripe/zipball/150fb63f00685096f1603d3ce0043b10049a5b8e",
+                "reference": "150fb63f00685096f1603d3ce0043b10049a5b8e",
                 "shasum": ""
             },
             "require": {
@@ -1092,6 +1175,7 @@
                 "source": "https://github.com/craftcms/commerce-stripe",
                 "docs": "https://github.com/craftcms/commerce-stripe/blob/master/README.md",
                 "rss": "https://github.com/craftcms/commerce-stripe/commits/master.atom"
+<<<<<<< HEAD
             },
             "time": "2019-04-30T07:43:53+00:00"
         },
@@ -1125,26 +1209,10 @@
                 "psr-4": {
                     "craft\\contactform\\": "src/"
                 }
+=======
+>>>>>>> origin/master
             },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pixel & Tonic",
-                    "homepage": "https://pixelandtonic.com/"
-                }
-            ],
-            "description": "Add a simple contact form to your Craft CMS site",
-            "keywords": [
-                "cms",
-                "contact",
-                "craftcms",
-                "form",
-                "yii2"
-            ],
-            "time": "2019-04-03T16:45:22+00:00"
+            "time": "2019-05-14T18:29:22+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -1240,16 +1308,16 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.3.2",
+            "version": "2.3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/redactor.git",
-                "reference": "e4d96d805af031f4a80e5742e5651f30b55e6bca"
+                "reference": "55ee76494f6332ba5709003d2082e51d56ae8b1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/e4d96d805af031f4a80e5742e5651f30b55e6bca",
-                "reference": "e4d96d805af031f4a80e5742e5651f30b55e6bca",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/55ee76494f6332ba5709003d2082e51d56ae8b1a",
+                "reference": "55ee76494f6332ba5709003d2082e51d56ae8b1a",
                 "shasum": ""
             },
             "require": {
@@ -1258,7 +1326,8 @@
             "type": "craft-plugin",
             "extra": {
                 "name": "Redactor",
-                "handle": "redactor"
+                "handle": "redactor",
+                "documentationUrl": "https://github.com/craftcms/redactor/blob/v2/README.md"
             },
             "autoload": {
                 "psr-4": {
@@ -1283,7 +1352,18 @@
                 "html",
                 "yii2"
             ],
+<<<<<<< HEAD
             "time": "2019-02-21T13:34:33+00:00"
+=======
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/redactor/issues?state=open",
+                "source": "https://github.com/craftcms/redactor",
+                "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
+                "rss": "https://github.com/craftcms/redactor/commits/v2.atom"
+            },
+            "time": "2019-04-29T21:39:05+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "craftcms/server-check",
@@ -2753,6 +2833,60 @@
             "time": "2019-01-14T23:55:14+00:00"
         },
         {
+            "name": "kinoli/groupie",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kinoli/groupie.git",
+                "reference": "968774c6e498ecfe3b0a7db6c0bc08b78caaf957"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kinoli/groupie/zipball/968774c6e498ecfe3b0a7db6c0bc08b78caaf957",
+                "reference": "968774c6e498ecfe3b0a7db6c0bc08b78caaf957",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Groupie",
+                "handle": "groupie",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "changelogUrl": "???",
+                "class": "kinoli\\groupie\\Groupie"
+            },
+            "autoload": {
+                "psr-4": {
+                    "kinoli\\groupie\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jesse Knowles",
+                    "homepage": "http://www.jesseknowles.com"
+                }
+            ],
+            "description": "Assign users to specific user groups upon registration. Especially useful for front-end signup forms",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "groupie"
+            ],
+            "support": {
+                "docs": "https://github.com/kinoli/groupie",
+                "issues": "https://github.com/kinoli/groupie/issues"
+            },
+            "time": "2018-11-12T16:05:23+00:00"
+        },
+        {
             "name": "ksubileau/color-thief-php",
             "version": "v1.4.1",
             "source": {
@@ -3002,6 +3136,61 @@
                 "single sign on"
             ],
             "time": "2018-11-22T18:33:57+00:00"
+        },
+        {
+            "name": "marionnewlevant/snitch",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marionnewlevant/craft-snitch.git",
+                "reference": "6147e2a59493db8fef2adda651874f247fda0ebc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marionnewlevant/craft-snitch/zipball/6147e2a59493db8fef2adda651874f247fda0ebc",
+                "reference": "6147e2a59493db8fef2adda651874f247fda0ebc",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Snitch",
+                "handle": "snitch",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "documentationUrl": "https://github.com/marionnewlevant/craft-snitch/blob/v2/README.md",
+                "changelogUrl": "https://raw.githubusercontent.com/marionnewlevant/craft-snitch/v2/CHANGELOG.md",
+                "components": {
+                    "collision": "marionnewlevant\\snitch\\services\\Collision"
+                },
+                "class": "marionnewlevant\\snitch\\Snitch"
+            },
+            "autoload": {
+                "psr-4": {
+                    "marionnewlevant\\snitch\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marion Newlevant",
+                    "homepage": "http://marion.newlevant.com"
+                }
+            ],
+            "description": "Report when two people might be editing the same element (eg entry, category, or global) or field",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craft-plugin",
+                "craftcms",
+                "snitch"
+            ],
+            "time": "2019-05-15T16:15:05+00:00"
         },
         {
             "name": "markbaker/complex",
@@ -4000,16 +4189,16 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.1.49",
+            "version": "3.1.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-seomatic.git",
-                "reference": "f6432ec96659a760ab8b628fcb025714cb4805f3"
+                "reference": "91152ac7d58edfda21398c7d7751fefb878dce51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/f6432ec96659a760ab8b628fcb025714cb4805f3",
-                "reference": "f6432ec96659a760ab8b628fcb025714cb4805f3",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/91152ac7d58edfda21398c7d7751fefb878dce51",
+                "reference": "91152ac7d58edfda21398c7d7751fefb878dce51",
                 "shasum": ""
             },
             "require": {
@@ -4040,6 +4229,9 @@
                 }
             },
             "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                },
                 "psr-4": {
                     "nystudio107\\seomatic\\": "src/"
                 }
@@ -4069,7 +4261,15 @@
                 "tags",
                 "twitter"
             ],
+<<<<<<< HEAD
             "time": "2019-04-23T03:23:57+00:00"
+=======
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-seomatic/blob/v3/README.md",
+                "issues": "https://github.com/nystudio107/craft-seomatic/issues"
+            },
+            "time": "2019-04-30T21:42:09+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "ostark/yii2-artisan-bridge",
@@ -4906,26 +5106,26 @@
         },
         {
             "name": "spicyweb/craft-fieldlabels",
-            "version": "1.0.7",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spicywebau/craft-fieldlabels.git",
-                "reference": "4e729d0c95c5c74af1691d553ce727d7d1f25ee8"
+                "reference": "51164b9ed360c7b28457c9b3f03b9f99b871c996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-fieldlabels/zipball/4e729d0c95c5c74af1691d553ce727d7d1f25ee8",
-                "reference": "4e729d0c95c5c74af1691d553ce727d7d1f25ee8",
+                "url": "https://api.github.com/repos/spicywebau/craft-fieldlabels/zipball/51164b9ed360c7b28457c9b3f03b9f99b871c996",
+                "reference": "51164b9ed360c7b28457c9b3f03b9f99b871c996",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.1.20"
+                "craftcms/cms": "^3.1.24"
             },
             "type": "craft-plugin",
             "extra": {
                 "handle": "fieldlabels",
                 "name": "Field Labels",
-                "schemaVersion": "1.0.0",
+                "schemaVersion": "1.1.0",
                 "class": "spicyweb\\fieldlabels\\Plugin",
                 "changelogUrl": "https://github.com/spicywebau/craft-fieldlabels/blob/master/CHANGELOG.md",
                 "downloadUrl": "https://github.com/spicywebau/craft-fieldlabels/archive/master.zip"
@@ -4951,7 +5151,15 @@
                 "craft-plugin",
                 "craftcms"
             ],
+<<<<<<< HEAD
             "time": "2019-04-03T09:19:10+00:00"
+=======
+            "support": {
+                "email": "craft@spicyweb.com.au",
+                "issues": "https://github.com/spicywebau/craft-fieldlabels/issues"
+            },
+            "time": "2019-05-16T00:03:07+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "stripe/stripe-php",
@@ -6110,16 +6318,16 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "1.1.11",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/navigation.git",
-                "reference": "a40b97c42a5040d9ac099bb7bbc3a76e1c0dd2eb"
+                "reference": "c2b5db4fa4bebe325ff8ed8f0f668ec4e626867e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/a40b97c42a5040d9ac099bb7bbc3a76e1c0dd2eb",
-                "reference": "a40b97c42a5040d9ac099bb7bbc3a76e1c0dd2eb",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/c2b5db4fa4bebe325ff8ed8f0f668ec4e626867e",
+                "reference": "c2b5db4fa4bebe325ff8ed8f0f668ec4e626867e",
                 "shasum": ""
             },
             "require": {
@@ -6156,20 +6364,31 @@
                 "menu",
                 "navigation"
             ],
+<<<<<<< HEAD
             "time": "2019-03-20T21:47:04+00:00"
+=======
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/navigation/issues?state=open",
+                "source": "https://github.com/verbb/navigation",
+                "docs": "https://github.com/verbb/navigation",
+                "rss": "https://github.com/verbb/navigation/commits/v2.atom"
+            },
+            "time": "2019-05-15T05:38:56+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "verbb/super-table",
-            "version": "2.1.17",
+            "version": "2.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/super-table.git",
-                "reference": "03dadd201326af0bd93d8b37f9e099e87a057fdb"
+                "reference": "bc7c2eae0d81eb90d7d5020df4ec2276b6fb8be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/03dadd201326af0bd93d8b37f9e099e87a057fdb",
-                "reference": "03dadd201326af0bd93d8b37f9e099e87a057fdb",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/bc7c2eae0d81eb90d7d5020df4ec2276b6fb8be5",
+                "reference": "bc7c2eae0d81eb90d7d5020df4ec2276b6fb8be5",
                 "shasum": ""
             },
             "require": {
@@ -6207,7 +6426,18 @@
                 "craftcms",
                 "super table"
             ],
+<<<<<<< HEAD
             "time": "2019-04-09T08:37:27+00:00"
+=======
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/super-table/issues?state=open",
+                "source": "https://github.com/verbb/super-table",
+                "docs": "https://github.com/verbb/super-table",
+                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
+            },
+            "time": "2019-05-11T06:01:07+00:00"
+>>>>>>> origin/master
         },
         {
             "name": "vlucas/phpdotenv",
