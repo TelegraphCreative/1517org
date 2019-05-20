@@ -4,22 +4,30 @@
     {# Bio Cards #}
     <div class="bio-cards">
 
-        authorBio: {{ block.authorBio|length }}
-        profileBio: {{ block.profileBio|length }}
-        {# {% for item in block.authorBio %}
-            {% switch item.type %}
-            
-                {% case "authorBio" %}
-                authorBio
-            
-                {% case "profileBio" %}
-                profileBio
-            
-                {% default %}
-                
-            
-            {% endswitch %}
-            
-        {% endfor %} #}
+        {% if block.profileBio|length %}
+            {% for item in block.profileBio %}
+                {% set bioContent = { 
+                    photo: item.photo.one(),
+                    fullName: item.fullName,
+                    role: item.role,
+                    shortDescription: item.shortDescription,
+                    button: item.button,
+                }%}
+                {% include '_components/bio-card' with { content: bioContent } %}
+            {% endfor %}
+        {% endif %}
+
+        {% if block.authorBio|length %}
+            {% for item in block.profileBio %}
+                {% set bioContent = { 
+                    photo: item.photo.one(),
+                    fullName: item.firstName,
+                    role: item.role,
+                    shortDescription: item.shortDescription,
+                    button: item.headerAction,
+                }%}
+                {% include '_components/bio-card' with { content: bioContent } %}
+            {% endfor %}
+        {% endif %}
     </div>
 </div>

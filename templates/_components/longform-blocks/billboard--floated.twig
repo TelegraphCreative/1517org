@@ -1,4 +1,7 @@
-<div class="block--billboardFloatedImage | billboard-floated-image | space-t space-b">
+<div class="block--billboardFloatedImage | billboard-floated-image | space-t {% if not loop.last %}space-b{% endif %}">
     {# Billboard #}
     {% include "_components/billboard--floated-img" with { content: block } %}
 </div>
+
+
+

@@ -3,21 +3,21 @@
 <div class="bio-card | -hover-border -hover-links">
     {# Media #}
     <div class="bio-card__media">
-        {{ global.image('', '-is1x1 -fit-cover bg-ivory-lightest', '/assets/placeholder/profile_01.jpg' )}}
+        {{ global.image(bioContent.photo, '-is1x1 -fit-cover bg-ivory-lightest' )}}
     </div>
 
     {# Content #}
     <div class="bio-card__content">
         <header class="bio-card__header">
-            <h4 class="title font-serif header-md">Caleb Keith</h4>
+            <h4 class="title font-serif header-md">{{ bioContent.fullName }}</h4>
             <div class="meta-label">
-                Director, 1517 Podcasts; Executive Producer, Thinking Fellows Podcast
+                {{ bioContent.role }}
             </div>
         </header>
 
         <article class="bio-card__detail | text-slate-light paragraphs -xs | md:y-overflow-gradient">
-            <p>Caleb holds a BA in theology and classical languages from Concordia University (Irvine) and is currently pursuing an MA in systematic theology from the University of Nottingham.</p>
-            <a href="#" class="link | meta-label">Read Full Bio</a>
+            <p>{{ bioContent.shortDescription }}</p>
+            {{ global.link(bioContent.button, 'link | meta-label')}}
         </article>
     </div>
 </div>
