@@ -7,18 +7,18 @@
 
     <template v-slot:default>
         <header class="sub-section-header | mb-10">
-            <h2 class="title | header-lg font-serif">{{ speakerFormSettings.formHeader.one().defaultHeader }}</h2>
+            <h2 class="title | header-lg font-serif">{{ entry.formHeader.one().defaultHeader }}</h2>
             <div class="paragraphs -md">
-                {{ speakerFormSettings.formHeader.one().defaultDescription }}
+                {{ entry.formHeader.one().defaultDescription }}
             </div>
         </header>
     </template>
 
     <template v-slot:success>
         <header class="sub-section-header | mb-10">
-            <h2 class="title | header-lg font-serif">{{ speakerFormSettings.formHeader.one().successHeader }}</h2>
+            <h2 class="title | header-lg font-serif">{{ entry.formHeader.one().successHeader }}</h2>
             <div class="paragraphs -md">
-                {{ speakerFormSettings.formHeader.one().successDescription }}
+                {{ entry.formHeader.one().successDescription }}
             </div>
         </header>
     </template>
@@ -42,7 +42,7 @@
                     Select Speaker
                 </label>
                 <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
-                    {% for item in speakerFormSettings.requestSpeakerBookingOptions.all() %}
+                    {% for item in entry.requestSpeakerBookingOptions.all() %}
                         
                         <option value="{{ item.fullName }}">{{ item.fullName }}</option>
 
@@ -117,7 +117,7 @@
                     Topic
                 </label>
                 <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
-                    {% for item in speakerFormSettings.requestSpeakerTopicOptions.all() %}
+                    {% for item in entry.requestSpeakerTopicOptions.all() %}
                         
                         <option value="{{ item.topic }}">{{ item.topic }}</option>
                         
