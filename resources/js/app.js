@@ -18,6 +18,7 @@ import seconds_to_time_filter from './filters/SecondsToTime'
 import print from './components/Print'
 import share from './components/Share'
 import dropcap from './components/DropCap'
+import donately_homepage from './components/DonatelyHomepage'
 
 // Vue App
 const app = new Vue({
@@ -37,6 +38,7 @@ const app = new Vue({
         contact_form,
         print,
         share,
+        donately_homepage,
     },
 })
 
