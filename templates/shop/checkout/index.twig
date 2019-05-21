@@ -1,0 +1,30 @@
+{% if currentUser %}
+    {% redirect 'shop/checkout/addresses' %}
+{% endif %}
+
+{% extends 'shop/_layouts/checkout' %}
+
+{% block content %}
+    <h1 class="header-lg font-serif space-t text-center">Let’s grab your email to get started</h1>
+    <div class="max-w-sm mx-auto gutter | signup-form">
+            <form method="POST" class="space-t">
+                <input type="hidden" name="action" value="commerce/cart/update-cart">
+                {{ redirectInput('shop/checkout/register-signin') }}
+                {{ csrfInput() }}
+
+
+                <div class="relative">
+                    <div class="form-group">
+                        <div class="field-group | w-full">
+                        <input id="email" class="w-full email-input" type="text" value="{{ cart.email }}" name="email" placeholder="email@site.com" />
+                        </div>
+                    </div>
+                    <button type="submit" class="submit">Continue</button>
+                    </div>
+                </div>
+
+                
+            </form>
+        </div>
+
+{% endblock %}
