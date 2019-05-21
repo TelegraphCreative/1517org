@@ -13,44 +13,35 @@
                     <b>Needs fields added for description and image</b>
                 </h2>
             </div>
-            <form class="billboard__action" action="/donate">
+            <form class="billboard__action" id="donate-form" action="/donate">
                 <div class="meta-label | mb-4">Choose Amount:</div>
 
                 <div class="option-group -equalize -start">
+
+                {% js at endBody %}
+                    var submitForm = function() {
+                        var form = document.querySelector('#donate-form');
+                        form.submit();
+                    }
+                {% endjs %}
+
+                {% set donate = craft.entries.slug('donate').one() %}
+                {% for amount in donate.donatelyAmounts.all() %}
                     <label
                         class="option-group__item | control control--radio-box"
-                        for="option-1"
-                        ><input
-                            id="option-1"
+                        for="option-{{ amount.number }}"
+                        onclick="submitForm()"
+                    >
+                        <input
+                            id="option-{{ amount.number }}"
                             name="donately"
                             type="radio"
-                            value="25"
-                        />
-                        <span class="control__text | w-full">$25</span></label
-                    >
-                    <label
-                        class="option-group__item | control control--radio-box"
-                        for="option-2"
-                        ><input
-                            id="option-2"
-                            name="donately"
-                            type="radio"
-                            value="50"
-                        />
-                        <span class="control__text | w-full">$50</span></label
-                    >
-                    <label
-                        class="option-group__item | control control--radio-box"
-                        for="option-3"
-                        ><input
-                            id="option-3"
-                            name="donately"
-                            type="radio"
-                            value="75"
-                        />
-                        <span class="control__text | w-full">$75</span></label
-                    >
-                    <input type="submit" class="btn -sm" value="Make this send on clicking the little buttons">
+                            value="{{ amount.number }}"
+                        >
+                        <span class="control__text | w-full">${{ amount.number }}</span>
+                    </label>
+                {% endfor %}
+
                 </div>
             </form>
         </header>
