@@ -1,0 +1,166 @@
+:root {
+    --slate-darkest: #262626;
+    --grey-light: #7d8082;
+    --red: #cc4d39;
+    --hunter: #2a4242;
+    --sage-dark: #b1c4bf;
+    --ivory-lightest: #fbf9f8;
+    --ivory: #eae2db;
+    --bronze: #baa188;
+    --ivory-light-50: rgba(245, 241, 237, 0.5);
+}
+
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/general';
+@import 'base/grid';
+@import 'base/gutter';
+@import 'base/transition';
+
+/* Headers, Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @apply font-serif;
+}
+
+/* Payment source form
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.paymentSource-form .grid {
+    display: flex;
+    margin: 0px -10px;
+}
+
+.paymentSource-form .grid .item {
+    flex-grow: 1;
+    margin: 10px;
+}
+
+.paymentSource-form .multitext .multitextrow {
+    display: flex;
+    margin: 0px -10px;
+}
+.paymentSource-form .multitext .multitextrow .text {
+    margin: 10px;
+}
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.form--shop {
+    textarea,
+    input[type='text'],
+    input[type='password'],
+    input[type='tel'],
+    input[type='email'],
+    .card-data {
+        @apply py-3 mb-3 bg-ivory-lightest;
+    }
+
+    .card-data {
+        @apply bg-transparent;
+    }
+}
+select {
+    @apply no-underline text-base inline-block 
+    property-colors duration-3 timing-1
+    pb-2 pt-2 w-full m-0 border-b border-slate-dark
+    rounded-none appearance-none relative;
+
+    line-height: 1.4;
+    min-height: 43px;
+    box-sizing: border-box;
+
+    // -moz-appearance: none;
+    // -webkit-appearance: none;
+    // appearance: none;
+    background-color: #fbf9f8;
+    background-image: url(/assets/icons/chevron-down.svg);
+    background-repeat: no-repeat, repeat;
+    background-position: right 8px top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+legend {
+    @apply font-serif text-2lg;
+}
+
+label {
+    @apply text-slate-light text-xs font-sans font-semibold uppercase 
+    mb-3 block;
+}
+
+.stripe-charge-form {
+    width: auto !important;
+}
+.address-select {
+    background: #fff;
+    border: 1px solid #eee;
+    margin-bottom: 1em;
+    position: relative;
+    border-radius: 2px;
+}
+.address-select .radio input {
+    margin: 0 5px 0 0;
+    position: relative;
+}
+
+.address-select .radio {
+    padding: 14px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.address-select ul.address-data {
+    display: inline;
+    padding: 0;
+}
+.address-select ul.address-data li {
+    display: inline;
+}
+.address-select ul.address-data li {
+    display: inline;
+}
+.address-select ul.address-data li strong {
+    display: none;
+}
+.address-select ul.address-data li span[data-key='firstName'] {
+    font-weight: bold;
+}
+.address-select ul.address-data li span[data-key='lastName'] {
+    font-weight: bold;
+}
+
+.address-select .actions {
+    float: right;
+    padding: 14px 15px;
+    font-size: 0.9em;
+}
+.address-select .actions ul {
+    margin: 0;
+}
+.address-select .actions ul li {
+    display: inline-block;
+    margin: 0 0 0 1em;
+}
+
+.address-select .body {
+    padding: 14px;
+}
+
+.order-address ul.address-data li {
+    list-style: none;
+}
+
+.order-review .address-select {
+    border: 0;
+    background: transparent;
+}

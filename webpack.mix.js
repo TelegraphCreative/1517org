@@ -8,6 +8,7 @@ mix.setPublicPath('./web')
     // Compiled occasionally (not often changed, comment in when needed)
     // .js('resources/js/styleguide.js', 'assets/js')
     // .sass('resources/scss/styleguide.scss', 'assets/css')
+    .sass('resources/scss/shop.scss', 'assets/css')
     // .sass('resources/scss/print.scss', 'assets/css')
 
     // Compiled Regularly

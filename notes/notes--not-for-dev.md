@@ -16,11 +16,21 @@
     x billboard 2up
     x fix bio card
     x add forms as singles (easier to link to as entries)
-    \_ billboard text?
-    \_ Setup GC Template
+    x Setup GC Template
 
 -   Commerce
     \_ Commerce Styles
+        - cart index
+        - main menu: 
+            - add badge 
+            - customer/order
+            - customer/addresses 
+            - checkout/confirmation
+            x customer/addresses/edit
+            x checkout/payment
+            x checkout/shipping
+            x checkout/register
+            x checkout/landing
 
 -   Courses
     \_ Setup Course Registration Form

@@ -101,18 +101,28 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
         // }
 
         &:after {
+
             content: '';
-            height: 0;
-            width: 0;
-            border-style: solid;
-            border-color: $choices-text-color transparent transparent
-                transparent;
-            border-width: 4px;
-            position: absolute;
+            background-image: url('/assets/icons/chevron-down.svg');
+            background-position: right 8px top 50%, 0 0;
+            background-size: cover;
             right: 0;
-            top: 50%;
-            margin-top: -2px;
-            pointer-events: none;
+            position: absolute;
+            height: 8px;
+            width: 8px;
+
+            // content: '';
+            // height: 0;
+            // width: 0;
+            // border-style: solid;
+            // border-color: $choices-text-color transparent transparent
+            //     transparent;
+            // border-width: 4px;
+            // position: absolute;
+            // right: 0;
+            // top: 50%;
+            // margin-top: -2px;
+            // pointer-events: none;
         }
     }
     &.is-open .#{$choices-selector}__item--selectable:before {
