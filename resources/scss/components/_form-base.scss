@@ -82,6 +82,10 @@
     .helper-text {
         @apply text-xs font-sans font-normal
       mt-2;
+
+        a {
+            @apply font-normal underline;
+        }
     }
 
     // Error
@@ -125,6 +129,13 @@
         input[type='password'],
         input[type='email'] {
             @apply border-bronze text-white;
+        }
+        .standard-label,
+        .control__text {
+            @apply text-white;
+        }
+        .control__indicator {
+            @apply border-bronze;
         }
     }
 

@@ -9,12 +9,19 @@
 
         // Layout
         &__content {
-            @apply pt-24 pb-16;
+            @apply pt-24 pb-8;
 
             &-inner {
-                @apply max-w-sm;
+                max-width: 34rem;
             }
         }
+    }
+
+    .form-base [type='submit'] {
+        @apply mt-0;
+    }
+    .form-submit {
+        @apply mb-10;
     }
 
     // Screen

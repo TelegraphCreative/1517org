@@ -21,9 +21,7 @@
             {% for entry in indexList.all() %}
 
                 {# Content Cards - Switches based on Format #} 
-                {# {{ entry.type }} #}
                 {% include '_components/content-cards' with { content: entry } %}
-                {# {% include '_components/content-card--course' with { content: entry } %} #}
                 
             {% endfor %}
             

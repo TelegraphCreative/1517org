@@ -9,7 +9,7 @@
           <input
             v-model="userEmail"
             type="email"
-            id="email"
+            :id="signuplocation + '-email'"
             class="email-input"
             name="Email"
             required

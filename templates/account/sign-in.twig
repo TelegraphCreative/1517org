@@ -1,0 +1,42 @@
+{% extends "_layouts/_base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+        {# Header #}
+        <section
+            class="space-menu space-b">
+            {# Header Content #}
+            {% if currentUser %}
+                {% set headerContent = { title: 'Hello!', detail: 'You\'re logged in as ' ~ currentUser.friendlyName ~ '. <a href="/logout">Not you?</a' } %}
+            {% else %}
+                {% set headerContent = { title: 'Sign In' } %}
+            {% endif %}
+            {# Page Header #}
+            <header class="page-header | container--sm gutter-md | space-t space-b--sm">
+
+                <div class="page-header__title">
+                    <h1 class="header-xl font-serif">{{ headerContent.title }}</h2>
+                </div>
+
+                {% if headerContent.detail is defined and headerContent.detail|length %}
+                <div class="page-header__detail">
+
+                    <div class="paragraphs -sm -loose">
+                        {{ headerContent.detail | raw }}
+                    </div>
+
+                </div>
+                {% endif %}
+            </header>
+        </section>
+
+        {# Content #}
+        <div class="container--xs gutter-xl | space-b--lg" id="sign-in">
+
+            {# Contact Form #}
+            {% include '_components/form-sign-in'  %}
+            
+        </div>
+
+{% endblock %}
