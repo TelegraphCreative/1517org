@@ -2,7 +2,7 @@
 {% set query = craft.app.request.getParam('q') %}
 
 {# Site Menu #}
-<site_menu class="site-header" :opt="{ 'query': '{{ query }}' }">
+<site_menu class="site-header" :opt="{ 'query': '{{ query }}' }" :cart="{ 'itemCount': '{{ craft.orders.number(cart.number).one().totalQty ?? 0}}'  }">
     {# Logo #}
     <template slot="logo">
         <div class="brand | px-4 | md:pl-0">
@@ -49,4 +49,5 @@
             </nav>
         </div>
     </template>
+
 </site_menu>

@@ -1,5 +1,6 @@
 {# Link #}
 {% macro link(source, classes, placeholderText) %}
+{% spaceless %}
     {% import _self as icon %}
 
     {% if source %}
@@ -14,10 +15,12 @@
         </a>
     {% endif %}
     
+{% endspaceless %}
 {% endmacro %}
 
 {# Link with Icon #}
 {% macro iconLink(source, classes, iconName, iconSize, placeholderText) %}
+{% spaceless %}
     {% import _self as icon %}
 
     {% if source %}
@@ -39,10 +42,12 @@
             </span>
         </a>
     {% endif %}
+{% endspaceless %}
 {% endmacro %}
 
 {# Image (autosizes) #}
 {% macro image(source, classes, placeholder) %}
+{% spaceless %}
     
     {% if classes is defined %}
         {% set classes = classes %}
@@ -69,10 +74,12 @@
 
     {% endif %}
 
+{% endspaceless %}
 {% endmacro %}
 
 {# Card Image #}
 {% macro cardImage(source, classes, placeholder) %}
+{% spaceless %}
     
     {% if classes is defined %}
         {% set classes = classes %}
@@ -95,9 +102,11 @@
         </figure>
     {% endif %}
 
+{% endspaceless %}
 {% endmacro %}
 
 {% macro coverImage(source, classes) %}
+{% spaceless %}
     
     {% if classes is defined %}
         {% set classes = classes %}
@@ -118,11 +127,13 @@
         </figure>
     {% endif %}
 
+{% endspaceless %}
 {% endmacro %}
 
 
 {# Related Topics #}
 {% macro relatedTopics(source, theme) %}
+{% spaceless %}
 
     {% if source %}
         {# Note: Loop through actual topics from source #}
@@ -154,12 +165,14 @@
         
     {% endif %}
     
+{% endspaceless %}
 {% endmacro %}
 
 
 
 {# Device Mockups #}
 {% macro devices(device, image) %}
+{% spaceless %}
     {% switch device %}
 
         {% case "iphone" %}
@@ -187,10 +200,12 @@
             <!-- Device not found --> 
     {% endswitch %}  
 
+{% endspaceless %}
 {% endmacro %}
 
 {# Utility Icons #}
 {% macro utilityIcon(icon, classes) %}
+{% spaceless %}
     {% switch icon %}
 
         {% case "sharp-play" %}
@@ -318,10 +333,12 @@
         
     {% endswitch %}
     
+{% endspaceless %}
 {% endmacro %}
 
 {# Spot Icons #}
 {% macro spotIcon(icon, class) %}
+{% spaceless %}
     {% switch icon %}
     
         {% case "responsive" %}
@@ -337,10 +354,12 @@
     
     {% endswitch %}
     
+{% endspaceless %}
 {% endmacro %}
 
 {# Social Icons #}
 {% macro socialIcon(icon, classes) %}
+{% spaceless %}
     {% switch icon %}
     
         {% case "play-store" %}
@@ -400,10 +419,12 @@
     
     {% endswitch %}
     
+{% endspaceless %}
 {% endmacro %}
 
 {# Brand Icons #}
 {% macro brandIcon(icon, class) %}
+{% spaceless %}
     {% switch icon %}
     
         {% case "logo" %}
@@ -422,4 +443,5 @@
     
     {% endswitch %}
     
+{% endspaceless %}
 {% endmacro %}

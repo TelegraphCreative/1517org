@@ -26,7 +26,8 @@
         <div class="site-menu__group -secondary | flex items-center">
           <ul class="menu-bar">
             <li class="site-menu__cart">
-              <a href="#">
+              <a href="/shop/cart">
+                <span class="badge" :if="cart.itemCount" :html="cart.itemCount"></span>
                 <cart_icon :classes=" 'icon -sm mr-2' "/>
               </a>
             </li>
@@ -73,6 +74,13 @@ import {
 
 export default {
     props: {
+        cart: {
+            type: Object,
+            required: false,
+            default() {
+                return {}
+            },
+        },
         opt: {
             type: Object,
             required: false,

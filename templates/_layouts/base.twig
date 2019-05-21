@@ -4,7 +4,9 @@
 {# {% set work = craft.entries().section('caseStudies').all() %} #} 
 {% set firstSegment = craft.app.request.segment(1) %} 
 {% set lastSegment = craft.app.request.segments|last %} 
-{% set cart = craft.commerce.carts.cart %}
+{% if cart is not defined %}
+    {% set cart = craft.commerce.carts.cart %}
+{% endif %}
 
 {# Base Layout #}
 <!DOCTYPE html>
@@ -21,14 +23,13 @@
 
         {% do view.registerCssFile( mix('/css/app.css') ) %} 
 
-        {# Favicons #} 
         {% include '_components/site-favicons' %}
     </head>
     <body class="">
         <div class="site-container" id="app">
             {% include '_components/site-menu' %}
 
-            <main class="site-main | transition-fade" id="swup">
+            <main class="site-main">
                 {% block content %}{% endblock %}
             </main>
 
@@ -37,7 +38,7 @@
     </body>
 
     {% do view.registerJsFile( mix('/js/app.js') ) %}
-    {% do view.registerCssFile( mix('/css/print.css') ) %}
     {% include '_components/site-vendor-assets' %}
+    {% do view.registerCssFile( mix('/css/print.css') ) %}
 </html>
 {%- endminify -%}

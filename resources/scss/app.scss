@@ -4,7 +4,7 @@
 
 :root {
     --slate-darkest: #262626;
-      --grey-light: #7d8082;
+    --grey-light: #7d8082;
     --red: #cc4d39;
     --hunter: #2a4242;
     --sage-dark: #b1c4bf;
@@ -39,7 +39,7 @@
 @import 'base/label';
 @import 'base/position';
 @import 'base/selection';
-@import 'base/checkbox-radio';
+// @import 'base/checkbox-radio';
 @import 'base/toggle-text';
 @import 'base/device';
 @import 'base/drop-cap';

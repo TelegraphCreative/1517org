@@ -4,8 +4,8 @@
     input[type='text'],
     input[type='password'],
     input[type='tel'],
-    input[type='email'] {
-        //
+    input[type='email'],
+    .StripeElement {
         @apply bg-transparent border-b border-slate-dark
           w-full 
           text-base
@@ -79,6 +79,7 @@
     }
 
     // Helper Text
+    .card-errors,
     .helper-text {
         @apply text-xs font-sans font-normal
       mt-2;
@@ -178,4 +179,133 @@
 
 #favoriteboulder {
     @apply hidden;
+}
+
+// Default Checkboxes
+
+// Checkboxes
+input[type='checkbox'] {
+    @apply relative appearance-none
+    property-colors duration-3 timing-1 
+    bg-white border border-bronze
+    cursor-pointer mr-1;
+    height: 1rem;
+    width: 1rem;
+    top: 3px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type='checkbox']:hover {
+    @apply border-bronze-dark;
+}
+
+input[type='checkbox']:checked {
+    @apply relative bg-bronze border-bronze;
+}
+
+input[type='checkbox']:checked::after {
+    @apply absolute pin-t pin-l
+    bg-center bg-cover bg-no-repeat
+    h-2 w-2;
+    margin: 3px;
+    content: '';
+    background-image: url('/assets/icons/checkmark--white.svg');
+}
+
+input[type='checkbox']:disabled {
+    position: relative;
+    transition-timing-function: ease-in-out;
+    transition-property: all;
+    transition-duration: 0.15s;
+    background-color: #d7dee4;
+    border: 2px solid #d7dee4;
+}
+
+input[type='checkbox'] {
+    @apply relative appearance-none
+    property-colors duration-3 timing-1 
+    bg-white border border-bronze
+    cursor-pointer mr-1;
+    height: 1rem;
+    width: 1rem;
+    top: 3px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type='checkbox']:hover {
+    @apply border-bronze-dark;
+}
+
+input[type='checkbox']:checked {
+    @apply relative bg-bronze border-bronze;
+}
+
+input[type='checkbox']:checked::after {
+    @apply absolute pin-t pin-l
+    bg-center bg-cover bg-no-repeat
+    h-2 w-2;
+    margin: 3px;
+    content: '';
+    background-image: url('/assets/icons/checkmark--white.svg');
+}
+
+input[type='checkbox']:disabled {
+    position: relative;
+    transition-timing-function: ease-in-out;
+    transition-property: all;
+    transition-duration: 0.15s;
+    background-color: #d7dee4;
+    border: 2px solid #d7dee4;
+}
+
+// Default Radio
+input[type='radio'] {
+    @apply relative appearance-none
+    property-colors duration-3 timing-1 
+    bg-white border border-bronze
+    cursor-pointer mr-1 rounded-full;
+    height: 1rem;
+    width: 1rem;
+    top: 3px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type='radio']:hover {
+    @apply border-bronze-dark;
+}
+
+input[type='radio']:checked {
+    @apply relative bg-bronze border-bronze;
+}
+
+input[type='radio']:checked::after {
+    @apply absolute pin-t pin-l
+    bg-center bg-white rounded-full
+    h-2 w-2;
+    margin: 3px;
+    content: '';
+    // @apply absolute pin-t pin-l
+    // bg-center bg-cover bg-no-repeat
+    // h-2 w-2;
+    // margin: 3px;
+    // content: '';
+    // background-image: url('/assets/icons/checkmark--white.svg');
+}
+
+input[type='radio']:disabled {
+    position: relative;
+    transition-timing-function: ease-in-out;
+    transition-property: all;
+    transition-duration: 0.15s;
+    background-color: #d7dee4;
+    border: 2px solid #d7dee4;
 }
