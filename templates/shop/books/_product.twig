@@ -1,0 +1,100 @@
+{% extends "_layouts/base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+    {# Layout #}
+    <section
+        class="product-detail-layout | space-menu | flex-grid">
+
+        {# Main #}
+        <article class="entry-main">
+
+            {# Nav #}
+            {# Notes: This just links back out to all products of this type. Shouldn't be more than 1 link, but the markup is structured to accomodate future scaling. #}
+                <nav aria-label="Browse all products in this section" class="breadcrumbs"> <ul class="list-reset">
+                    <li>
+                        <a class="link -underline -sm " href="{{ url('shop/books') }}">
+                            Shop / Books
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            {# Header #}
+            <header class="entry__header" itemscope itemtype="http://schema.org/Product">
+                <h1 class="title | header-md | font-serif | mt-8" itemprop="name">
+                    {{ product.title }}
+                </h1>
+                <div class="detail | text-slate-light text-lg | mt-6" itemprop="description">
+                    {{ product.author }}
+                </div>
+                <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta content="USD" itemprop="priceCurrency"/>
+                    {# <span class="amount" itemprop="price">{{ product.price|commerceCurrency(cart.currency) }}</span> #}
+                </div>
+
+                {# Purchase Form #}
+                <form action="" class="form-base -purchase | mt-6">
+
+                {# {% if product.variants|length > 1 %} #}
+                    <div class="form-group -start">
+                        <div class="field-group">
+                            <select_box :opt="{ name: 'format', variant: '-md' }">
+                            {% for purchasable in product.variants %}
+                                <option {% if purchasable.stock <= 0 and purchasable.hasUnlimitedStock == false %}disabled {% endif %}
+                                        value="{{ purchasable.id }}">
+                                    {{ purchasable.bookType }}
+                                </option>
+                            {% endfor %}
+                            </select_box>
+                        </div>
+                    </div>
+                {# {% endif %} #}
+
+                    <div class="form-group -start">
+                        <div class="field-group">
+                            <input min="1" type="number" value="1">
+                        </div>
+                        <div class="field-group">
+                            <button class="btn -red -md">Add to Cart</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </header>
+
+            {# Content Blocks #}
+            <div class="entry__blocks">
+                <div class="paragraphs -md -loose | article-content">
+                    <p>{{ product.fullDescription }}</p>
+
+                {% if product.audioBookLinks | length %}
+                    <p>The audio book version of this title is available through these retailers:</p>
+
+                    <ul>
+                        {% for link in product.audioBookLinks %}
+                            <li>
+                                <a href="{{ link.audioUrl }}" target="_blank">{{ link.description }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                </div>
+            </div>
+        </article>
+
+        {# Aside #}
+        <div
+            class="entry-aside">
+
+            {# TEMP: Use `page-hero--media` partial #}
+            {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
+
+        </div>
+
+    </section>
+
+{% endblock %}
