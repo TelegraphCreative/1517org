@@ -163,8 +163,8 @@ commerce:
       siteSettings:
         fb77e84e-92df-43ef-bf13-af2fe58f56fe:
           hasUrls: true
-          uriFormat: 'books/{slug}'
-          template: books/_product
+          uriFormat: 'shop/books/{slug}'
+          template: shop/books/_product
       productFieldLayouts:
         af102d65-d110-405c-9af6-7bddad20c029:
           tabs:
@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558544123
+dateModified: 1558554537
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
