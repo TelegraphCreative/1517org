@@ -8,29 +8,26 @@
 #}
 <section class="space-menu | container gutter | space-b | no-print">
 
-   <h1 class="mb-4 mt-10">Donately POC</h1>
-   <p>This needs some styles and craft fields</p>
-   <a class="btn -sm mb-10 mt-5" href="?donately=15">Test user input</a>
+    <h1 class="mb-4 mt-10">{{ entry.header }}</h1>
+    <p>{{ entry.fullDescription }}</p>
     {% set selectedAmount  = craft.app.request.param('donately') %}
     {% set userInput = false %}
     {% if selectedAmount|length %}
     {% set userInput = true %}
     {% endif %}
 
-   {% if userInput %}
+    {% if userInput %}
     <iframe class="donately-donation-iframe" frameborder="0" allowtransparency="true"
         style="background-color: transparent; border: 0px none transparent; overflow: hidden; display: inline-block; visibility: visible; margin: 0px; padding: 0px; height: 800px; width: 100%;"
         src="https://cdn.donately.com/dntly-core/current/iframe.html?donately_id=act_1e9e5132651d&amp;stripe_publishable_key=pk_live_B6wEFSVNah8eygeD7EYHO933&amp;donately_ga_account=UA-1654521-7&amp;donately_address=true&amp;donately_amount={{ selectedAmount }}&amp;donately_anonymous=true&amp;donately_billing_zip=true&amp;donately_currency=true&amp;donately_duration=default_recurring&amp;donately_presets=25,50,75,100"></iframe>
-   {% else %}
+    {% else %}
     
     <iframe class="donately-donation-iframe" frameborder="0" allowtransparency="true"
         style="background-color: transparent; border: 0px none transparent; overflow: hidden; display: inline-block; visibility: visible; margin: 0px; padding: 0px; height: 800px; width: 100%;"
         src="https://cdn.donately.com/dntly-core/current/iframe.html?donately_id=act_1e9e5132651d&amp;stripe_publishable_key=pk_live_B6wEFSVNah8eygeD7EYHO933&amp;donately_ga_account=UA-1654521-7&amp;donately_address=true&amp;donately_amount=50&amp;donately_anonymous=true&amp;donately_billing_zip=true&amp;donately_currency=true&amp;donately_duration=default_recurring&amp;donately_presets=25,50,75,100"></iframe>
         
-   {% endif %}
-
+    {% endif %}
 
 </section>
-
 
 {% endblock %}

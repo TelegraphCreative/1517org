@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558374913
+dateModified: 1558544123
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -1831,6 +1831,50 @@ fields:
       contentTable: '{{%matrixcontent_donatelyamounts}}'
       localizeBlocks: false
     contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  29060f90-86ba-4d52-874f-6dd9af4b47d0:
+    name: Image
+    handle: image
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources:
+        - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: Image
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
+    name: Header
+    handle: header
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
@@ -5746,7 +5790,7 @@ sections:
         enabledByDefault: true
         hasUrls: true
         uriFormat: donate
-        template: ''
+        template: donate
     entryTypes:
       d6ea80e0-5286-41da-8315-7fafaff2fa55:
         name: Donate
@@ -5759,16 +5803,31 @@ sections:
           7dab7b11-b58a-4fdd-9f8c-357bd2ae2338:
             tabs:
               -
-                name: Content
+                name: Homepage
                 sortOrder: 1
                 fields:
+                  9a9d8073-0941-48d6-9bd6-e97b15f2b90b:
+                    required: true
+                    sortOrder: 1
                   1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
+                    required: true
+                    sortOrder: 2
+                  7fbd6e8e-f074-491f-b100-4252969d1c1a:
+                    required: true
+                    sortOrder: 3
+                  29060f90-86ba-4d52-874f-6dd9af4b47d0:
+                    required: true
+                    sortOrder: 4
+              -
+                name: 'Donate Page'
+                sortOrder: 2
+                fields:
+                  4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
                     required: false
                     sortOrder: 1
-                  7fbd6e8e-f074-491f-b100-4252969d1c1a:
-                    required: false
+                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+                    required: true
                     sortOrder: 2
-
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
