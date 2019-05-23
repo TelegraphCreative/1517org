@@ -1,17 +1,16 @@
 {# Default Commerce template just does following include #}
 {# {% include 'shop/products/index' %} #}
 
-{#
-    TODO:
-    filter dropdown
-    filter out events
-    load more products button
-#}
-
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-{% set products = craft.products.limit(9).all() %}
+{% set type = craft.app.request.getParam('type') ?: ['books','audio'] %}
+{% set number = craft.app.request.getParam('number') ?: 1 %}
+
+{% set products = craft.products({
+    limit: number,
+    type: type
+}) %}
 
 {% block content %}
 
@@ -20,7 +19,7 @@
         {# Notes:
             Filter by 'Product Type' #}
         {% set content = { title: 'Shop' } %}
-        {% include "_components/static/page-header--filters" with { content: content, classes: '-left' } %}
+        {% include "_components/page-header--filters" with { content: content, classes: '-left' } %}
     </section>
 
     {# Featured  #}
@@ -45,7 +44,10 @@
         </div>
 
         <div class="inf-pagination-control">
-            {{ global.link('', 'btn -light -bronze', 'Show more products') }}
+            {# {{ global.link('', 'btn -light -bronze', 'Show more products') }} #}
+            <a href="?number={{ number + 9 }}" class="btn -light -bronze">
+                Show more products
+            </a>
         </div>
 
     </div>
