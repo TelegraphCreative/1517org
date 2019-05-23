@@ -5,7 +5,7 @@
 {% import '_macros/global' as global %}
 
 {% set type = craft.app.request.getParam('type') ?: ['books','audio'] %}
-{% set number = craft.app.request.getParam('number') ?: 1 %}
+{% set number = craft.app.request.getParam('number') ?: 9 %}
 
 {% set products = craft.products({
     limit: number,
