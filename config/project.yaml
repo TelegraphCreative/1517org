@@ -163,8 +163,8 @@ commerce:
       siteSettings:
         fb77e84e-92df-43ef-bf13-af2fe58f56fe:
           hasUrls: true
-          uriFormat: 'shop/books/{slug}'
-          template: shop/books/_product
+          uriFormat: 'shop/products/{slug}'
+          template: shop/products/_product
       productFieldLayouts:
         af102d65-d110-405c-9af6-7bddad20c029:
           tabs:
@@ -212,8 +212,8 @@ commerce:
       siteSettings:
         fb77e84e-92df-43ef-bf13-af2fe58f56fe:
           hasUrls: true
-          uriFormat: 'audio/{slug}'
-          template: audio/_product
+          uriFormat: 'shop/products/{slug}'
+          template: shop/products/_product
       productFieldLayouts:
         552fff3c-9d73-4ea1-9387-cd9361133db4:
           tabs:
@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558554537
+dateModified: 1558712597
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -1876,6 +1876,21 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  c93692b3-91e8-4a24-8815-20b58142e145:
+    name: 'Audio Product Uploads'
+    handle: audioProductUploads
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_audioproductuploads}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -4803,6 +4818,68 @@ matrixBlockTypes:
               245752a6-8f30-4adf-a61f-31850382f89f:
                 required: false
                 sortOrder: 1
+  a3bdac5b-e75c-447b-96da-352bfff159a3:
+    field: c93692b3-91e8-4a24-8815-20b58142e145
+    name: U
+    handle: u
+    sortOrder: 1
+    fields:
+      2ba33b7d-e9aa-40df-a8b8-637a765fe85f:
+        name: Format
+        handle: format
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      a9286028-f3f8-426d-8390-17379d1572a5:
+        name: Asset
+        handle: asset
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSubpath: ''
+          restrictFiles: ''
+          allowedKinds: null
+          sources:
+            - 'volume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+          source: null
+          targetSiteId: null
+          viewMode: list
+          limit: ''
+          selectionLabel: ''
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      18fde5b4-b419-4e9e-991e-7a4f6fb7a744:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              2ba33b7d-e9aa-40df-a8b8-637a765fe85f:
+                required: true
+                sortOrder: 1
+              a9286028-f3f8-426d-8390-17379d1572a5:
+                required: true
+                sortOrder: 2
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -7940,3 +8017,23 @@ volumes:
       cfPrefix: ''
       autoFocalPoint: ''
     sortOrder: 3
+  ae42822f-7c98-4e08-87f5-a4e38e7d414e:
+    name: 'Audio Products'
+    handle: audioProducts
+    type: craft\awss3\Volume
+    hasUrls: false
+    url: 'https://s3.us-east-2.amazonaws.com/1517-audio-products/'
+    settings:
+      subfolder: ''
+      keyId: $AWS_ACCESS_KEY_ID
+      secret: $AWS_SECRET_ACCESS_KEY
+      bucketSelectionMode: choose
+      bucket: 1517-audio-products
+      region: us-east-2
+      expires: ''
+      makeUploadsPublic: '1'
+      storageClass: ''
+      cfDistributionId: ''
+      cfPrefix: ''
+      autoFocalPoint: ''
+    sortOrder: 4
