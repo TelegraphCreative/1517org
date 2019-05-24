@@ -1,6 +1,8 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
+{% set type = craft.app.request.getParam('type') ?: 9 %}
+
 {% block content %}
 
     {# Layout #}
@@ -31,16 +33,15 @@
                 </div>
                 <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                     <meta content="USD" itemprop="priceCurrency"/>
-                    {# <span class="amount" itemprop="price">{{ product.price|commerceCurrency(cart.currency) }}</span> #}
+                    <span class="amount" itemprop="price">{{ product.defaultVariant.price|commerceCurrency(cart.currency) }}</span>
                 </div>
 
                 {# Purchase Form #}
                 <form action="" class="form-base -purchase | mt-6">
 
-                {# {% if product.variants|length > 1 %} #}
                     <div class="form-group -start">
                         <div class="field-group">
-                            <select_box :opt="{ name: 'format', variant: '-md' }">
+                            <select_box :opt="{ name: 'type', variant: '-md' }">
                             {% for purchasable in product.variants %}
                                 <option {% if purchasable.stock <= 0 and purchasable.hasUnlimitedStock == false %}disabled {% endif %}
                                         value="{{ purchasable.id }}">
@@ -50,7 +51,6 @@
                             </select_box>
                         </div>
                     </div>
-                {# {% endif %} #}
 
                     <div class="form-group -start">
                         <div class="field-group">
@@ -60,7 +60,6 @@
                             <button class="btn -red -md">Add to Cart</button>
                         </div>
                     </div>
-
 
                 </form>
             </header>

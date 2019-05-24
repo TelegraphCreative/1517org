@@ -5,10 +5,11 @@
 {% import '_macros/global' as global %}
 
 {% set type = craft.app.request.getParam('type') ?: ['books','audio'] %}
-{% set number = craft.app.request.getParam('number') ?: 9 %}
+{% set productGridSize = 9 %}
+{% set numberOfProducts = craft.app.request.getParam('number') ?: productGridSize %}
 
 {% set products = craft.products({
-    limit: number,
+    limit: numberOfProducts,
     type: type
 }) %}
 
@@ -43,12 +44,14 @@
             {% endfor %}
         </div>
 
+        {% if products|length > numberOfProducts %}
         <div class="inf-pagination-control">
             {# {{ global.link('', 'btn -light -bronze', 'Show more products') }} #}
-            <a href="?number={{ number + 9 }}" class="btn -light -bronze">
+            <a href="?number={{ numberOfProducts + productGridSize }}" class="btn -light -bronze">
                 Show more products
             </a>
         </div>
+        {% endif %}
 
     </div>
 
