@@ -1,0 +1,46 @@
+{% import '_macros/global' as global %}
+<div class="big-list -syllabus | space-b space-t--sm">
+
+    <h3 class="header-lg text-bronze-lighter font-serif pb-6">{{ block.header }}</h3>
+
+    <ul class="list-syllabus -hover-effect">
+
+    {% for item in block.list %}
+
+        {% if item.divider.contains('minimalDivider') %}
+
+            <li class="syllabus-item -break">
+                <div class="syllabus-item__main">
+                    <h4 class="title | header-sm font-serif">{{ item.header }}</h4>
+                </div>
+            </li>
+
+        {% else %}
+
+            <li class="syllabus-item">
+                <div class="syllabus-item__main">
+                    <h4 class="title | header-sm font-serif">{{ item.header }}</h4>
+                    {% if item.description|length %}
+                    <p class="text-slate-light">{{ item.description }}</p>
+                    {% endif %}
+                </div>
+                {% if item.detail %}
+                <div class="syllabus-item__aside">
+                    <div class="time | text-md text-slate-light">
+                        {{ item.detail }}
+                    </div>
+                </div>
+                {% endif %}
+            </li>
+
+        {% endif %}
+
+    {% endfor %}
+
+    </ul>
+
+    <div class="big-list__action mt-8">
+        {{ global.link('', 'btn  -red -md', 'Register') }}
+    </div>
+
+</div>

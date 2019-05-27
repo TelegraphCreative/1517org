@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558712597
+dateModified: 1558990738
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -2896,7 +2896,7 @@ matrixBlockTypes:
   e83ab412-ced5-4a92-9f2a-75bc2dcd8f84:
     field: 4b8519cf-88fb-43fb-a23a-796707dbda16
     name: 'Article Body'
-    handle: articlebody
+    handle: articleBody
     sortOrder: 1
     fields:
       66671b59-6884-4391-a93f-2715859312ac:
@@ -2910,13 +2910,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -3129,6 +3130,8 @@ matrixBlockTypes:
           localizeBlocks: false
           staticField: ''
           columns:
+            156:
+              width: ''
             123:
               width: ''
             124:
@@ -3188,13 +3191,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: Minimal.json
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
       8cf81a0d-72ed-4c89-96fa-5077926aba64:
@@ -5660,6 +5664,9 @@ sections:
                   4b8519cf-88fb-43fb-a23a-796707dbda16:
                     required: true
                     sortOrder: 2
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                    required: false
+                    sortOrder: 3
               -
                 name: Sidebar
                 sortOrder: 3
