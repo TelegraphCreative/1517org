@@ -20,9 +20,11 @@
 
 -   Commerce
     \_ Commerce Styles
-        - cart index
         - main menu: 
             - add badge 
+        - layouts
+            - cart index
+            - customer dropdown menu when signed in
             - customer/order
             - customer/addresses 
             - checkout/confirmation
