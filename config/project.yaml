@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558374913
+dateModified: 1558540587
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5746,7 +5746,7 @@ sections:
         enabledByDefault: true
         hasUrls: true
         uriFormat: donate
-        template: ''
+        template: donate
     entryTypes:
       d6ea80e0-5286-41da-8315-7fafaff2fa55:
         name: Donate
@@ -5768,7 +5768,6 @@ sections:
                   7fbd6e8e-f074-491f-b100-4252969d1c1a:
                     required: false
                     sortOrder: 2
-
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
