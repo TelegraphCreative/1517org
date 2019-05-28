@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558990738
+dateModified: 1559072068
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -3136,8 +3136,6 @@ matrixBlockTypes:
               width: ''
             124:
               width: ''
-            125:
-              width: ''
             126:
               width: ''
           fieldLayout: matrix
@@ -5664,9 +5662,6 @@ sections:
                   4b8519cf-88fb-43fb-a23a-796707dbda16:
                     required: true
                     sortOrder: 2
-                  044102bf-2640-48b6-9408-aafe7d83a5bc:
-                    required: false
-                    sortOrder: 3
               -
                 name: Sidebar
                 sortOrder: 3
@@ -5683,6 +5678,16 @@ sections:
                   ace2dff4-0b7d-4102-aec0-964fae1c78a3:
                     required: false
                     sortOrder: 4
+              -
+                name: 'Additional Info'
+                sortOrder: 4
+                fields:
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                    required: false
+                    sortOrder: 1
+                  c3ab6d3e-9d48-41c1-a240-9e9d6b028eb3:
+                    required: false
+                    sortOrder: 2
   fb3fa809-9963-4430-af25-fe3ee86eff79:
     name: 'Courses Index'
     handle: coursesIndex
@@ -6609,80 +6614,6 @@ superTableBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
-      9efa895a-4141-4390-b0bf-cf466bdb74c0:
-        name: Link
-        handle: linkIt
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: fruitstudios\linkit\fields\LinkitField
-        settings:
-          selectLinkText: ''
-          types:
-            fruitstudios\linkit\models\Email:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Phone:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Url:
-              enabled: '1'
-              customLabel: ''
-              customPlaceholder: ''
-              allowAlias: ''
-              allowMailto: ''
-              allowHash: ''
-              allowPaths: '1'
-            fruitstudios\linkit\models\Twitter:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Facebook:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Instagram:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\LinkedIn:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Entry:
-              enabled: '1'
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-            fruitstudios\linkit\models\Category:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-            fruitstudios\linkit\models\Asset:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-            fruitstudios\linkit\models\User:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-              userPath: ''
-            fruitstudios\linkit\models\Product:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-          allowCustomText: ''
-          defaultText: ''
-          allowTarget: ''
-        contentColumnType: text
-        fieldGroup: null
       15e8888f-207a-4a4c-a92a-999e7ef36f0b:
         name: Divider
         handle: divider
@@ -6715,12 +6646,9 @@ superTableBlockTypes:
               ca150964-80f8-4829-be0e-33753886858a:
                 required: false
                 sortOrder: 3
-              9efa895a-4141-4390-b0bf-cf466bdb74c0:
-                required: false
-                sortOrder: 4
               15e8888f-207a-4a4c-a92a-999e7ef36f0b:
                 required: false
-                sortOrder: 5
+                sortOrder: 4
   b04cac59-3e25-4fe4-8bfc-e1ea77f9cb07:
     field: 9f35b82e-857e-4bc5-954c-dca8c00a1fe3
     fields:
