@@ -43,6 +43,7 @@ export default {
         // this allows us to maintain search filters
         doSearch() {
             const url = new Url
+            url.path = '/search'
             if (this.query) {
                 url.query.q = this.query
             } else {
