@@ -3,18 +3,20 @@
 
 {% block content %}
 
-{% set cardImage = entry.cardImage.one() %}
-{% set shortCopy = entry.shortDescription %}
+{% set topBlocks = clone(entry.contentBlocksCourse).limit(2) %}
+{% set courseSubscriber = false %}
+{% if currentUser and (currentUser.isInGroup('courseSubscribers') or currentUser.admin) %}
+    {% set courseSubscriber = true %}
+    {% set remainingBlocks = clone(entry.contentBlocksCourse).offset(2).all() %}
+{% endif %}
 
 <section class="space-menu | space-b | no-print">
-    {# TEMP: Anon/SignedIn Placeholder Logic #}
-    {% if currentUser %}
+    {% if courseSubscriber %}
     {# Signed In View:
         - Hides `course-hero--anon` partial
         - Shows full article #}
 
-        {# TEMP: Use `page-hero--media` partial mapped to corresponding entry fields instead #}
-        {{ global.image( cardImage, '-fit-cover' )}}
+        {% include "_components/page-hero--media" with { content: entry.articleHeroContent } %}
 
     {% else %}
     {# Anon User View:
@@ -22,7 +24,7 @@
         - Shows first 2 blocks from entry long-form matrix field #}
 
         {# Course Billboard #}
-        {% include "_components/static/course-hero--anon-user" %}
+        {% include "_components/course-hero--anon-user" with { content: entry.anonymousUserHeroContent.first } %}
 
     {% endif %}
 
@@ -38,14 +40,14 @@
         <header class="entry__header">
             <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
             <div class="paragraphs -md">
-                {{ shortCopy }}
+                {{ entry.shortDescription }}
             </div>
         </header>
 
         {# Blocks #}
         <div class="entry__blocks | longform-entry-blocks -top">
             {# Longform Content #}
-            {% include '_components/longform-entry-blocks' with { classes: '', blocks: entry.contentBlocksCourse } %}
+            {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks } %}
         </div>
 
     </article>
@@ -56,10 +58,10 @@
         <ul class="meta-list">
             <li class="display-print">
                 <time class="meta-label | text-slate-light"
-                    datetime="{{ now | date( 'm-d-y') }}">{{ now | date( 'M d, Y') }}</time>
+                    datetime="{{ entry.postDate | date( 'm-d-y') }}">{{ entry.postDate | date( 'M d, Y') }}</time>
             </li>
             <li>
-                {{ global.relatedTopics('', '') }}
+                {{ global.relatedTopics(entry.topics.all(), '') }}
             </li>
             <li>
                 {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
@@ -79,7 +81,7 @@
 
     </aside>
 
-    {% if currentUser %}
+    {% if courseSubscriber %}
         {# Article + Aside (bottom) - Only signed in users get this #}
         <article class="entry-main -wide">
 
@@ -87,57 +89,8 @@
             <div class="entry__blocks | longform-entry-blocks">
 
                 {# Longform Content #}
-                {# Use actual partial: #}
-                {# {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %} #}
+                {% include '_components/longform-entry-blocks' with { blocks: remainingBlocks, layoutClasses: 'narrow-block gutter-xl' } %}
 
-                {# Example Content #}
-
-                {# Case - Bio Cards --simple (3up) #}
-                <div class="bio-cards--simple | narrow-block gutter-xl | space-b">
-                    <h3 class="header-lg text-bronze-lighter font-serif pb-10">Speakers</h3>
-
-                    <ul class="list-bios">
-                        <li class="bio-item -hover-links">
-                            <div class="bio-item__media">
-                                {{ global.image( cardImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
-
-                        <li class="bio-item -hover-links">
-                            <div class="bio-item__media">
-                                {{ global.image( cardImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
-
-                        <li class="bio-item -hover-links">
-                            <div class="bio-item__media">
-                                {{ global.image( cardImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
-
-                        <li class="bio-item -hover-links">
-                            <div class="bio-item__media">
-                                {{ global.image( cardImage, '-is1x1 -fit-cover rounded-full' )}}
-                            </div>
-                            <div class="bio-item__content">
-                                <h3 class="title">Jane Smith</h3>
-                                <a href="#" class="link | meta-label">See Bio</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </article>
     {% endif %}
