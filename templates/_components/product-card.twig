@@ -1,0 +1,40 @@
+{% import '_macros/global' as global %}
+
+<a href="{{ content.url }}" class="product-card">
+    <div
+        class="product-card__inner">
+        {# Media #}
+        <div class="product-card__media">
+            <div class="max-w-xxs w-full mx-auto">
+                {# this is not working.... no clue -jjjohn #}
+                {# {{ global.image( content.cardImageProduct[0], '-is12x16 -fit-cover bg-ivory-lightest' )}} #}
+                {% for image in content.cardImageProduct %}
+                    {{ global.image( image, '-is12x16 -fit-cover bg-ivory-lightest' )}}
+                {% endfor %}
+            </div>
+        </div>
+        {# Content #}
+        <div class="product-card__content" itemscope itemtype="http://schema.org/Product">
+            <div
+                class="product-card__header">
+                {# Truncate title with Wordsmith chop filter to about 10 words or 60 char: chop(limit=60, unit='c', append= '…') #}
+                <div class="title | font-serif header-xs" itemprop="name">{{ content.title }}</div>
+            </div>
+            <div class="product-card__detail">
+                <div class="price | meta-label text-slate-light text-xs" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta content="USD" itemprop="priceCurrency"/>
+                    {% set lowestPrice = content.defaultVariant.salePrice %}
+                    {% for variant in content.getVariants() %}
+                        {% if variant.salePrice < lowestPrice %}
+                            {% set lowestPrice = variant.salePrice %}
+                        {% endif %}
+                    {% endfor %}
+                    From <span class="amount" itemprop="price">{{ lowestPrice|commerceCurrency(cart.currency) }}</span>
+                </div>
+                <div class="detail | text-slate-light text-md | mt-1" itemprop="description">
+                    {{ content.author }}
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
