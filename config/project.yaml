@@ -163,8 +163,8 @@ commerce:
       siteSettings:
         fb77e84e-92df-43ef-bf13-af2fe58f56fe:
           hasUrls: true
-          uriFormat: 'books/{slug}'
-          template: books/_product
+          uriFormat: 'shop/products/{slug}'
+          template: shop/products/_product
       productFieldLayouts:
         af102d65-d110-405c-9af6-7bddad20c029:
           tabs:
@@ -212,8 +212,8 @@ commerce:
       siteSettings:
         fb77e84e-92df-43ef-bf13-af2fe58f56fe:
           hasUrls: true
-          uriFormat: 'audio/{slug}'
-          template: audio/_product
+          uriFormat: 'shop/products/{slug}'
+          template: shop/products/_product
       productFieldLayouts:
         552fff3c-9d73-4ea1-9387-cd9361133db4:
           tabs:
@@ -254,7 +254,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1558540587
+dateModified: 1558990738
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -1832,6 +1832,65 @@ fields:
       localizeBlocks: false
     contentColumnType: string
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  29060f90-86ba-4d52-874f-6dd9af4b47d0:
+    name: Image
+    handle: image
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      singleUploadLocationSubpath: ''
+      restrictFiles: '1'
+      allowedKinds:
+        - image
+      sources:
+        - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      source: null
+      targetSiteId: null
+      viewMode: large
+      limit: '1'
+      selectionLabel: Image
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
+    name: Header
+    handle: header
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
+  c93692b3-91e8-4a24-8815-20b58142e145:
+    name: 'Audio Product Uploads'
+    handle: audioProductUploads
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_audioproductuploads}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -2837,7 +2896,7 @@ matrixBlockTypes:
   e83ab412-ced5-4a92-9f2a-75bc2dcd8f84:
     field: 4b8519cf-88fb-43fb-a23a-796707dbda16
     name: 'Article Body'
-    handle: articlebody
+    handle: articleBody
     sortOrder: 1
     fields:
       66671b59-6884-4391-a93f-2715859312ac:
@@ -2851,13 +2910,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: ''
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
     fieldLayouts:
@@ -3070,6 +3130,8 @@ matrixBlockTypes:
           localizeBlocks: false
           staticField: ''
           columns:
+            156:
+              width: ''
             123:
               width: ''
             124:
@@ -3129,13 +3191,14 @@ matrixBlockTypes:
         settings:
           redactorConfig: Minimal.json
           purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
-          removeInlineStyles: '1'
-          removeEmptyTags: '1'
-          removeNbsp: '1'
         contentColumnType: text
         fieldGroup: null
       8cf81a0d-72ed-4c89-96fa-5077926aba64:
@@ -4759,6 +4822,68 @@ matrixBlockTypes:
               245752a6-8f30-4adf-a61f-31850382f89f:
                 required: false
                 sortOrder: 1
+  a3bdac5b-e75c-447b-96da-352bfff159a3:
+    field: c93692b3-91e8-4a24-8815-20b58142e145
+    name: U
+    handle: u
+    sortOrder: 1
+    fields:
+      2ba33b7d-e9aa-40df-a8b8-637a765fe85f:
+        name: Format
+        handle: format
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      a9286028-f3f8-426d-8390-17379d1572a5:
+        name: Asset
+        handle: asset
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSubpath: ''
+          restrictFiles: ''
+          allowedKinds: null
+          sources:
+            - 'volume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+          source: null
+          targetSiteId: null
+          viewMode: list
+          limit: ''
+          selectionLabel: ''
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      18fde5b4-b419-4e9e-991e-7a4f6fb7a744:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              2ba33b7d-e9aa-40df-a8b8-637a765fe85f:
+                required: true
+                sortOrder: 1
+              a9286028-f3f8-426d-8390-17379d1572a5:
+                required: true
+                sortOrder: 2
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -5539,6 +5664,9 @@ sections:
                   4b8519cf-88fb-43fb-a23a-796707dbda16:
                     required: true
                     sortOrder: 2
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                    required: false
+                    sortOrder: 3
               -
                 name: Sidebar
                 sortOrder: 3
@@ -5759,14 +5887,30 @@ sections:
           7dab7b11-b58a-4fdd-9f8c-357bd2ae2338:
             tabs:
               -
-                name: Content
+                name: Homepage
                 sortOrder: 1
                 fields:
+                  9a9d8073-0941-48d6-9bd6-e97b15f2b90b:
+                    required: true
+                    sortOrder: 1
                   1fdaba1d-5606-40d0-a44e-f3139fc7cd57:
+                    required: true
+                    sortOrder: 2
+                  7fbd6e8e-f074-491f-b100-4252969d1c1a:
+                    required: true
+                    sortOrder: 3
+                  29060f90-86ba-4d52-874f-6dd9af4b47d0:
+                    required: true
+                    sortOrder: 4
+              -
+                name: 'Donate Page'
+                sortOrder: 2
+                fields:
+                  4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
                     required: false
                     sortOrder: 1
-                  7fbd6e8e-f074-491f-b100-4252969d1c1a:
-                    required: false
+                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+                    required: true
                     sortOrder: 2
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
@@ -7880,3 +8024,23 @@ volumes:
       cfPrefix: ''
       autoFocalPoint: ''
     sortOrder: 3
+  ae42822f-7c98-4e08-87f5-a4e38e7d414e:
+    name: 'Audio Products'
+    handle: audioProducts
+    type: craft\awss3\Volume
+    hasUrls: false
+    url: 'https://s3.us-east-2.amazonaws.com/1517-audio-products/'
+    settings:
+      subfolder: ''
+      keyId: $AWS_ACCESS_KEY_ID
+      secret: $AWS_SECRET_ACCESS_KEY
+      bucketSelectionMode: choose
+      bucket: 1517-audio-products
+      region: us-east-2
+      expires: ''
+      makeUploadsPublic: '1'
+      storageClass: ''
+      cfDistributionId: ''
+      cfPrefix: ''
+      autoFocalPoint: ''
+    sortOrder: 4

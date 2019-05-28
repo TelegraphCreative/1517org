@@ -1,16 +1,15 @@
 {% import '_macros/global' as global %}
+{% set donate = craft.entries.slug('donate').one() %}
 
 <div class="billboard -donate | no-print{% if classes is defined %} | {{ classes }}{% endif %}">
     <div class="billboard__container container--sm | flex-grid | space-t">
         <header class="billboard__content | gutter | md:w-2/3">
             <div class="billboard__detail | space-b--sm">
                 <h5 class="header-xs font-serif | text-bronze | mb-2">
-                    Thank you for your support
+                    {{ donate.supportingText }}
                 </h5>
                 <h2 class="header-lg font-serif">
-                    Your gift will enable us to proclaim the free gift of the
-                    Gospel of Christ to more people in more ways in 2019.
-                    <b>Needs fields added for description and image</b>
+                    {{ donate.description }}
                 </h2>
             </div>
             <form class="billboard__action" id="donate-form" action="/donate">
@@ -25,7 +24,6 @@
                     }
                 {% endjs %}
 
-                {% set donate = craft.entries.slug('donate').one() %}
                 {% for amount in donate.donatelyAmounts.all() %}
                     <label
                         class="option-group__item | control control--radio-box"
@@ -49,9 +47,8 @@
         <div class="billboard__media | md:w-1/3">
             {{
                 global.image(
-                    '',
-                    '-is1x1 -fit-cover',
-                    '/assets/placeholder/placeholder_04.png'
+                    donate.image.one(),
+                    '-is1x1 -fit-cover'
                 )
             }}
         </div>
