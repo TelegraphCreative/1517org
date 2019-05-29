@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559167252
+dateModified: 1559168269
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -8429,6 +8429,7 @@ users:
       name: 'Content Managers'
       handle: contentManagers
       permissions:
+        - accesscp
         - 'createentries:b0598134-0d64-4c98-9d73-351145a9c276'
         - 'publishentries:b0598134-0d64-4c98-9d73-351145a9c276'
         - 'deleteentries:b0598134-0d64-4c98-9d73-351145a9c276'
@@ -8579,6 +8580,8 @@ users:
       name: 'Commerce Managers'
       handle: commerceManagers
       permissions:
+        - accessplugin-commerce
+        - accesscp
         - 'commerce-manageproducttype:f9c230d7-2875-41fa-8dcf-c539aadc45d9'
         - 'commerce-manageproducttype:4ff35716-4989-4e57-8e09-be19b8a93f91'
         - 'commerce-manageproducttype:fca3460e-8e71-49b6-8c37-bdb12241bb50'
@@ -8596,6 +8599,10 @@ users:
       name: 'System Managers'
       handle: systemManagers
       permissions:
+        - accessplugin-commerce
+        - accessplugin-navigation
+        - accessplugin-seomatic
+        - accesscp
         - registerusers
         - moderateusers
         - assignuserpermissions
