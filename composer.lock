@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9c709703980859dfb0208391b7df3da",
+    "content-hash": "6f099bf0d2699aaccbeca5ad811cee60",
     "packages": [
         {
             "name": "99designs/phumbor",
@@ -3666,11 +3666,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.2.5",
+            "version": "3.2.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/f1c244f92038ef95d34cbc604197f460c62ddf71",
-                "reference": "f1c244f92038ef95d34cbc604197f460c62ddf71",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/46a0c126932c5c570d901dc8ea3982c26512126f",
+                "reference": "46a0c126932c5c570d901dc8ea3982c26512126f",
                 "shasum": ""
             },
             "require": {
@@ -3734,7 +3734,7 @@
                 "docs": "https://nystudio107.com/plugins/seomatic/documentation",
                 "issues": "https://nystudio107.com/plugins/seomatic/support"
             },
-            "time": "2019-05-29T17:25:13+00:00"
+            "time": "2019-05-29T19:48:45+00:00"
         },
         {
             "name": "ostark/yii2-artisan-bridge",
@@ -4262,6 +4262,57 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-blitz",
+            "version": "2.0.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/c61901c2b68d5ad7df39db85b10cb3b56832e738",
+                "reference": "c61901c2b68d5ad7df39db85b10cb3b56832e738",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.0",
+                "ext-json": "*"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Blitz",
+                "handle": "blitz",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://putyourlightson.com/",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz/v2/CHANGELOG.md",
+                "class": "putyourlightson\\blitz\\Blitz",
+                "schemaVersion": "2.0.0",
+                "hasCpSettings": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\blitz\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Intelligent static page caching for creating lightning-fast sites.",
+            "homepage": "https://putyourlightson.com/craft-plugins/blitz",
+            "keywords": [
+                "cache",
+                "caching",
+                "cms",
+                "craft",
+                "craftcms",
+                "performance",
+                "plugin",
+                "speed"
+            ],
+            "support": {
+                "docs": "https://putyourlightson.com/craft-plugins/blitz/docs",
+                "source": "https://github.com/putyourlightson/craft-blitz",
+                "issues": "https://github.com/putyourlightson/craft-blitz/issues"
+            },
+            "time": "2019-04-05T17:48:36+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
