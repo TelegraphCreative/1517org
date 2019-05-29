@@ -1,57 +1,97 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
+
 {% set indexList = craft.entries.section('events') %}
+{% set totalEvents = indexList|length %}
 
 {% block content %}
 
     <section class="space-menu">
-
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
-
+        {% include "_components/page-header" with { content: entry, classes: '-left' } %}
     </section>
 
-    {# Topics List #}
-    {% if indexList.count > 0 %}
+    {# Featured  #}
+    <div id="featured" class="container | space-b--sm">
+        {# Content Card - Hero #}
+        {% include '_components/content-hero--event' with { content: entry.headerAction.entry, classes: '-red' } %}
+    </div>
+
+    {# Filters #}
+    {# {% include "_components/filters-page--sections" %} #}
+
+    {# Events List #}
+    {% if totalEvents > 0 %}
+
+        {% set numberBeforeBillboard = 3 %}
+        {% set eventsBeforeBillboard = indexList | slice(0,numberBeforeBillboard) %}
+        {% set eventsAfterBillboard = indexList | slice(numberBeforeBillboard,totalEvents) %}
         
         {# Card List #}
         <div id="events" class="container--sm gutter-md | space-b">
             
             {# Content Card - Podcast #} 
-            {% for entry in indexList.all() %}
+            {% for entry in eventsBeforeBillboard %}
 
-                {# Content Cards - Switches based on Format #} 
+                {# Content Cards #} 
                 {% include '_components/content-card--event' with { content: entry } %}
                 
             {% endfor %}
             
         </div>
-    
-    {% else %}
-        
-        {# No Entries #}
-        <div class="text-center space-b">
-            There are no Courses available right now.  
-        </div>
 
-    {% endif %}
-    
-    {# Billboard #}
-    {# {% if entry.showBillboardText %}
-        
-        <div id="advertise" class="">
-            Billboard Content
-            {% set billboardContent = { 
+        {# Billboard #}
+        {# {% if entry.showBillboardText %}
+            
+            <div id="advertise" class="">
+                Billboard Content
+                {% set billboardContent = { 
                     header: entry.billboardHeader,
                     description: entry.billboardDescription,
                     button: entry.billboardButton,
                     buttonStyle: entry.billboardButtonStyle,
                     background: entry.billboardBackground,
-                }%}
-            Text Billboard - text
-            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+                } %}
+                Text Billboard - text
+                {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+            </div>
+
+        {% endif %} #}
+
+        <div id="request-a-speaker" class="space-b">
+            {# Text Billboard - placeholder content#}
+            {% set content = { 
+                header: 'Bring 1517 to your city',
+                detail: '<p>Invite a speaker to your community! Their goal is to proclaim the good news of the Gospel through their specific field
+                and area of expertise. We would love the opportunity to speak to your church, conference or class.</p>',
+                buttons: 'link -underline -light', 
+                action: 'Request a speaker',
+                image: '/assets/placeholder/placeholder_08.jpg'
+            }%}
+            {# Text Billboard - basic #}
+            {% include '_components/static/billboard--text' with { classes: '-image-left -bronze-light', content: content } %}
         </div>
 
-    {% endif %} #}
+        {# Card List #}
+        <div id="events" class="container--sm gutter-md | space-b">
+            
+            {# Content Card - Podcast #} 
+            {% for entry in eventsAfterBillboard %}
+
+                {# Content Cards #} 
+                {% include '_components/content-card--event' with { content: entry } %}
+                
+            {% endfor %}
+            
+        </div>
+
+    {% else %}
+        
+        {# No Entries #}
+        <div class="text-center space-b">
+            There are no Events available right now.  
+        </div>
+
+    {% endif %}
 
 {% endblock %}
