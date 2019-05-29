@@ -2,11 +2,25 @@
 {% import '_macros/global' as global %}
 
 {% set purchasableId = craft.app.request.param('purchasableId') %}
+{% set topBlocks = clone(entry.contentBlocksEvent).limit(1) %}
+{% set remainingBlocks = clone(entry.contentBlocksEvent).offset(1).all() %}
 
 {% block content %}
+
+<section class="space-menu | space-b | no-print">
+
+    {# TEMP: Use `page-hero--media` partial #}
+    {# {% include "_components/page-hero--media" with { content: entry.articleHeroContent } %} #}
+
+    {# Product Bar #}
+    {% if entry.paidEvent|length %}
+        {% include "_components/product-bar" with { product: entry.paidEvent.first } %}
+    {% endif %}
+
+</section>
   
 {# Article + Aside (top) #}
-<div class="entry-detail-layout | container | space-b space-menu | flex-grid">
+<div class="entry-detail-layout | container | space-b | flex-grid">
 
     {# Content #}
     <article class="entry-main | gutter-xl">
@@ -14,6 +28,9 @@
         {# Header #}
         <header class="entry__header">
             <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            <div class="paragraphs -md">
+                {{ entry.shortDescription }}
+            </div>
         </header>
 
     {# Show redirect message if adding event product to cart #}
@@ -42,23 +59,75 @@
         {# Blocks #}
         <div class="entry__blocks | longform-entry-blocks -top">
 
-            {% if entry.paidEvent|length %}
-                {% set product = entry.paidEvent.first %}
-                {# <pre>
-                    {{ dump(product) }}
-                </pre>
-                {% exit %} #}
-                <div class="m-10">
-                <a href="?purchasableId={{product.defaultVariant.id}}" class="">
-                    Buy {{ product.title }} ({{ product.defaultVariant.salePrice|commerceCurrency(cart.currency) }})
-                </a>
-            {% endif %}
+            {# Longform Content #}
+            {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks } %}
             
         </div>
 
     {% endif %}
         
     </article>
+
+    {# Aside #}
+    <aside class="entry-aside">
+        {# Meta List #}
+        <ul class="meta-list">
+            {# Date #}
+            <li class="display-print">
+                <div class="meta-label | text-slate-light">
+                    {{ entry.eventDate }}
+                </div>
+            </li>
+
+            {# Address #}
+            <li class="display-print">
+                <div class="addr-label | meta-label | text-slate-light">
+                    <p>Static, Location</p>
+                    {# <p>5001 Fleur Drive</p>
+                    <p>Des Moines, Iowa, 50321</p> #}
+
+                    <p>
+                        <a href="#">
+                            Get Directions
+                        </a>
+                    </p>
+                </div>
+            </li>
+
+            {# Info #}
+            <li class="display-print">
+                <div class="addr-label | meta-label | text-slate-light">
+                    <p>Recommended Hotel:</p>
+                    <a href="#">
+                        Static Hotel
+                    </a>
+                </div>
+            </li>
+
+            {# Share/Print #}
+            <li>
+                {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
+            </li>
+        </ul>
+
+    </aside>
+
+    {% if not purchasableId %}
+
+    {# Article + Aside (bottom) #}
+    <article class="entry-main -wide">
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks">
+
+            {# Longform Content #}
+            {% include '_components/longform-entry-blocks' with { classes: '', blocks: remainingBlocks } %}
+
+        </div>
+
+    </article>
+
+    {% endif %}
 
 </div>
 

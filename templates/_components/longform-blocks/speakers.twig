@@ -1,0 +1,30 @@
+{% import '_macros/global' as global %}
+
+<div class="bio-cards | narrow-block gutter-xl | space-b">
+    <h3 class="header-lg text-bronze-lighter font-serif pb-10">{{ block.header }}</h3>
+
+    <ul class="list-bios">
+
+    {# TEMP: swap out after speakers switched from Users to Authors #}
+    {% set placeholder = {
+        image: '/assets/placeholder/placeholder_08.jpg',
+        name: 'Static Speaker'
+    } %}
+
+    {% for speaker in block.list %}
+        
+        <li class="bio-item">
+            <div class="bio-item__media">
+                {# {{ global.image( speaker.image, '-is1x1 -fit-cover rounded-full' )}} #}
+                <img src="{{ placeholder.image }}" class="-is1x1 -fit-cover rounded-full">
+            </div>
+            <div class="bio-item__content">
+                <h3 class="title">{{ placeholder.name }}</h3>
+                <a href="#" class="link | meta-label">See Bio</a>
+            </div>
+        </li>
+
+    {% endfor %}
+
+    </ul>
+</div>
