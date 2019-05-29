@@ -1,8 +1,8 @@
 
 <contact_form :formmethod="'post'" :formaction="'https://formspree.io/xlogpbwm'"
-    :mcid="'{{ mailchimpListSettings.mailchimpListSettings.one().listId }}'" 
-    :mcuser="'{{ mailchimpListSettings.mailchimpListSettings.one().userId }}'" 
-    :mcurl="'{{ mailchimpListSettings.mailchimpListSettings.one().listUrl }}'"
+    :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" 
+    :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" 
+    :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'"
     :signuplocation="'contact-page'">
 
     <template v-slot:default>
@@ -69,17 +69,15 @@
         </div>
 
         {# GDPR #}
-        {% if mailchimpListSettings.enableForm %}
+        {% if siteInfo.enableForm %}
         
         <div class="form-group">
             <div class="field-group | w-full">
 
-                <label for="subscribe-to-updates" class="control -small">
+                <label for="subscribe-to-updates" class="">
                     <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates">
 
                     <span class="control__text">Sign up for updates?</span>
-
-                    <div class="control__indicator"></div>
                 </label>
 
             </div>

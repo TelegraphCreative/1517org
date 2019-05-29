@@ -7,7 +7,13 @@
     <section class="space-menu">
 
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
+        {% set pageHeaderContent = { 
+            title: entry.title, 
+            detail: entry.shortDescription,
+            action: entry.headerAction
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
 
     </section>
 

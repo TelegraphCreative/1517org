@@ -38,7 +38,7 @@
     <div class="site-footer__meta | container gutter-md | space-b">
         <div class="site-footer__meta__container | md:flex-grid">
             {# Subscribe Form #}
-            {% if mailchimpListSettings.enableForm %}
+            {% if siteInfo.enableForm %}
                 <div class="footer-meta__group | md:w-3/4 ">
                     {% include "_components/form-signup" with { header: 'Subscribe to 1517 eNewsletter', id: 'footer' } %}
                 </div>

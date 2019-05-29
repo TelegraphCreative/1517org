@@ -6,11 +6,7 @@
         {# Media #}
         <div class="product-card__media">
             <div class="max-w-xxs w-full mx-auto">
-                {# this is not working.... no clue -jjjohn #}
-                {# {{ global.image( content.cardImageProduct[0], '-is12x16 -fit-cover bg-ivory-lightest' )}} #}
-                {% for image in content.cardImageProduct %}
-                    {{ global.image( image, '-is12x16 -fit-cover bg-ivory-lightest' )}}
-                {% endfor %}
+                {{ global.image( content.cardImageProduct.one(), '-is12x16 -fit-cover bg-ivory-lightest' )}}
             </div>
         </div>
         {# Content #}

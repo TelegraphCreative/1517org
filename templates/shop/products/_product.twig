@@ -2,7 +2,7 @@
 {% import '_macros/global' as global %}
 
 {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
-{% set variant = craft.variants.id(variantId).first() %}
+{% set variant = craft.variants.id(variantId).one() %}
 {% set type = product.getType() %}
 
 {% block content %}
@@ -81,7 +81,7 @@
                     <p>The audio book version of this title is available through these retailers:</p>
 
                     <ul>
-                        {% for link in product.audioBookLinks %}
+                        {% for link in product.audioBookLinks.all() %}
                             <li>
                                 <a href="{{ link.audioUrl }}" target="_blank">{{ link.description }}</a>
                             </li>
@@ -94,12 +94,10 @@
         </article>
 
         {# Aside #}
-        <div
-            class="entry-aside">
-
-            {# TEMP: Use `page-hero--media` partial #}
-            {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
-
+        <div class="entry-aside">
+            <div class="product-image">
+                {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
+            </div>
         </div>
 
     </section>
