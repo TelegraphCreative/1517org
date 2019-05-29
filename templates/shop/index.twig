@@ -38,7 +38,7 @@
 
         <div class="flex-grid">
             {# Product Grid #}
-            {% for product in products %}
+            {% for product in products.all() %}
                 {# Product Card #}
                 {% include '_components/product-card' with { content: product } %}
             {% endfor %}

@@ -5,7 +5,7 @@
       :class="{ hidden: hideImg }"
       @click="playVideo"
     >
-      <play_icon :classes=" 'icon -lg absolute z-20 align-yx' "/>
+      <play_icon :classes=" 'icon -lg absolute z-20 align-yx w-24 md:w-48 lg:w-64' "/>
       <img :src="imgSrc" class="absolute w-screen max-w-full z-10 mt-2">
     </div>
     <div :style="`padding:${aspectRatio}% 0 0 0`" class="relative">
@@ -20,11 +20,10 @@
   </div>
 </template>
 <script>
+import play_icon from '../icons/icon-play-material'
+import Player from '@vimeo/player'
 
-  import play_icon from '../icons/icon-play-material'
-  import Player from '@vimeo/player'
-  
-  export default {
+export default {
     props: {
         imgSrc: {
             type: String,

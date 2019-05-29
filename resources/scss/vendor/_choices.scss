@@ -101,12 +101,13 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
         // }
 
         &:after {
-
             content: '';
             background-image: url('/assets/icons/chevron-down.svg');
             background-position: right 8px top 50%, 0 0;
             background-size: cover;
             right: 0;
+            transform: translate(0, -50%);
+            top: 50%;
             position: absolute;
             height: 8px;
             width: 8px;

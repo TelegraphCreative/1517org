@@ -5,7 +5,7 @@
 
     <ul class="list-syllabus -hover-effect">
 
-    {% for item in block.list %}
+    {% for item in block.list.all() %}
 
         {% if item.divider.contains('minimalDivider') %}
 
@@ -39,8 +39,19 @@
 
     </ul>
 
-    <div class="big-list__action mt-8">
-        {{ global.link('', 'btn  -red -md', 'Register') }}
-    </div>
+    {% if block.buttons.one()|length %}
+        <div class="big-list__action | button-group | mt-8">
+        {% for button in block.buttons.all() %}
+            {% if loop.index == 1 %}
+                {% set classes = 'btn  -red -md' %}
+            {% else %}
+                {% set classes = 'link  -underline' %}                
+            {% endif %}
+        
+            {{ global.link(button.button, classes) }}
+        {% endfor %}
+        </div>
+    {% endif %}
+    
 
 </div>
