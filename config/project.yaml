@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559159169
+dateModified: 1559163759
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -3646,7 +3646,8 @@ matrixBlockTypes:
           removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
-          availableVolumes: '*'
+          availableVolumes:
+            - c160af80-d4b3-4032-99f1-f91b25f713d3
           availableTransforms: '*'
         contentColumnType: text
         fieldGroup: null
@@ -5395,6 +5396,39 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.4.1
+  blitz:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      cachingEnabled: '1'
+      includedUriPatterns:
+        1:
+          - '*'
+      excludedUriPatterns: ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cacheStorageSettings:
+        folderPath: cache/blitz
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cachePurgerTypes:
+        - putyourlightson\blitz\drivers\purgers\CloudflarePurger
+      clearCacheAutomatically: '1'
+      clearCacheAutomaticallyForGlobals: true
+      warmCacheAutomatically: '1'
+      warmCacheAutomaticallyForGlobals: true
+      queryStringCaching: '0'
+      concurrency: '3'
+      apiKey: ''
+      cacheElements: true
+      cacheElementQueries: true
+      cacheDuration: null
+      nonCacheableElementTypes:
+        - craft\elements\GlobalSet
+        - craft\elements\MatrixBlock
+        - benf\neo\elements\Block
+      cacheControlHeader: 'public, s-maxage=0'
+      sendPoweredByHeader: true
+      outputComments: true
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
