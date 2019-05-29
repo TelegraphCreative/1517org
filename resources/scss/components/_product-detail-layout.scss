@@ -11,7 +11,7 @@
             @apply w-full py-10 px-4;
             background-color: var(--ivory-light-50);
 
-            figure {
+            .product-image {
                 @apply w-4/5 mx-auto;
             }
         }

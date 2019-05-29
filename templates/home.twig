@@ -7,7 +7,7 @@
 <div id="featured" class="container | space-menu space-b">
 
     {# Content Card - Hero #}
-    {% include '_components/content-heroes' with { content: entry.featuredContentSingleSelect.one(), classes: "-red" } %}
+    {% include '_components/content-heroes' with { content: entry.featuredContentSingleSelect.one(), classes: entry.featuredContentCardColor } %}
 
 </div>
 
