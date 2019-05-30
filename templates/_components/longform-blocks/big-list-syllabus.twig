@@ -16,8 +16,14 @@
             </li>
 
         {% else %}
-
+            {# For John:
+            If a LinkIt field named 'resource' is added to this List super table, the following 
+            hass been updated to accomodate links. -lindsey #}
             <li class="syllabus-item">
+                {% if item.resource|length %}
+                <a href="{{ item.resource.url }}" class="syllabus-item w-full" target="_blank"></a>
+                {% endif %}
+                
                 <div class="syllabus-item__main">
                     <h4 class="title | header-sm font-serif">{{ item.header }}</h4>
                     {% if item.description|length %}
@@ -30,6 +36,10 @@
                         {{ item.detail }}
                     </div>
                 </div>
+                {% endif %}
+
+                {% if item.resource|length %}
+                </a>
                 {% endif %}
             </li>
 

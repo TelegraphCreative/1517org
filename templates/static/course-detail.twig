@@ -5,7 +5,7 @@
 
 {# TEMP: Grab example content #}
 {% set entry = craft.entries.section('articles')[1] %}
-{% set placeholderImage = entry.articleHeroContent.one().image.one() %}
+{# {% set placeholderImage = entry.articleHeroContent.one().image.one() %} #}
 {% set placeholderShortCopy = "Optional short support copy" %}
 
 {# Setup Placeholder Logic for Anon/SignedIn:
@@ -25,7 +25,7 @@
         - Shows full article #}
 
         {# TEMP: Use `page-hero--media` partial #}
-        {{ global.image( placeholderImage, '-fit-cover' )}}
+        {# {{ global.image( placeholderImage, '-fit-cover' )}} #}
 
     {% else %}
     {# Anon User View:
