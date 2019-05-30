@@ -7,10 +7,11 @@
 {% endif %}
 
 <div class="order-review mt-8">
-    <h3 class="header-md">Order Review</h3>
+    <h3 class="header-md mb-4">Order Review</h3>
 
     {% if showShippingAddress %}
-        <h4 class="font-serif | pt-8 mb-3">Shipping to</h4>
+        <hr>
+        <h4 class="font-serif | mb-3">Shipping to</h4>
         {% if cart.shippingAddress %}
             <div class="address-select border-0 | text-md leading-normal font-normal">
                 {% include 'shop/_includes/addresses/address' with {'address': cart.shippingAddress} %}
@@ -25,7 +26,7 @@
     {% endif %}
 
     {% if showShippingMethod %}
-        <h4 class="font-serif | pt-8 mb-3">Shipping method</h4>
+        <h4 class="font-serif | mb-3">Shipping method</h4>
 
         <p class="text-md leading-normal font-normal">
             {% if cart.shippingMethod %}
@@ -38,7 +39,7 @@
         <hr>
     {% endif %}
 
-    <h4 class="font-serif | pt-8 mb-3">Items</h4>
+    <h4 class="font-serif |  mb-3">Items</h4>
     <ul class="list-reset leading-normal | text-md leading-normal font-normal">
         {% for item in cart.lineItems %}
             <li class="flex-grid | mb-4 pb-4 border-b border-ivory-light">

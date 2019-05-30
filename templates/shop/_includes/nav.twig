@@ -20,6 +20,7 @@
             <a class="{% if page == 'cart' %}active{% endif %}" href="{{ url('shop/cart') }}">
                 <i class="fa fa-shopping-cart"></i> {{ "Cart"|t }} <span class="badge">{{ craft.orders.number(cart.number).one().totalQty ?? 0}}</span>
             </a>
+            hello
         </li>
 
         {% if currentUser %}

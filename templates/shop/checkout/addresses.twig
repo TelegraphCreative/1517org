@@ -49,9 +49,8 @@
 
                 <label for="makePrimaryBillingAddress"><input id="makePrimaryBillingAddress" name="makePrimaryBillingAddress" type="checkbox"/><span class="label-body">Make this the primary billing address</span></label>
 
-
-                <div class="mt-4">
-                    <input type="submit" class="btn" value="Confirm addresses">
+                <div class="border-t border-ivory-light pt-4 mt-12">
+                    <input type="submit" class="btn -md -red" value="Confirm addresses">
                 </div>   
 
 
@@ -63,7 +62,7 @@
         </div>
     </div>
 
-    {% js %}
+    {% js on load %}
     var $fieldsets = $('.address-fieldset');
 
     $fieldsets.each(function () {
