@@ -4,8 +4,6 @@
 {% set sliderContent = [] %}
 
 {% for item in slides %}
-    {# NOTE: add caption field? #}
-    {# caption: item.caption, #}
 {% set sliderContent = sliderContent|merge([{
     imageUrl: item.optimize.src
 }]) %}

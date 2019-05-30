@@ -7,9 +7,7 @@
     
     {# Actions #}
     <div class="button-group__actions">
-        {# NOTE: there is a discrepancy between this field name. Unify to remove following ternary -john #}
-        {% set buttons = block.button ?: block.buttons %}
-        {% for item in buttons.all() %}
+        {% for item in block.button.all() %}
             {{ global.link(item.button, item.buttonStyle)}}                
         {% endfor %}
     </div>

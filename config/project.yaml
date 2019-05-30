@@ -70,7 +70,7 @@ categoryGroups:
             sortOrder: 1
             fields:
               d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                required: true
+                required: false
                 sortOrder: 1
               94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                 required: false
@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559228664
+dateModified: 1559253333
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -3330,6 +3330,9 @@ matrixBlockTypes:
           contentTable: '{{%stc_22_buttons}}'
           localizeBlocks: false
           staticField: ''
+          columns:
+            247:
+              width: ''
           fieldLayout: matrix
           selectionLabel: Button
         contentColumnType: string
@@ -3664,7 +3667,7 @@ matrixBlockTypes:
   658c404b-0519-4c12-9d7f-81afb5a1f6f0:
     field: 6a6d2bb0-5c60-45f6-bc55-5ca2ff279938
     name: 'Image (full-bleed)'
-    handle: imageFullBleed
+    handle: heroImageFullBleed
     sortOrder: 2
     fields:
       0f25c53a-9318-4075-8642-c1474c872b40:
@@ -3705,8 +3708,8 @@ matrixBlockTypes:
                 sortOrder: 1
   f4d014de-f45f-43e5-8970-393d51b8e7a4:
     field: 6a6d2bb0-5c60-45f6-bc55-5ca2ff279938
-    name: 'Image Carousel'
-    handle: imageCarousel
+    name: 'Image Slider'
+    handle: imageSlider
     sortOrder: 3
     fields:
       0a5c679c-b415-48a9-bb8e-604c86f1e061:
@@ -3850,12 +3853,33 @@ matrixBlockTypes:
               width: ''
             147:
               width: ''
-            148:
-              width: ''
             149:
+              width: ''
+            254:
               width: ''
           fieldLayout: matrix
           selectionLabel: ''
+        contentColumnType: string
+        fieldGroup: null
+      2be6973c-8c85-4981-b243-db02674791f4:
+        name: Buttons
+        handle: buttons
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: ''
+          maxRows: ''
+          contentTable: '{{%stc_29_buttons}}'
+          localizeBlocks: false
+          staticField: ''
+          columns:
+            253:
+              width: ''
+          fieldLayout: matrix
+          selectionLabel: 'New Button'
         contentColumnType: string
         fieldGroup: null
     fieldLayouts:
@@ -3871,6 +3895,9 @@ matrixBlockTypes:
               c916f4d1-170b-49a8-8a2b-8d1f2460550d:
                 required: false
                 sortOrder: 2
+              2be6973c-8c85-4981-b243-db02674791f4:
+                required: false
+                sortOrder: 3
   9cd0e3cc-a5b5-40cd-b961-5ae65ff00c0a:
     field: 6a6d2bb0-5c60-45f6-bc55-5ca2ff279938
     name: 'Button Group'
@@ -3896,7 +3923,7 @@ matrixBlockTypes:
         fieldGroup: null
       d9f0f78f-9e04-4dba-a419-e0c2f4ffceb4:
         name: Buttons
-        handle: buttons
+        handle: button
         instructions: ''
         searchable: true
         translationMethod: site
@@ -3905,7 +3932,7 @@ matrixBlockTypes:
         settings:
           minRows: ''
           maxRows: '2'
-          contentTable: '{{%stc_30_buttons}}'
+          contentTable: '{{%stc_30_button}}'
           localizeBlocks: false
           staticField: ''
           columns:
@@ -6067,7 +6094,7 @@ sections:
                     required: false
                     sortOrder: 1
                   32236621-f50a-48af-a121-8ff8282224f3:
-                    required: false
+                    required: true
                     sortOrder: 2
               -
                 name: Meta
@@ -7142,6 +7169,80 @@ superTableBlockTypes:
               default: ''
         contentColumnType: string
         fieldGroup: null
+      f00de794-1226-4261-afbd-4a3a5166f9ef:
+        name: Resource
+        handle: resource
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: ''
+          defaultText: ''
+          allowTarget: ''
+        contentColumnType: text
+        fieldGroup: null
     fieldLayouts:
       db916fe6-5543-4e09-a551-5378df2b0926:
         tabs:
@@ -7161,6 +7262,9 @@ superTableBlockTypes:
               15e8888f-207a-4a4c-a92a-999e7ef36f0b:
                 required: false
                 sortOrder: 4
+              f00de794-1226-4261-afbd-4a3a5166f9ef:
+                required: false
+                sortOrder: 5
   b04cac59-3e25-4fe4-8bfc-e1ea77f9cb07:
     field: 9f35b82e-857e-4bc5-954c-dca8c00a1fe3
     fields:
@@ -7280,7 +7384,7 @@ superTableBlockTypes:
             sortOrder: 1
             fields:
               0179a40c-c4c5-48fa-9c3b-8a40e7f2a4ae:
-                required: false
+                required: true
                 sortOrder: 1
               33de4241-bddc-4320-85d9-2fb63b08d695:
                 required: false
@@ -7342,9 +7446,25 @@ superTableBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
-      ba50a616-10ec-49e6-a277-87d5efa807b2:
-        name: Link
-        handle: linkIt
+      7098e626-4f0d-425d-bd2d-f8a26f2a3d5a:
+        name: Divider
+        handle: divider
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Checkboxes
+        settings:
+          options:
+            -
+              label: 'Minimal Divider'
+              value: minimalDivider
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      2df41475-7d95-4e52-8dec-cd68926406c5:
+        name: Resource
+        handle: resource
         instructions: ''
         searchable: true
         translationMethod: none
@@ -7365,9 +7485,9 @@ superTableBlockTypes:
               enabled: '1'
               customLabel: ''
               customPlaceholder: ''
-              allowAlias: ''
-              allowMailto: ''
-              allowHash: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
               allowPaths: '1'
             fruitstudios\linkit\models\Twitter:
               enabled: ''
@@ -7391,12 +7511,12 @@ superTableBlockTypes:
               sources: '*'
               customSelectionLabel: ''
             fruitstudios\linkit\models\Category:
-              enabled: '1'
+              enabled: ''
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
             fruitstudios\linkit\models\Asset:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -7416,22 +7536,6 @@ superTableBlockTypes:
           allowTarget: ''
         contentColumnType: text
         fieldGroup: null
-      7098e626-4f0d-425d-bd2d-f8a26f2a3d5a:
-        name: Divider
-        handle: divider
-        instructions: ''
-        searchable: true
-        translationMethod: none
-        translationKeyFormat: null
-        type: craft\fields\Checkboxes
-        settings:
-          options:
-            -
-              label: 'Minimal Divider'
-              value: minimalDivider
-              default: ''
-        contentColumnType: string
-        fieldGroup: null
     fieldLayouts:
       271189d8-f658-4888-8e9d-2ffbce22915d:
         tabs:
@@ -7448,10 +7552,10 @@ superTableBlockTypes:
               be58a363-b8e2-48b0-b37f-ddd1680056d9:
                 required: false
                 sortOrder: 3
-              ba50a616-10ec-49e6-a277-87d5efa807b2:
+              7098e626-4f0d-425d-bd2d-f8a26f2a3d5a:
                 required: false
                 sortOrder: 4
-              7098e626-4f0d-425d-bd2d-f8a26f2a3d5a:
+              2df41475-7d95-4e52-8dec-cd68926406c5:
                 required: false
                 sortOrder: 5
   1da2267a-e131-4752-be09-39f566d8654f:
@@ -8407,6 +8511,93 @@ superTableBlockTypes:
             sortOrder: 1
             fields:
               c7e39cfa-c894-4141-9281-75f23da130a2:
+                required: false
+                sortOrder: 1
+  fdc04447-4286-4eb7-b8ad-788380b35a92:
+    field: 2be6973c-8c85-4981-b243-db02674791f4
+    fields:
+      673c721f-5185-4d87-b81f-98687504187f:
+        name: Button
+        handle: button
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: '1'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      60bd19c3-3470-4fbb-9662-c233aac569c5:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              673c721f-5185-4d87-b81f-98687504187f:
                 required: false
                 sortOrder: 1
 system:

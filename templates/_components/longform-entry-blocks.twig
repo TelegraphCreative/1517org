@@ -24,9 +24,6 @@
         {# Hero Image - full-bleed #}
         {% case "heroImageFullBleed" %}
             {% include '_components/longform-blocks/hero-image' %}
-        {# NOTE: remain field when in BE -john #}
-        {% case "imageFullBleed" %}
-            {% include '_components/longform-blocks/hero-image' %}
 
         {# Entry Callout #}
         {% case "entryCallout" %}
@@ -50,10 +47,6 @@
 
         {# Image Slider #}
         {% case "imageSlider" %}
-            {% include '_components/longform-blocks/image-slider' %}
-        {# NOTE: I named this block Carousel based on airtable spec. didn't see #}
-        {#       it being called imageSlider anywhere else -john #}
-        {% case "imageCarousel" %}
             {% include '_components/longform-blocks/image-slider' %}
 
         {# Bio Cards #}
