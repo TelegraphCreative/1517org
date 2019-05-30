@@ -9,8 +9,7 @@
 
 <section class="space-menu | space-b | no-print">
 
-    {# TEMP: Use `page-hero--media` partial #}
-    {# {% include "_components/page-hero--media" with { content: entry.articleHeroContent } %} #}
+    {% include "_components/page-hero--media" with { content: entry.articleHeroContent } %}
 
     {# Product Bar #}
     {% if entry.paidEvent|length %}
@@ -82,12 +81,13 @@
             {# Address #}
             <li class="display-print">
                 <div class="addr-label | meta-label | text-slate-light">
-                    <p>Static, Location</p>
-                    {# <p>5001 Fleur Drive</p>
-                    <p>Des Moines, Iowa, 50321</p> #}
+                    {% set location = entry.location.parts %}
+                    {% set cityStateZip = location.city ~ ', ' ~ location.state ~ ' ' ~ location.postcode %}
+                    <p>{{ location.address }}</p>
+                    <p>{{ cityStateZip }}</p>
 
                     <p>
-                        <a href="#">
+                        <a href="https://www.google.com/maps/place/{{ location.address ~ ' ' ~ cityStateZip }}" target="_blank">
                             Get Directions
                         </a>
                     </p>
@@ -98,8 +98,8 @@
             <li class="display-print">
                 <div class="addr-label | meta-label | text-slate-light">
                     <p>Recommended Hotel:</p>
-                    <a href="#">
-                        Static Hotel
+                    <a href="{{ entry.recommendedHotel.value }}">
+                        {{ entry.recommendedHotel.customText }}
                     </a>
                 </div>
             </li>
