@@ -13,7 +13,7 @@
             <li class="list-asset | flex-grid">
                 
                 <div class="list-asset__content">
-                    <a href="{{ item.resource }}">
+                    <a href="{{ item.resource.url }}" target="_blank">
                         <h4 class="header-sm font-serif">{{ item.header }} </h4>
                         {% if item.supportingCopy|length %}
                             <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
