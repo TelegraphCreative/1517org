@@ -1,0 +1,23 @@
+{% import '_macros/global' as global %}
+
+<div class="bio-cards | narrow-block gutter-xl | space-b">
+    <h3 class="header-lg text-bronze-lighter font-serif pb-10">{{ block.header }}</h3>
+
+    <ul class="list-bios">
+
+    {% for speaker in block.list.speaker.all %}
+
+        <li class="bio-item">
+            <div class="bio-item__media">
+                {{ global.image( speaker.photo.one, '-is1x1 -fit-cover rounded-full' )}}
+            </div>
+            <div class="bio-item__content">
+                <h3 class="title">{{ speaker.firstName ~ ' ' ~ speaker.lastName }}</h3>
+                <a href="#" class="link | meta-label">See Bio</a>
+            </div>
+        </li>
+
+    {% endfor %}
+
+    </ul>
+</div>
