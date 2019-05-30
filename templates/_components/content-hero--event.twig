@@ -8,8 +8,13 @@
             
             {# Label #}
             <h4 class="content-label -date">
-                <div class="content-label__mo">{{ content.postDate | date( 'M') }}</div>
-                <div class="content-label__day">{{ content.postDate | date( 'd') }}</div>
+                {# I realized showing the post date for events is misleading -John #}
+                {% if content.type == 'events' %}
+                   <div class="content-label__mo">{{ content.eventDate }}</div> 
+                {% else %}
+                    <div class="content-label__mo">{{ content.postDate | date( 'M') }}</div>
+                    <div class="content-label__day">{{ content.postDate | date( 'd') }}</div>
+                {% endif %}
             </h4>
 
             <a href="{{ content.url }}" class="block">

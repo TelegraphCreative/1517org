@@ -10,7 +10,7 @@
 
         {# Big List - Assets #}
         {% case "bigListAssets" %}
-            {% include '_components/longform-blocks/big-list-assets' %}        
+            {% include '_components/longform-blocks/big-list-assets' %}
         {% case "bigListAssetsLinks" %}
             {% include '_components/longform-blocks/big-list-assets' %}
         {# Syllabus #}
@@ -57,9 +57,15 @@
         {% case "billboard2Up" %}
             {% include '_components/longform-blocks/billboard--2up' %}
 
+        {# Big List Syllabus #}
+        {% case "bigListSyllabus" %}
+            {% include '_components/longform-blocks/big-list-syllabus' %}
+
+        {# Speakers #}
+        {% case "speakers" %}
+            {% include '_components/longform-blocks/speakers' %}
 
         {% endswitch %}
     {% endfor %}
-    
 
 {% endif %}
