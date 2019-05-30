@@ -129,8 +129,8 @@
                     {% endfor %}
                 {% endif %}
                 <tr>
-                    <td class="text-right">
-                        <input class="link -underline" type="submit" value="Update Cart"/>
+                    <td class="">
+                        <input class="link -underline cursor-pointer" type="submit" value="Update Cart"/>
                     </td>
                     <td colspan="2">  {# Update Coupon form uses the single update controller action: #}
                         {% if cart.getFirstError('couponCode') %}

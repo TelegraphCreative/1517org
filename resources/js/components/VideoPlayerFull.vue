@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen max-w-full relative">
+  <div class="w-screen max-w-full relative overflow-hidden">
     <div
       class="text-white hover:text-red cursor-pointer"
       :class="{ hidden: hideImg }"

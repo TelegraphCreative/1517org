@@ -26,10 +26,11 @@
             <div class="md:w-2/6 md:p-4">
                 <h3>{% if product.url %}{{ product.link }}{% else %}{{ product.title }}{% endif %}</h3>
                 {% if product.getVariants()|length %}
-                    <form method="POST" class="add-to-cart-form">
+                    <form method="POST" class=" as dd-to-cart-form">
                         <input type="hidden" name="action" value="commerce/cart/update-cart">
                         {{ redirectInput('example-shop/cart') }}
-                        <input type="hidden" name="qty" value="1">
+                        {# <input type="hidden" name="qty" value="1"> #}
+                        <input min="1" name="qty" type="number" value="1">
                         {{ csrfInput() }}
 
                         <select name="purchasableId" class="purchasableId">
@@ -93,10 +94,10 @@
     {% endif %}
 
     {% js %}
-        $( ".purchasableId" ).change(function(e) {
+        {# $( ".purchasableId" ).change(function(e) {
             $(".purchasableInfo").hide();
             $("#"+($(this).find(":selected").data('info'))).toggle();
-        });
+        }); #}
 
         {#
         $('form.add-to-cart-form').submit(function(e){
