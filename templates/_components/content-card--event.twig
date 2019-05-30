@@ -28,11 +28,13 @@
                             <div class="meta-label | ml-3">{{ content.eventDate }}</div>
                         </a>
                     </li>
+
+                    {% set location = content.location.parts %}
+                    {% set cityState = location.city ~ ', ' ~ location.state %}
                     <li>
-                        {# Needs Location #}
-                        <a href="#" class="align-items-center">
+                        <a href="https://www.google.com/maps/place/{{ location.address ~ ' ' ~ cityState ~ ' ' ~ location.postcode }}" target="_blank" class="align-items-center">
                             {{ global.utilityIcon('map-pin', '-sm') }}
-                            <div class="meta-label | ml-2">Static, Location</div>
+                            <div class="meta-label | ml-2">{{ cityState }}</div>
                         </a>
                     </li>
                 </ul>        

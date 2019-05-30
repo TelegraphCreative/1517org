@@ -47,37 +47,23 @@
             
         </div>
 
-        {# Billboard #}
-        {# {% if entry.showBillboardText %}
-            
-            <div id="advertise" class="">
-                Billboard Content
-                {% set billboardContent = { 
-                    header: entry.billboardHeader,
-                    description: entry.billboardDescription,
-                    button: entry.billboardButton,
-                    buttonStyle: entry.billboardButtonStyle,
-                    background: entry.billboardBackground,
-                } %}
-                Text Billboard - text
-                {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
-            </div>
-
-        {% endif %} #}
+    {# Billboard #}
+    {% if entry.showBillboardText %}
 
         <div id="request-a-speaker" class="space-b">
-            {# Text Billboard - placeholder content#}
-            {% set content = { 
-                header: 'Bring 1517 to your city',
-                detail: '<p>Invite a speaker to your community! Their goal is to proclaim the good news of the Gospel through their specific field
-                and area of expertise. We would love the opportunity to speak to your church, conference or class.</p>',
-                buttons: 'link -underline -light', 
-                action: 'Request a speaker',
-                image: '/assets/placeholder/placeholder_08.jpg'
-            }%}
-            {# Text Billboard - basic #}
-            {% include '_components/static/billboard--text' with { classes: '-image-left -bronze-light', content: content } %}
+            {# Text Billboard #}
+            {% set billboardContent = { 
+                header: entry.billboardHeader,
+                description: entry.billboardDescription,
+                button: entry.billboardButton,
+                buttonStyle: entry.billboardButtonStyle,
+                background: entry.billboardBackground,
+                image: entry.image
+            } %}
+            {% include '_components/billboard--text' with { classes: '-image-left -bronze-light', content: billboardContent } %}
         </div>
+
+    {% endif %}
 
         {# Card List #}
         <div id="events" class="container--sm gutter-md | space-b">
