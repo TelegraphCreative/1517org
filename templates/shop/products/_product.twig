@@ -45,12 +45,14 @@
                 <form method="POST" class="form-base -purchase | mt-6">
                     <input type="hidden" name="action" value="commerce/cart/update-cart">
                     {{ redirectInput('shop/cart') }}
+                    <input min="1" name="qty" type="number" value="1">
                     {{ csrfInput() }}
 
                     <div class="form-group -start">
                         <div class="field-group">
                             <select_box
                                 :opt="{ name: 'type', variant: '-md' }"
+                                :name="'purchasableId'" class="purchasableId"
                                 value="{{ variantId }}"
                             >
                             {% for purchasable in product.variants %}
@@ -65,14 +67,19 @@
 
                     <div class="form-group -start">
                         <div class="field-group">
-                            <input min="1" name="qty" type="number" value="1">
+                            
                         </div>
                         <div class="field-group">
-                            <button class="btn -red -md">{{ "Add to cart"|t }}</button>
+                            {% if product.hasUnlimitedStock or (product.hasUnlimitedStock == false and product.totalStock > 0 ) %}
+                                <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
+                            {% else %}
+                                <button class="btn -disabled -md">{{ "Out of Stock"|t }}</button>
+                            {% endif %}
                         </div>
                     </div>
 
                 </form>
+
             </header>
 
             {# Content Blocks #}
@@ -98,9 +105,11 @@
 
         {# Aside #}
         <div class="entry-aside">
+        {% if product.cardImageProduct|length %}
             <div class="product-image">
                 {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
             </div>
+        {% endif %}        
         </div>
 
     </section>
