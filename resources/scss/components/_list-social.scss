@@ -61,6 +61,13 @@
                     @apply w-6;
                 }
             }
+
+             // -has-image
+            &.-has-image {
+                a:hover {
+                    @apply text-white border-bronze-dark bg-bronze-dark;
+                }
+            }
         }
 
         // Rounded White (all white)
@@ -102,4 +109,6 @@
             bg-bronze;
         }
     }
+
+   
 }
