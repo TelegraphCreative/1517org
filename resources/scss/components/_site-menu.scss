@@ -19,6 +19,28 @@
         relative z-20;
     }
 
+    // Cart
+    .badge {
+        @apply absolute
+        bg-red rounded-full
+        z-10 block
+        text-white text-xxs text-center; 
+
+        height: 1.125rem;
+        width: 1.125rem;
+        margin: -12px 0 0 -10px;
+        line-height: 1.5;
+
+
+        &[data-item-count="0"] {
+            @apply hidden;
+        }
+    }
+    a {
+        @apply relative;
+    }
+    // &__cart {}
+
     // Utility Bar
     &__group.-secondary {
         @apply hidden;

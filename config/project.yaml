@@ -108,6 +108,33 @@ categoryGroups:
               d346861d-be5b-43ad-84db-cec8cb55d41e:
                 required: false
                 sortOrder: 4
+  7f74eac0-905b-48e1-b1cc-79cb3b3dabe9:
+    name: Scripture
+    handle: scripture
+    structure:
+      uid: ea5838c6-81ec-4618-8fe7-85beb876d245
+      maxLevels: 2
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        hasUrls: false
+        uriFormat: null
+        template: null
+    fieldLayouts:
+      32ca38c6-aa84-481c-9dfb-cc88cc234810:
+        tabs:
+          -
+            name: Introduction
+            sortOrder: 1
+            fields:
+              d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
+                required: false
+                sortOrder: 1
+              94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                required: false
+                sortOrder: 2
+              32236621-f50a-48af-a121-8ff8282224f3:
+                required: false
+                sortOrder: 3
 commerce:
   orderStatuses:
     e4306305-81b8-4056-a5c5-0288ad6a682d:
@@ -254,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559085235
+dateModified: 1559228664
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -299,6 +326,8 @@ fieldGroups:
     name: Forms
   7c6bc81e-0dc2-47ed-a6ec-d8950f98189d:
     name: General
+  f8198c30-b7b9-442f-aa97-8e478e538453:
+    name: Meta
 fieldlabels:
   b4e5ef6f-db34-41a4-bedd-074aa3acae21:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
@@ -325,6 +354,31 @@ fieldlabels:
     fieldLayout: f9ec9348-63f9-4b8b-83c2-a807c5fa964e
     name: 'Full Bio'
     instructions: 'Link to a GC page to include more information about this content'
+  d4786032-6006-45c2-8006-6b951124baab:
+    field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
+    fieldLayout: b8a6ebcc-9b05-4437-b3d2-ae3d43e983b2
+    name: null
+    instructions: '772 × 434 / (16× 9)'
+  4aad476a-6193-40a0-bdff-abe87c36f69c:
+    field: ca88b718-b5ea-4d62-907a-b2746232ec5a
+    fieldLayout: 045b7ff7-4163-4ff5-83b4-cdaeae16f265
+    name: null
+    instructions: '812 × 812 / (1× 1)'
+  213a03be-928b-4865-b5ee-74ad735d3ba3:
+    field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
+    fieldLayout: 169d46c8-008b-4c0d-8d45-47153e669d2b
+    name: null
+    instructions: '772 × 434 / (16× 9)'
+  cfa1a870-528f-4657-a675-aff71718cf99:
+    field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
+    fieldLayout: c6377610-fd87-4189-b3a9-f00bb612ad86
+    name: null
+    instructions: '772 × 434 / (16× 9)'
+  3faa3a22-fdd0-4931-9428-3a6a6acee7cc:
+    field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
+    fieldLayout: 34466302-ab55-43b0-bfab-c4083da3bcb6
+    name: null
+    instructions: '772 × 434 / (16× 9)'
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -704,7 +758,7 @@ fields:
       variants:
         -
           width: '1200'
-          useAspectRatio: '1'
+          useAspectRatio: ''
           aspectRatioX: '16'
           aspectRatioY: '9'
           retinaSizes:
@@ -713,7 +767,7 @@ fields:
           format: jpg
         -
           width: '992'
-          useAspectRatio: '1'
+          useAspectRatio: ''
           aspectRatioX: '16'
           aspectRatioY: '9'
           retinaSizes:
@@ -722,7 +776,7 @@ fields:
           format: jpg
         -
           width: '768'
-          useAspectRatio: '1'
+          useAspectRatio: ''
           aspectRatioX: '4'
           aspectRatioY: '3'
           retinaSizes:
@@ -731,7 +785,7 @@ fields:
           format: jpg
         -
           width: '576'
-          useAspectRatio: '1'
+          useAspectRatio: ''
           aspectRatioX: '4'
           aspectRatioY: '3'
           retinaSizes:
@@ -1379,7 +1433,7 @@ fields:
     contentColumnType: string
     fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
   44ed3589-35f9-41e5-a842-913e07ba4354:
-    name: 'Podcast Link'
+    name: 'Podcast/Audio Link'
     handle: podcastLink
     instructions: 'Paste in a link to an audio file that will not expire.'
     searchable: false
@@ -1906,6 +1960,107 @@ fields:
       localizeBlocks: false
     contentColumnType: string
     fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
+  b11b5582-15bd-4f1c-b5c1-121e08697179:
+    name: 'Featured Content Card Color'
+    handle: featuredContentCardColor
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Dropdown
+    settings:
+      options:
+        -
+          label: Coal
+          value: '-dark'
+          default: ''
+        -
+          label: Ivory
+          value: '-ivory'
+          default: ''
+        -
+          label: Clay
+          value: '-red'
+          default: ''
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  32ad703c-9543-4366-bbf6-59dfb9b394bd:
+    name: Scripture
+    handle: scripture
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      branchLimit: ''
+      sources: '*'
+      source: 'group:7f74eac0-905b-48e1-b1cc-79cb3b3dabe9'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: 'Scripture '
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  fc574e36-797b-4f2b-8ee6-d321bcea2ecd:
+    name: Location
+    handle: location
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: ether\simplemap\fields\MapField
+    settings:
+      lat: 37.7792808
+      lng: -122.4192363
+      zoom: 15
+      country: US
+      hideSearch: ''
+      hideMap: ''
+      hideAddress: ''
+      showLatLng: ''
+      hideLatLng: null
+      height: null
+      countryRestriction: null
+      typeRestriction: null
+      boundaryRestrictionNELat: null
+      boundaryRestrictionNELng: null
+      boundaryRestrictionSWLat: null
+      boundaryRestrictionSWLng: null
+      boundary: '""'
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  c6caccbe-bc27-488b-a546-9119aacebce5:
+    name: 'SEO Meta'
+    handle: seoMeta
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: nystudio107\seomatic\fields\SeoSettings
+    settings:
+      elementDisplayPreviewType: google
+      generalTabEnabled: '1'
+      generalEnabledFields:
+        - seoTitle
+        - seoDescription
+        - seoImage
+      twitterTabEnabled: ''
+      facebookTabEnabled: '1'
+      facebookEnabledFields:
+        - seoPreview
+        - ogType
+        - ogTitle
+        - ogSiteNamePosition
+        - ogDescription
+        - ogImage
+        - ogImageTransform
+        - ogImageTransformMode
+        - ogImageDescription
+      sitemapTabEnabled: ''
+    contentColumnType: text
+    fieldGroup: f8198c30-b7b9-442f-aa97-8e478e538453
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -1914,7 +2069,7 @@ globalSets:
       13894d4c-ad4f-43fc-800e-843a73766683:
         tabs:
           -
-            name: Info
+            name: Description
             sortOrder: 1
             fields:
               b01177fd-3f47-40a3-a665-91c104efbd06:
@@ -1923,25 +2078,29 @@ globalSets:
               4bb4a775-071c-45ce-890a-0c78078d9211:
                 required: false
                 sortOrder: 2
+          -
+            name: Social
+            sortOrder: 2
+            fields:
               93e4144e-c517-4c83-baa5-c9e7dde122e5:
                 required: false
-                sortOrder: 3
-  d021098e-bd91-405a-a2c0-a5cd80d9f2e2:
-    name: 'Mailchimp List Settings'
-    handle: mailchimpListSettings
-    fieldLayouts:
-      b586c5a1-7712-458f-81bc-91537854b5e5:
-        tabs:
+                sortOrder: 1
           -
-            name: Settings
-            sortOrder: 1
+            name: Subscribe
+            sortOrder: 3
             fields:
               045c67b0-7a2f-4881-8caa-af2a082999d8:
                 required: false
                 sortOrder: 1
-              a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
+              ce742a26-47ad-4871-a052-7c25a110bf4a:
                 required: false
                 sortOrder: 2
+              eb22cdff-17f7-419e-b076-b24ce26578d4:
+                required: false
+                sortOrder: 3
+              a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
+                required: false
+                sortOrder: 4
 matrixBlockTypes:
   5a6a40cc-2ebc-4d1b-819e-1732742c114e:
     field: 24c123a8-1d09-4025-a414-fa85da64ab81
@@ -1958,7 +2117,7 @@ matrixBlockTypes:
         translationKeyFormat: null
         type: craft\redactor\Field
         settings:
-          redactorConfig: ''
+          redactorConfig: Standard.json
           purifierConfig: ''
           cleanupHtml: true
           removeInlineStyles: '1'
@@ -2386,7 +2545,7 @@ matrixBlockTypes:
               sources: '*'
               customSelectionLabel: ''
             fruitstudios\linkit\models\Asset:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -2397,7 +2556,7 @@ matrixBlockTypes:
               customSelectionLabel: ''
               userPath: ''
             fruitstudios\linkit\models\Product:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -2522,7 +2681,7 @@ matrixBlockTypes:
           source: null
           targetSiteId: null
           viewMode: null
-          limit: '1'
+          limit: '5'
           selectionLabel: Entry
           localizeRelations: false
         contentColumnType: string
@@ -3157,6 +3316,24 @@ matrixBlockTypes:
           selectionLabel: ''
         contentColumnType: string
         fieldGroup: null
+      485f9321-210e-4ea8-843b-07bde25cb600:
+        name: Buttons
+        handle: buttons
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: verbb\supertable\fields\SuperTableField
+        settings:
+          minRows: ''
+          maxRows: '2'
+          contentTable: '{{%stc_22_buttons}}'
+          localizeBlocks: false
+          staticField: ''
+          fieldLayout: matrix
+          selectionLabel: Button
+        contentColumnType: string
+        fieldGroup: null
     fieldLayouts:
       bb4bed09-4bd9-480f-b428-960ef224f4a7:
         tabs:
@@ -3170,6 +3347,9 @@ matrixBlockTypes:
               85425282-b80c-4914-870c-2f3f8a73c883:
                 required: true
                 sortOrder: 2
+              485f9321-210e-4ea8-843b-07bde25cb600:
+                required: false
+                sortOrder: 3
   5bf19109-d76d-4f63-8fec-19c0ff83472e:
     field: 4b8519cf-88fb-43fb-a23a-796707dbda16
     name: 'Billboard (floated image)'
@@ -3458,7 +3638,7 @@ matrixBlockTypes:
         translationKeyFormat: null
         type: craft\redactor\Field
         settings:
-          redactorConfig: ''
+          redactorConfig: Standard.json
           purifierConfig: ''
           cleanupHtml: true
           removeInlineStyles: '1'
@@ -3466,7 +3646,8 @@ matrixBlockTypes:
           removeNbsp: '1'
           purifyHtml: '1'
           columnType: text
-          availableVolumes: '*'
+          availableVolumes:
+            - c160af80-d4b3-4032-99f1-f91b25f713d3
           availableTransforms: '*'
         contentColumnType: text
         fieldGroup: null
@@ -3723,7 +3904,7 @@ matrixBlockTypes:
         type: verbb\supertable\fields\SuperTableField
         settings:
           minRows: ''
-          maxRows: ''
+          maxRows: '2'
           contentTable: '{{%stc_30_buttons}}'
           localizeBlocks: false
           staticField: ''
@@ -3731,7 +3912,7 @@ matrixBlockTypes:
             152:
               width: ''
           fieldLayout: matrix
-          selectionLabel: ''
+          selectionLabel: Button
         contentColumnType: string
         fieldGroup: null
     fieldLayouts:
@@ -4979,7 +5160,7 @@ matrixBlockTypes:
       750e2ac9-2154-4eb2-b868-401153d41617:
         name: Badge
         handle: badge
-        instructions: ''
+        instructions: 390 × 170
         searchable: true
         translationMethod: site
         translationKeyFormat: null
@@ -4987,18 +5168,19 @@ matrixBlockTypes:
         settings:
           useSingleFolder: ''
           defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-          defaultUploadLocationSubpath: ''
+          defaultUploadLocationSubpath: 'Course Badges'
           singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
           singleUploadLocationSubpath: ''
-          restrictFiles: ''
-          allowedKinds: null
+          restrictFiles: '1'
+          allowedKinds:
+            - image
           sources:
             - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           source: null
           targetSiteId: null
-          viewMode: list
+          viewMode: large
           limit: '1'
-          selectionLabel: ''
+          selectionLabel: Badge
           localizeRelations: false
         contentColumnType: string
         fieldGroup: null
@@ -5041,7 +5223,7 @@ navigate:
 navigation:
   navs:
     efef6c3b-c762-4834-a0ba-dd4803f3cc35:
-      name: 'Main Menu (A)'
+      name: 'Main Menu (a)'
       handle: mainMenuA
       structure:
         uid: 938dc810-b8e1-436a-81a7-c8ee79e9d37a
@@ -5094,6 +5276,33 @@ navigation:
       instructions: ''
       propagateNodes: false
       sortOrder: 4
+    a77fa474-dbbb-40b7-93df-1436d6427ddb:
+      name: 'Main Menu (b)'
+      handle: mainMenuB
+      structure:
+        uid: 4eab50ad-f38b-4bd0-a9f2-d977fd085897
+        maxLevels: '2'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 2
+    284f6e54-57f4-457c-819d-2062a0cc5c41:
+      name: 'Main Menu (c)'
+      handle: mainMenuC
+      structure:
+        uid: 8538d6a2-b7e9-4203-8fe1-f5604bd579ac
+        maxLevels: null
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 3
+    219e7eb9-d636-4cab-845f-39757a74eb9d:
+      name: 'Main Menu (d)'
+      handle: mainMenuD
+      structure:
+        uid: a122c999-94cc-44e5-92ec-24f7c2e66c67
+        maxLevels: '2'
+      instructions: ''
+      propagateNodes: false
+      sortOrder: 4
 plugins:
   minify:
     edition: standard
@@ -5106,11 +5315,11 @@ plugins:
   super-table:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.11
+    schemaVersion: 2.0.12
   seomatic:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.7
+    schemaVersion: 3.0.8
   mix:
     edition: standard
     enabled: true
@@ -5164,7 +5373,7 @@ plugins:
     enabled: true
     schemaVersion: 1.1.0
   commerce:
-    edition: lite
+    edition: pro
     enabled: true
     schemaVersion: 2.1.06
   commerce-stripe:
@@ -5183,6 +5392,43 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  simplemap:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.4.1
+  blitz:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      cachingEnabled: ''
+      includedUriPatterns:
+        1:
+          - '*'
+      excludedUriPatterns: ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cacheStorageSettings:
+        folderPath: cache/blitz
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cachePurgerTypes:
+        - putyourlightson\blitz\drivers\purgers\CloudflarePurger
+      clearCacheAutomatically: '1'
+      clearCacheAutomaticallyForGlobals: true
+      warmCacheAutomatically: '1'
+      warmCacheAutomaticallyForGlobals: true
+      queryStringCaching: '0'
+      concurrency: '3'
+      apiKey: ''
+      cacheElements: true
+      cacheElementQueries: true
+      cacheDuration: null
+      nonCacheableElementTypes:
+        - craft\elements\GlobalSet
+        - craft\elements\MatrixBlock
+        - benf\neo\elements\Block
+      cacheControlHeader: 'public, s-maxage=0'
+      sendPoweredByHeader: true
+      outputComments: true
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -5225,12 +5471,15 @@ sections:
                   e64eeb00-cca2-4173-8c38-aa9bd2920e2f:
                     required: true
                     sortOrder: 1
+                  b11b5582-15bd-4f1c-b5c1-121e08697179:
+                    required: true
+                    sortOrder: 2
                   ece72bc0-2c04-47f9-b8ac-df6dff3eded2:
                     required: false
-                    sortOrder: 2
+                    sortOrder: 3
                   4223b4c9-999a-45fe-9ed2-96c209230d00:
                     required: true
-                    sortOrder: 3
+                    sortOrder: 4
               -
                 name: 'Recent/Popular Articles'
                 sortOrder: 2
@@ -5280,6 +5529,13 @@ sections:
                   c419de66-eb35-4011-aaf9-cfca51f23a70:
                     required: true
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 6
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1:
     name: Podcasts
     handle: podcasts
@@ -5362,6 +5618,13 @@ sections:
                   044102bf-2640-48b6-9408-aafe7d83a5bc:
                     required: false
                     sortOrder: 4
+              -
+                name: Meta
+                sortOrder: 6
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   b0598134-0d64-4c98-9d73-351145a9c276:
     name: Articles
     handle: articles
@@ -5409,6 +5672,9 @@ sections:
                   24c123a8-1d09-4025-a414-fa85da64ab81:
                     required: true
                     sortOrder: 1
+                  56055b61-5ad3-45e5-b59a-ddc4a5b454cb:
+                    required: false
+                    sortOrder: 2
               -
                 name: Sidebar
                 sortOrder: 4
@@ -5429,15 +5695,25 @@ sections:
                 name: 'Additional Info'
                 sortOrder: 5
                 fields:
-                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
+                  32ad703c-9543-4366-bbf6-59dfb9b394bd:
                     required: false
                     sortOrder: 1
-                  044102bf-2640-48b6-9408-aafe7d83a5bc:
+                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
                     required: false
                     sortOrder: 2
-                  c3ab6d3e-9d48-41c1-a240-9e9d6b028eb3:
+                  044102bf-2640-48b6-9408-aafe7d83a5bc:
                     required: false
                     sortOrder: 3
+                  c3ab6d3e-9d48-41c1-a240-9e9d6b028eb3:
+                    required: false
+                    sortOrder: 4
+              -
+                name: Meta
+                sortOrder: 6
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   a820e5c3-2900-4e71-9dab-1daa6e72b273:
     name: Authors
     handle: authors
@@ -5538,6 +5814,13 @@ sections:
                   e0cc44bc-a00c-45bf-a7c2-619ef73bb788:
                     required: false
                     sortOrder: 6
+              -
+                name: Meta
+                sortOrder: 3
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   6dae438c-8b4a-44a7-9101-3b4e69096f41:
     name: Events
     handle: events
@@ -5568,19 +5851,22 @@ sections:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: true
                     sortOrder: 1
-                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                  9bd567bd-0e00-4268-a9ac-9293204b2ab9:
                     required: true
                     sortOrder: 2
+                  fc574e36-797b-4f2b-8ee6-d321bcea2ecd:
+                    required: true
+                    sortOrder: 3
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                    required: true
+                    sortOrder: 4
               -
                 name: Main
                 sortOrder: 2
                 fields:
-                  9bd567bd-0e00-4268-a9ac-9293204b2ab9:
-                    required: false
-                    sortOrder: 1
                   6a6d2bb0-5c60-45f6-bc55-5ca2ff279938:
                     required: true
-                    sortOrder: 2
+                    sortOrder: 1
               -
                 name: 'Additional Info'
                 sortOrder: 3
@@ -5594,6 +5880,13 @@ sections:
                   f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
                     sortOrder: 3
+              -
+                name: Meta
+                sortOrder: 4
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   af5b313a-5a09-4aee-805b-a7df6ed731a7:
     name: Videos
     handle: videos
@@ -5656,6 +5949,13 @@ sections:
                   ace2dff4-0b7d-4102-aec0-964fae1c78a3:
                     required: false
                     sortOrder: 5
+              -
+                name: Meta
+                sortOrder: 4
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   4cfc45f7-e2aa-4bb7-a468-bfe079a34104:
     name: 'Articles Index'
     handle: articlesIndex
@@ -5689,6 +5989,13 @@ sections:
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   e34a0462-0725-491b-a8e5-42edcc42fd56:
     name: 'Video Index'
     handle: videoIndex
@@ -5722,6 +6029,13 @@ sections:
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   acb4fe5d-3e31-418f-99bc-5654f4a94c1a:
     name: 'Events Index'
     handle: eventsIndex
@@ -5755,6 +6069,13 @@ sections:
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   038eaf80-f334-49e1-be95-efe0ff8a714d:
     name: Courses
     handle: courses
@@ -5808,12 +6129,9 @@ sections:
                 name: Main
                 sortOrder: 3
                 fields:
-                  52442c36-3d5b-4ff2-bd85-35fcb79135bf:
-                    required: true
-                    sortOrder: 1
                   4b8519cf-88fb-43fb-a23a-796707dbda16:
                     required: true
-                    sortOrder: 2
+                    sortOrder: 1
               -
                 name: Sidebar
                 sortOrder: 4
@@ -5840,6 +6158,13 @@ sections:
                   c3ab6d3e-9d48-41c1-a240-9e9d6b028eb3:
                     required: false
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 6
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   fb3fa809-9963-4430-af25-fe3ee86eff79:
     name: 'Courses Index'
     handle: coursesIndex
@@ -5873,6 +6198,13 @@ sections:
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   c08282c7-d5d0-4fa0-baa5-79fbdab206a9:
     name: 'Blogcast Subscribe Billboards'
     handle: blogcastSubscribeBillboards
@@ -5954,6 +6286,13 @@ sections:
                   d21330b2-ad68-4478-9b2a-7a0e84a8d0b8:
                     required: false
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   c33a2c5c-a623-473d-af15-3e0c973fb604:
     name: 'Contact '
     handle: contact
@@ -5983,6 +6322,13 @@ sections:
                 fields:
                   c24fb561-3888-4270-9b0f-7d6142cbd49e:
                     required: true
+                    sortOrder: 1
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
                     sortOrder: 1
   f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa:
     name: 'Request a Speaker'
@@ -6020,6 +6366,13 @@ sections:
                   a3c71ab1-8b36-41fd-a67a-e885aae354fd:
                     required: true
                     sortOrder: 3
+              -
+                name: Meta
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   4531aaaa-6f3e-43d8-9c24-5581e6d4c03c:
     name: Donate
     handle: donate
@@ -6069,6 +6422,13 @@ sections:
                   19606a2c-57c5-47a1-88b8-7ff647a9e24d:
                     required: true
                     sortOrder: 2
+              -
+                name: Meta
+                sortOrder: 3
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
 siteGroups:
   f89694aa-dd36-4e72-9426-761baa648fa7:
     name: '1517'
@@ -6216,7 +6576,7 @@ superTableBlockTypes:
               customLabel: ''
               customPlaceholder: ''
             fruitstudios\linkit\models\Entry:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -6330,7 +6690,7 @@ superTableBlockTypes:
               customSelectionLabel: ''
               userPath: ''
             fruitstudios\linkit\models\Product:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -6882,7 +7242,7 @@ superTableBlockTypes:
               customLabel: ''
               customPlaceholder: ''
             fruitstudios\linkit\models\Entry:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
@@ -7189,74 +7549,19 @@ superTableBlockTypes:
         handle: speaker
         instructions: ''
         searchable: true
-        translationMethod: none
+        translationMethod: site
         translationKeyFormat: null
-        type: fruitstudios\linkit\fields\LinkitField
+        type: craft\fields\Entries
         settings:
-          selectLinkText: ''
-          types:
-            fruitstudios\linkit\models\Email:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Phone:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Url:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-              allowAlias: '1'
-              allowMailto: '1'
-              allowHash: '1'
-              allowPaths: '1'
-            fruitstudios\linkit\models\Twitter:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Facebook:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Instagram:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\LinkedIn:
-              enabled: ''
-              customLabel: ''
-              customPlaceholder: ''
-            fruitstudios\linkit\models\Entry:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-            fruitstudios\linkit\models\Category:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-            fruitstudios\linkit\models\Asset:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-            fruitstudios\linkit\models\User:
-              enabled: '1'
-              customLabel: Speaker
-              sources: '*'
-              customSelectionLabel: 'Select Speaker'
-              userPath: ''
-            fruitstudios\linkit\models\Product:
-              enabled: ''
-              customLabel: ''
-              sources: '*'
-              customSelectionLabel: ''
-          allowCustomText: ''
-          defaultText: ''
-          allowTarget: ''
-        contentColumnType: text
+          sources:
+            - 'section:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+          source: null
+          targetSiteId: null
+          viewMode: null
+          limit: ''
+          selectionLabel: ''
+          localizeRelations: false
+        contentColumnType: string
         fieldGroup: null
     fieldLayouts:
       d00cbd3f-0fcd-4aa9-a535-6491b18531b9:
@@ -8017,6 +8322,93 @@ superTableBlockTypes:
               3912e69c-6a7c-4f61-ad7f-0550713c6f0c:
                 required: false
                 sortOrder: 4
+  8572893c-06c2-4aba-b3ac-d4557f9a9ea5:
+    field: 485f9321-210e-4ea8-843b-07bde25cb600
+    fields:
+      c7e39cfa-c894-4141-9281-75f23da130a2:
+        name: Button
+        handle: button
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: '1'
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      2593d0d8-0a7b-4c8f-973b-cd2b4adbfbdd:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              c7e39cfa-c894-4141-9281-75f23da130a2:
+                required: false
+                sortOrder: 1
 system:
   edition: pro
   name: '1517'
@@ -8033,6 +8425,398 @@ users:
     fcd91374-4e27-4852-96ca-86f2891be207:
       name: 'Course Subscribers'
       handle: courseSubscribers
+    9515a178-46a0-489d-b51e-b5dadec44348:
+      name: 'Content Managers'
+      handle: contentManagers
+      permissions:
+        - accesscp
+        - 'createentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'deleteentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishpeerentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'deletepeerentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'editpeerentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishpeerentrydrafts:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'deletepeerentrydrafts:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'editpeerentrydrafts:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'editentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishentries:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'publishpeerentrydrafts:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'deletepeerentrydrafts:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'editpeerentrydrafts:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'editentries:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'createentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'publishentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'deleteentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'publishpeerentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'deletepeerentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'editpeerentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'publishpeerentrydrafts:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'deletepeerentrydrafts:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'editpeerentrydrafts:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'editentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'createentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'deleteentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishpeerentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'deletepeerentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'editpeerentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishpeerentrydrafts:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'deletepeerentrydrafts:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'editpeerentrydrafts:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'editentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishentries:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'publishpeerentrydrafts:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'deletepeerentrydrafts:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'editpeerentrydrafts:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'editentries:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'createentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'deleteentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishpeerentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'deletepeerentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'editpeerentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishpeerentrydrafts:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'deletepeerentrydrafts:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'editpeerentrydrafts:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'editentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishentries:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'publishpeerentrydrafts:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'deletepeerentrydrafts:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'editpeerentrydrafts:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'editentries:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'publishentries:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'publishpeerentrydrafts:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'deletepeerentrydrafts:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'editpeerentrydrafts:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'editentries:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'createentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'deleteentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishpeerentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'deletepeerentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'editpeerentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishpeerentrydrafts:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'deletepeerentrydrafts:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'editpeerentrydrafts:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'editentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishentries:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'publishpeerentrydrafts:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'deletepeerentrydrafts:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'editpeerentrydrafts:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'editentries:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'createentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'deleteentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishpeerentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'deletepeerentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'editpeerentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishpeerentrydrafts:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'deletepeerentrydrafts:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'editpeerentrydrafts:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'editentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishentries:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'publishpeerentrydrafts:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'deletepeerentrydrafts:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'editpeerentrydrafts:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'editentries:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'createentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'deleteentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishpeerentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'deletepeerentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'editpeerentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishpeerentrydrafts:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'deletepeerentrydrafts:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'editpeerentrydrafts:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'editentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishentries:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'publishpeerentrydrafts:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'deletepeerentrydrafts:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'editpeerentrydrafts:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'editentries:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'publishentries:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'publishpeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'deletepeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'editpeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'editentries:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'publishentries:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'publishpeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'deletepeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'editpeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'editentries:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'createentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'publishentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'deleteentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'publishpeerentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'deletepeerentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editpeerentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'publishpeerentrydrafts:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'deletepeerentrydrafts:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editpeerentrydrafts:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editglobalset:c247ed92-d964-4a51-81a5-6992b276d9d1'
+        - 'editcategories:8f5fdb8b-9210-4728-a9e2-9c50a543eac5'
+        - 'editcategories:7f74eac0-905b-48e1-b1cc-79cb3b3dabe9'
+        - 'editcategories:159851d0-e6a0-4c39-8346-d994125c7f4a'
+        - 'editcategories:cc2489d2-901a-44fa-abd8-7dae85d85495'
+        - 'saveassetinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'createfoldersinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'deletefilesandfoldersinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'viewvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'saveassetinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'createfoldersinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'deletefilesandfoldersinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'viewvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'saveassetinvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'createfoldersinvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'deletefilesandfoldersinvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'viewvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'saveassetinvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'createfoldersinvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'deletefilesandfoldersinvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'viewvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+    c341cbde-3ffe-4b7c-813a-e9f270551f4e:
+      name: 'Commerce Managers'
+      handle: commerceManagers
+      permissions:
+        - accessplugin-commerce
+        - accesscp
+        - 'commerce-manageproducttype:f9c230d7-2875-41fa-8dcf-c539aadc45d9'
+        - 'commerce-manageproducttype:4ff35716-4989-4e57-8e09-be19b8a93f91'
+        - 'commerce-manageproducttype:fca3460e-8e71-49b6-8c37-bdb12241bb50'
+        - 'commerce-manageproducttype:eab58cec-6ae9-47fb-9671-d47ecd191d64'
+        - commerce-manageproducts
+        - commerce-capturepayment
+        - commerce-refundpayment
+        - commerce-manageorders
+        - commerce-managepromotions
+        - commerce-managesubscriptions
+        - commerce-manageshipping
+        - commerce-managetaxes
+        - commerce-managestoresettings
+    cf3c2649-a3ea-4fdd-8917-bab440326dc2:
+      name: 'System Managers'
+      handle: systemManagers
+      permissions:
+        - accessplugin-commerce
+        - accessplugin-navigation
+        - accessplugin-seomatic
+        - accesscp
+        - registerusers
+        - moderateusers
+        - assignuserpermissions
+        - 'assignusergroup:c341cbde-3ffe-4b7c-813a-e9f270551f4e'
+        - 'assignusergroup:9515a178-46a0-489d-b51e-b5dadec44348'
+        - 'assignusergroup:fcd91374-4e27-4852-96ca-86f2891be207'
+        - assignusergroups
+        - administrateusers
+        - editusers
+        - 'createentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'deleteentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishpeerentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'deletepeerentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'editpeerentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishpeerentrydrafts:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'deletepeerentrydrafts:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'editpeerentrydrafts:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'editentries:b0598134-0d64-4c98-9d73-351145a9c276'
+        - 'publishentries:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'publishpeerentrydrafts:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'deletepeerentrydrafts:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'editpeerentrydrafts:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'editentries:4cfc45f7-e2aa-4bb7-a468-bfe079a34104'
+        - 'createentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'publishentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'deleteentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'publishpeerentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'deletepeerentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'editpeerentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'publishpeerentrydrafts:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'deletepeerentrydrafts:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'editpeerentrydrafts:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'editentries:a820e5c3-2900-4e71-9dab-1daa6e72b273'
+        - 'createentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'deleteentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishpeerentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'deletepeerentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'editpeerentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishpeerentrydrafts:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'deletepeerentrydrafts:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'editpeerentrydrafts:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'editentries:c08282c7-d5d0-4fa0-baa5-79fbdab206a9'
+        - 'publishentries:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'publishpeerentrydrafts:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'deletepeerentrydrafts:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'editpeerentrydrafts:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'editentries:c33a2c5c-a623-473d-af15-3e0c973fb604'
+        - 'createentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'deleteentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishpeerentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'deletepeerentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'editpeerentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishpeerentrydrafts:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'deletepeerentrydrafts:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'editpeerentrydrafts:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'editentries:038eaf80-f334-49e1-be95-efe0ff8a714d'
+        - 'publishentries:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'publishpeerentrydrafts:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'deletepeerentrydrafts:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'editpeerentrydrafts:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'editentries:fb3fa809-9963-4430-af25-fe3ee86eff79'
+        - 'publishentries:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'publishpeerentrydrafts:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'deletepeerentrydrafts:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'editpeerentrydrafts:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'editentries:4531aaaa-6f3e-43d8-9c24-5581e6d4c03c'
+        - 'createentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'deleteentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishpeerentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'deletepeerentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'editpeerentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishpeerentrydrafts:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'deletepeerentrydrafts:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'editpeerentrydrafts:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'editentries:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+        - 'publishentries:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'publishpeerentrydrafts:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'deletepeerentrydrafts:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'editpeerentrydrafts:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'editentries:acb4fe5d-3e31-418f-99bc-5654f4a94c1a'
+        - 'createentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'deleteentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishpeerentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'deletepeerentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'editpeerentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishpeerentrydrafts:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'deletepeerentrydrafts:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'editpeerentrydrafts:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'editentries:6360317a-4d10-440e-b3dd-27829ac33f71'
+        - 'publishentries:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'publishpeerentrydrafts:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'deletepeerentrydrafts:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'editpeerentrydrafts:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'editentries:10cf0da7-001c-470b-983c-0e282a8e4830'
+        - 'createentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'deleteentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishpeerentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'deletepeerentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'editpeerentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishpeerentrydrafts:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'deletepeerentrydrafts:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'editpeerentrydrafts:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'editentries:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+        - 'publishentries:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'publishpeerentrydrafts:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'deletepeerentrydrafts:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'editpeerentrydrafts:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'editentries:1bb6bca4-50c3-47c7-8160-2dd055239822'
+        - 'publishentries:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'publishpeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'deletepeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'editpeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'editentries:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'publishentries:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'publishpeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'deletepeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'editpeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'editentries:e34a0462-0725-491b-a8e5-42edcc42fd56'
+        - 'createentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'publishentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'deleteentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'publishpeerentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'deletepeerentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editpeerentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'publishpeerentrydrafts:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'deletepeerentrydrafts:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editpeerentrydrafts:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editentries:af5b313a-5a09-4aee-805b-a7df6ed731a7'
+        - 'editglobalset:c247ed92-d964-4a51-81a5-6992b276d9d1'
+        - 'editcategories:8f5fdb8b-9210-4728-a9e2-9c50a543eac5'
+        - 'editcategories:7f74eac0-905b-48e1-b1cc-79cb3b3dabe9'
+        - 'editcategories:159851d0-e6a0-4c39-8346-d994125c7f4a'
+        - 'editcategories:cc2489d2-901a-44fa-abd8-7dae85d85495'
+        - 'saveassetinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'createfoldersinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'deletefilesandfoldersinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'viewvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+        - 'saveassetinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'createfoldersinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'deletefilesandfoldersinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'viewvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+        - 'saveassetinvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'createfoldersinvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'deletefilesandfoldersinvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'viewvolume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
+        - 'saveassetinvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'createfoldersinvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'deletefilesandfoldersinvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'viewvolume:ae42822f-7c98-4e08-87f5-a4e38e7d414e'
+        - 'utility:updates'
+        - 'utility:system-report'
+        - 'utility:php-info'
+        - 'utility:system-messages'
+        - 'utility:search-indexes'
+        - 'utility:asset-indexes'
+        - 'utility:clear-caches'
+        - 'utility:deprecation-errors'
+        - 'utility:db-backup'
+        - 'utility:find-replace'
+        - 'utility:migrations'
+        - 'utility:blitz-cache'
+        - 'seomatic:dashboard'
+        - 'seomatic:global-meta:general'
+        - 'seomatic:global-meta:twitter'
+        - 'seomatic:global-meta:facebook'
+        - 'seomatic:global-meta:robots'
+        - 'seomatic:global-meta:humans'
+        - 'seomatic:global-meta:ads'
+        - 'seomatic:global-meta'
+        - 'seomatic:content-meta:general'
+        - 'seomatic:content-meta:twitter'
+        - 'seomatic:content-meta:facebook'
+        - 'seomatic:content-meta:sitemap'
+        - 'seomatic:content-meta'
+        - 'seomatic:site-settings:identity'
+        - 'seomatic:site-settings:creator'
+        - 'seomatic:site-settings:social'
+        - 'seomatic:site-settings:sitemap'
+        - 'seomatic:site-settings:miscellaneous'
+        - 'seomatic:site-settings'
+        - 'seomatic:tracking-scripts:googleanalytics'
+        - 'seomatic:tracking-scripts:gtag'
+        - 'seomatic:tracking-scripts:googletagmanager'
+        - 'seomatic:tracking-scripts:facebookpixel'
+        - 'seomatic:tracking-scripts:linkedininsight'
+        - 'seomatic:tracking-scripts:hubspot'
+        - 'seomatic:tracking-scripts'
+        - 'seomatic:plugin-settings'
+        - 'navigation-managenav:efef6c3b-c762-4834-a0ba-dd4803f3cc35'
+        - 'navigation-managenav:a77fa474-dbbb-40b7-93df-1436d6427ddb'
+        - 'navigation-managenav:284f6e54-57f4-457c-819d-2062a0cc5c41'
+        - 'navigation-managenav:219e7eb9-d636-4cab-845f-39757a74eb9d'
+        - 'navigation-managenav:62708f5a-91bd-4dba-89bf-66d9efec1ee5'
+        - 'navigation-managenav:ad0f5836-360c-4f72-b923-6b5c4c8b8698'
+        - 'commerce-manageproducttype:f9c230d7-2875-41fa-8dcf-c539aadc45d9'
+        - 'commerce-manageproducttype:4ff35716-4989-4e57-8e09-be19b8a93f91'
+        - 'commerce-manageproducttype:fca3460e-8e71-49b6-8c37-bdb12241bb50'
+        - 'commerce-manageproducttype:eab58cec-6ae9-47fb-9671-d47ecd191d64'
+        - commerce-manageproducts
+        - commerce-capturepayment
+        - commerce-refundpayment
+        - commerce-manageorders
+        - commerce-managepromotions
+        - commerce-managesubscriptions
+        - commerce-manageshipping
+        - commerce-managetaxes
+        - commerce-managestoresettings
+        - 'blitz:cache-utility'
 volumes:
   00cd5776-45fa-4edf-9645-ee2a9cd92708:
     name: Audio

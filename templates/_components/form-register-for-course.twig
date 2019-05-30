@@ -1,8 +1,8 @@
 
 <default_form :formmethod="'post'" 
-    :mcid="'{{ mailchimpListSettings.mailchimpListSettings.one().listId }}'" 
-    :mcuser="'{{ mailchimpListSettings.mailchimpListSettings.one().userId }}'" 
-    :mcurl="'{{ mailchimpListSettings.mailchimpListSettings.one().listUrl }}'"
+    :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" 
+    :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" 
+    :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'"
     :signuplocation="'1517-course__{{entry.url}}'">
 
     <template v-slot:fields>
@@ -51,12 +51,12 @@
 
 
         {# GDPR: for this form, we're already asking them for consent to signup so this is just to trigger the subscribe method #}
-        {% if mailchimpListSettings.enableForm %}
+        {% if siteInfo.enableForm %}
         <div class="hidden">
             <div class="form-group">
                 <div class="field-group | w-full">
             
-                    <label for="subscribe-to-updates" class="control -small">
+                    <label for="subscribe-to-updates" class="checkbox -small">
                         <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates" checked>
             
                         <span class="control__text | meta-label">Sign up for updates?</span>

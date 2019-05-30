@@ -1,4 +1,9 @@
 {% set showNav = false %}
+{% do craft.blitz.options({
+    cachingEnabled: false,
+    cacheElements: false,
+    cacheElementQueries: false
+}) %}
 
 {% extends 'example-shop/_layouts/main' %}
 

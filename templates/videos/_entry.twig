@@ -71,15 +71,6 @@
 
                     {# Longform Content #}
                     {% include '_components/longform-entry-blocks' with {  layoutClasses: 'narrow-block gutter-xl', blocks: entry.contentBlocksStandard.offset(3).all() } %}
-
-                    {# Citation #}
-                    {% if entry.citation is defined %}
-                        <div class="narrow-block gutter-xl">
-                            <div class="article-content entry-footnote">
-                                <small>{{ entry.citation }}</small>
-                            </div>
-                        </div>
-                    {% endif %}
                     
                 </div>
                 
@@ -91,13 +82,7 @@
     </div>
 
     {# Related Content #}
-    {% include '_components/related-content-cards' with { section: 'videos' } %}
-
-
-    {# Subscribe Billboard  #}
-    
-    {% set podcastShow = entry.podcastShow.level(1)[0] %}
-    {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: podcastShow } %}
+    {# {% include '_components/related-content-cards' with { section: 'videos' } %} #}
 
 
 {% endblock %}

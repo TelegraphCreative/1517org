@@ -9,7 +9,8 @@
         {# Page Header #}
         {% set pageHeaderContent = { 
             title: entry.title, 
-            detail: entry.shortDescription
+            detail: entry.shortDescription,
+            action: entry.headerAction
             }
         %} 
         {% include "_components/page-header" with { content: pageHeaderContent } %}

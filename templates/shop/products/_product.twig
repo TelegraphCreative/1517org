@@ -2,7 +2,7 @@
 {% import '_macros/global' as global %}
 
 {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
-{% set variant = craft.variants.id(variantId).first() %}
+{% set variant = craft.variants.id(variantId).one() %}
 {% set type = product.getType() %}
 
 {% block content %}
@@ -42,12 +42,17 @@
                 </div>
 
                 {# Purchase Form #}
-                <form action="" class="form-base -purchase | mt-6">
+                <form method="POST" class="form-base -purchase | mt-6">
+                    <input type="hidden" name="action" value="commerce/cart/update-cart">
+                    {{ redirectInput('shop/cart') }}
+                    <input min="1" name="qty" type="number" value="1">
+                    {{ csrfInput() }}
 
                     <div class="form-group -start">
                         <div class="field-group">
                             <select_box
                                 :opt="{ name: 'type', variant: '-md' }"
+                                :name="'purchasableId'" class="purchasableId"
                                 value="{{ variantId }}"
                             >
                             {% for purchasable in product.variants %}
@@ -62,14 +67,19 @@
 
                     <div class="form-group -start">
                         <div class="field-group">
-                            <input min="1" type="number" value="1">
+                            
                         </div>
                         <div class="field-group">
-                            <button class="btn -red -md">Add to Cart</button>
+                            {% if product.hasUnlimitedStock or (product.hasUnlimitedStock == false and product.totalStock > 0 ) %}
+                                <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
+                            {% else %}
+                                <button class="btn -disabled -md">{{ "Out of Stock"|t }}</button>
+                            {% endif %}
                         </div>
                     </div>
 
                 </form>
+
             </header>
 
             {# Content Blocks #}
@@ -81,7 +91,7 @@
                     <p>The audio book version of this title is available through these retailers:</p>
 
                     <ul>
-                        {% for link in product.audioBookLinks %}
+                        {% for link in product.audioBookLinks.all() %}
                             <li>
                                 <a href="{{ link.audioUrl }}" target="_blank">{{ link.description }}</a>
                             </li>
@@ -94,12 +104,12 @@
         </article>
 
         {# Aside #}
-        <div
-            class="entry-aside">
-
-            {# TEMP: Use `page-hero--media` partial #}
-            {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
-
+        <div class="entry-aside">
+        {% if product.cardImageProduct|length %}
+            <div class="product-image">
+                {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
+            </div>
+        {% endif %}        
         </div>
 
     </section>

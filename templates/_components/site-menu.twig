@@ -2,11 +2,16 @@
 {% set query = craft.app.request.getParam('q') %}
 
 {# Site Menu #}
-<site_menu class="site-header" :opt="{ 'query': '{{ query }}' }" :cart="{ 'itemCount': '{{ craft.orders.number(cart.number).one().totalQty ?? 0}}'  }">
+
+<site_menu class="site-header" :opt="{ 'query': '{{ query }}' }" :cart="{ 'itemcount': {{ craft.orders.number(cart.number).one().totalQty ?? 0}}  }">
     {# Logo #}
     <template slot="logo">
         <div class="brand | px-4 | md:pl-0">
             {{ global.brandIcon('logo') }}
+            {# <a class="href=">{{ url('example-shop/cart') }}">
+                <i class="fa fa-shopping-cart"></i> {{ "Cart"|t }} <span class="badge">{{ craft.orders.number(cart.number).one().totalQty ?? 0}}</span>
+            </a> #}
+
         </div>
         {% if siteInfo.siteTagline | length %}
         <span class="site-tagline">
@@ -51,3 +56,5 @@
     </template>
 
 </site_menu>
+
+

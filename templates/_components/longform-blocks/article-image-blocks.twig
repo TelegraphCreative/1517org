@@ -2,7 +2,7 @@
 {# Case: ArticleImageBlocks Article L / R Swap 
     Notes: these layouts will swap automatically on large screens #}
 <div class="block--articleImageBlocks | article-image-blocks -swap">
-    {% for block in block.block %}
+    {% for block in block.block.all() %}
         
         <div class="article-image-block | container--sm gutter-md">
             <div class="article-image-block__media">
