@@ -129,9 +129,20 @@
                     {% endfor %}
                 {% endif %}
                 <tr>
-                    <td>
-
+                    <td class="text-right">
+                        <input class="link -underline" type="submit" value="Update Cart"/>
                     </td>
+                    <td colspan="2">  {# Update Coupon form uses the single update controller action: #}
+                        {% if cart.getFirstError('couponCode') %}
+                            <span class="flash">{{ cart.getFirstError('couponCode') }}</span>
+                        {% endif %}
+
+                        <span class="{% if cart.getFirstError('couponCode') %}has-error{% endif %}">
+                    <input type="text" name="couponCode" width="11"
+                           class="{% if cart.getFirstError('couponCode') %}has-error{% endif %}"
+                           value="{{ cart.couponCode }}"
+                           placeholder="{{ "Coupon Code"|t }}">
+                    </span></td>
                     <td colspan="2" class="text-right">
                         {% if not lineItemHasErrors %}
                             {# Item Sub Total: {{ cart.itemSubTotal|commerceCurrency(cart.currency) }}
@@ -156,8 +167,11 @@
                         {% endif %}
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2">  {# Update Coupon form uses the single update controller action: #}
+                {# <tr>
+                    <td class="text-right">
+                        <input class="link -underline" type="submit" value="Update Cart"/>
+                    </td>
+                    <td colspan="2">  Update Coupon form uses the single update controller action:
                         {% if cart.getFirstError('couponCode') %}
                             <span class="flash">{{ cart.getFirstError('couponCode') }}</span>
                         {% endif %}
@@ -168,10 +182,7 @@
                            value="{{ cart.couponCode }}"
                            placeholder="{{ "Coupon Code"|t }}">
                     </span></td>
-                    <td class="text-right">
-                        <input class="link -underline" type="submit" value="Update Cart"/>
-                    </td>
-                </tr>
+                </tr> #}
                 <tr>
                     <td colspan="3" class="text-right">
                         {% if not lineItemHasErrors %}
