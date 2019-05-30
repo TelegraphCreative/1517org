@@ -27,7 +27,7 @@
           <ul class="menu-bar">
             <li class="site-menu__cart">
               <a href="/shop/cart">
-                <span class="badge" :if="cart.itemCount" :html="cart.itemCount"></span>
+                <span class="badge" :data-item-count="cart.itemcount">{{ cart.itemcount }}</span>
                 <cart_icon :classes=" 'icon -sm mr-2' "/>
               </a>
             </li>
@@ -39,7 +39,7 @@
             </li>
 
             <li>
-              <a href="#" class="btn -sm">Donate</a>
+              <a href="/donate" class="btn -sm">Donate</a>
             </li>
           </ul>
         </div>
@@ -86,7 +86,7 @@ export default {
             required: false,
             default() {
                 return {}
-            },
+            }
         },
     },
     data() {

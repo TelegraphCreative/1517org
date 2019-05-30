@@ -1,3 +1,12 @@
+{# Prevent Caching #}
+{% do craft.blitz.options({
+    cachingEnabled: false,
+    cacheElements: false,
+    cacheElementQueries: true
+}) %}
+
+{% set firstSegment = craft.app.request.segment(1) %} 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script type="application/javascript">{% include 'shop/jquery.js' %}</script>
-
+    
     {% do view.registerCssFile( mix('/css/app.css') ) %} 
+    {# <style>{% include 'example-shop/style.css' %}</style> #}
     {% do view.registerCssFile( mix('/css/shop.css') ) %} 
 
     {% include '_components/site-favicons' %}
@@ -22,7 +32,8 @@
 </head>
 
 
-<body class="">
+
+<body class="{{ firstSegment }} - {% if shopClasses is defined %}{{ shopClasses }}{% endif %}">
     <div class="site-container">
       {% if showNav is not defined %}
             {% set showNav = true %}
