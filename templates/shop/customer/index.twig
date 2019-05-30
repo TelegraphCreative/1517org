@@ -4,7 +4,7 @@
     {% if currentUser %}
         {% set orders = craft.orders.customer(craft.commerce.customers.customer).isCompleted(true).all() %}
 
-        <h1 class="text-center">My Orders</h1>
+        <h1 class="text-center header-md">My Orders</h1>
 
         <hr>
 
