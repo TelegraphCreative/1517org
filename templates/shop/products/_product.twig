@@ -42,7 +42,10 @@
                 </div>
 
                 {# Purchase Form #}
-                <form action="" class="form-base -purchase | mt-6">
+                <form method="POST" class="form-base -purchase | mt-6">
+                    <input type="hidden" name="action" value="commerce/cart/update-cart">
+                    {{ redirectInput('shop/cart') }}
+                    {{ csrfInput() }}
 
                     <div class="form-group -start">
                         <div class="field-group">
@@ -62,10 +65,10 @@
 
                     <div class="form-group -start">
                         <div class="field-group">
-                            <input min="1" type="number" value="1">
+                            <input min="1" name="qty" type="number" value="1">
                         </div>
                         <div class="field-group">
-                            <button class="btn -red -md">Add to Cart</button>
+                            <button class="btn -red -md">{{ "Add to cart"|t }}</button>
                         </div>
                     </div>
 

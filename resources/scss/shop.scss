@@ -31,6 +31,13 @@ h5 {
     @apply font-serif;
 }
 
+hr {
+    @apply border-b border-ivory-light my-12;
+}
+.order-review hr {
+    @apply my-4;
+}
+
 /* Payment source form
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -52,6 +59,79 @@ h5 {
     margin: 10px;
 }
 
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+table {
+    width: 100%;
+    line-height: 2em;
+}
+
+table th,
+table td {
+    @apply border-b border-ivory-light 
+    p-3 text-left;
+}
+@screen md {
+    table th,
+    table td {
+        @apply  p-6;
+    }
+}
+
+
+/* Commerce Design
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.address-data {
+    @apply list-reset;
+    li {
+        @apply mb-2;
+    }
+}
+
+
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.cart.form-base {
+    thead th {
+        @apply hidden;
+
+        &:first-child {
+            @apply block border-b border-ivory-light mb-3 pb-3;
+        }
+    }
+
+    th, td {
+        @apply block w-full border-0 p-2;
+    }
+
+    // Screen 
+    @screen md {
+
+        thead th {
+            @apply table-cell  mb-6 pb-3;
+            &:first-child {
+                @apply table-cell;
+            }
+           
+        }
+        th, td {
+            @apply table-cell border-b border-ivory-light p-6;
+        }
+
+        td, th {
+            @apply w-1/4;
+        }
+        
+        td:first-child, th:first-child {
+            @apply w-1/2;
+        }
+        
+    }
+}
+
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -69,6 +149,7 @@ h5 {
         @apply bg-transparent;
     }
 }
+
 select {
     @apply no-underline text-base inline-block 
     property-colors duration-3 timing-1
@@ -96,6 +177,10 @@ legend {
 label {
     @apply text-slate-light text-xs font-sans font-semibold uppercase 
     mb-3 block;
+}
+// Error
+.flash {
+    @apply mb-4 text-sm text-red block
 }
 
 .stripe-charge-form {

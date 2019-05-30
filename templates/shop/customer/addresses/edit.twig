@@ -9,7 +9,7 @@
         {% set address = craft.commerce.customers.customer.getAddressById(addressId) %}
     {% endif %}
 
-    <h1 class="header-xl font-serif mb-8">
+    <h1 class="header-xl font-serif space-b--sm">
         {% if addressId %}
             Edit Address
         {% else %}
@@ -34,27 +34,28 @@
         {% set isPrimaryBilling = cart.customer.primaryBillingAddressId == addressId %}
         {% set isPrimaryShipping = cart.customer.primaryShippingAddressId == addressId %}
 
-        <hr />
+        
 
-        <p>
+        <p class="pt-6 mb-6">
             <label for="makePrimaryShippingAddress"><input id="makePrimaryShippingAddress" name="makePrimaryShippingAddress" type="checkbox" {{ isPrimaryShipping ? 'checked' :'' }}/><span class="label-body">Make this the primary shipping address</span></label>
         </p>
 
-        <p>
+        <p class="">
             <label for="makePrimaryBillingAddress"><input id="makePrimaryBillingAddress" name="makePrimaryBillingAddress" type="checkbox" {{ isPrimaryBilling ? 'checked' :'' }}/><span class="label-body">Make this the primary billing address</span></label>
         </p>
 
-        <div class="mt-6">
-            <input type="submit" class="btn" value="Save Address">
+        <hr/>
+
+        <div class="button-group">
+            <input type="submit" class="btn -md" value="Save Address">
+            {% if redirect %}
+                <a class="btn -md -outline -bronze" href="/{{ redirect }}">Cancel</a>
+            {% else %}
+                <a class="btn -md -outline -bronze" href="{{ url('shop/customer/addresses') }}">Cancel</a>
+            {% endif %}
         </div>
     </form>
 
-    <div class="mt-6">
-        {% if redirect %}
-            <a href="/{{ redirect }}">Cancel</a>
-        {% else %}
-            <a href="{{ url('shop/customer/addresses') }}">Cancel</a>
-        {% endif %}
-    </div>
+    
 
 {% endblock %}
