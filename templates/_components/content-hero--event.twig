@@ -8,8 +8,13 @@
             
             {# Label #}
             <h4 class="content-label -date">
-                <div class="content-label__mo">{{ content.postDate | date( 'M') }}</div>
-                <div class="content-label__day">{{ content.postDate | date( 'd') }}</div>
+                {# I realized showing the post date for events is misleading -John #}
+                {% if content.type == 'events' %}
+                   <div class="content-label__mo">{{ content.eventDate }}</div> 
+                {% else %}
+                    <div class="content-label__mo">{{ content.postDate | date( 'M') }}</div>
+                    <div class="content-label__day">{{ content.postDate | date( 'd') }}</div>
+                {% endif %}
             </h4>
 
             <a href="{{ content.url }}" class="block">
@@ -20,10 +25,12 @@
                     </h1>
                 </div>
 
+                {% set location = content.location.parts %}
+                {% set cityState = location.city ~ ', ' ~ location.state %}
                 <div class="content-hero__meta | mb-4">
-                    <a href="{{ content.url }}" class="align-items-center">
+                    <a href="https://www.google.com/maps/place/{{ location.address ~ ' ' ~ cityState ~ ' ' ~ location.postcode }}" target="_blank"  class="align-items-center">
                         {{ global.utilityIcon('map-pin', '-sm') }}
-                        <div class="meta-label | ml-3">Static, Location</div>
+                        <div class="meta-label | ml-3">{{ cityState }}</div>
                     </a>
                 </div>
 

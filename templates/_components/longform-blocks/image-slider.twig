@@ -1,1 +1,12 @@
 {% import '_macros/global' as global %}
+
+{% set slides = block.images %}
+{% set sliderContent = [] %}
+
+{% for item in slides %}
+{% set sliderContent = sliderContent|merge([{
+    imageUrl: item.optimize.src
+}]) %}
+{% endfor %}
+
+<image_slider :items="{{ sliderContent | json_encode }}"></image_slider>
