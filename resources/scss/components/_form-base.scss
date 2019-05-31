@@ -13,6 +13,7 @@
           property-colors duration-3 timing-1;
 
         -webkit-border-radius: 0px;
+        -webkit-appearance: none;
 
         &::placeholder {
             @apply opacity-75;
