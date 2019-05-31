@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559228664
+dateModified: 1559254530
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -1015,6 +1015,11 @@ fields:
       contentTable: '{{%stc_streamingservices}}'
       localizeBlocks: false
       staticField: ''
+      columns:
+        67:
+          width: ''
+        68:
+          width: ''
       fieldLayout: row
       selectionLabel: Service
     contentColumnType: string
@@ -6759,12 +6764,36 @@ superTableBlockTypes:
         settings:
           options:
             -
-              label: Spotify
-              value: spotify
+              label: 'Apple Podcast'
+              value: podcast
+              default: ''
+            -
+              label: 'Google Play'
+              value: googlePlay
+              default: ''
+            -
+              label: Overcast
+              value: overcast
+              default: ''
+            -
+              label: 'Podcast Addict'
+              value: podcastAddict
+              default: ''
+            -
+              label: 'Radio Public'
+              value: radioPublic
               default: ''
             -
               label: SoundCloud
               value: soundcloud
+              default: ''
+            -
+              label: Spotify
+              value: spotify
+              default: '1'
+            -
+              label: Stitcher
+              value: stitcher
               default: ''
         contentColumnType: string
         fieldGroup: null

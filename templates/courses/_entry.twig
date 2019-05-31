@@ -69,15 +69,22 @@
         </ul>
 
         {# Author #}
+        {% if entry.authorLink|length %}
         <div class="meta-summary-block">
+            {% if entry.authorLink.one().photo|length %}
             <div class="meta-summary__media -narrow">
                 {{ global.image(entry.authorLink.one().photo.one(), '-is1x1 -force -fit-cover | rounded-full ')}}
             </div>
+            {% endif %}
+            
+            {% if entry.authorLink.one().shortDescription|length %}
             <div class="author-bio__detail">
                 <h6>About the Author</h6>
                 <p>{{ entry.authorLink.one().shortDescription }}</p>
             </div>
+            {% endif %}
         </div>
+        {% endif %}
 
     </aside>
 
