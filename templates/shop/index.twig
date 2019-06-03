@@ -8,6 +8,11 @@
 {% set productGridSize = 9 %}
 {% set numberOfProducts = craft.app.request.getParam('number') ?: productGridSize %}
 
+{% set digitalProducts = craft.digitalProducts.products({
+    limit: numberOfProducts,
+    type: ['ebook','audio']
+}) %}
+
 {% set products = craft.products({
     limit: numberOfProducts,
     type: type
@@ -36,9 +41,12 @@
     {# Product List #}
     <div class="container--sm gutter-md | space-b" id="products">
 
+
+
         <div class="flex-grid">
             {# Product Grid #}
-            {% for product in products.all() %}
+            {# {% for product in products.all() %} #}
+            {% for product in digitalProducts.all() %}
                 {# Product Card #}
                 {% include '_components/product-card' with { content: product } %}
             {% endfor %}

@@ -1,0 +1,51 @@
+{% extends "_layouts/base" %}
+{% import '_macros/global' as global %}
+
+{% block content %}
+
+        {# Header #}
+        <section
+            class="space-menu space-b">
+            {# Header Content #}
+            {% if not currentUser %}
+
+                <p>Please <a href="/account/sign-in">Sign In</a> to view your downloads.</p>
+
+            {% else %}
+
+                <header class="page-header | container--sm gutter-md | space-t space-b--sm">
+                    <div class="page-header__title">
+                        <h1 class="header-xl font-serif">Sign In</h2>
+                    </div>
+                </header>
+
+                {% set products = craft.digitalProducts.products.type(['ebook','audio']).with(['existingLicenses']) %}
+                {% if products|length %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>License status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in products %}
+                                <tr>
+                                    <td>{{ product.title }}</td>
+                                    <td>
+                                        {% if product.existingLicenses|length %}
+                                            You already own this product.
+                                        {% else %}
+                                            <a href="{{ product.getUrl() }}">Get it now!</a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+
+            {% endif %}
+        </section>
+
+{% endblock %}

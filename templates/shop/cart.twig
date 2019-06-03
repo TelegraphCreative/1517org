@@ -27,7 +27,8 @@
                     {% endif %}
                     <tr class="item border-b border-ivory-light" {% if item.hasErrors() %}style="background-color:rgba(255, 0, 0, .1);"{% endif %}>
                         <td>
-                            <h3 class="header-sm md:mt-0 mt-4">{{ item.purchasable.product.title }}</h3>
+                            {% set product = item.purchasable.product ?: item.snapshot %}
+                            <h3 class="header-sm md:mt-0 mt-4">{{ product.title }}</h3>
                             <div class="paragraphs -sm">
                             <p>{{ item.description }}</p>
                             </div>
