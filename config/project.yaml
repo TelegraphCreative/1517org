@@ -281,9 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-
-dateModified: 1559254530
-
+dateModified: 1559579650
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -1492,7 +1490,7 @@ fields:
     type: elivz\singlecat\fields\SingleCatField
     settings:
       branchLimit: 1
-      showBlankOption: ''
+      showBlankOption: '1'
       sources: '*'
       source: 'group:cc2489d2-901a-44fa-abd8-7dae85d85495'
       targetSiteId: null
