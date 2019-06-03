@@ -26,7 +26,13 @@
             <p>
                 {{ content.detail }}
             </p>
+            {% if content.action is defined and content.action|length %}
+            <div class="mt-8">
+                <a href="{{ content.action }}" class="btn -light">{{ content.actionText }}</a>
+            </div>
+            {% endif %}
         </div>
+        
 
     </div>
     {% endif %}
