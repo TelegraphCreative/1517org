@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559593269
+dateModified: 1559593462
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -3335,6 +3335,9 @@ matrixBlockTypes:
           contentTable: '{{%stc_22_buttons}}'
           localizeBlocks: false
           staticField: ''
+          columns:
+            247:
+              width: ''
           fieldLayout: matrix
           selectionLabel: Button
         contentColumnType: string
@@ -7048,7 +7051,7 @@ superTableBlockTypes:
               customLabel: ''
               customPlaceholder: ''
             fruitstudios\linkit\models\Entry:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''
