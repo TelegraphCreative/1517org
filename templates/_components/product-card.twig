@@ -20,7 +20,7 @@
                 <div class="price | meta-label text-slate-light text-xs" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                     <meta content="USD" itemprop="priceCurrency"/>
                     {# only books have variants #}
-                    {% if content.type == 'books' %}
+                    {# {% if content.type == 'books' %} #}
 
                         {% set lowestPrice = content.defaultVariant.salePrice %}
                         {% for variant in content.getVariants() %}
@@ -29,11 +29,11 @@
                             {% endif %}
                         {% endfor %}
                         
-                    {% else %}
+                    {# {% else %}
                         
                         {% set lowestPrice = content.salePrice %}
 
-                    {% endif %}
+                    {% endif %} #}
                     From <span class="amount" itemprop="price">{{ lowestPrice|commerceCurrency(cart.currency) }}</span>
                 </div>
                 <div class="detail | text-slate-light text-md | mt-1" itemprop="description">

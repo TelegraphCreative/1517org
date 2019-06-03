@@ -66,10 +66,24 @@
             </thead>
             <tbody>
             {% for item in order.lineItems %}
+            {% set product = craft.products.id(206).one %}
+            {# <pre>
+                {{ dump(product.ebookUploads) }}
+            </pre> #}
+            {# {{item.id}} #}
                 <tr>
-                    <td>
+                    {# <td>
                         <strong>{{ item.description }}</strong><br>
                         SKU: {{ item.sku }}
+                    </td> #}
+                    {# <td>{{ product.fullDescription }}</td> #}
+                    <td>
+                    {% for upload in product.ebookUploads %}
+                        {# <pre>
+                            {{ dump(upload.asset.one) }}
+                        </pre> #}
+                        {{ upload.format ~ ' ' ~ upload.asset.one.optimize.src() }}
+                    {% endfor %}
                     </td>
                     <td>
                         {% if item.onSale %}

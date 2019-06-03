@@ -281,9 +281,18 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-
-dateModified: 1559254530
-
+  emails:
+    0c8c8c1d-df40-4911-beaf-4f2e69271dfe:
+      name: 'Order Confirmation'
+      subject: 'Order Complete'
+      recipientType: customer
+      to: ''
+      bcc: ''
+      enabled: true
+      templatePath: shop/_email.html
+      attachPdf: false
+      pdfTemplatePath: ''
+dateModified: 1559591556
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'

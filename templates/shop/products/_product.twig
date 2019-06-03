@@ -2,15 +2,15 @@
 {% import '_macros/global' as global %}
 
 {% set type = product.type %}
-{% set hasVariants = type == 'books' %}
+{# {% set hasVariants = type == 'books' %} #}
 
-{% if hasVariants %}
+{# {% if hasVariants %} #}
     {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
     {% set variant = craft.variants.id(variantId).one() %}
     {% set price = variant.price %}
-{% else %}
-    {% set price = product.salePrice %}
-{% endif %}
+{# {% else %}
+    {% set price = product.salePrice %} #}
+{# {% endif %} #}
 
 {% block content %}
 
@@ -55,7 +55,7 @@
                     <input min="1" name="qty" type="number" value="1">
                     {{ csrfInput() }}
 
-                {% if hasVariants %}
+                {# {% if hasVariants %} #}
 
                     <div class="form-group -start">
                         <div class="field-group">
@@ -74,18 +74,19 @@
                         </div>
                     </div>
 
-                {% else %}
+                {# {% else %}
                     
                     <input type="hidden" name="purchasableId" value="{{ product.purchasableId}}">
 
-                {% endif %}
+                {% endif %} #}
 
                     <div class="form-group -start">
                         <div class="field-group">
                             
                         </div>
                         <div class="field-group">
-                            {% if not hasVariants or product.totalStock > 0 %}
+                            {# {% if not hasVariants or product.totalStock > 0 %} #}
+                            {% if product.hasUnlimitedStock or (product.hasUnlimitedStock == false and product.totalStock > 0 ) %}
                                 <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
                             {% else %}
                                 <button class="btn -disabled -md">{{ "Out of Stock"|t }}</button>
