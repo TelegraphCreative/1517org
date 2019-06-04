@@ -1,9 +1,16 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-{% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
-{% set variant = craft.variants.id(variantId).one() %}
-{% set type = product.getType() %}
+{% set type = product.type %}
+{# {% set hasVariants = type == 'books' %} #}
+
+{# {% if hasVariants %} #}
+    {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
+    {% set variant = craft.variants.id(variantId).one() %}
+    {% set price = variant.price %}
+{# {% else %}
+    {% set price = product.salePrice %} #}
+{# {% endif %} #}
 
 {% block content %}
 
@@ -38,7 +45,7 @@
                 </div>
                 <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                     <meta content="USD" itemprop="priceCurrency"/>
-                    <span class="amount" itemprop="price">{{ variant.price|commerceCurrency(cart.currency) }}</span>
+                    <span class="amount" itemprop="price">{{ price|commerceCurrency(cart.currency) }}</span>
                 </div>
 
                 {# Purchase Form #}
@@ -47,6 +54,8 @@
                     {{ redirectInput('shop/cart') }}
                     <input min="1" name="qty" type="number" value="1">
                     {{ csrfInput() }}
+
+                {# {% if hasVariants %} #}
 
                     <div class="form-group -start">
                         <div class="field-group">
@@ -65,11 +74,18 @@
                         </div>
                     </div>
 
+                {# {% else %}
+                    
+                    <input type="hidden" name="purchasableId" value="{{ product.purchasableId}}">
+
+                {% endif %} #}
+
                     <div class="form-group -start">
                         <div class="field-group">
                             
                         </div>
                         <div class="field-group">
+                            {# {% if not hasVariants or product.totalStock > 0 %} #}
                             {% if product.hasUnlimitedStock or (product.hasUnlimitedStock == false and product.totalStock > 0 ) %}
                                 <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
                             {% else %}

@@ -150,20 +150,6 @@ commerce:
       sortOrder: 99
       default: false
   productTypes:
-    eab58cec-6ae9-47fb-9671-d47ecd191d64:
-      name: Clothing
-      handle: clothing
-      hasDimensions: true
-      hasVariants: false
-      hasVariantTitleField: false
-      titleFormat: '{product.title}'
-      skuFormat: ''
-      descriptionFormat: ''
-      siteSettings:
-        fb77e84e-92df-43ef-bf13-af2fe58f56fe:
-          hasUrls: true
-          uriFormat: 'shop/products/{slug}'
-          template: shop/products/_product
     f9c230d7-2875-41fa-8dcf-c539aadc45d9:
       name: Events
       handle: events
@@ -249,17 +235,20 @@ commerce:
               sortOrder: 1
               fields:
                 a2e11019-a27c-4424-8615-431d1c30554c:
-                  required: false
+                  required: true
                   sortOrder: 1
                 a23427d8-fb4f-4131-919c-b13434ae43df:
-                  required: false
+                  required: true
                   sortOrder: 2
                 d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                  required: false
+                  required: true
                   sortOrder: 3
                 19606a2c-57c5-47a1-88b8-7ff647a9e24d:
-                  required: false
+                  required: true
                   sortOrder: 4
+                c93692b3-91e8-4a24-8815-20b58142e145:
+                  required: true
+                  sortOrder: 5
   gateways:
     c75c0b95-9c3a-4869-a35e-4ed562c66d66:
       name: Dummy
@@ -281,7 +270,18 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559613647
+  emails:
+    0c8c8c1d-df40-4911-beaf-4f2e69271dfe:
+      name: 'Order Confirmation'
+      subject: 'Order Complete'
+      recipientType: customer
+      to: ''
+      bcc: ''
+      enabled: true
+      templatePath: shop/_email.html
+      attachPdf: false
+      pdfTemplatePath: ''
+dateModified: 1559679499
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -4209,7 +4209,7 @@ matrixBlockTypes:
           useSingleFolder: ''
           defaultUploadLocationSource: 'volume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
           defaultUploadLocationSubpath: ''
-          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: ''
           allowedKinds: null
@@ -4218,7 +4218,7 @@ matrixBlockTypes:
           source: null
           targetSiteId: null
           viewMode: list
-          limit: ''
+          limit: '1'
           selectionLabel: ''
           localizeRelations: false
         contentColumnType: string
@@ -5026,8 +5026,8 @@ matrixBlockTypes:
                 sortOrder: 1
   a3bdac5b-e75c-447b-96da-352bfff159a3:
     field: c93692b3-91e8-4a24-8815-20b58142e145
-    name: U
-    handle: u
+    name: Upload
+    handle: upload
     sortOrder: 1
     fields:
       2ba33b7d-e9aa-40df-a8b8-637a765fe85f:
@@ -5057,9 +5057,9 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: ''
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
-          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: ''
           allowedKinds: null
@@ -5068,7 +5068,7 @@ matrixBlockTypes:
           source: null
           targetSiteId: null
           viewMode: list
-          limit: ''
+          limit: '1'
           selectionLabel: ''
           localizeRelations: false
         contentColumnType: string
@@ -8843,26 +8843,6 @@ users:
         - commerce-managestoresettings
         - 'blitz:cache-utility'
 volumes:
-  00cd5776-45fa-4edf-9645-ee2a9cd92708:
-    name: Audio
-    handle: audio
-    type: craft\awss3\Volume
-    hasUrls: false
-    url: 'https://s3.us-east-2.amazonaws.com/1517-podcast-files/'
-    settings:
-      subfolder: ''
-      keyId: $AWS_ACCESS_KEY_ID
-      secret: $AWS_SECRET_ACCESS_KEY
-      bucketSelectionMode: choose
-      bucket: 1517-podcast-files
-      region: us-east-2
-      expires: ''
-      makeUploadsPublic: '1'
-      storageClass: ''
-      cfDistributionId: ''
-      cfPrefix: ''
-      autoFocalPoint: ''
-    sortOrder: 1
   c160af80-d4b3-4032-99f1-f91b25f713d3:
     name: Images
     handle: images
@@ -8897,7 +8877,7 @@ volumes:
     name: eBooks
     handle: ebooks
     type: craft\awss3\Volume
-    hasUrls: false
+    hasUrls: true
     url: 'https://s3.us-east-2.amazonaws.com/1517-ebook-files/'
     settings:
       subfolder: ''
@@ -8917,7 +8897,7 @@ volumes:
     name: 'Audio Products'
     handle: audioProducts
     type: craft\awss3\Volume
-    hasUrls: false
+    hasUrls: true
     url: 'https://s3.us-east-2.amazonaws.com/1517-audio-products/'
     settings:
       subfolder: ''

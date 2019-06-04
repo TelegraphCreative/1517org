@@ -69,11 +69,19 @@
                 <tr>
                     <td>
                         <strong>{{ item.description }}</strong><br>
-                        SKU: {{ item.sku }}
+                        SKU: {{ item.sku }}<br>
+                        {% set product = craft.products.id(item.snapshot.productId).one %}
+                        {% set productArray = (product.type == 'books') ? product.ebookUploads : product.audioProductUploads %}
+                        {% if productArray|length %}
+                            Downloads:
+                            {% for upload in productArray %}
+                                <a href="{{ upload.asset.one.url }}" target="_blank" class="underline">{{ upload.format }}</a> 
+                            {% endfor %}
+                        {% endif %}
                     </td>
                     <td>
                         {% if item.onSale %}
-                            <strike>{{ item.price|commerceCurrency(cart.currency) }}</strike>   {{ item.salePrice|commerceCurrency(cart.currency) }}
+                            <strike>{{ item.price|commerceCurrency(cart.currency) }}</strike> {{ item.salePrice|commerceCurrency(cart.currency) }}
                         {% else %}
                             {{ item.price|commerceCurrency(cart.currency) }}
                         {% endif %}
