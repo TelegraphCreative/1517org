@@ -32,7 +32,7 @@ export default {
         },
         optout: {
             required: true,
-            default: "That's fine",
+            default: 'I\'m in',
         },
         optin: {
             required: true,
@@ -48,21 +48,18 @@ export default {
     methods: {
         hideToaster() {
             this.active = false
+            document.cookie =
+                'tracking_requested=true; expires=Fri, 31 Dec 2024 23:59:59 GMT'
         },
 
         optIn() {
             document.cookie =
-                'tracking=true; expires=Fri, 31 Dec 2024 23:59:59 GMT'
-            this.tracking = true
+                'tracking=true; expires=Fri, 31 Dec 2024 23:59:59 GMT'            
             this.hideToaster()
         },
         optOut() {
-            this.tracking = false
             this.hideToaster()
         },
-    },
-    components: {
-        // close_icon,
     },
 }
 </script>
