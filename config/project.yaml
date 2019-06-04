@@ -249,17 +249,20 @@ commerce:
               sortOrder: 1
               fields:
                 a2e11019-a27c-4424-8615-431d1c30554c:
-                  required: false
+                  required: true
                   sortOrder: 1
                 a23427d8-fb4f-4131-919c-b13434ae43df:
-                  required: false
+                  required: true
                   sortOrder: 2
                 d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                  required: false
+                  required: true
                   sortOrder: 3
                 19606a2c-57c5-47a1-88b8-7ff647a9e24d:
-                  required: false
+                  required: true
                   sortOrder: 4
+                c93692b3-91e8-4a24-8815-20b58142e145:
+                  required: true
+                  sortOrder: 5
   gateways:
     c75c0b95-9c3a-4869-a35e-4ed562c66d66:
       name: Dummy
@@ -292,7 +295,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559613647
+dateModified: 1559667259
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -8854,26 +8857,6 @@ users:
         - commerce-managestoresettings
         - 'blitz:cache-utility'
 volumes:
-  00cd5776-45fa-4edf-9645-ee2a9cd92708:
-    name: Audio
-    handle: audio
-    type: craft\awss3\Volume
-    hasUrls: false
-    url: 'https://s3.us-east-2.amazonaws.com/1517-podcast-files/'
-    settings:
-      subfolder: ''
-      keyId: $AWS_ACCESS_KEY_ID
-      secret: $AWS_SECRET_ACCESS_KEY
-      bucketSelectionMode: choose
-      bucket: 1517-podcast-files
-      region: us-east-2
-      expires: ''
-      makeUploadsPublic: '1'
-      storageClass: ''
-      cfDistributionId: ''
-      cfPrefix: ''
-      autoFocalPoint: ''
-    sortOrder: 1
   c160af80-d4b3-4032-99f1-f91b25f713d3:
     name: Images
     handle: images
@@ -8908,7 +8891,7 @@ volumes:
     name: eBooks
     handle: ebooks
     type: craft\awss3\Volume
-    hasUrls: false
+    hasUrls: true
     url: 'https://s3.us-east-2.amazonaws.com/1517-ebook-files/'
     settings:
       subfolder: ''
@@ -8928,7 +8911,7 @@ volumes:
     name: 'Audio Products'
     handle: audioProducts
     type: craft\awss3\Volume
-    hasUrls: false
+    hasUrls: true
     url: 'https://s3.us-east-2.amazonaws.com/1517-audio-products/'
     settings:
       subfolder: ''
