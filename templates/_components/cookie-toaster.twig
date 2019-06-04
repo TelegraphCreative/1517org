@@ -1,0 +1,6 @@
+{% if siteInfo.cookieToaster.showToaster %}
+    {% if cookiesOkay == false %}
+    <cookie_toaster :header="'{{ siteInfo.cookieToaster.header }}'" :description="'{{ siteInfo.cookieToaster.description }}'" :optin="'{{ siteInfo.cookieToaster.optInText }}'" :optout="'{{ siteInfo.cookieToaster.optOutText }}'">
+    </cookie_toaster>
+    {% endif %}
+{% endif %}

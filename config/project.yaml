@@ -281,9 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-
-dateModified: 1559254530
-
+dateModified: 1559659627
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -2068,6 +2066,35 @@ fields:
       sitemapTabEnabled: ''
     contentColumnType: text
     fieldGroup: f8198c30-b7b9-442f-aa97-8e478e538453
+  ffb2b11e-4f80-4cbf-9b7c-700d310ecdfc:
+    name: 'Cookie Toaster'
+    handle: cookieToaster
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_cookietoaster}}'
+      localizeBlocks: false
+      staticField: '1'
+      columns:
+        253:
+          width: ''
+        254:
+          width: ''
+        255:
+          width: ''
+        256:
+          width: ''
+        257:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 7c6bc81e-0dc2-47ed-a6ec-d8950f98189d
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -2108,6 +2135,13 @@ globalSets:
               a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
                 required: false
                 sortOrder: 4
+          -
+            name: Cookies
+            sortOrder: 4
+            fields:
+              ffb2b11e-4f80-4cbf-9b7c-700d310ecdfc:
+                required: false
+                sortOrder: 1
 matrixBlockTypes:
   5a6a40cc-2ebc-4d1b-819e-1732742c114e:
     field: 24c123a8-1d09-4025-a414-fa85da64ab81
@@ -5436,6 +5470,10 @@ plugins:
       cacheControlHeader: 'public, s-maxage=0'
       sendPoweredByHeader: true
       outputComments: true
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -8440,6 +8478,111 @@ superTableBlockTypes:
               c7e39cfa-c894-4141-9281-75f23da130a2:
                 required: false
                 sortOrder: 1
+  cfe9137b-cfbb-4ecc-8c9a-23c62d395273:
+    field: ffb2b11e-4f80-4cbf-9b7c-700d310ecdfc
+    fields:
+      c7213024-514a-45f8-939f-1dee2451b65a:
+        name: 'Show Toaster'
+        handle: showToaster
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: '1'
+        contentColumnType: boolean
+        fieldGroup: null
+      746a48a8-15d0-48e1-96b2-f572c0656fec:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      2451f9b6-f498-4e5f-a266-50dac670dce9:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      258f111c-1f6b-4c88-b79e-f2c817974e20:
+        name: 'Opt In Text'
+        handle: optInText
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      314a3f63-cd13-488d-af80-8542b1101f71:
+        name: 'Opt Out Text'
+        handle: optOutText
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      2d3b1309-2db8-4373-b0bb-d9f958b78df9:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              c7213024-514a-45f8-939f-1dee2451b65a:
+                required: false
+                sortOrder: 1
+              746a48a8-15d0-48e1-96b2-f572c0656fec:
+                required: true
+                sortOrder: 2
+              2451f9b6-f498-4e5f-a266-50dac670dce9:
+                required: true
+                sortOrder: 3
+              258f111c-1f6b-4c88-b79e-f2c817974e20:
+                required: true
+                sortOrder: 4
+              314a3f63-cd13-488d-af80-8542b1101f71:
+                required: true
+                sortOrder: 5
 system:
   edition: pro
   name: '1517'
