@@ -292,7 +292,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559591556
+dateModified: 1559613647
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -693,7 +693,7 @@ fields:
       defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: cards
+      singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -719,7 +719,7 @@ fields:
       defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: heroes
+      singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -1322,7 +1322,7 @@ fields:
       defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: cards
+      singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -1501,7 +1501,7 @@ fields:
     type: elivz\singlecat\fields\SingleCatField
     settings:
       branchLimit: 1
-      showBlankOption: ''
+      showBlankOption: '1'
       sources: '*'
       source: 'group:cc2489d2-901a-44fa-abd8-7dae85d85495'
       targetSiteId: null
@@ -2858,7 +2858,7 @@ matrixBlockTypes:
           defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-          singleUploadLocationSubpath: heroes
+          singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
             - image
@@ -2900,7 +2900,7 @@ matrixBlockTypes:
           defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-          singleUploadLocationSubpath: heroes
+          singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
             - image
@@ -3346,6 +3346,9 @@ matrixBlockTypes:
           contentTable: '{{%stc_22_buttons}}'
           localizeBlocks: false
           staticField: ''
+          columns:
+            247:
+              width: ''
           fieldLayout: matrix
           selectionLabel: Button
         contentColumnType: string
@@ -5582,29 +5585,22 @@ sections:
                   d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
                     required: true
                     sortOrder: 1
-                  ca88b718-b5ea-4d62-907a-b2746232ec5a:
-                    required: true
-                    sortOrder: 2
-              -
-                name: Top
-                sortOrder: 2
-                fields:
-                  52442c36-3d5b-4ff2-bd85-35fcb79135bf:
-                    required: true
-                    sortOrder: 1
                   44ed3589-35f9-41e5-a842-913e07ba4354:
                     required: true
                     sortOrder: 2
+                  ca88b718-b5ea-4d62-907a-b2746232ec5a:
+                    required: true
+                    sortOrder: 3
               -
                 name: Main
-                sortOrder: 3
+                sortOrder: 2
                 fields:
                   24c123a8-1d09-4025-a414-fa85da64ab81:
                     required: true
                     sortOrder: 1
               -
                 name: Sidebar
-                sortOrder: 4
+                sortOrder: 3
                 fields:
                   8e7cd322-96ae-4173-9807-4a103598e9c9:
                     required: true
@@ -5620,7 +5616,7 @@ sections:
                     sortOrder: 4
               -
                 name: 'Additional Info'
-                sortOrder: 5
+                sortOrder: 4
                 fields:
                   56055b61-5ad3-45e5-b59a-ddc4a5b454cb:
                     required: false
@@ -5636,7 +5632,7 @@ sections:
                     sortOrder: 4
               -
                 name: Meta
-                sortOrder: 6
+                sortOrder: 5
                 fields:
                   c6caccbe-bc27-488b-a546-9119aacebce5:
                     required: false
@@ -7066,7 +7062,7 @@ superTableBlockTypes:
               customLabel: ''
               customPlaceholder: ''
             fruitstudios\linkit\models\Entry:
-              enabled: ''
+              enabled: '1'
               customLabel: ''
               sources: '*'
               customSelectionLabel: ''

@@ -76,6 +76,31 @@
 {% endspaceless %}
 {% endmacro %}
 
+{# Image (set sizes) #}
+{% macro imageSetRatio(source, classes) %}
+{% spaceless %}
+    {# Source #}
+    {% if source|length %}
+        <figure class="image{% if classes is defined %} | {{ classes }}{% endif %}">
+            <img data-src="{{ source.optimize.src() }}"
+                data-srcset="{{ source.optimize.srcset() }}"
+                sizes="100vw"
+                class="lazyload blur-up" 
+                itemprop="image"/>
+        </figure>
+
+    {% else %}
+
+        {# Static Placeholder #}
+        <figure class="image {{ classes }}">
+            <img src="{{ placeholder }}">
+        </figure>
+
+    {% endif %}
+
+{% endspaceless %}
+{% endmacro %}
+
 {# Card Image #}
 {% macro cardImage(source, classes, placeholder) %}
 {% spaceless %}

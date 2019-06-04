@@ -2,11 +2,11 @@
 
 <article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
 
-{# {% if entry.vimeoEmbed and entry.vimeoEmbed.valid %} #}
+{% if content.vimeoEmbed and content.vimeoEmbed.valid %}
     <video_content_card
-        img-src="https://i.vimeocdn.com/video/762743169_640.jpg"
-        video-url="https://player.vimeo.com/video/320342557"
-        aspect-ratio="56.25"
+        img-src="{{ content.vimeoEmbed.media.image }}"
+        video-url="{{ content.vimeoEmbed.media.url }}"
+        aspect-ratio="{{ content.vimeoEmbed.media.aspectRatio }}"
     >
         
         {# Content #}
@@ -38,7 +38,6 @@
             
             {# Detail #}
             <div class="content-card__detail | paragraphs -xs -loose | mb-5">
-                <b>This partial uses placeholder media data (vid, image poster).</b>
                 {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
             </div>
 
@@ -51,7 +50,10 @@
         </template>
         
     </video_content_card>
+{% else %}
+    
+    Something went wrong. 
 
-{# {% endif %} #}
+{% endif %}
 
 </article>

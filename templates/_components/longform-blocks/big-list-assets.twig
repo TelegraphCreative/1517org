@@ -13,6 +13,7 @@
             <li class="list-asset | flex-grid">
                 
                 <div class="list-asset__content">
+
                     <a href="{{ item.resource.url }}" target="_blank">
                         <h4 class="header-sm font-serif">{{ item.header }} </h4>
                         {% if item.supportingCopy|length %}
@@ -22,7 +23,11 @@
                 </div>
                 
                 <div class="list-asset__action">
-                    {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
+                    {% if "Url" in item.resource.type  %}
+                        {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-right', '-md' ) }}
+                    {% else %}
+                        {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
+                    {% endif %}
                 </div>
                 
             </li>
