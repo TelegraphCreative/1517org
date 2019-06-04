@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559593462
+dateModified: 1559613647
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -682,7 +682,7 @@ fields:
       defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: cards
+      singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -708,7 +708,7 @@ fields:
       defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: heroes
+      singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -1311,7 +1311,7 @@ fields:
       defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       defaultUploadLocationSubpath: ''
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: cards
+      singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -2847,7 +2847,7 @@ matrixBlockTypes:
           defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-          singleUploadLocationSubpath: heroes
+          singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
             - image
@@ -2889,7 +2889,7 @@ matrixBlockTypes:
           defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-          singleUploadLocationSubpath: heroes
+          singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
             - image
