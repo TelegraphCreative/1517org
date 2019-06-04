@@ -1,12 +1,12 @@
 <template>
   <div class="w-screen max-w-full relative overflow-hidden">
     <div
-      class="text-white hover:text-red cursor-pointer"
+      class="text-white hover:text-red cursor-pointer overflow-hidden"
       :class="{ hidden: hideImg }"
       @click="playVideo"
     >
       <play_icon :classes=" 'icon -lg absolute z-20 align-yx w-24 md:w-48 lg:w-64' "/>
-      <img :src="imgSrc" class="absolute w-screen max-w-full z-10 mt-2">
+      <img :src="imgSrc" class="absolute w-screen max-w-full z-10">
     </div>
     <div :style="`padding:${aspectRatio}% 0 0 0`" class="relative">
       <iframe
