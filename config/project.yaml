@@ -150,20 +150,6 @@ commerce:
       sortOrder: 99
       default: false
   productTypes:
-    eab58cec-6ae9-47fb-9671-d47ecd191d64:
-      name: Clothing
-      handle: clothing
-      hasDimensions: true
-      hasVariants: false
-      hasVariantTitleField: false
-      titleFormat: '{product.title}'
-      skuFormat: ''
-      descriptionFormat: ''
-      siteSettings:
-        fb77e84e-92df-43ef-bf13-af2fe58f56fe:
-          hasUrls: true
-          uriFormat: 'shop/products/{slug}'
-          template: shop/products/_product
     f9c230d7-2875-41fa-8dcf-c539aadc45d9:
       name: Events
       handle: events
@@ -295,7 +281,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559667259
+dateModified: 1559679499
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -4223,7 +4209,7 @@ matrixBlockTypes:
           useSingleFolder: ''
           defaultUploadLocationSource: 'volume:74a87f3d-f880-4d01-a9c8-ef6fa762d635'
           defaultUploadLocationSubpath: ''
-          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: ''
           allowedKinds: null
@@ -4232,7 +4218,7 @@ matrixBlockTypes:
           source: null
           targetSiteId: null
           viewMode: list
-          limit: ''
+          limit: '1'
           selectionLabel: ''
           localizeRelations: false
         contentColumnType: string
@@ -5040,8 +5026,8 @@ matrixBlockTypes:
                 sortOrder: 1
   a3bdac5b-e75c-447b-96da-352bfff159a3:
     field: c93692b3-91e8-4a24-8815-20b58142e145
-    name: U
-    handle: u
+    name: Upload
+    handle: upload
     sortOrder: 1
     fields:
       2ba33b7d-e9aa-40df-a8b8-637a765fe85f:
@@ -5071,9 +5057,9 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: ''
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
-          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: ''
           allowedKinds: null
@@ -5082,7 +5068,7 @@ matrixBlockTypes:
           source: null
           targetSiteId: null
           viewMode: list
-          limit: ''
+          limit: '1'
           selectionLabel: ''
           localizeRelations: false
         contentColumnType: string
