@@ -30,21 +30,21 @@
 
             <div class="billboard__content-max">
                 {# Header #}
-                {% if content.header is defined %}
+                {% if content.header|length %}
                 <div class="billboard__header">
                     <h4 class="billboard-title">{{ content.header | raw }}</h4>
                 </div>
                 {% endif %}
 
                 {# Detail #}
-                {% if content.description is defined %}
+                {% if content.description|length %}
                     <div class="billboard__detail | paragraphs -sm">
                         {{ content.description }}
                     </div>
                 {% endif %}
 
                 {# Action #}
-                {% if content.button is defined %}
+                {% if content.button|length %}
                     <div class="billboard__action">
                         {{ global.link( content.button, content.buttonStyle ) }}
                     </div>
@@ -56,7 +56,7 @@
 
         {% if content.image|length %}
             <div class="billboard__media">
-                {{ global.image( content.image.one, '-is1x1 -fit-cover -hover-scale' )}}
+                {{ global.image( content.image.one(), '-is1x1 -fit-cover -hover-scale' )}}
             </div>
         {% endif %}
     </div>
