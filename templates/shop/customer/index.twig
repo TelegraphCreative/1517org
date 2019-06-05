@@ -39,5 +39,13 @@
                 </p>
             </div>
         {% endif %}
+    {% else %}
+            <div class="empty-index | text-center">
+                <i class="fas fa-box-open"></i>
+                <p>Please sign in to view your orders.<br />
+                <div class="mt-6">
+                    <a class="btn -md" href="{{ url('shop/sign-in') }}">Sign In</a></div>
+                </p>
+            </div>
     {% endif %}
 {% endblock %}
