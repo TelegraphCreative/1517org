@@ -193,18 +193,15 @@ commerce:
                 a23427d8-fb4f-4131-919c-b13434ae43df:
                   required: true
                   sortOrder: 2
-                d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                  required: true
-                  sortOrder: 3
                 19606a2c-57c5-47a1-88b8-7ff647a9e24d:
                   required: true
-                  sortOrder: 4
+                  sortOrder: 3
                 a8051c4e-d981-43c0-9b88-413976740a0a:
                   required: false
-                  sortOrder: 5
+                  sortOrder: 4
                 d365b210-11bd-4726-bb17-e06b61f5be0a:
                   required: false
-                  sortOrder: 6
+                  sortOrder: 5
       variantFieldLayouts:
         cec332ff-5ddf-4483-9780-cb5369180aee:
           tabs:
@@ -242,15 +239,12 @@ commerce:
                 a23427d8-fb4f-4131-919c-b13434ae43df:
                   required: true
                   sortOrder: 2
-                d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                  required: true
-                  sortOrder: 3
                 19606a2c-57c5-47a1-88b8-7ff647a9e24d:
                   required: true
-                  sortOrder: 4
+                  sortOrder: 3
                 c93692b3-91e8-4a24-8815-20b58142e145:
                   required: true
-                  sortOrder: 5
+                  sortOrder: 4
   gateways:
     c75c0b95-9c3a-4869-a35e-4ed562c66d66:
       name: Dummy
@@ -283,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559750770
+dateModified: 1559763304
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -366,6 +360,8 @@ fieldlabels:
     fieldLayout: 045b7ff7-4163-4ff5-83b4-cdaeae16f265
     name: null
     instructions: '812 × 812 / (1× 1)'
+    hideName: false
+    hideInstructions: false
   213a03be-928b-4865-b5ee-74ad735d3ba3:
     field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
     fieldLayout: 169d46c8-008b-4c0d-8d45-47153e669d2b
@@ -5715,12 +5711,15 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
                     sortOrder: 2
-                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
+                  32ad703c-9543-4366-bbf6-59dfb9b394bd:
                     required: false
                     sortOrder: 3
-                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                  f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
                     sortOrder: 4
+                  ace2dff4-0b7d-4102-aec0-964fae1c78a3:
+                    required: false
+                    sortOrder: 5
               -
                 name: 'Additional Info'
                 sortOrder: 4
