@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559763304
+dateModified: 1559763821
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5711,15 +5711,12 @@ sections:
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
                     sortOrder: 2
-                  32ad703c-9543-4366-bbf6-59dfb9b394bd:
-                    required: false
-                    sortOrder: 3
                   f1eee2cf-c885-45c7-8ad0-c45183725fb9:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 3
                   ace2dff4-0b7d-4102-aec0-964fae1c78a3:
                     required: false
-                    sortOrder: 5
+                    sortOrder: 4
               -
                 name: 'Additional Info'
                 sortOrder: 4
@@ -5727,15 +5724,18 @@ sections:
                   56055b61-5ad3-45e5-b59a-ddc4a5b454cb:
                     required: false
                     sortOrder: 1
-                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
+                  32ad703c-9543-4366-bbf6-59dfb9b394bd:
                     required: false
                     sortOrder: 2
+                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
+                    required: false
+                    sortOrder: 3
                   982c618e-7295-4cca-ba1a-7ab255da5b1e:
                     required: true
-                    sortOrder: 3
+                    sortOrder: 4
                   044102bf-2640-48b6-9408-aafe7d83a5bc:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 5
               -
                 name: Meta
                 sortOrder: 5
