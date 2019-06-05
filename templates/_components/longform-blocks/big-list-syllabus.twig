@@ -49,7 +49,7 @@
 
     </ul>
 
-    {% if block.buttons.one()|length %}
+    {% if block.buttons|length %}
         <div class="big-list__action | button-group | mt-8">
         {% for button in block.buttons.all() %}
             {% if loop.index == 1 %}
