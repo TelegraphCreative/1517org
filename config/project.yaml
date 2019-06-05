@@ -143,6 +143,8 @@ commerce:
       color: green
       sortOrder: 99
       default: true
+      emails:
+        0c8c8c1d-df40-4911-beaf-4f2e69271dfe: 0c8c8c1d-df40-4911-beaf-4f2e69271dfe
     ed0a1b96-bdcd-4c0a-8dd3-a79b9b64ea47:
       name: Shipped
       handle: shipped
@@ -281,7 +283,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559742596
+dateModified: 1559750770
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
