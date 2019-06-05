@@ -1,63 +1,134 @@
 {% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
+{% set purchasableId = craft.app.request.param('purchasableId') %}
+{% set topBlocks = clone(entry.contentBlocksEvent).limit(1) %}
+{% set remainingBlocks = clone(entry.contentBlocksEvent).offset(1).all() %}
+
 {% block content %}
 
+<section class="space-menu | space-b | no-print">
+
+    {% include "_components/page-hero--media" with { content: entry.articleHeroContent } %}
+
+    {# Product Bar #}
+    {% if entry.paidEvent|length %}
+        {% include "_components/product-bar" with { product: entry.paidEvent.first } %}
+    {% endif %}
+
+</section>
   
-    {# Article + Aside (top) #}
-    <div class="entry-detail-layout | container | space-b space-menu | flex-grid">
+{# Article + Aside (top) #}
+<div class="entry-detail-layout | container | space-b | flex-grid">
 
-        {# Content #}
-        <article class="entry-main | gutter-xl">
-        
-            {# Header #}
-            <header class="entry__header">
-                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
-            </header>
-
-            {# Blocks #}
-            <div class="entry__blocks | longform-entry-blocks -top">
-
-                {# Example Product Form #}
-                {% set purchasableId = craft.app.request.param('purchasableId') %}
-
-                {% if entry.paidEvent|length %}
-                    
-                    {% set product = craft.products.one() %}
-                    <div class="m-10">
-                    <a href="/buy/add?purchasableId={{product.defaultVariant.id}}" class="">
-                        Buy {{ product.title }} ({{ product.defaultVariant.salePrice|commerceCurrency(cart.currency) }})
-                    </a>
-                    {% if purchasableId %}
-                        purchasableId: {{ purchasableId }}
-                        {# if we have a purchasableId as a query param, just add it to cart and submit the form #}
-                        <form method="POST" name="auto-add-to-cart" class="add-to-cart-form">
-                            <input type="hidden" name="action" value="commerce/cart/update-cart">
-                            {{ redirectInput('buy') }}
-                            <input type="hidden" name="qty" value="1">
-                            {{ csrfInput() }}
-                            <input type="hidden" name="purchasableId" value="{{ purchasableId }}">
-                            <input type="submit" hidden/>
-                        </form>
-                        <script>
-                            window.onload = function(){
-                                document.forms['auto-add-to-cart'].submit();
-                            }
-                        </script>
- 
-                    {% endif %}
-                {% endif %}
-                
-
+    {# Content #}
+    <article class="entry-main | gutter-xl">
+    
+        {# Header #}
+        <header class="entry__header">
+            <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            <div class="paragraphs -md">
+                {{ entry.shortDescription }}
             </div>
+        </header>
 
-           
-        </article>
-        
-        
-    
-    
-    </div>
+    {# Show redirect message if adding event product to cart #}
+    {% if purchasableId %}
 
+        <div class="entry__blocks | longform-entry-blocks">
+            Adding event to cart.
+        </div>
+
+        <form method="POST" name="auto-add-to-cart" class="add-to-cart-form">
+            <input type="hidden" name="action" value="commerce/cart/update-cart">
+            {{ redirectInput('shop/checkout') }}
+            <input type="hidden" name="qty" value="1">
+            {{ csrfInput() }}
+            <input type="hidden" name="purchasableId" value="{{ purchasableId }}">
+            <input type="submit" hidden/>
+        </form>
+        <script>
+            window.onload = function(){
+                document.forms['auto-add-to-cart'].submit();
+            }
+        </script>
+
+    {% else %}
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks -top">
+
+            {# Longform Content #}
+            {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks } %}
+            
+        </div>
+
+    {% endif %}
+        
+    </article>
+
+    {# Aside #}
+    <aside class="entry-aside">
+        {# Meta List #}
+        <ul class="meta-list">
+            {# Date #}
+            <li class="display-print">
+                <div class="meta-label | text-slate-light">
+                    {{ entry.eventDate }}
+                </div>
+            </li>
+
+            {# Address #}
+            <li class="display-print">
+                <div class="addr-label | meta-label | text-slate-light">
+                    {% set location = entry.location.parts %}
+                    {% set cityStateZip = location.city ~ ', ' ~ location.state ~ ' ' ~ location.postcode %}
+                    <p>{{ location.address }}</p>
+                    <p>{{ cityStateZip }}</p>
+
+                    <p>
+                        <a href="https://www.google.com/maps/place/{{ location.address ~ ' ' ~ cityStateZip }}" target="_blank">
+                            Get Directions
+                        </a>
+                    </p>
+                </div>
+            </li>
+
+            {# Info #}
+            <li class="display-print">
+                <div class="addr-label | meta-label | text-slate-light">
+                    <p>Recommended Hotel:</p>
+                    <a href="{{ entry.recommendedHotel.value }}">
+                        {{ entry.recommendedHotel.customText }}
+                    </a>
+                </div>
+            </li>
+
+            {# Share/Print #}
+            <li>
+                {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
+            </li>
+        </ul>
+
+    </aside>
+
+    {% if not purchasableId %}
+
+    {# Article + Aside (bottom) #}
+    <article class="entry-main -wide">
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks">
+
+            {# Longform Content #}
+            {% include '_components/longform-entry-blocks' with { classes: '', blocks: remainingBlocks, layoutClasses: 'narrow-block gutter-xl' } %}
+
+        </div>
+
+    </article>
+
+    {% endif %}
+
+</div>
 
 {% endblock %}

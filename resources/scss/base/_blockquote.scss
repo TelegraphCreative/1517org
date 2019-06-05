@@ -2,6 +2,10 @@
 blockquote,
 cite {
     @apply roman font-normal m-0 p-0;
+
+    em,i {
+        @apply roman;
+    }
 }
 
 // Blockquote in Article Content
@@ -10,6 +14,7 @@ cite {
 .blockquote {
     blockquote {
         @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
+
         p {
             @apply font-serif text-red text-3lg inline;
         }
@@ -39,6 +44,7 @@ cite {
         }
     }
 }
+
 
 // md Screen
 @screen md {

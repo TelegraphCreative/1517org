@@ -143,6 +143,8 @@ commerce:
       color: green
       sortOrder: 99
       default: true
+      emails:
+        0c8c8c1d-df40-4911-beaf-4f2e69271dfe: 0c8c8c1d-df40-4911-beaf-4f2e69271dfe
     ed0a1b96-bdcd-4c0a-8dd3-a79b9b64ea47:
       name: Shipped
       handle: shipped
@@ -191,18 +193,15 @@ commerce:
                 a23427d8-fb4f-4131-919c-b13434ae43df:
                   required: true
                   sortOrder: 2
-                d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                  required: true
-                  sortOrder: 3
                 19606a2c-57c5-47a1-88b8-7ff647a9e24d:
                   required: true
-                  sortOrder: 4
+                  sortOrder: 3
                 a8051c4e-d981-43c0-9b88-413976740a0a:
                   required: false
-                  sortOrder: 5
+                  sortOrder: 4
                 d365b210-11bd-4726-bb17-e06b61f5be0a:
                   required: false
-                  sortOrder: 6
+                  sortOrder: 5
       variantFieldLayouts:
         cec332ff-5ddf-4483-9780-cb5369180aee:
           tabs:
@@ -240,15 +239,12 @@ commerce:
                 a23427d8-fb4f-4131-919c-b13434ae43df:
                   required: true
                   sortOrder: 2
-                d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                  required: true
-                  sortOrder: 3
                 19606a2c-57c5-47a1-88b8-7ff647a9e24d:
                   required: true
-                  sortOrder: 4
+                  sortOrder: 3
                 c93692b3-91e8-4a24-8815-20b58142e145:
                   required: true
-                  sortOrder: 5
+                  sortOrder: 4
   gateways:
     c75c0b95-9c3a-4869-a35e-4ed562c66d66:
       name: Dummy
@@ -281,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559679499
+dateModified: 1559763821
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -364,6 +360,8 @@ fieldlabels:
     fieldLayout: 045b7ff7-4163-4ff5-83b4-cdaeae16f265
     name: null
     instructions: '812 × 812 / (1× 1)'
+    hideName: false
+    hideInstructions: false
   213a03be-928b-4865-b5ee-74ad735d3ba3:
     field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
     fieldLayout: 169d46c8-008b-4c0d-8d45-47153e669d2b
@@ -678,15 +676,16 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: cards
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
-      sources: '*'
+      sources:
+        - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       source: null
       targetSiteId: null
       viewMode: large
@@ -704,11 +703,11 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: heroes
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: ''
+      singleUploadLocationSubpath: heroes
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -984,7 +983,7 @@ fields:
     type: craft\fields\Assets
     settings:
       useSingleFolder: ''
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       defaultUploadLocationSubpath: billboards
       singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
       singleUploadLocationSubpath: ''
@@ -1307,15 +1306,16 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: cards
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
-      sources: '*'
+      sources:
+        - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       source: null
       targetSiteId: null
       viewMode: large
@@ -1386,9 +1386,9 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: products
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       singleUploadLocationSubpath: products
       restrictFiles: '1'
@@ -2066,6 +2066,109 @@ fields:
       sitemapTabEnabled: ''
     contentColumnType: text
     fieldGroup: f8198c30-b7b9-442f-aa97-8e478e538453
+  ffb2b11e-4f80-4cbf-9b7c-700d310ecdfc:
+    name: 'Cookie Toaster'
+    handle: cookieToaster
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: ''
+      maxRows: ''
+      contentTable: '{{%stc_cookietoaster}}'
+      localizeBlocks: false
+      staticField: '1'
+      columns:
+        253:
+          width: ''
+        254:
+          width: ''
+        255:
+          width: ''
+        256:
+          width: ''
+        257:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 7c6bc81e-0dc2-47ed-a6ec-d8950f98189d
+  86187559-6daa-4d48-b4ec-3abeb5672fa1:
+    name: 'Recommended Hotel'
+    handle: recommendedHotel
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: fruitstudios\linkit\fields\LinkitField
+    settings:
+      selectLinkText: ''
+      types:
+        fruitstudios\linkit\models\Email:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Phone:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Url:
+          enabled: '1'
+          customLabel: ''
+          customPlaceholder: ''
+          allowAlias: '1'
+          allowMailto: '1'
+          allowHash: '1'
+          allowPaths: '1'
+        fruitstudios\linkit\models\Twitter:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Facebook:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Instagram:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\LinkedIn:
+          enabled: ''
+          customLabel: ''
+          customPlaceholder: ''
+        fruitstudios\linkit\models\Entry:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+        fruitstudios\linkit\models\Category:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+        fruitstudios\linkit\models\Asset:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+        fruitstudios\linkit\models\User:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+          userPath: ''
+        fruitstudios\linkit\models\Product:
+          enabled: ''
+          customLabel: ''
+          sources: '*'
+          customSelectionLabel: ''
+      allowCustomText: '1'
+      defaultText: ''
+      allowTarget: ''
+    contentColumnType: text
+    fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -2106,6 +2209,13 @@ globalSets:
               a30942e8-3bd7-43b0-bc90-3ffb6d76bc0f:
                 required: false
                 sortOrder: 4
+          -
+            name: Cookies
+            sortOrder: 4
+            fields:
+              ffb2b11e-4f80-4cbf-9b7c-700d310ecdfc:
+                required: false
+                sortOrder: 1
 matrixBlockTypes:
   5a6a40cc-2ebc-4d1b-819e-1732742c114e:
     field: 24c123a8-1d09-4025-a414-fa85da64ab81
@@ -5379,7 +5489,7 @@ plugins:
   fieldlabels:
     edition: standard
     enabled: true
-    schemaVersion: 1.1.0
+    schemaVersion: 1.1.2
   commerce:
     edition: pro
     enabled: true
@@ -5437,6 +5547,10 @@ plugins:
       cacheControlHeader: 'public, s-maxage=0'
       sendPoweredByHeader: true
       outputComments: true
+  cookies:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -5610,15 +5724,18 @@ sections:
                   56055b61-5ad3-45e5-b59a-ddc4a5b454cb:
                     required: false
                     sortOrder: 1
-                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
+                  32ad703c-9543-4366-bbf6-59dfb9b394bd:
                     required: false
                     sortOrder: 2
+                  01fd5103-dc0c-4197-a4ae-62722bfaf9b2:
+                    required: false
+                    sortOrder: 3
                   982c618e-7295-4cca-ba1a-7ab255da5b1e:
                     required: true
-                    sortOrder: 3
+                    sortOrder: 4
                   044102bf-2640-48b6-9408-aafe7d83a5bc:
                     required: false
-                    sortOrder: 4
+                    sortOrder: 5
               -
                 name: Meta
                 sortOrder: 5
@@ -5858,16 +5975,22 @@ sections:
                   fc574e36-797b-4f2b-8ee6-d321bcea2ecd:
                     required: true
                     sortOrder: 3
-                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                  86187559-6daa-4d48-b4ec-3abeb5672fa1:
                     required: true
                     sortOrder: 4
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                    required: true
+                    sortOrder: 5
               -
                 name: Main
                 sortOrder: 2
                 fields:
-                  6a6d2bb0-5c60-45f6-bc55-5ca2ff279938:
+                  a4c109f4-6908-4b21-a93d-03feb588f245:
                     required: true
                     sortOrder: 1
+                  6a6d2bb0-5c60-45f6-bc55-5ca2ff279938:
+                    required: true
+                    sortOrder: 2
               -
                 name: 'Additional Info'
                 sortOrder: 3
@@ -6071,8 +6194,33 @@ sections:
                     required: false
                     sortOrder: 2
               -
-                name: Meta
+                name: 'Billboard (Text)'
                 sortOrder: 2
+                fields:
+                  e0cc44bc-a00c-45bf-a7c2-619ef73bb788:
+                    required: false
+                    sortOrder: 1
+                  b3e26680-82f0-49eb-acde-3ea50bc98657:
+                    required: false
+                    sortOrder: 2
+                  37e2f268-73ca-493b-85cb-bc05c4fb7bcc:
+                    required: false
+                    sortOrder: 3
+                  212e918c-9afb-4494-9513-5a941b622699:
+                    required: false
+                    sortOrder: 4
+                  8508760c-14c2-44da-a895-fd4af6d00528:
+                    required: false
+                    sortOrder: 5
+                  29060f90-86ba-4d52-874f-6dd9af4b47d0:
+                    required: false
+                    sortOrder: 6
+                  a202e5e1-45ca-48c6-b70d-43f5a4dc95bf:
+                    required: false
+                    sortOrder: 7
+              -
+                name: Meta
+                sortOrder: 3
                 fields:
                   c6caccbe-bc27-488b-a546-9119aacebce5:
                     required: false
@@ -8434,6 +8582,111 @@ superTableBlockTypes:
               c7e39cfa-c894-4141-9281-75f23da130a2:
                 required: false
                 sortOrder: 1
+  cfe9137b-cfbb-4ecc-8c9a-23c62d395273:
+    field: ffb2b11e-4f80-4cbf-9b7c-700d310ecdfc
+    fields:
+      c7213024-514a-45f8-939f-1dee2451b65a:
+        name: 'Show Toaster'
+        handle: showToaster
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Lightswitch
+        settings:
+          default: '1'
+        contentColumnType: boolean
+        fieldGroup: null
+      746a48a8-15d0-48e1-96b2-f572c0656fec:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      2451f9b6-f498-4e5f-a266-50dac670dce9:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      258f111c-1f6b-4c88-b79e-f2c817974e20:
+        name: 'Opt In Text'
+        handle: optInText
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      314a3f63-cd13-488d-af80-8542b1101f71:
+        name: 'Opt Out Text'
+        handle: optOutText
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      2d3b1309-2db8-4373-b0bb-d9f958b78df9:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              c7213024-514a-45f8-939f-1dee2451b65a:
+                required: false
+                sortOrder: 1
+              746a48a8-15d0-48e1-96b2-f572c0656fec:
+                required: true
+                sortOrder: 2
+              2451f9b6-f498-4e5f-a266-50dac670dce9:
+                required: true
+                sortOrder: 3
+              258f111c-1f6b-4c88-b79e-f2c817974e20:
+                required: true
+                sortOrder: 4
+              314a3f63-cd13-488d-af80-8542b1101f71:
+                required: true
+                sortOrder: 5
 system:
   edition: pro
   name: '1517'

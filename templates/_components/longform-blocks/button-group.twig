@@ -7,8 +7,11 @@
     
     {# Actions #}
     <div class="button-group__actions">
-        {% for item in block.button.all() %}
-            {{ global.link(item.button, item.buttonStyle)}}                
+        {% for item in block.buttons.all() %}
+            {{ global.link(item.button, 'btn -red -md')}}                
+            {# Notes from lindsey: This needs a button style dropdown added to the super table. 
+            I've manually styled it as a red button, but once that field is added, this macro can come back into play: #}
+            {# {{ global.link(item.button, item.buttonStyle)}} #}
         {% endfor %}
     </div>
 </div>

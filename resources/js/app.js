@@ -6,7 +6,8 @@ import lazysizes from 'lazysizes'
 import site_menu from './components/SiteMenu'
 import search_menu from './components/SearchMenu'
 import select_box from './components/SelectBox'
-import date_picker from './components/DatePicker'
+import date_picker from './components/DatePicker' 
+import cookie_toaster from './components/CookieToaster'
 import video_player_full from './components/VideoPlayerFull'
 import video_content_card from './components/VideoContentCard'
 import podcast_player_compact from './components/PodcastPlayerCompact'
@@ -30,6 +31,7 @@ const app = new Vue({
         search_menu,
         select_box,
         date_picker,
+        cookie_toaster,
         video_player_full,
         video_content_card,
         podcast_player_compact,
