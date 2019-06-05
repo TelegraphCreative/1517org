@@ -1,9 +1,10 @@
 {%- minify -%} 
-{# {% cache for 1 week%}{% endcache %} #} 
-{# Sections, Requests #} 
-{# {% set work = craft.entries().section('caseStudies').all() %} #} 
+
+{# Segments #}
 {% set firstSegment = craft.app.request.segment(1) %} 
 {% set lastSegment = craft.app.request.segments|last %} 
+
+{# Cart #}
 {% if cart is not defined %}
     {% set cart = craft.commerce.carts.cart %}
 {% endif %}
@@ -28,12 +29,13 @@
     <body class="">
         <div class="site-container" id="app">
             {% include '_components/site-menu' %}
-
             <main class="site-main">
                 {% block content %}{% endblock %}
             </main>
 
             {% include '_components/site-footer' %}
+            
+            {% include '_components/cookie-toaster' %}
         </div>
     </body>
 
@@ -41,6 +43,5 @@
     {% include '_components/site-vendor-assets' %}
     {% do view.registerCssFile( mix('/css/print.css') ) %}
 
-    
 </html>
 {%- endminify -%}
