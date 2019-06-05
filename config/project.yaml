@@ -281,7 +281,7 @@ commerce:
       sortOrder: 99
       paymentType: purchase
       isFrontendEnabled: true
-dateModified: 1559659627
+dateModified: 1559740415
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5412,7 +5412,7 @@ plugins:
   fieldlabels:
     edition: standard
     enabled: true
-    schemaVersion: 1.1.0
+    schemaVersion: 1.1.2
   commerce:
     edition: pro
     enabled: true
