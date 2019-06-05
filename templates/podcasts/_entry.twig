@@ -6,7 +6,8 @@
     <section class="space-menu | space-b">
 
         {# Media Hero #}
-        {{ global.image( entry.heroImage.one(), '-fit-cover' )}}
+        {# {{ global.image( entry.heroImage.one(), '-fit-cover' )}} #}
+        {{ global.coverImage( entry.cardImagePodcast.one(), '-fit-cover -hover-scale' )}}
         
         {# Podcast Player Full #}
         <podcast_player_full title="{{ entry.title }}" url="{{ entry.podcastLink }}" />

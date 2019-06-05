@@ -1,11 +1,13 @@
 <template>
   <div class="content-card__container | flex-grid md:flex-row-reverse mb-4">
-    <a href="#" @click.prevent="" class="content-card__media relative cursor-default | no-print">
+    <a href="#" @click.prevent="" class="content-card__media relative cursor-default | no-print overflow-hidden">
+
       <img
         :src="imgSrc"
         :class="{ hidden: hideImg }"
-        class="-is2x1 -fit-cover -hover-scale absolute z-10 mt-2"
+        class="-hover-scale absolute z-10"
       />
+
       <div :style="`padding:${aspectRatio}% 0 0 0`" class="relative">
         <iframe
           :src="`https://player.vimeo.com/video/${vimeoId}`"

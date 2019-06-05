@@ -20,7 +20,7 @@
 {% else %}
     {# Articles, Videos #}
     {% if content.authorLink|length %}
-        {% set authorName = content.authorLink.one().firstName ~ ' ' ~ content.authorLink.one().firstName %}
+        {% set authorName = content.authorLink.one().firstName ~ ' ' ~ content.authorLink.one().lastName %}
         {% set authorUrl = content.authorLink.one().url %}
     {% endif %}
 {% endif %}
@@ -28,6 +28,6 @@
 {# Output #}
 {% if authorName %}
     <a href="{{ authorUrl }}" class="meta-label">
-        By {{ authorName }}
+        By {{ authorName }} 
     </a>
 {% endif %}
