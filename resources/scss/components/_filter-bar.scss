@@ -14,7 +14,8 @@
         
         // Filter
         .filter {
-            @apply mr-3 w-auto;
+            @apply mr-3 w-full;
+            max-width: 10rem;
          }
     }
 
