@@ -1,9 +1,12 @@
 {% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
+{% set topBlocks = clone(entry.contentBlocksStandard).limit(1) %}
+{% set remainingBlocks = clone(entry.contentBlocksStandard).offset(1).all() %}
+
 {% block content %}
 
-    <section class="space-menu | space-b">
+    <section class="space-menu | space-b | no-print">
 
         {# Media Hero #}
         {% include '_components/page-hero--media' with { content: entry.articleHeroContent } %}
@@ -30,7 +33,7 @@
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: entry.contentBlocksStandard, dropCap: true } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks, dropCap: true } %}
 
             </div>
             
@@ -71,28 +74,28 @@
 
         {# Article + Aside (top) #}
         {% if entry.contentBlocksStandard|length>3 %}
-            
-            {# Content #}
-            <article class="entry-main -wide">
+        
+        {# Content #}
+        <article class="entry-main -wide">
 
-                {# Blocks #}
-                <div class="entry__blocks | longform-entry-blocks">
+            {# Blocks #}
+            <div class="entry__blocks | longform-entry-blocks">
 
-                    {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(3).all(), layoutClasses: 'narrow-block gutter-xl' } %}
+                {# Longform Content #}
+                {% include '_components/longform-entry-blocks' with { blocks: remainingBlocks, layoutClasses: 'narrow-block gutter-xl' } %}
 
-                    {# Citation #}
-                    {% if entry.citation is defined %}
-                        <div class="narrow-block gutter-xl">
-                            <div class="article-content entry-footnote">
-                                <small>{{ entry.citation }}</small>
-                            </div>
+                {# Citation #}
+                {% if entry.citation is defined %}
+                    <div class="narrow-block gutter-xl">
+                        <div class="article-content entry-footnote">
+                            <small>{{ entry.citation }}</small>
                         </div>
-                    {% endif %}
-                    
-                </div>
+                    </div>
+                {% endif %}
                 
-            </article>
+            </div>
+            
+        </article>
             
 
         {% endif %}
