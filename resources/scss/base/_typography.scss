@@ -3,6 +3,11 @@ body {
     @apply text-slate font-sans;
 }
 
+// Header Colors
+h1,h2,h3,h4,h5,h6 {
+    @apply text-slate-dark;
+}
+
 // Header Text Sizes
 .header {
     // - xxl -  56/36 *common

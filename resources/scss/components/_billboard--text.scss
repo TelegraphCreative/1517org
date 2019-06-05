@@ -37,6 +37,9 @@
     }
 }
 
+// Variations
+
+// Text / Center
 .billboard.-text.-center {
     @apply text-center;
 
@@ -50,7 +53,7 @@
         }
     }
 }
-// Variations
+
 // Image Left
 .billboard.-text.-image-left {
     @apply p-0;
@@ -79,13 +82,13 @@
         }
     }
 }
+
 // Basic
 .billboard.-text.-basic {
     // Content
     .billboard {
         &-title {
-            @apply mb-0 text-lg font-sans;
-            // header-xs (18/22)
+            @apply text-lg font-sans;
         }
         // action
         &__action {
@@ -98,11 +101,15 @@
     @screen md {
         // Content
         .billboard {
-            &__context-max {
-                @apply max-w-lg;
+            &__content-max {
+                @apply max-w-lg px-12 text-left;
             }
             &-title {
                 @apply text-2lg;
+            }
+
+            &__detail p {
+                @apply text-2lg leading-loose;
             }
         }
     }

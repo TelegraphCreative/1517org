@@ -6,6 +6,9 @@
     &.-bronze-light,
     &.-bronze {
         @apply bg-bronze-light text-white;
+        h1,h2,h3,h4,h5,h6 {
+            @apply text-white;
+        }
         // Button (primary)
         .btn {
             @apply bg-ivory-light border-ivory-light text-bronze-dark;
@@ -98,11 +101,23 @@
 // All
 .billboard {
     &.-sage,
+    &.-dark,
     &.-slate,
     &.-red {
         // Link (-underline)
+        h1,h2,h3,h4,h5,h6,
         .link {
             @apply text-ivory-light;
         }
+
+        .esv-crossref-link {
+            color: var(--ivory-lightest) !important;
+            border-color: var(--bronze) !important;
+            &:hover {
+                color: var(--bronze) !important;
+                border-color: var(--bronze) !important;
+            }
+        }
+        
     }
 }
