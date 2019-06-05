@@ -281,7 +281,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559679499
+dateModified: 1559742596
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -678,15 +678,16 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: cards
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
-      sources: '*'
+      sources:
+        - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       source: null
       targetSiteId: null
       viewMode: large
@@ -704,11 +705,11 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: heroes
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
-      singleUploadLocationSubpath: ''
+      singleUploadLocationSubpath: heroes
       restrictFiles: '1'
       allowedKinds:
         - image
@@ -1307,15 +1308,16 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: cards
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       singleUploadLocationSubpath: ''
       restrictFiles: '1'
       allowedKinds:
         - image
-      sources: '*'
+      sources:
+        - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       source: null
       targetSiteId: null
       viewMode: large
@@ -1386,9 +1388,9 @@ fields:
     translationKeyFormat: null
     type: craft\fields\Assets
     settings:
-      useSingleFolder: '1'
-      defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-      defaultUploadLocationSubpath: ''
+      useSingleFolder: ''
+      defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+      defaultUploadLocationSubpath: products
       singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
       singleUploadLocationSubpath: products
       restrictFiles: '1'
