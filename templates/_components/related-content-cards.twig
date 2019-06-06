@@ -1,3 +1,4 @@
+
 {% if entry.showRelatedEntries %}
 
     {% set entryTopics = entry.topics %}
@@ -24,9 +25,14 @@
                 {# Content Card - Stacked #} 
                 {% for entry in relatedEntries.limit(2).all() %}
                     {% if podcastCard is defined %}
-                        {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true } %}
+                        {% set podcastShow = entry.podcastShow.level(1).one() %}
+                        {% set cardImage = podcastShow.cardImagePodcast.one() %}
+                        {% if entry.cardImagePodcast|length %}
+                            {% set cardImage = entry.cardImagePodcast.one() %}
+                        {% endif %}
+                        {% include '_components/content-card--basic' with { content: entry, imageSource: cardImage, coverImage: true } %}
                     {% else %}
-                        {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImage } %}
+                        {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImage.one() } %}
                     {% endif %}
                 {% endfor %}
             

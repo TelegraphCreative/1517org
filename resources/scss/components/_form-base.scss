@@ -107,6 +107,13 @@
         }
     }
 
+    // Variations
+    // Purchase Form 
+    &.-purchase {
+        [type=submit] {
+            @apply mt-0;
+        }
+    }
     // Choices in -standard
     .-standard .choices__inner {
         @apply text-base text-slate-dark capitalize tracking-none
@@ -150,6 +157,8 @@
     [type='submit'] {
         @apply mt-4;
     }
+
+
 }
 
 // Screen

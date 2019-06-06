@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559763821
+dateModified: 1559786557
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -358,8 +358,8 @@ fieldlabels:
   4aad476a-6193-40a0-bdff-abe87c36f69c:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
     fieldLayout: 045b7ff7-4163-4ff5-83b4-cdaeae16f265
-    name: null
-    instructions: '812 × 812 / (1× 1)'
+    name: 'Episode Image'
+    instructions: '812 × 812 / (1× 1) | Episode will use Show Image if left blank.'
     hideName: false
     hideInstructions: false
   213a03be-928b-4865-b5ee-74ad735d3ba3:
@@ -1587,12 +1587,12 @@ fields:
     settings:
       defaultValue: null
       min: '2'
-      max: '10'
+      max: '6'
       decimals: 0
       size: null
       prefix: ''
       suffix: ''
-    contentColumnType: smallint(2)
+    contentColumnType: smallint(1)
     fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
   4223b4c9-999a-45fe-9ed2-96c209230d00:
     name: 'Max Count - Latest Content'
@@ -1605,12 +1605,12 @@ fields:
     settings:
       defaultValue: null
       min: '2'
-      max: null
+      max: '6'
       decimals: 0
       size: null
       prefix: ''
       suffix: ''
-    contentColumnType: integer(10)
+    contentColumnType: smallint(1)
     fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
   8c7f2b27-2ab6-4768-a810-4806f156d968:
     name: 'Max Count - Podcasts'
@@ -1623,12 +1623,12 @@ fields:
     settings:
       defaultValue: null
       min: '1'
-      max: null
+      max: '6'
       decimals: 0
       size: null
       prefix: ''
       suffix: ''
-    contentColumnType: integer(10)
+    contentColumnType: smallint(1)
     fieldGroup: 79dfa295-80d7-49be-afd3-5fc2a2080185
   ece72bc0-2c04-47f9-b8ac-df6dff3eded2:
     name: 'Latest Articles'
@@ -2169,6 +2169,25 @@ fields:
       allowTarget: ''
     contentColumnType: text
     fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
+  6d35a538-4992-427d-9052-1c4f266c5866:
+    name: 'Featured Event'
+    handle: featuredEvent
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:6dae438c-8b4a-44a7-9101-3b4e69096f41'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: Event
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -2953,15 +2972,16 @@ matrixBlockTypes:
         translationKeyFormat: null
         type: craft\fields\Assets
         settings:
-          useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-          defaultUploadLocationSubpath: ''
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          defaultUploadLocationSubpath: heroes
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
             - image
-          sources: '*'
+          sources:
+            - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           source: null
           targetSiteId: null
           viewMode: large
@@ -2996,7 +3016,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
@@ -3795,7 +3815,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: heroes
@@ -3837,7 +3857,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: carousel
@@ -3968,7 +3988,7 @@ matrixBlockTypes:
               width: ''
             147:
               width: ''
-            148:
+            257:
               width: ''
             149:
               width: ''
@@ -4028,6 +4048,8 @@ matrixBlockTypes:
           staticField: ''
           columns:
             152:
+              width: ''
+            265:
               width: ''
           fieldLayout: matrix
           selectionLabel: Button
@@ -5692,7 +5714,7 @@ sections:
                     required: true
                     sortOrder: 2
                   ca88b718-b5ea-4d62-907a-b2746232ec5a:
-                    required: true
+                    required: false
                     sortOrder: 3
               -
                 name: Main
@@ -6193,6 +6215,9 @@ sections:
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
                     sortOrder: 2
+                  6d35a538-4992-427d-9052-1c4f266c5866:
+                    required: false
+                    sortOrder: 3
               -
                 name: 'Billboard (Text)'
                 sortOrder: 2
@@ -7704,6 +7729,26 @@ superTableBlockTypes:
           allowTarget: '1'
         contentColumnType: text
         fieldGroup: null
+      e14a025f-cf25-41ec-a1f0-d1771ce3488b:
+        name: 'Button Style'
+        handle: buttonStyle
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Primary
+              value: btn
+              default: '1'
+            -
+              label: Outline
+              value: 'btn -outline -bronze'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
     fieldLayouts:
       da7db133-db23-4487-af63-5418a794ea17:
         tabs:
@@ -7714,6 +7759,9 @@ superTableBlockTypes:
               404edec7-399b-454c-a1a8-01b4ddf498f1:
                 required: true
                 sortOrder: 1
+              e14a025f-cf25-41ec-a1f0-d1771ce3488b:
+                required: false
+                sortOrder: 2
   4ab6ffe7-2e7f-4387-8afb-8693e6e67df9:
     field: 65967ff3-8a5d-49d4-966d-ee591b5fb85b
     fields:
