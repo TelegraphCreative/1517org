@@ -8,6 +8,15 @@ h1,h2,h3,h4,h5,h6 {
     @apply text-slate-dark;
 }
 
+.-red,
+.-slate,
+.-dark,
+.-sage {
+    h1,h2,h3,h4,h5,h6 {
+        @apply text-ivory-light;
+    }
+}
+
 // Header Text Sizes
 .header {
     // - xxl -  56/36 *common
