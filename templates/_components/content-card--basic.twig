@@ -7,9 +7,9 @@
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | mb-6 | no-print | block">
             {% if coverImage is defined %}
-                {{ global.coverImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+                {{ global.coverImage(imageSource, '-is16x9 -fit-cover -hover-scale' )}}
             {% else %}
-                {{ global.cardImage(imageSource.one(), '-is16x9 -fit-cover -hover-scale' )}}
+                {{ global.cardImage(imageSource, '-is16x9 -fit-cover -hover-scale' )}}
             {% endif %}
         </a>
         
