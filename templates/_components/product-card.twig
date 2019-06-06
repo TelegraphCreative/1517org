@@ -1,11 +1,13 @@
 {% import '_macros/global' as global %}
 
-<a href="{{ content.url }}" class="product-card">
+{% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
+
+<a href="{% if outOfStock %}#{% else %}{{ content.url }}{% endif %}" class="product-card">
     <div
         class="product-card__inner">
         {# Media #}
         <div class="product-card__media">
-            <div class="max-w-xxs w-full mx-auto">
+            <div class="max-w-xxs w-full mx-auto{% if outOfStock %} opacity-50{% endif %}">
                 {{ global.image( content.cardImageProduct.one(), '-is12x16 -fit-cover bg-ivory-lightest' )}}
             </div>
         </div>
@@ -19,36 +21,43 @@
             <div class="product-card__detail">
                 <div class="price | meta-label text-slate-light text-xs" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                     <meta content="USD" itemprop="priceCurrency"/>
-                    {# get lowest price #}
-                    {% set lowestPrice = content.defaultVariant.price %}
-                    {% set lowestSalePrice = content.defaultVariant.salePrice %}
-                    {% set onSale = false %}
-                    {% for variant in content.getVariants() %}
-                        {% if variant.onSale %}
-                            {% set onSale = true %}
-                            {% if variant.salePrice < lowestSalePrice %}
-                                {% set lowestSalePrice = variant.salePrice %}
+                    {% if outOfStock %}
+                        
+                        Out of Stock
+                    
+                    {% else %}
+
+                        {# get lowest price #}
+                        {% set lowestPrice = content.defaultVariant.price %}
+                        {% set lowestSalePrice = content.defaultVariant.salePrice %}
+                        {% set onSale = false %}
+                        {% for variant in content.getVariants() %}
+                            {% if variant.onSale %}
+                                {% set onSale = true %}
+                                {% if variant.salePrice < lowestSalePrice %}
+                                    {% set lowestSalePrice = variant.salePrice %}
+                                {% endif %}
                             {% endif %}
+                            {% if variant.price < lowestPrice %}
+                                {% set lowestPrice = variant.price %}
+                            {% endif %}
+                        {% endfor %}
+
+                        From
+                        <span class="amount" itemprop="price">
+
+                        {% if onSale %}
+                            <strike>
                         {% endif %}
-                        {% if variant.price < lowestPrice %}
-                            {% set lowestPrice = variant.price %}
+
+                        {{ lowestPrice|commerceCurrency(cart.currency) }}
+
+                        {% if onSale %}
+                            </strike> {{ lowestSalePrice|commerceCurrency(cart.currency) }}
                         {% endif %}
-                    {% endfor %}
 
-                    From
-                    <span class="amount" itemprop="price">
-
-                    {% if onSale %}
-                        <strike>
+                        </span>
                     {% endif %}
-
-                    {{ lowestPrice|commerceCurrency(cart.currency) }}
-
-                    {% if onSale %}
-                        </strike> {{ lowestSalePrice|commerceCurrency(cart.currency) }}
-                    {% endif %}
-
-                    </span>
                 </div>
                 <div class="detail | text-slate-light text-md | mt-1" itemprop="description">
                     {{ content.author }}
