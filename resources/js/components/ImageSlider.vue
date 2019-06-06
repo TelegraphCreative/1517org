@@ -3,7 +3,7 @@
     <ul class="slider-items list-reset">
       <li v-for="(item, index) in items" :key="index" class="slider-item">
         <figure>
-          <img :src="item.imageUrl" :alt="item.caption">
+          <img :src="item.imageUrl" :alt="item.caption" class="w-full">
         </figure>
         <figcaption v-if="item.caption">
           <p>{{ item.caption }}</p>

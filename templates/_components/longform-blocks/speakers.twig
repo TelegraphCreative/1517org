@@ -1,9 +1,9 @@
 {% import '_macros/global' as global %}
 
-<div class="bio-cards | narrow-block gutter-xl | space-b">
+<div class="bio-cards | narrow-block gutter-xl | space-b--sm space-t--sm">
     <h3 class="header-lg text-bronze-lighter font-serif pb-10">{{ block.header }}</h3>
 
-    <ul class="list-bios">
+    <ul class="list-bios | w-full">
 
     {% for speaker in block.list.speaker.all %}
 

@@ -25,6 +25,10 @@
         {% case "heroImageFullBleed" %}
             {% include '_components/longform-blocks/hero-image' %}
 
+        {# Speakers #}
+            {% case "speakers" %}
+                {% include '_components/longform-blocks/speakers' %}
+
         {# Entry Callout #}
         {% case "entryCallout" %}
             {% include '_components/longform-blocks/entry-callout' %}
@@ -46,7 +50,7 @@
             {% include '_components/longform-blocks/article-image-blocks' %}
 
         {# Image Slider #}
-        {% case "imageSlider" %}
+        {% case "imageCarousel" %}
             {% include '_components/longform-blocks/image-slider' %}
 
         {# Bio Cards #}

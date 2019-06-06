@@ -8,7 +8,7 @@
         <h1 class="header-xl font-serif">{{ content.title }}</h2>
 
         <div class="filter-bar">
-            <div class="item filter | mb-2">
+            <div class="item filter | mb-2 | font-sans">
                 <select_box
                     :opt="{ name: 'type', variant: '-md' }"
                     value="{{ craft.app.request.getParam('type') }}"

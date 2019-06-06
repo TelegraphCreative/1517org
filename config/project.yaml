@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559783690
+dateModified: 1559786557
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -4048,6 +4048,8 @@ matrixBlockTypes:
           staticField: ''
           columns:
             152:
+              width: ''
+            265:
               width: ''
           fieldLayout: matrix
           selectionLabel: Button

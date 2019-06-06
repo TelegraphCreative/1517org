@@ -1,6 +1,6 @@
 {% import '_macros/global' as global %}
 
-
+{% set podcastShow = content.podcastShow.level(1).one() %}
 
 {# Content #}
 <article class="content-hero -article{% if classes is defined %} | {{ classes }}{% endif %}">
@@ -47,7 +47,6 @@
         
         {# Media #}
         {# Use Podcast Show's Image unless Episode has a card image #}
-        {% set podcastShow = content.podcastShow.level(1).one() %}
         {% set cardImage = podcastShow.cardImagePodcast.one() %}
         {% if content.cardImagePodcast|length %}
             {% set cardImage = content.cardImagePodcast.one() %}
