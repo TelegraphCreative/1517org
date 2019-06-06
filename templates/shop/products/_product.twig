@@ -2,23 +2,27 @@
 {% import '_macros/global' as global %}
 
 {% set type = product.type %}
-{# {% set hasVariants = type == 'books' %} #}
+{% set hasVariants = type == 'books' %}
+{% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
 
-{# {% if hasVariants %} #}
-    {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
+{% if hasVariants %}
     {% set variant = craft.variants.id(variantId).one() %}
+    {% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
     {% set price = variant.price %}
-{# {% else %}
-    {% set price = product.salePrice %} #}
-{# {% endif %} #}
+    {% set salePrice = variant.salePrice %}
+{% else %}
+    {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
+    {% if not outOfStock %}
+        {% set price = product.price %}
+        {% set salePrice = product.salePrice %}
+    {% endif %}
+{% endif %}
+
 
 {% block content %}
 
-{# TODO: handle products out of stock, sales? #}
-
     {# Layout #}
-    <section
-        class="product-detail-layout | space-menu | flex-grid">
+    <section class="product-detail-layout | space-menu | flex-grid">
 
         {# Main #}
         <article class="entry-main">
@@ -43,10 +47,17 @@
                 <div class="detail | text-slate-light text-lg | mt-6" itemprop="description">
                     {{ product.author }}
                 </div>
-                <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <meta content="USD" itemprop="priceCurrency"/>
-                    <span class="amount" itemprop="price">{{ price|commerceCurrency(cart.currency) }}</span>
-                </div>
+                {% if not outOfStock %}
+                    <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <meta content="USD" itemprop="priceCurrency"/>
+                    {% if salePrice < price %}
+                        <span class="amount" itemprop="price"><strike>{{ price|commerceCurrency(cart.currency) }}</strike></span>
+                        <span class="amount" itemprop="price">{{ salePrice|commerceCurrency(cart.currency) }}</span>
+                    {% else %}
+                        <span class="amount" itemprop="price">{{ price|commerceCurrency(cart.currency) }}</span>
+                    {% endif %}
+                    </div>
+                {% endif %}
 
                 {# Purchase Form #}
                 <form method="POST" class="form-base -purchase | mt-6">
@@ -54,7 +65,7 @@
                     {{ redirectInput('shop/cart') }}
                     {{ csrfInput() }}
 
-                {# {% if hasVariants %} #}
+                {% if hasVariants %}
 
                     <div class="form-group -start">
                         <div class="field-group">
@@ -73,22 +84,23 @@
                         </div>
                     </div>
 
-                {# {% else %}
+                {% else %}
                     
-                    <input type="hidden" name="purchasableId" value="{{ product.purchasableId}}">
+                    <input type="hidden" name="purchasableId" value="{{ variantId}}">
 
-                {% endif %} #}
+                {% endif %}
 
                     <div class="form-group -start">
+                    {% if not outOfStock %}
                         <div class="field-group">
                             <input min="1" name="qty" type="number" value="1">
                         </div>
+                    {% endif %}
                         <div class="field-group">
-                            {# {% if not hasVariants or product.totalStock > 0 %} #}
-                            {% if product.hasUnlimitedStock or (product.hasUnlimitedStock == false and product.totalStock > 0 ) %}
-                                <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
-                            {% else %}
+                            {% if outOfStock %}
                                 <button class="btn -disabled -md">{{ "Out of Stock"|t }}</button>
+                            {% else %}
+                                <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
                             {% endif %}
                         </div>
                     </div>
