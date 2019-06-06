@@ -1,13 +1,19 @@
 {% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
+{% set podcastShow = entry.podcastShow.level(1).one() %}
+
 {% block content %}
 
     <section class="space-menu | space-b">
 
         {# Media Hero #}
-        {# {{ global.image( entry.heroImage.one(), '-fit-cover' )}} #}
-        {{ global.coverImage( entry.cardImagePodcast.one(), '-fit-cover -hover-scale' )}}
+        {# Use Podcast Show's Image unless Episode has a card image #}
+        {% set cardImage = podcastShow.cardImagePodcast.one() %}
+        {% if entry.cardImagePodcast|length %}
+            {% set cardImage = entry.cardImagePodcast.one() %}
+        {% endif %}
+        {{ global.coverImage( cardImage, '-fit-cover -hover-scale' )}}
         
         {# Podcast Player Full #}
         <podcast_player_full title="{{ entry.title }}" url="{{ entry.podcastLink }}" />

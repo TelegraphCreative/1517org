@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559763821
+dateModified: 1559769131
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -358,8 +358,8 @@ fieldlabels:
   4aad476a-6193-40a0-bdff-abe87c36f69c:
     field: ca88b718-b5ea-4d62-907a-b2746232ec5a
     fieldLayout: 045b7ff7-4163-4ff5-83b4-cdaeae16f265
-    name: null
-    instructions: '812 × 812 / (1× 1)'
+    name: 'Episode Image'
+    instructions: '812 × 812 / (1× 1) | Episode will use Show Image if left blank.'
     hideName: false
     hideInstructions: false
   213a03be-928b-4865-b5ee-74ad735d3ba3:
@@ -2953,15 +2953,16 @@ matrixBlockTypes:
         translationKeyFormat: null
         type: craft\fields\Assets
         settings:
-          useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-          defaultUploadLocationSubpath: ''
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          defaultUploadLocationSubpath: heroes
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
             - image
-          sources: '*'
+          sources:
+            - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           source: null
           targetSiteId: null
           viewMode: large
@@ -2996,7 +2997,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
@@ -5692,7 +5693,7 @@ sections:
                     required: true
                     sortOrder: 2
                   ca88b718-b5ea-4d62-907a-b2746232ec5a:
-                    required: true
+                    required: false
                     sortOrder: 3
               -
                 name: Main

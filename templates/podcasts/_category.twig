@@ -46,7 +46,6 @@
                         {% set sources = sources|merge([source]) %}
                     {% endfor %}
                     {% set featuredAll = section.relatedTo(sources) %}
-                    {{ featuredAll|length }}
                     {# {% set featuredSingle = featuredAll[0] %} #}
                 
                 {# Pull Featured #}
@@ -64,6 +63,7 @@
 
             {# Content Card - Hero #} 
             {# {% include '_components/content-hero--podcast' with { content: featuredSingle, 'classes': background } %} #}
+            
 
         </div>
     {% endif %}
@@ -77,7 +77,6 @@
 
     {# Topics List #}
     <div id="content" class="container--sm gutter-md | space-b">
-
         {# Content Card - Podcast #} 
         {% for entry in entries.all() %}
             {% include '_components/content-card--podcast' with { content: entry, 'classes': '' } %}
