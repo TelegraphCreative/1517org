@@ -24,7 +24,7 @@
                 
                 {% for entry in indexList.all() %}
                     {# Content Card - Stacked #}
-                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true} %}
+                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast.one(), coverImage: true} %}
                 {% endfor %}
 
             </div>

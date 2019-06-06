@@ -19,10 +19,13 @@
     </section>
 
     {# Featured  #}
+    {% if entry.featuredEvent|length %}
     <div id="featured" class="container | space-b--sm">
         {# Content Card - Hero #}
-        {% include '_components/content-hero--event' with { content: entry.headerAction.entry, classes: '-dark' } %}
+        {% include '_components/content-hero--event' with { content: entry.featuredEvent.one(), classes: '-dark' } %}
     </div>
+    {% endif %}
+    
 
     {# Filters #}
     {# {% include "_components/filters-page--sections" %} #}

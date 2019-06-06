@@ -24,12 +24,12 @@
             <div class="flex-grid">
                 {# Content Card - Stacked #} 
                 {% for entry in relatedEntries.limit(2).all() %}
-                    {% set podcastShow = entry.podcastShow.level(1).one() %}
-                    {% set cardImage = podcastShow.cardImagePodcast.one() %}
-                    {% if entry.cardImagePodcast|length %}
-                        {% set cardImage = entry.cardImagePodcast.one() %}
-                    {% endif %}
                     {% if podcastCard is defined %}
+                        {% set podcastShow = entry.podcastShow.level(1).one() %}
+                        {% set cardImage = podcastShow.cardImagePodcast.one() %}
+                        {% if entry.cardImagePodcast|length %}
+                            {% set cardImage = entry.cardImagePodcast.one() %}
+                        {% endif %}
                         {% include '_components/content-card--basic' with { content: entry, imageSource: cardImage, coverImage: true } %}
                     {% else %}
                         {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImage.one() } %}
