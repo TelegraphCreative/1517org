@@ -1,43 +1,47 @@
 {% extends "_layouts/base" %} 
 {% import '_macros/global' as global %} 
+
+{# params #}
+{% set searchQuery = craft.app.request.getParam('q') %}
+{% set format = craft.app.request.getParam('format') %}
+{% set topic = craft.app.request.getParam('topic') %}
+{% set author = craft.app.request.getParam('author') %}
+
+{# full lists for drop downs #}
+{% set allSections = craft.sections.getAllSections() %}
+{% set sections = [] %}
+{% for section in allSections %}
+    {% if section.type == 'channel' and section.handle != 'authors' %}
+        {% set sections = sections|merge([section]) %}
+    {% endif %}
+{% endfor %}
+{% set topics = craft.categories().group('topics').all() %}
+{% set authors = craft.entries.section('authors').all() %}
+
+{# apply sections #}
+{% set sectionFilter = format ?: sections|join(',') %}
+
+{# build out relationships #}
+{% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
+{% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+{% set topicParam = topicCat ? { targetElement: topicCat } %}
+{% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
+{% set relationParams = [topicParam, authorParam]|filter %}
+
+{# entries query #}
+{% set entries = craft.entries({
+    search: searchQuery,
+    section: sectionFilter,
+    relatedTo: relationParams ? ['and']|merge(relationParams) : null
+}) %}
+
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit) as pageInfo, pageEntries %}
+
+{# count #}
+{% set count = entries|length %}
+
 {% block content %}
-
-    {# params #}
-    {% set searchQuery = craft.app.request.getParam('q') %}
-    {% set format = craft.app.request.getParam('format') %}
-    {% set topic = craft.app.request.getParam('topic') %}
-    {% set author = craft.app.request.getParam('author') %}
-
-    {# full lists for drop downs #}
-    {% set allSections = craft.sections.getAllSections() %}
-    {% set sections = [] %}
-    {% for section in allSections %}
-        {% if section.type == 'channel' and section.handle != 'authors' %}
-            {% set sections = sections|merge([section]) %}
-        {% endif %}
-    {% endfor %}
-    {% set topics = craft.categories().group('topics').all() %}
-    {% set authors = craft.entries.section('authors').all() %}
-
-    {# apply sections #}
-    {% set sectionFilter = format ?: sections|join(',') %}
-
-    {# build out relationships #}
-    {% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
-    {% set authorCat = author ? craft.entries.section('authors').id(author).first %}
-    {% set topicParam = topicCat ? { targetElement: topicCat } %}
-    {% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
-    {% set relationParams = [topicParam, authorParam]|filter %}
-
-    {# entries query #}
-    {% set entries = craft.entries({
-        search: searchQuery,
-        section: sectionFilter,
-        relatedTo: relationParams ? ['and']|merge(relationParams) : null
-    }) %}
-
-    {# count #}
-    {% set count = entries|length %}
 
     <section class="space-menu ">        
         <div class="space-b--sm">
@@ -49,10 +53,10 @@
     </section>
 
     {# Topics List #}
-    <div id="content" class="container--sm gutter-md | space-b">
+    <div id="content" class="page-entries container--sm gutter-md | space-b">
 
-        {% if entries|length %}
-            {% for entry in entries %}
+        {% if pageEntries|length %}
+            {% for entry in pageEntries %}
                 {% include "_components/content-cards" with { content: entry } %}
             {% endfor %}
         {% else %}
@@ -60,5 +64,12 @@
         {% endif %}
         
     </div>
+
+    {# Pagination #}
+    {% if pageInfo.nextUrl %}
+        <div class="pagination">
+            <a href="{{ pageInfo.nextUrl }}" class="pagination__next">Next</a>
+        </div>
+    {% endif %}
 
 {% endblock %}
