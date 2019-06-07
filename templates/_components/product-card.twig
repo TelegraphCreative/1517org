@@ -2,7 +2,7 @@
 
 {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
 
-<a href="{% if outOfStock %}#{% else %}{{ content.url }}{% endif %}" class="product-card">
+<a href="{{ content.url }}" class="product-card">
     <div
         class="product-card__inner">
         {# Media #}
