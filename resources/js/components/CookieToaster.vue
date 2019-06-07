@@ -6,8 +6,8 @@
         class="cookie-toaster w-full fixed pin-b pin-l p-6 bg-slate-dark z-20 text-white"
       >
         <div class="container--xs gutter--xl | md:flex-grid items-center">
-          <header class="cookie-consent__header | paragraphs -xs">
-            <h2 class="header-sm font-serif">{{ header }}</h2>
+          <header class="cookie-consent__header | paragraphs -xs | max-w-sm">
+            <h2 class="header-sm font-serif | text-white" v-if="header">{{ header }}</h2>
             <p>{{ description }}</p>
           </header>
           <div class="cookie-consent__action | button-group">
