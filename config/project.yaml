@@ -18,7 +18,7 @@ categoryGroups:
             sortOrder: 1
             fields:
               d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                required: true
+                required: false
                 sortOrder: 1
               ca88b718-b5ea-4d62-907a-b2746232ec5a:
                 required: true
@@ -70,7 +70,7 @@ categoryGroups:
             sortOrder: 1
             fields:
               d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                required: true
+                required: false
                 sortOrder: 1
               94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                 required: false
@@ -97,7 +97,7 @@ categoryGroups:
             sortOrder: 1
             fields:
               d1d49bde-5ce4-4d3c-8f23-2be42f71d471:
-                required: true
+                required: false
                 sortOrder: 1
               ca88b718-b5ea-4d62-907a-b2746232ec5a:
                 required: true
@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1559786557
+dateModified: 1560202064
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -330,6 +330,8 @@ fieldlabels:
     fieldLayout: 32914909-f583-472d-9317-301345052744
     name: 'Card Image'
     instructions: null
+    hideName: false
+    hideInstructions: false
   f2470ab9-f6b7-4fd5-9f5e-73045ce4a42b:
     field: a202e5e1-45ca-48c6-b70d-43f5a4dc95bf
     fieldLayout: 6fdb88bf-d327-494b-ad46-383c2f371293
