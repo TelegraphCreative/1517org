@@ -35,17 +35,14 @@
     relatedTo: relationParams ? ['and']|merge(relationParams) : null
 }) %}
 
-{% set pageLimit = 5 %}
+{# {% set pageLimit = 1 %}
 {% paginate entries.limit(pageLimit) as pageInfo, pageEntries %}
 
-{% if pageInfo.nextUrl %}
-    {% set nextUrl = url(pageInfo.nextUrl, {
-        format: format,
-        topic: topic,
-        author: author,
-        q: searchQuery 
-    }) %}
-{% endif %}
+{% if '?p' in pageInfo.nextUrl  %}
+    {% set nextUrl = pageInfo.nextUrl~'&format='~format~'&topic='~topic~'&author='~author~'&q='~searchQuery %} 
+{% else %}
+    {% set nextUrl = pageInfo.nextUrl~'?format='~format~'&topic='~topic~'&author='~author~'&q='~searchQuery %} 
+{% endif %} #}
 
 {# count #}
 {% set count = entries|length %}
@@ -64,8 +61,8 @@
     {# Topics List #}
     <div id="content" class="page-entries container--sm gutter-md | space-b">
 
-        {% if pageEntries|length %}
-            {% for entry in pageEntries %}
+        {% if entries|length %}
+            {% for entry in entries %}
                 {% include "_components/content-cards" with { content: entry } %}
             {% endfor %}
         {% else %}
@@ -75,10 +72,10 @@
     </div>
 
     {# Pagination #}
-    {% if nextUrl is defined %}
+    {# {% if pageInfo.nextUrl %}
         <div class="pagination">
             <a href="{{ nextUrl }}" class="pagination__next">Next</a>
         </div>
-    {% endif %}
+    {% endif %} #}
 
 {% endblock %}
