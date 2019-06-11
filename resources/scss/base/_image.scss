@@ -1,143 +1,142 @@
-// Magic Calculation: padding-top: calc(591.44 / 1127.34 * 100%); 
+// Magic Calculation: padding-top: calc(591.44 / 1127.34 * 100%);
 .image {
-  @apply relative
+    @apply relative
         overflow-hidden;
 
-  // Background
-  img,
-  .background {
-    @apply absolute
+    // Background
+    img,
+    .background {
+        @apply absolute
             pin-t pin-l
             w-full
             h-full;
-    backface-visibility: hidden;
-  }
-
-  .background {
-    background-position: center;
-    background-size: cover;
-  }
-
-  // Cove
-  &.-cover {
-    padding-top: 56.25% !important;
-
-    img {
-      width: 36%;
-      left: 50%;
-      top: 50%;
-      height: 60%;
-      margin-left: -18%;
-      margin-top: -18%;
+        backface-visibility: hidden;
     }
-  }
 
-  // Show Overflow
-  &.-show-overflow {
-    @apply .overflow-visible;
-  }
-
-  // Ratios
-  &.-is1x1 {
-    padding-top: 100% !important; 
-    &.-force {
-      padding-top: 100% !important; 
+    .background {
+        background-position: center;
+        background-size: cover;
     }
-  }
 
-  &.-is12x16 {
-    padding-top: 130.25%;
-  }
+    // Cover
+    &.-cover {
+        padding-top: 56.25% !important;
 
-  &.-is8x20 {
-    padding-top: 169.25%;
-  }
-
-  &.-is8x10 {
-    padding-top: 125%;
-  }
-
-  &.-is16x12 {
-    padding-top: 76.35%;
-  }
-
-  &.-is16x9 {
-    padding-top: 56.25%;
-  }
-
-  &.-is2x1 {
-    padding-top: 50%;
-  }
-
-  &.-is3x2 {
-    padding-top: 40.7%;
-  }
-
-  // Fit and Position
-  &.-fit {
-    &-cover img {
-      object-fit: cover;
+        img {
+            width: 36%;
+            left: 50%;
+            top: 50%;
+            height: 60%;
+            margin-left: -18%;
+            margin-top: -18%;
+        }
     }
-    &-contain img {
-      object-fit: contain;
-    }
-  }
 
-  @media (max-width: 767px) {
-    .object-right--sm {
-      object-position: right;
+    // Show Overflow
+    &.-show-overflow {
+        @apply .overflow-visible;
     }
-  }
 
-  // Hover Transitions
-  &.-hover-scale {
-    img {
-      @apply property-all duration-3 timing-3;
-      transform: scale(1);
+    // Ratios
+    &.-is1x1 {
+        padding-top: 100% !important;
+        &.-force {
+            padding-top: 100% !important;
+        }
     }
-    &:hover {
-      img {
-        transform: scale(1.02);
-      }
-    }
-  }
 
-  // // Shadow
-  // &.-inner-shadow::before {
-  //   content: "";
-  //   @apply absolute 
-  //       h-full w-full
-  //       pin-t pin-l
-  //       z-10
-  //       block
-  //       shadow-inner;
-  // }
-  // &.rounded-full.-inner-shadow::before {
-  //   @apply rounded-full;
-  // }
-
-  // Screens
-  @screen md {
-    &.-md\:is2x1 {
-      padding-top: 50%;
+    &.-is12x16 {
+        padding-top: 130.25%;
     }
-  }
+
+    &.-is8x20 {
+        padding-top: 169.25%;
+    }
+
+    &.-is8x10 {
+        padding-top: 125%;
+    }
+
+    &.-is16x12 {
+        padding-top: 76.35%;
+    }
+
+    &.-is16x9 {
+        padding-top: 56.25%;
+    }
+
+    &.-is2x1 {
+        padding-top: 50%;
+    }
+
+    &.-is3x2 {
+        padding-top: 40.7%;
+    }
+
+    // Fit and Position
+    &.-fit {
+        &-cover img {
+            object-fit: cover;
+        }
+        &-contain img {
+            object-fit: contain;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .object-right--sm {
+            object-position: right;
+        }
+    }
+
+    // Hover Transitions
+    &.-hover-scale {
+        img {
+            @apply property-all duration-3 timing-3;
+            transform: scale(1);
+        }
+        &:hover {
+            img {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    // // Shadow
+    // &.-inner-shadow::before {
+    //   content: "";
+    //   @apply absolute
+    //       h-full w-full
+    //       pin-t pin-l
+    //       z-10
+    //       block
+    //       shadow-inner;
+    // }
+    // &.rounded-full.-inner-shadow::before {
+    //   @apply rounded-full;
+    // }
+
+    // Screens
+    @screen md {
+        &.-md\:is2x1 {
+            padding-top: 50%;
+        }
+    }
 }
-
 
 // Inline Background
 .inline-background {
-  @apply w-full h-full;
+    @apply w-full h-full;
 
-  background-position: top center;
-  background-size: cover;
+    background-position: top center;
+    background-size: cover;
 
-  // Hover Transitions
-  &.-hover-scale {
-      @apply property-all duration-3 timing-3;
-      transform: scale(1);
-    &:hover {
-        transform: scale(1.02);
+    // Hover Transitions
+    &.-hover-scale {
+        @apply property-all duration-3 timing-3;
+        transform: scale(1);
+        &:hover {
+            transform: scale(1.02);
+        }
     }
-  }
 }
