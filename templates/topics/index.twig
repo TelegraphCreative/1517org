@@ -1,16 +1,12 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-
 {% block content %}
 
     {# Page Header #}
     <section class="space-menu ">
-        {% set content = { 
-                    title: 'Topics'
-                } 
-            %}
-        {% include "_components/static/page-header" with { content: content } %}
+        {% set content = { title: 'Topics' } %}
+        {% include "_components/page-header" with { content: content } %}
     </section>
 
     {# Topics List #}
@@ -21,9 +17,6 @@
         
         <ul class="menu-list -bronze -columns | w-full | links-hover--red">
             
-            {# Layout Example (static) #}
-            {# {% include "_components/static/static-topic-example" %} #}
-
             {# Categories #}
             {% nav category in group.all() %}
                 
