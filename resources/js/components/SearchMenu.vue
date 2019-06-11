@@ -44,6 +44,7 @@ export default {
         doSearch() {
             const url = new Url
             url.path = '/search'
+            url.clearQuery()
             if (this.query) {
                 url.query.q = this.query
             } else {

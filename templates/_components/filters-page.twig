@@ -1,3 +1,5 @@
+{# Required: Count #}
+
 <div class="page-filters flex-grid items-center | container--sm gutter-md | space-b">
     
     <div class="filter-bar | md:w-1/2 w-full">
@@ -46,17 +48,15 @@
 
     </div>
     
-    {% if count is defined %}
-        <div class="page-filters__meta | md:w-1/2 w-full | text-right">
-            <div class="meta-label">
-            {{ count }}
-            {% if count == 1 %}
-                Entry
-            {% else %}
-                Entries
-            {% endif %}
-            </div>
+    <div class="page-filters__meta | md:w-1/2 w-full | text-right">
+        <div class="meta-label">
+        {{ count }}
+        {% if count == 1 %}
+            Entry
+        {% else %}
+            Entries
+        {% endif %}
         </div>
-    {% endif %}
+    </div>
     
 </div>

@@ -1,30 +1,30 @@
-{# Required
-    - Count 
-    - Series
-    - Topics
-#}
+{# Required: Count #}
 
 <div class="page-filters flex-grid items-center | container--sm gutter-md | space-b">
 
     <div class="filter-bar | md:w-1/2 w-full">
+    {% if contentFormats is defined %}
         <div class="item filter | mb-2">
             <select_box :opt="{ name: 'format', variant: '-md' }">
-                {% set contentFormates = ['articles', 'podcasts', 'events', 'videos', 'courses'] %}
+                {% set contentFormats = ['articles', 'podcasts', 'events', 'videos', 'courses'] %}
                 <option value="All Formats" selected>All Formats</option>
-                    {% for format in contentFormates %}
+                    {% for format in contentFormats %}
                         <option value="{{format}}">{{format}}</option>
                     {% endfor %}
         </div>
+    {% endif %}
 
 
+    {% if topics is defined %}
         <div class="item filter | mb-2">
             <select_box :opt="{ name: 'topic', variant: '-md' }">
                 <option value="All Topics" selected>All Topics</option>
-                    {% for topic in relatedTopics %}        
+                    {% for topic in topics %}        
                         <option value="{{ topic.url }}">{{ topic.title }}</option>
                     {% endfor %}
             </select_box>
         </div>
+    {% endif %}
 
     </div>
     

@@ -1,8 +1,24 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-{% set indexList = craft.entries.section('events') %}
-{% set totalEvents = indexList|length %}
+{# filtering #}
+{% set topic = craft.app.request.getParam('topic') %}
+{% set topics = craft.categories().group('topics').all() %}
+{% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
+{% set topicParam = topicCat ? { targetElement: topicCat } %}
+
+{% set entries = craft.entries({
+    section: 'events',
+    relatedTo: topicParam ?: null
+}) %}
+
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit).order('postDate desc') as pageInfo, pageEntries %}
+{% set count = pageInfo.total %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, { topic: topic }) %}
+{% endif %}
 
 {% block content %}
 
@@ -28,14 +44,14 @@
     
 
     {# Filters #}
-    {# {% include "_components/filters-page--sections" %} #}
+    {% include "_components/filters-page" %}
 
     {# Events List #}
-    {% if totalEvents > 0 %}
+    {% if count > 0 %}
 
         {% set numberBeforeBillboard = 3 %}
-        {% set eventsBeforeBillboard = indexList | slice(0,numberBeforeBillboard) %}
-        {% set eventsAfterBillboard = indexList | slice(numberBeforeBillboard,totalEvents) %}
+        {% set eventsBeforeBillboard = pageEntries | slice(0,numberBeforeBillboard) %}
+        {% set eventsAfterBillboard = pageEntries | slice(numberBeforeBillboard,count) %}
         
         {# Card List #}
         <div id="events" class="container--sm gutter-md | space-b">
@@ -50,26 +66,26 @@
             
         </div>
 
-    {# Billboard #}
-    {% if entry.showBillboardText %}
+        {# Billboard #}
+        {% if entry.showBillboardText %}
 
-        <div id="request-a-speaker" class="space-b">
-            {# Text Billboard #}
-            {% set billboardContent = { 
-                header: entry.billboardHeader,
-                description: entry.billboardDescription,
-                button: entry.billboardButton,
-                buttonStyle: entry.billboardButtonStyle,
-                background: entry.billboardBackground,
-                image: entry.image
-            } %}
-            {% include '_components/billboard--text' with { classes: '-image-left -bronze-light', content: billboardContent } %}
-        </div>
+            <div id="request-a-speaker" class="space-b">
+                {# Text Billboard #}
+                {% set billboardContent = { 
+                    header: entry.billboardHeader,
+                    description: entry.billboardDescription,
+                    button: entry.billboardButton,
+                    buttonStyle: entry.billboardButtonStyle,
+                    background: entry.billboardBackground,
+                    image: entry.image
+                } %}
+                {% include '_components/billboard--text' with { classes: '-image-left -bronze-light', content: billboardContent } %}
+            </div>
 
-    {% endif %}
+        {% endif %}
 
         {# Card List #}
-        <div id="events" class="container--sm gutter-md | space-b">
+        <div id="events" class="page-entries container--sm gutter-md | space-b">
             
             {# Content Card - Podcast #} 
             {% for entry in eventsAfterBillboard %}
@@ -81,11 +97,17 @@
             
         </div>
 
+        {% include "_components/pagination" %}
+
     {% else %}
         
         {# No Entries #}
         <div class="text-center space-b">
+        {% if topic %}
+           There are no Events that match the Topic you've selected. 
+        {% else %}
             There are no Events available right now.  
+        {% endif %}
         </div>
 
     {% endif %}

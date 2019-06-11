@@ -32,6 +32,7 @@
 {% set entries = craft.entries({
     search: searchQuery,
     section: sectionFilter,
+    order: 'postDate desc',
     relatedTo: relationParams ? ['and']|merge(relationParams) : null
 }) %}
 
@@ -58,7 +59,7 @@
             {% include "_components/form-search" %}
         </div>
         {# Filters #}
-        {% include "_components/static/filters-page" %}
+        {% include "_components/filters-page" %}
     </section>
 
     {# Topics List #}
@@ -74,11 +75,6 @@
         
     </div>
 
-    {# Pagination #}
-    {% if nextUrl is defined %}
-        <div class="pagination">
-            <a href="{{ nextUrl }}" class="pagination__next">Next</a>
-        </div>
-    {% endif %}
+    {% include "_components/pagination" %}
 
 {% endblock %}
