@@ -4,14 +4,17 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-{% set type = craft.app.request.getParam('type') ?: ['books','audio'] %}
-{% set productGridSize = 9 %}
-{% set numberOfProducts = craft.app.request.getParam('number') ?: productGridSize %}
+{% set type = craft.app.request.getParam('type') %}
+{% set types = type ?: ['books','audio'] %}
+{% set entries = craft.products.type(types) %}
 
-{% set products = craft.products({
-    limit: numberOfProducts,
-    type: type
-}) %}
+{% set gridSize = 9 %}
+{% paginate entries.limit(gridSize).order('postDate desc') as pageInfo, pageEntries %}
+{% set count = pageInfo.total %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, { type: type }) %}
+{% endif %}
 
 {% block content %}
 
@@ -36,22 +39,30 @@
     {# Product List #}
     <div class="container--sm gutter-md | space-b" id="products">
 
-        <div class="flex-grid">
+    {% if count > 0 %}
+
+        <div class="page-entries flex-grid">
             {# Product Grid #}
-            {% for product in products.all() %}
+            {% for product in pageEntries %}
                 {# Product Card #}
                 {% include '_components/product-card' with { content: product } %}
             {% endfor %}
         </div>
 
-        {% if products|length > numberOfProducts %}
-        <div class="inf-pagination-control">
-            {# {{ global.link('', 'btn -light -bronze', 'Show more products') }} #}
-            <a href="?number={{ numberOfProducts + productGridSize }}" class="btn -light -bronze">
-                Show more products
-            </a>
-        </div>
+       {% include "_components/pagination" %}
+
+    {% else %}
+        
+        {# No Entries #}
+        <div class="text-center space-b">
+        {% if type %}
+           There are no Products that match the Format you've selected. 
+        {% else %}
+            There are no Products available right now.  
         {% endif %}
+        </div>
+
+    {% endif %}
 
     </div>
 

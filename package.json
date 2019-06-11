@@ -18,6 +18,7 @@
     "bunnyjs": "^0.14.41",
     "choices.js": "^7.0.0",
     "domurl": "^2.2.0",
+    "infinite-scroll": "^3.0.6",
     "laravel-mix": "^4.0.15",
     "laravel-mix-tailwind": "^0.1.0",
     "lazysizes": "^4.1.7",

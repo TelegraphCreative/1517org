@@ -21,6 +21,7 @@ import seconds_to_time_filter from './filters/SecondsToTime'
 import print from './components/Print'
 import share from './components/Share'
 import dropcap from './components/DropCap'
+import infiniteScroll from './components/InfiniteScroll'
 
 // Vue App
 const app = new Vue({
@@ -48,3 +49,4 @@ const app = new Vue({
 
 // Other Initializations
 dropcap()
+infiniteScroll()

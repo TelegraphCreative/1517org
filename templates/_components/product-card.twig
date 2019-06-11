@@ -2,9 +2,8 @@
 
 {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
 
-<a href="{{ content.url }}" class="product-card">
-    <div
-        class="product-card__inner">
+<a href="{{ content.url }}" class="content-card product-card">
+    <div class="product-card__inner">
         {# Media #}
         <div class="product-card__media">
             <div class="max-w-xxs w-full mx-auto{% if outOfStock %} opacity-50{% endif %}">
