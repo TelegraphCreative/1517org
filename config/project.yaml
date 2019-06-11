@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1560202064
+dateModified: 1560260378
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -369,6 +369,8 @@ fieldlabels:
     fieldLayout: 169d46c8-008b-4c0d-8d45-47153e669d2b
     name: null
     instructions: '772 × 434 / (16× 9)'
+    hideName: false
+    hideInstructions: false
   cfa1a870-528f-4657-a675-aff71718cf99:
     field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
     fieldLayout: c6377610-fd87-4189-b3a9-f00bb612ad86
@@ -6083,7 +6085,7 @@ sections:
                 sortOrder: 3
                 fields:
                   8e7cd322-96ae-4173-9807-4a103598e9c9:
-                    required: true
+                    required: false
                     sortOrder: 1
                   a8ddce4c-468a-4ff3-b531-c61d499863de:
                     required: true
