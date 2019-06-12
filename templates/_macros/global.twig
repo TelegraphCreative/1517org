@@ -53,10 +53,14 @@
     {% else %}
         {% set classes = '' %}
     {% endif %}
-    
+
+    {% set style = "padding-top: calc(" ~ source.height ~ " / " ~ source.width ~ " * 100%);" %}{% if source.mimeType != 'image/png' %}
+        {% set style = style ~ " background: " ~ source.optimize.colorPalette[0] %}
+    {% endif %}
+
     {# Source #}
     {% if source|length %}
-        <figure class="image | {{ classes }}" style="padding-top: calc({{source.height}} / {{source.width}} * 100%); background: {{ source.optimize.colorPalette[0] }}">
+        <figure class="image | {{ classes }}" style="{{ style }}">
             <img data-src="{{ source.optimize.src() }}"
                 data-srcset="{{ source.optimize.srcset() }}"
                 sizes="100vw"
