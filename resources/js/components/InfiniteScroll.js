@@ -1,6 +1,7 @@
 import InfiniteScroll from 'infinite-scroll'
 
 export default function () {
+    console.log('initializing Infinite Scroll')
     var pagination = document.querySelector('.pagination__next')
     var elem = document.querySelector('.page-entries')
     if (pagination) {
