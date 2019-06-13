@@ -1,6 +1,9 @@
 {% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
+{% set topBlocks = clone(entry.contentBlocksStandard).limit(3) %}
+{% set remainingBlocks = clone(entry.contentBlocksStandard).offset(3).all() %}
+
 {% set podcastShow = entry.podcastShow.level(1).one() %}
 
 {% block content %}
@@ -49,7 +52,7 @@
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: entry.contentBlocksStandard } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks } %}
 
             </div>
             
@@ -80,7 +83,7 @@
 
 
         {# Article + Aside (bottom) #}
-        {% if entry.contentBlocksStandard|length>3 %}
+        {% if remainingBlocks|length or entry.citation %}
             
             {# Content #}
             <article class="entry-main -wide">
@@ -89,10 +92,10 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(3).all(), layoutClasses: 'narrow-block gutter-xl' } %}
+                    {% include '_components/longform-entry-blocks' with { blocks: remainingBlocks, layoutClasses: 'narrow-block gutter-xl' } %}
 
                     {# Citation #}
-                    {% if entry.citation is defined %}
+                    {% if entry.citation %}
                         <div class="narrow-block gutter-xl">
                             <div class="article-content entry-footnote">
                                 <small>{{ entry.citation }}</small>

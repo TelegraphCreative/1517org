@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1560260378
+dateModified: 1560445313
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -2363,7 +2363,7 @@ matrixBlockTypes:
         fieldGroup: null
       e34c55a7-1a2e-4c83-bae0-a19d5f3422a8:
         name: Buttons
-        handle: button
+        handle: buttons
         instructions: ''
         searchable: true
         translationMethod: site
@@ -2372,7 +2372,7 @@ matrixBlockTypes:
         settings:
           minRows: ''
           maxRows: '2'
-          contentTable: '{{%stc_3_button}}'
+          contentTable: '{{%stc_3_buttons}}'
           localizeBlocks: false
           staticField: ''
           columns:
@@ -2413,7 +2413,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: heroes
