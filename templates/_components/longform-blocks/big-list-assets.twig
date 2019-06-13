@@ -14,14 +14,15 @@
                 
                 <div class="list-asset__content">
 
-                    <a href="{{ item.resource.url }}" target="_blank">
+                    {% if item.resource|length %}<a href="{{ item.resource.url }}" target="_blank">{% endif %}
                         <h4 class="header-sm font-serif">{{ item.header }} </h4>
                         {% if item.supportingCopy|length %}
                             <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
                         {% endif %}
-                    </a>
+                    {% if item.resource|length %}</a>{% endif %}
                 </div>
-                
+
+            {% if item.resource|length %}
                 <div class="list-asset__action">
                     {% if "Url" in item.resource.type  %}
                         {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-right', '-md' ) }}
@@ -29,6 +30,7 @@
                         {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
                     {% endif %}
                 </div>
+            {% endif %}
                 
             </li>
             {% endfor %}
