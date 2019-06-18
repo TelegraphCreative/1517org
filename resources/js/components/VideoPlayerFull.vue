@@ -8,7 +8,7 @@
       <play_icon :classes=" 'icon -lg absolute z-20 align-yx w-24 md:w-48 lg:w-64' "/>
       <img :src="imgSrc" class="absolute w-screen max-w-full z-10 h-full">
     </div>
-    <div :style="`padding:${aspectRatio}% 0 0 0`" class="relative">
+    <div :style="`padding:${aspectRatio}% 0 0 0; top:-1px;`" class="relative">
       <iframe
         :src="`https://player.vimeo.com/video/${vimeoId}`"
         class="absolute pin-t pin-l w-full h-full max-w-full"
