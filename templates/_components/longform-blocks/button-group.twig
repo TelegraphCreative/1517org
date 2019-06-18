@@ -6,9 +6,11 @@
     {% endif %}
     
     {# Actions #}
+    {% if block.button|length %}
     <div class="button-group__actions">
-        {% for item in block.buttons.all() %}
+        {% for item in block.button.all() %}
             {{ global.link(item.button, item.buttonStyle)}}
         {% endfor %}
     </div>
+    {% endif %}
 </div>

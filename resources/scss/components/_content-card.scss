@@ -10,4 +10,10 @@
             @apply text-slate;
         }
     }
+
+    // Video Cover
+    .video-cover {
+        @apply h-full;
+        object-fit: cover;
+    }
 }

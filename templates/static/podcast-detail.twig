@@ -13,7 +13,7 @@
         {# Podcast Player Full #}
         {% set rel = entry.podcastEmbed.one() %}
         {% if rel %}
-            <podcast_player_full title="{{ entry.title }}" filename="{{ rel.filename }}" />
+            <podcast_player_full source="Name of Show" title="{{ entry.title }}" filename="{{ rel.filename }}" />
         {% endif %}
 
     </section>
