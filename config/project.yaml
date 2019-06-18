@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1560445313
+dateModified: 1560885761
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -2192,6 +2192,21 @@ fields:
       localizeRelations: false
     contentColumnType: string
     fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+  5f2447be-b55b-4f02-98e4-78b8fb52f080:
+    name: 'Shop Index Feature'
+    handle: shopIndexFeature
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: '1'
+      contentTable: '{{%matrixcontent_shopindexfeature}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -5350,6 +5365,224 @@ matrixBlockTypes:
               750e2ac9-2154-4eb2-b868-401153d41617:
                 required: true
                 sortOrder: 5
+  94479c2f-c67b-4709-ae68-8d01eb2e1787:
+    field: 5f2447be-b55b-4f02-98e4-78b8fb52f080
+    name: 'Billboard (floated image)'
+    handle: billboardFloatedImage
+    sortOrder: 1
+    fields:
+      48784560-c546-4dde-b89e-303f88a424df:
+        name: Header
+        handle: header
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      4b87535e-a9e9-454d-bf05-8a99392d6a47:
+        name: Description
+        handle: description
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\redactor\Field
+        settings:
+          redactorConfig: Minimal.json
+          purifierConfig: ''
+          cleanupHtml: true
+          removeInlineStyles: '1'
+          removeEmptyTags: '1'
+          removeNbsp: '1'
+          purifyHtml: '1'
+          columnType: text
+          availableVolumes: '*'
+          availableTransforms: '*'
+        contentColumnType: text
+        fieldGroup: null
+      7adedba0-e4f0-4e1d-ab64-64217ab366ed:
+        name: Image
+        handle: image
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          defaultUploadLocationSubpath: products
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: ''
+          restrictFiles: '1'
+          allowedKinds:
+            - image
+          sources:
+            - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: Image
+          localizeRelations: false
+        contentColumnType: string
+        fieldGroup: null
+      be878870-a89c-4b06-b793-4de0749de14d:
+        name: Button
+        handle: button
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: fruitstudios\linkit\fields\LinkitField
+        settings:
+          selectLinkText: ''
+          types:
+            fruitstudios\linkit\models\Email:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Phone:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Url:
+              enabled: '1'
+              customLabel: ''
+              customPlaceholder: ''
+              allowAlias: '1'
+              allowMailto: '1'
+              allowHash: '1'
+              allowPaths: '1'
+            fruitstudios\linkit\models\Twitter:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Facebook:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Instagram:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\LinkedIn:
+              enabled: ''
+              customLabel: ''
+              customPlaceholder: ''
+            fruitstudios\linkit\models\Entry:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Category:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\Asset:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+            fruitstudios\linkit\models\User:
+              enabled: ''
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+              userPath: ''
+            fruitstudios\linkit\models\Product:
+              enabled: '1'
+              customLabel: ''
+              sources: '*'
+              customSelectionLabel: ''
+          allowCustomText: '1'
+          defaultText: ''
+          allowTarget: '1'
+        contentColumnType: text
+        fieldGroup: null
+      94927909-abb6-4483-bbac-3479268e3483:
+        name: 'Button Style'
+        handle: buttonStyle
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Primary
+              value: btn
+              default: '1'
+            -
+              label: Text
+              value: 'link -underline'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      9cc99086-dd6c-4bb3-9c1f-be75ad6103e9:
+        name: 'Background Color'
+        handle: backgroundColor
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Clay
+              value: '-red'
+              default: '1'
+            -
+              label: Slate
+              value: '-slate'
+              default: ''
+            -
+              label: Sage
+              value: '-sage'
+              default: ''
+            -
+              label: Ivory
+              value: '-bronze-light'
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      e86a4992-1ea8-4276-a0fe-6f3d03a44a6d:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              48784560-c546-4dde-b89e-303f88a424df:
+                required: false
+                sortOrder: 1
+              4b87535e-a9e9-454d-bf05-8a99392d6a47:
+                required: false
+                sortOrder: 2
+              7adedba0-e4f0-4e1d-ab64-64217ab366ed:
+                required: false
+                sortOrder: 3
+              be878870-a89c-4b06-b793-4de0749de14d:
+                required: false
+                sortOrder: 4
+              94927909-abb6-4483-bbac-3479268e3483:
+                required: false
+                sortOrder: 5
+              9cc99086-dd6c-4bb3-9c1f-be75ad6103e9:
+                required: false
+                sortOrder: 6
 navigate:
   nav:
     0354414e-e4df-4181-af4b-a67fd04d500d:
@@ -6605,6 +6838,36 @@ sections:
                 sortOrder: 3
                 fields:
                   c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
+  8059f8b3-29c7-4bbc-ada9-02b225fa73df:
+    name: Shop
+    handle: shop
+    type: channel
+    enableVersioning: true
+    propagateEntries: true
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: shop
+        template: shop
+    entryTypes:
+      d9533e8e-4dd5-47b4-b4d6-46dddf8f8306:
+        name: Shop
+        handle: shop
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          92bfd666-b3fe-4756-a5be-1b77bc7b8103:
+            tabs:
+              -
+                name: 'Featured Content'
+                sortOrder: 1
+                fields:
+                  5f2447be-b55b-4f02-98e4-78b8fb52f080:
                     required: false
                     sortOrder: 1
 siteGroups:
