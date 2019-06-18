@@ -6,7 +6,8 @@
     Optional Content:
     - Detail
 #}
-<header class="page-header {% if classes is defined %}| {{ classes }}{% endif %} | container--sm gutter-md | space-t space-b--sm">
+<header class="page-header {% if classes is defined %}| {{ classes }}{% endif %}">
+    <div class="| container--sm gutter-md | space-t space-b--sm">
 
     <div class="page-header__title">
         <h1 class="header-xl font-serif">{{ content.title }}</h2>
@@ -26,11 +27,14 @@
                 </p>
             {% endif %}
             {% if content.action is defined and content.action|length %}
-                {# <a href="" class="">Keep Reading</a> #}
                 {{ global.link( content.action, 'link | meta-label | ml-2' ) }}
             {% endif %}
         </div>
 
     </div>
     {% endif %}
+
+    {# Pattern #}
+    {{ global.patterns( "one", "-light") }}
+    </div>
 </header>

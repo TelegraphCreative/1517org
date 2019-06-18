@@ -1,25 +1,29 @@
-.pattern {
+.pattern-path {
+    opacity: 0.5;
+    fill: #f7f4f2;
+}
 
-    background:url('/dist/assets/svg/pattern-crosshatch.svg') repeat;
-    
-    // -Green
-    &--green {
-        background:url('/dist/assets/svg/pattern-crosshatch--green.svg') repeat;
-    }
-    
-    // -white
-    &--white {
-        background:url('/dist/assets/svg/pattern-crosshatch--white.svg') repeat;
+// Page Header Pattern
+.page-header {
+    .pattern {
+        @apply absolute pin-t pin-l w-full;
+        z-index: -1;
     }
 }
 
-// Variations
-.pattern,
-[class^="pattern--"] {
-     // Medium Size
-     &.-md {
-        height: 3.25rem;
-        width: 12.5rem;
+// Billboard Pattern
+.billboard {
+    .pattern {
+        @apply absolute pin-b pin-l w-full;
+        transform: rotate(180deg);
     }
-    
+    &.-sage .pattern-path {
+        fill: #9cb4ae;
+    }
+    &.-slate .pattern-path {
+        fill: #3e4447;
+    }
+    &.-red .pattern-path {
+        fill: #aa3d2c;
+    }
 }
