@@ -1,23 +1,11 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-{% set type = product.type %}
-{% set hasVariants = type == 'books' %}
 {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
-
-{% if hasVariants %}
-    {% set variant = craft.variants.id(variantId).one() %}
-    {% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
-    {% set price = variant.price %}
-    {% set salePrice = variant.salePrice %}
-{% else %}
-    {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
-    {% if not outOfStock %}
-        {% set price = product.price %}
-        {% set salePrice = product.salePrice %}
-    {% endif %}
-{% endif %}
-
+{% set variant = craft.variants.id(variantId).one() %}
+{% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
+{% set price = variant.price %}
+{% set salePrice = variant.salePrice %}
 
 {% block content %}
 
@@ -32,8 +20,8 @@
                 <ul class="list-reset">
                     <li>
                         {# bleh. url({ param: value}) not working? #}
-                        <a class="link -underline -sm " href="{{ url('shop', 'type=' ~ type) }}">
-                            Shop / {{ type }}
+                        <a class="link -underline -sm " href="{{ url('shop', 'type=' ~ product.type) }}">
+                            Shop / {{ product.type }}
                         </a>
                     </li>
                 </ul>
@@ -65,7 +53,8 @@
                     {{ redirectInput('shop/cart') }}
                     {{ csrfInput() }}
 
-                {% if hasVariants %}
+                {# only books have variants #}
+                {% if product.type == 'books' %}
 
                     <div class="form-group -start">
                         <div class="field-group">
