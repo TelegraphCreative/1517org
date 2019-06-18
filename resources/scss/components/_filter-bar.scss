@@ -3,20 +3,19 @@
 
     // Filter
     .filter {
-       @apply mr-0;
-       width: 49%;
+        @apply mr-0;
+        width: 49%;
     }
 
-    // Screen 
+    // Screen
     // MD
     @screen md {
         @apply justify-start;
-        
+
         // Filter
         .filter {
             @apply mr-3 w-full;
-            max-width: 10rem;
-         }
+            max-width: 11.5rem;
+        }
     }
-
 }
