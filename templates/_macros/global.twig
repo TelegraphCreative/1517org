@@ -60,12 +60,14 @@
 
     {# Source #}
     {% if source|length %}
+
         <figure class="image | {{ classes }}" style="{{ style }}">
             <img data-src="{{ source.optimize.src() }}"
                 data-srcset="{{ source.optimize.srcset() }}"
                 sizes="100vw"
                 class="lazyload blur-up" 
-                itemprop="image"/>
+                itemprop="image"
+            >
         </figure>
 
     {% else %}
