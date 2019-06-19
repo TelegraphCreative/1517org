@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1560885761
+dateModified: 1560965321
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -381,6 +381,8 @@ fieldlabels:
     fieldLayout: 34466302-ab55-43b0-bfab-c4083da3bcb6
     name: null
     instructions: '772 × 434 / (16× 9)'
+    hideName: false
+    hideInstructions: false
 fields:
   8e7cd322-96ae-4173-9807-4a103598e9c9:
     name: 'Podcast Show'
@@ -6518,7 +6520,7 @@ sections:
                     required: true
                     sortOrder: 1
                   44ed3589-35f9-41e5-a842-913e07ba4354:
-                    required: true
+                    required: false
                     sortOrder: 2
                   94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                     required: true
