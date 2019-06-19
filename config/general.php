@@ -29,7 +29,7 @@ return [
 
         // Log new user in automatically
         'autoLoginAfterAccountActivation' => true,
-        'allowedFileExtensions' => '7z, aiff, asf, avi, bmp, csv, doc, docx, epub, fla, flv, gif, gz, gzip, htm, html, jp2, jpeg, jpg, jpx, js, mid, mov, mp3, mp4, m4a, m4v, mpc, mpeg, mpg, ods, odt, ogg, ogv, pdf, png, potx, pps, ppsm, ppsx, ppt, pptm, pptx, ppz, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, svg, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vob, vsd, wav, webm, wma, wmv, xls, xlsx, zip',
+        'allowedFileExtensions' => '7z, aiff, asf, avi, bmp, csv, doc, docx, epub, fla, flv, gif, gz, gzip, htm, html, jp2, jpeg, jpg, jpx, js, mid, mobi, mov, mp3, mp4, m4a, m4v, mpc, mpeg, mpg, ods, odt, ogg, ogv, pdf, png, potx, pps, ppsm, ppsx, ppt, pptm, pptx, ppz, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, svg, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vob, vsd, wav, webm, wma, wmv, xls, xlsx, zip',
 
         'pageTrigger' => '?page',
     ],
