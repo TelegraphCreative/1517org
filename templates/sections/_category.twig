@@ -12,7 +12,7 @@
         {% set sections = sections|merge([section]) %}
     {% endif %}
 {% endfor %}
-{% set authors = craft.entries.section('authors').all() %}
+{% set authors = craft.entries.section('authors').order('firstName asc').all() %}
 
 {# apply sections #}
 {% set sectionFilter = format ?: sections|join(',') %}
