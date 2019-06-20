@@ -55,16 +55,12 @@
             </ul>
 
             {# Author #}
-            
-            <div class="meta-summary-block">
-                <div class="meta-summary__media -narrow">
-                    {{ global.image(entry.authorLink.one().photo.one(), '-is1x1 -force -fit-cover | rounded-full ')}}
+            {% if entry.authorLink|length %}
+                {% set authorLink = entry.authorLink.one() %}
+                <div class="meta-summary-block">
+                    {% include "_components/author-bio--short" with { content: authorLink } %}
                 </div>
-                <div class="author-bio__detail">
-                    <h6>About the Author</h6>
-                    <p>{{ entry.authorLink.one().shortDescription }}</p>
-                </div>
-            </div>
+            {% endif %}
             
             {# Ad #}
             {% include "_components/product-ad" with { content: entry.productAd } %}

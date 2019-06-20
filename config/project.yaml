@@ -376,6 +376,8 @@ fieldlabels:
     fieldLayout: c6377610-fd87-4189-b3a9-f00bb612ad86
     name: null
     instructions: '772 × 434 / (16× 9)'
+    hideName: false
+    hideInstructions: false
   3faa3a22-fdd0-4931-9428-3a6a6acee7cc:
     field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
     fieldLayout: 34466302-ab55-43b0-bfab-c4083da3bcb6
@@ -2023,13 +2025,13 @@ fields:
     translationKeyFormat: null
     type: ether\simplemap\fields\MapField
     settings:
-      lat: 37.7792808
-      lng: -122.4192363
+      lat: 51.272154
+      lng: 0.514951
       zoom: 15
-      country: US
+      country: null
       hideSearch: ''
       hideMap: ''
-      hideAddress: ''
+      hideAddress: '1'
       showLatLng: ''
       hideLatLng: null
       height: null
@@ -6103,7 +6105,7 @@ sections:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         enabledByDefault: true
         hasUrls: true
-        uriFormat: 'authors/{slug}'
+        uriFormat: 'contributors/{slug}'
         template: authors/_entry
     entryTypes:
       4b7d7d49-8e55-46bd-9aeb-dbb21f124bb6:
@@ -6237,7 +6239,7 @@ sections:
                     required: true
                     sortOrder: 3
                   86187559-6daa-4d48-b4ec-3abeb5672fa1:
-                    required: true
+                    required: false
                     sortOrder: 4
                   94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                     required: true

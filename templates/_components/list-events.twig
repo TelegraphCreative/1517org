@@ -8,7 +8,7 @@
 
             <div class="list-event__container | flex-grid">
                 <a
-                    class="list-event__media" href="#">
+                    class="list-event__media" href="{{ item.url }}">
                     {# Label #}
                     <h4 class="content-label -date -light -flush">
                         <div class="content-label__mo">{{ item.postDate | date( 'M') }}</div>
@@ -21,7 +21,7 @@
                 </a>
 
                 <div class="list-event__content">
-                    <a href="#">
+                    <a href="{{ item.url }}">
                         <h3 class="header -sm font-serif | mb-2 mt-6">
                             {{ item.title }}
                         </h3>

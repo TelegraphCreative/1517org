@@ -17,9 +17,10 @@
     WHEN NO IMAGE IS DEFINED: This billboard automatically changes into Billboard Text Centered as a design fallback.
 #}
 
-<div class="billboard -text {% if block.image|length %} -floated-img{% else %} -center{% endif%} | {{ block.backgroundColor }} | no-print">
-    <div class="billboard__container container">
-    
+
+<div class="billboard -text | relative {% if block.image|length %} -floated-img{% else %} -center{% endif%} | {{ block.backgroundColor }} | no-print">
+    <div class="billboard__container | relative z-10 container">
+
         {% if block.image|length %}
             <div class="billboard__media">
                 <div class="billboard__floated">
@@ -57,4 +58,7 @@
         </header>
 
     </div>
+
+    {# Pattern #}
+    {{ global.patterns( "one", "-sage") }}
 </div>

@@ -6,6 +6,8 @@
         @apply list-reset;
     }
 
+    
+
     &__item {
         @apply text-base
         mb-4;
@@ -54,11 +56,13 @@
     @screen md {
         // Nested
         &.-columns {
-            @apply flex flex-wrap flex-col justify-start h-screen;
-            // flex-direction: column;
-            // flex-wrap: wrap;
-            // height: 100vh;
-            // justify-content: flex-start;
+            column-count: 3;
+        }
+
+        &__group {
+            break-inside: avoid-column;
+            -webkit-column-break-inside: avoid;
+            display: table;
         }
     }
 }

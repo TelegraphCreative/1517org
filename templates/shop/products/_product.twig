@@ -1,11 +1,27 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
+{% set type = product.type %}
+{% set hasVariants = type == 'books' %}
 {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
+
 {% set variant = craft.variants.id(variantId).one() %}
 {% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
 {% set price = variant.price %}
 {% set salePrice = variant.salePrice %}
+
+{# {% if hasVariants %}
+    {% set variant = craft.variants.id(variantId).one() %}
+    {% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
+    {% set price = variant.price %}
+    {% set salePrice = variant.salePrice %}
+{% else %}
+    {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
+    {% if not outOfStock %}
+        {% set price = craft.variants.id(variantId).one().price %}
+        {% set salePrice = craft.variants.id(variantId).one().salePrice %}
+    {% endif %}
+{% endif %} #}
 
 {% block content %}
 
@@ -20,8 +36,8 @@
                 <ul class="list-reset">
                     <li>
                         {# bleh. url({ param: value}) not working? #}
-                        <a class="link -underline -sm " href="{{ url('shop', 'type=' ~ product.type) }}">
-                            Shop / {{ product.type }}
+                        <a class="link -underline -sm " href="{{ url('shop', 'type=' ~ type) }}">
+                            Shop / {{ type }}
                         </a>
                     </li>
                 </ul>
@@ -53,8 +69,7 @@
                     {{ redirectInput('shop/cart') }}
                     {{ csrfInput() }}
 
-                {# only books have variants #}
-                {% if product.type == 'books' %}
+                {% if hasVariants %}
 
                     <div class="form-group -start">
                         <div class="field-group">

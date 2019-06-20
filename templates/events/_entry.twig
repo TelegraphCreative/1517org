@@ -95,6 +95,7 @@
             </li>
 
             {# Info #}
+            {% if entry.recommendedHotel|length %}
             <li class="display-print">
                 <div class="addr-label | meta-label | text-slate-light">
                     <p>Recommended Hotel:</p>
@@ -103,6 +104,8 @@
                     </a>
                 </div>
             </li>
+            {% endif %}
+            
 
             {# Share/Print #}
             <li>
