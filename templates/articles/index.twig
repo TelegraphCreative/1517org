@@ -1,6 +1,40 @@
 {% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
-{% set indexList = craft.entries.section('articles') %}
+
+{# params #}
+{% set topic = craft.app.request.getParam('topic') %}
+{% set author = craft.app.request.getParam('author') %}
+
+{# full lists for drop downs #}
+{% set topics = craft.categories().group('topics').order('title asc').all() %}
+{% set authors = craft.entries.section('authors').order('firstName asc').all() %}
+
+{# build out relationships #}
+{% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
+{% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+{% set topicParam = topicCat ? { targetElement: topicCat } %}
+{% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
+{% set relationParams = [topicParam, authorParam]|filter %}
+
+{# entries query #}
+{% set entries = craft.entries({
+    section: 'articles',
+    order: 'postDate desc',
+    relatedTo: relationParams ? ['and']|merge(relationParams) : null
+}) %}
+
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit) as pageInfo, pageEntries %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, {
+        topic: topic,
+        author: author
+    }) %}
+{% endif %}
+
+{# count #}
+{% set count = entries|length %}
 
 {% block content %}
 
@@ -17,14 +51,17 @@
 
     </section>
 
+    {# Filters #}
+    {% include "_components/filters-page" %}
+
     {# Topics List #}
-    {% if indexList.count > 0 %}
+    {% if pageEntries|length %}
     
         <div id="articles" class="container--sm gutter-md | md:flex-grid | space-b--sm">
             {# Latest Cards #}
-            <div class="flex-grid">
+            <div class="page-entries flex-grid">
                 
-                {% for entry in indexList.all() %}
+                {% for entry in pageEntries %}
 
                 {% include '_components/content-cards' with { content: entry } %}
 
@@ -59,5 +96,7 @@
         </div>
 
     {% endif %} #}
+
+    {% include "_components/pagination" %}
 
 {% endblock %}

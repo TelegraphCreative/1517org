@@ -15,7 +15,7 @@
         {% set sections = sections|merge([section]) %}
     {% endif %}
 {% endfor %}
-{% set topics = craft.categories().group('topics').all() %}
+{% set topics = craft.categories().group('topics').order('title asc').all() %}
 {% set authors = craft.entries.section('authors').order('firstName asc').all() %}
 
 {# apply sections #}
