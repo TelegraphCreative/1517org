@@ -24,6 +24,14 @@
         {% from _self import errorList %}
 
         <div class="form-group">
+
+            {# 
+            Notes: Saves which Course they signed up for. Phase 1 is setup so user signs up 1x for ALL courses.
+            For Phase 2, this will be expanded so users sign up for EACH course
+            #}
+            <input id="subscribed" type="hidden" name="fields[subscribedToCourses]" required value="{{ lastSegment }}">
+
+
             <div class="field-group | w-1/2">
 
                 <label class="standard-label" for="email">

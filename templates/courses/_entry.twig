@@ -5,12 +5,17 @@
 
 {% set topBlocks = clone(entry.contentBlocksCourse).limit(2) %}
 {% set courseSubscriber = false %}
-{% if currentUser and (currentUser.isInGroup('courseSubscribers') or currentUser.admin) %}
+
+{# Check if user is signed in and if they are either an admin or  have subscribed to a course #}
+{% if currentUser and currentUser.subscribedToCourses|length or currentUser.admin) %}
+    {% set subscribedTo = currentUser.subscribedToCourses %}
     {% set courseSubscriber = true %}
     {% set remainingBlocks = clone(entry.contentBlocksCourse).offset(2).all() %}
 {% endif %}
 
+
 <section class="space-menu | space-b | no-print">
+
     {% if courseSubscriber %}
     {# Signed In View:
         - Hides `course-hero--anon` partial
