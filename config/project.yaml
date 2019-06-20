@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1560965321
+dateModified: 1561057926
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5814,6 +5814,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  retour:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.7
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
