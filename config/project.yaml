@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1561057926
+dateModified: 1561071232
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -771,7 +771,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '82'
-          format: jpg
+          format: ''
         -
           width: '992'
           useAspectRatio: ''
@@ -780,7 +780,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '82'
-          format: jpg
+          format: ''
         -
           width: '768'
           useAspectRatio: ''
@@ -789,7 +789,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '60'
-          format: jpg
+          format: ''
         -
           width: '576'
           useAspectRatio: ''
@@ -798,7 +798,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '60'
-          format: jpg
+          format: ''
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   24c123a8-1d09-4025-a414-fa85da64ab81:
@@ -4199,11 +4199,13 @@ matrixBlockTypes:
         settings:
           sources:
             - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+            - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+            - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
           source: null
           targetSiteId: null
           viewMode: null
           limit: '10'
-          selectionLabel: Article
+          selectionLabel: Content
           localizeRelations: false
         contentColumnType: string
         fieldGroup: null
