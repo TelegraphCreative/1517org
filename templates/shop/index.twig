@@ -27,13 +27,11 @@
     </section>
 
     {# Featured  #}
-    <div class="container | space-b--sm" id="featured"> {# Billboard - Placeholder Content #}
-        {% set placeholderEntry = craft.entries.section('podcasts')[2] %}
-        {% set placeholderBillboard = placeholderEntry.contentBlocksStandard[6] %}
-
-        {# Billboard - Floated #}
-        {% include "_components/billboard--floated-img" with { block: placeholderBillboard } %}
+    {% if entry is defined and entry.shopIndexFeature|length %}
+    <div class="container | space-b--sm" id="featured">
+        {% include "_components/billboard--floated-img" with { block: entry.shopIndexFeature.one() } %}
     </div>
+    {% endif %}
 
 
     {# Product List #}

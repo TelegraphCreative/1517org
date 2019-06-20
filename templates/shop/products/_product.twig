@@ -5,7 +5,12 @@
 {% set hasVariants = type == 'books' %}
 {% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
 
-{% if hasVariants %}
+{% set variant = craft.variants.id(variantId).one() %}
+{% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
+{% set price = variant.price %}
+{% set salePrice = variant.salePrice %}
+
+{# {% if hasVariants %}
     {% set variant = craft.variants.id(variantId).one() %}
     {% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
     {% set price = variant.price %}
@@ -16,8 +21,7 @@
         {% set price = craft.variants.id(variantId).one().price %}
         {% set salePrice = craft.variants.id(variantId).one().salePrice %}
     {% endif %}
-{% endif %}
-
+{% endif %} #}
 
 {% block content %}
 

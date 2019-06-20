@@ -12,7 +12,7 @@
         {% set sections = sections|merge([section]) %}
     {% endif %}
 {% endfor %}
-{% set authors = craft.entries.section('authors').all() %}
+{% set authors = craft.entries.section('authors').order('firstName asc').all() %}
 
 {# apply sections #}
 {% set sectionFilter = format ?: sections|join(',') %}
@@ -20,12 +20,12 @@
 {# build out relationships #}
 {% set authorCat = author ? craft.entries.section('authors').id(author).first %}
 {% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
-{% set relationParams = authorParam ?: null %}
+{% set relationParams = [{ targetElement: category }, authorParam]|filter %}
 
 {% set entries = craft.entries({
     section: sectionFilter,
     order: 'postDate desc',
-    relatedTo: relationParams
+    relatedTo: ['and']|merge(relationParams)
 }) %}
 
 {% set pageLimit = 5 %}
