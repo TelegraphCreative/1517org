@@ -13,8 +13,8 @@
 {% else %}
     {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
     {% if not outOfStock %}
-        {% set price = product.price %}
-        {% set salePrice = product.salePrice %}
+        {% set price = craft.variants.id(variantId).one().price %}
+        {% set salePrice = craft.variants.id(variantId).one().salePrice %}
     {% endif %}
 {% endif %}
 

@@ -1,11 +1,8 @@
 // Content Card
 .content-card.-stacked {
-
     @apply w-full mb-16;
 
     .content-card {
-
-
         // Content
         &__content {
             @apply mb-6 px-6;
@@ -24,30 +21,28 @@
         // Meta
         &__meta {
             @apply pt-4;
-        } 
+        }
     }
 
     // Label
     .content-label {
-        a { @apply text-red; }
+        a {
+            @apply text-red;
+        }
 
         &:hover {
-            border-color: rgba(199,80,62,0.1);
+            border-color: rgba(199, 80, 62, 0.1);
         }
     }
 
-
-    // Screen 
+    // Screen
     // MD
     @screen md {
-        @apply pr-4 mb-0;
+        @apply pr-4;
         width: 44%;
-
 
         &:nth-of-type(even) {
             @apply mt-20 pr-0 pl-4;
         }
-
-        
     }
 }

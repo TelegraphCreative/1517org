@@ -27,7 +27,7 @@
 
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | no-print">
-            {{ global.image( content.cardImage.one(), '-is2x1 -fit-cover -hover-scale' )}}
+            {{ global.imageSetRatio( content.cardImage.one(), '-is16x9 -fit-cover -hover-scale' )}}
         </a>
 
         {# Meta #}
