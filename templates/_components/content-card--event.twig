@@ -25,7 +25,15 @@
                     <li>
                         <a href="{{ content.url }}" class="align-items-center">
                             {{ global.utilityIcon('calendar', '-sm') }}
-                            <div class="meta-label | ml-3">{{ content.eventDate }}</div>
+                            <div class="meta-label | ml-3">
+                                {% if content.eventStartDate %}
+                                    {% set dates = [content.eventStartDate] %}
+                                    {% if content.eventEndDate %}
+                                        {% set dates = dates|merge([content.eventEndDate]) %}
+                                    {% endif %}
+                                    {% include "_components/dates" with { dates: dates } %}
+                                {% endif %}
+                            </div>
                         </a>
                     </li>
 

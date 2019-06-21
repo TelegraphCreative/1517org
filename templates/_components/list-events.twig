@@ -11,8 +11,8 @@
                     class="list-event__media" href="{{ item.url }}">
                     {# Label #}
                     <h4 class="content-label -date -light -flush">
-                        <div class="content-label__mo">{{ item.postDate | date( 'M') }}</div>
-                        <div class="content-label__day">{{ item.postDate | date( 'd') }}</div>
+                        <div class="content-label__mo">{{ item.eventStartDate | date( 'M') }}</div>
+                        <div class="content-label__day">{{ item.eventStartDate | date( 'd') }}</div>
                     </h4>
 
                     <div class="md:pl-6">

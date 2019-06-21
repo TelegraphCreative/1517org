@@ -8,8 +8,8 @@
             
             {# Label #}
             <h4 class="content-label -date">
-                <div class="content-label__mo">{{ content.postDate | date( 'M') }}</div>
-                <div class="content-label__day">{{ content.postDate | date( 'd') }}</div>
+                <div class="content-label__mo">{{ content.eventStartDate | date( 'M') }}</div>
+                <div class="content-label__day">{{ content.eventStartDate | date( 'd') }}</div>
             </h4>
 
             <a href="{{ content.url }}" class="block">

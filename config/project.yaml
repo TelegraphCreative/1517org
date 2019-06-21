@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1561073027
+dateModified: 1561131408
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -2228,6 +2228,34 @@ fields:
       columnType: text
     contentColumnType: text
     fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
+  9374cebc-45f4-45bc-9715-b0ebb71396de:
+    name: 'Event Start Date'
+    handle: eventStartDate
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Date
+    settings:
+      showDate: true
+      showTime: false
+      minuteIncrement: '30'
+    contentColumnType: datetime
+    fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
+  c0cfb388-a0c1-4208-a07b-a68ff1235c50:
+    name: 'Event End Date'
+    handle: eventEndDate
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Date
+    settings:
+      showDate: true
+      showTime: false
+      minuteIncrement: '30'
+    contentColumnType: datetime
+    fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -6258,15 +6286,21 @@ sections:
                   9bd567bd-0e00-4268-a9ac-9293204b2ab9:
                     required: true
                     sortOrder: 2
-                  fc574e36-797b-4f2b-8ee6-d321bcea2ecd:
+                  9374cebc-45f4-45bc-9715-b0ebb71396de:
                     required: true
                     sortOrder: 3
-                  86187559-6daa-4d48-b4ec-3abeb5672fa1:
+                  c0cfb388-a0c1-4208-a07b-a68ff1235c50:
                     required: false
                     sortOrder: 4
-                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                  fc574e36-797b-4f2b-8ee6-d321bcea2ecd:
                     required: true
                     sortOrder: 5
+                  86187559-6daa-4d48-b4ec-3abeb5672fa1:
+                    required: false
+                    sortOrder: 6
+                  94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
+                    required: true
+                    sortOrder: 7
               -
                 name: Main
                 sortOrder: 2
