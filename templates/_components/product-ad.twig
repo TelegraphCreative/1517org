@@ -1,5 +1,35 @@
 {% import '_macros/global' as global %}
-{% if content is defined %}
+
+{# article ads #}
+{% if block is defined %}
+    {% if block['defaultVariant'] is defined %}
+        {% set product = true %}
+        {% set image = block.cardImageProduct[0] %}
+    {% else %}
+        {% set product = false %}
+        {% set image = block.cardImagePodcast[0] %}
+    {% endif %}
+
+    <div class="meta-summary-block">
+        <a href="{{ block.url }}" class="meta-summary__media block">
+            {{ global.image(image, '-fit-cover -hover-scale bg-ivory-lightest') }}
+        </a>
+        <div class="meta-summary__detail">
+            <h6>
+                <a href="{{ block.url }}" class="hover:text-bronze">
+                    {{ block.title }}
+                </a>
+            </h6>
+
+            <p>{{ block.shortDescription }}</p>
+            {% if product %}
+                <p>{{ block.defaultVariant.salePrice|commerceCurrency(cart.currency) }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+{# podcast ads #}
+{% elseif content is defined %}
 
     {% for block in content.all() %}
 
@@ -7,7 +37,7 @@
             {% case "customAd" %}
                 <div class="meta-summary-block">
                     <div class="meta-summary__media">
-                        {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest')}}
+                        {{ global.image(block.image.one(), '-fit-cover bg-ivory-lightest') }}
                     </div>
                     <div class="meta-summary__detail">
                         <h6>{{ block.header }}</h6>
@@ -18,7 +48,7 @@
             {% case "productLink" %}
                 <div class="meta-summary-block">
                     <a href="{{ block.product.one().url }}" class="meta-summary__media block">
-                        {{ global.image( block.product.one().cardImageProduct.one(), '-fit-cover -hover-scale bg-ivory-lightest')}}
+                        {{ global.image(block.product.one().cardImageProduct.one(), '-fit-cover -hover-scale bg-ivory-lightest') }}
                     </a>
                     <div class="meta-summary__detail">
                         <h6>
