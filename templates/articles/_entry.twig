@@ -67,9 +67,11 @@
                 {% set ad = entry.productAd %}
             {% else %}
                 {% set author = entry.authorLink.one() %}
-                {% set products = author.featuredProducts %}
-                {% set podcastShows = author.featuredPodcastShow %}
-                {% set ad = shuffle(products|merge(podcastShows))[0] %}
+                {% if author.featuredProducts|length or author.featuredPodcastShow|length %}
+                    {% set products = author.featuredProducts %}
+                    {% set podcastShows = author.featuredPodcastShow %}
+                    {% set ad = shuffle(products|merge(podcastShows))[0] %}
+                {% endif %}
             {% endif %}
 
             {% if ad is defined %}
