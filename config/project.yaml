@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1561057926
+dateModified: 1561073027
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -771,7 +771,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '82'
-          format: jpg
+          format: ''
         -
           width: '992'
           useAspectRatio: ''
@@ -780,7 +780,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '82'
-          format: jpg
+          format: ''
         -
           width: '768'
           useAspectRatio: ''
@@ -789,7 +789,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '60'
-          format: jpg
+          format: ''
         -
           width: '576'
           useAspectRatio: ''
@@ -798,7 +798,7 @@ fields:
           retinaSizes:
             - '1'
           quality: '60'
-          format: jpg
+          format: ''
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   24c123a8-1d09-4025-a414-fa85da64ab81:
@@ -2211,6 +2211,23 @@ fields:
       localizeBlocks: false
     contentColumnType: string
     fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
+  9cd26aa7-1bfe-4464-be3f-89fdd535447e:
+    name: 'Subscribed to Courses'
+    handle: subscribedToCourses
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -4199,11 +4216,13 @@ matrixBlockTypes:
         settings:
           sources:
             - 'section:b0598134-0d64-4c98-9d73-351145a9c276'
+            - 'section:6c73ea8e-26c6-4ef8-9791-8e20ea49eaf1'
+            - 'section:af5b313a-5a09-4aee-805b-a7df6ed731a7'
           source: null
           targetSiteId: null
           viewMode: null
           limit: '10'
-          selectionLabel: Article
+          selectionLabel: Content
           localizeRelations: false
         contentColumnType: string
         fieldGroup: null
@@ -9024,8 +9043,8 @@ users:
   photoSubpath: profiles
   groups:
     fcd91374-4e27-4852-96ca-86f2891be207:
-      name: 'Course Subscribers'
-      handle: courseSubscribers
+      name: 'All Public Accounts'
+      handle: publicAccounts
     9515a178-46a0-489d-b51e-b5dadec44348:
       name: 'Content Managers'
       handle: contentManagers
@@ -9418,6 +9437,16 @@ users:
         - commerce-managetaxes
         - commerce-managestoresettings
         - 'blitz:cache-utility'
+  fieldLayouts:
+    5881993a-d1d3-4c83-8b31-67d56c3edeb4:
+      tabs:
+        -
+          name: Academy
+          sortOrder: 1
+          fields:
+            9cd26aa7-1bfe-4464-be3f-89fdd535447e:
+              required: false
+              sortOrder: 1
 volumes:
   c160af80-d4b3-4032-99f1-f91b25f713d3:
     name: Images
