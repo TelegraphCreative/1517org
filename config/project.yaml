@@ -2211,6 +2211,23 @@ fields:
       localizeBlocks: false
     contentColumnType: string
     fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
+  9cd26aa7-1bfe-4464-be3f-89fdd535447e:
+    name: 'Subscribed to Courses'
+    handle: subscribedToCourses
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
   9374cebc-45f4-45bc-9715-b0ebb71396de:
     name: 'Event Start Date'
     handle: eventStartDate
