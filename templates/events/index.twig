@@ -13,7 +13,7 @@
 }) %}
 
 {% set pageLimit = 5 %}
-{% paginate entries.limit(pageLimit).order('postDate desc') as pageInfo, pageEntries %}
+{% paginate entries.limit(pageLimit).order('eventStartDate asc') as pageInfo, pageEntries %}
 {% set count = pageInfo.total %}
 
 {% if pageInfo.nextUrl %}

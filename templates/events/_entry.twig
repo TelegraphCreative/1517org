@@ -74,7 +74,13 @@
             {# Date #}
             <li class="display-print">
                 <div class="meta-label | text-slate-light">
-                    {{ entry.eventDate }}
+                    {% if entry.eventStartDate %}
+                        {% set dates = [entry.eventStartDate] %}
+                        {% if entry.eventEndDate %}
+                            {% set dates = dates|merge([entry.eventEndDate]) %}
+                        {% endif %}
+                        {% include "_components/dates" with { dates: dates } %}
+                    {% endif %}
                 </div>
             </li>
 
