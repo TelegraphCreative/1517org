@@ -773,24 +773,6 @@ fields:
           quality: '82'
           format: ''
         -
-          width: '992'
-          useAspectRatio: ''
-          aspectRatioX: '16'
-          aspectRatioY: '9'
-          retinaSizes:
-            - '1'
-          quality: '82'
-          format: ''
-        -
-          width: '768'
-          useAspectRatio: ''
-          aspectRatioX: '4'
-          aspectRatioY: '3'
-          retinaSizes:
-            - '1'
-          quality: '60'
-          format: ''
-        -
           width: '576'
           useAspectRatio: ''
           aspectRatioX: '4'
