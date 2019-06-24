@@ -277,8 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-
-dateModified: 1561374760
+dateModified: 1561394678
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5880,6 +5879,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.7
+  async-queue:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -9573,3 +9576,23 @@ volumes:
       cfPrefix: ''
       autoFocalPoint: ''
     sortOrder: 4
+  0f79aa1a-f719-474a-ae2b-d2bf1a559917:
+    name: 'Images - Test'
+    handle: imagesTest
+    type: craft\awss3\Volume
+    hasUrls: true
+    url: 'https://s3.us-west-2.amazonaws.com/1517-assets-public/'
+    settings:
+      subfolder: images-test
+      keyId: $AWS_ACCESS_KEY_ID
+      secret: $AWS_SECRET_ACCESS_KEY
+      bucketSelectionMode: choose
+      bucket: 1517-assets-public
+      region: us-west-2
+      expires: ''
+      makeUploadsPublic: '1'
+      storageClass: ''
+      cfDistributionId: ''
+      cfPrefix: ''
+      autoFocalPoint: ''
+    sortOrder: 5
