@@ -277,6 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
+
 dateModified: 1561374760
 email:
   fromEmail: lindseyb@wearetelegraph.com
@@ -352,6 +353,8 @@ fieldlabels:
     fieldLayout: f9ec9348-63f9-4b8b-83c2-a807c5fa964e
     name: 'Full Bio'
     instructions: 'Link to a GC page to include more information about this content'
+    hideName: false
+    hideInstructions: false
   d4786032-6006-45c2-8006-6b951124baab:
     field: 94dac0f6-ee2b-48f8-943b-ab2ab028f55f
     fieldLayout: b8a6ebcc-9b05-4437-b3d2-ae3d43e983b2
@@ -2229,6 +2232,45 @@ fields:
       minuteIncrement: '30'
     contentColumnType: datetime
     fieldGroup: 6f4e8399-1849-4697-8f01-9b281385c7bd
+  e3a9c440-e718-4a99-8706-ef8ff6dd4022:
+    name: 'Featured Products'
+    handle: featuredProducts
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\commerce\fields\Products
+    settings:
+      sources:
+        - 'productType:fca3460e-8e71-49b6-8c37-bdb12241bb50'
+        - 'productType:4ff35716-4989-4e57-8e09-be19b8a93f91'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: ''
+      selectionLabel: ''
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
+  c44e211a-b3a8-4a26-9152-1918982df0e1:
+    name: 'Featured Podcast Show'
+    handle: featuredPodcastShow
+    instructions: ''
+    searchable: false
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Categories
+    settings:
+      branchLimit: ''
+      sources: '*'
+      source: 'group:8f5fdb8b-9210-4728-a9e2-9c50a543eac5'
+      targetSiteId: null
+      viewMode: null
+      limit: null
+      selectionLabel: 'Add a Podcast Show'
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: 0ddddc66-0470-4604-a350-eb0595dbb767
 globalSets:
   c247ed92-d964-4a51-81a5-6992b276d9d1:
     name: 'Site Info'
@@ -6164,6 +6206,12 @@ sections:
                   32236621-f50a-48af-a121-8ff8282224f3:
                     required: false
                     sortOrder: 6
+                  e3a9c440-e718-4a99-8706-ef8ff6dd4022:
+                    required: false
+                    sortOrder: 7
+                  c44e211a-b3a8-4a26-9152-1918982df0e1:
+                    required: false
+                    sortOrder: 8
   1bb6bca4-50c3-47c7-8160-2dd055239822:
     name: 'Podcasts Index'
     handle: podcastsIndex
