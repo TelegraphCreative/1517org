@@ -82,27 +82,42 @@
 
 {# Image (set sizes) #}
 {% macro imageSetRatio(source, classes) %}
-{% spaceless %}
-    {# Source #}
-    {% if source|length %}
-        <figure class="image{% if classes is defined %} | {{ classes }}{% endif %}">
-            <img data-src="{{ source.optimize.src() }}"
-                data-srcset="{{ source.optimize.srcset() }}"
-                sizes="100vw"
-                class="lazyload blur-up" 
-                itemprop="image"/>
-        </figure>
+    {% spaceless %}
+        {# Optimize On the Fly #}
+        {% set optimzedImages = craft.imageOptimize.createOptimizedImages(
+            source,
 
-    {% else %}
+                [
+                    {
+                        'width': 576,
+                        'retinaSizes': ['1', '2'],
+                        'quality': 82,
+                        'format': 'auto',
+                    },
+                    {
+                        'width': 1276,
+                        'retinaSizes': ['1', '2'],
+                        'quality': 82,
+                        'format': 'auto',
+                    },
+                ]
+        ) %}
+        {# Source #}
+        {% if source|length %}
+            <figure class="testing123 — image{% if classes is defined %} | {{ classes }}{% endif %}">
+                <img data-src="{{ optimzedImages.src() }}" data-srcset="{{ optimzedImages.srcset() }}" sizes="100vw" class="lazyload blur-up" itemprop="image"/>
+            </figure>
 
-        {# Static Placeholder #}
-        <figure class="image {{ classes }}">
-            <img src="{{ placeholder }}">
-        </figure>
+        {% else %}
 
-    {% endif %}
+            {# Static Placeholder #}
+            <figure class="image {{ classes }}">
+                <img src="{{ placeholder }}">
+            </figure>
 
-{% endspaceless %}
+        {% endif %}
+
+    {% endspaceless %}
 {% endmacro %}
 
 {# Card Image #}
