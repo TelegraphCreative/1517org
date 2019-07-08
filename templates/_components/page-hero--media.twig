@@ -6,11 +6,11 @@
     
     {% case "heroImage" %}
         {# Image #}
-        {{ global.imageSetRatio( block.image.one(), '-is3x2 -fit-cover' )}}
+        {{ global.imageSetRatioHero( block.image.one(), '-is3x2 -fit-cover' )}}
 
     {% case "audioEmbed" %}
         {# audioEmbed #}
-        {{ global.imageSetRatio( block.image.one(), '-is3x2 -fit-cover' )}}
+        {{ global.imageSetRatioHero( block.image.one(), '-is3x2 -fit-cover' )}}
         {# Podcast Player Full #}
         <podcast_player_full title="{{ entry.title }}" url="{{ block.audio }}" />
 
