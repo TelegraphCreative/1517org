@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1561394678
+dateModified: 1562620023
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -773,6 +773,15 @@ fields:
           retinaSizes:
             - '1'
           quality: '60'
+          format: ''
+        -
+          width: '1276'
+          useAspectRatio: '1'
+          aspectRatioX: '16'
+          aspectRatioY: '9'
+          retinaSizes:
+            - '1'
+          quality: '82'
           format: ''
     contentColumnType: text
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
