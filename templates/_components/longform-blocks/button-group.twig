@@ -6,9 +6,18 @@
     {% endif %}
     
     {# Actions #}
+    {# For fieldname variation (button) #}
     {% if block.button|length %}
     <div class="button-group__actions">
         {% for item in block.button.all() %}
+            {{ global.link(item.button, item.buttonStyle)}}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {# For fieldname variation (buttons) #}
+    {% if block.buttons|length %}
+    <div class="button-group__actions">
+        {% for item in block.buttons.all() %}
             {{ global.link(item.button, item.buttonStyle)}}
         {% endfor %}
     </div>
