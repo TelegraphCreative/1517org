@@ -32,10 +32,10 @@
                         <p class="text-slate-light">{{ item.description }}</p>
                         {% endif %}
                     </div>
-                    {% if item.detail %}
+                    {% if item.detailOptional|length %}
                     <div class="syllabus-item__aside">
                         <div class="time | text-md text-slate-light">
-                            {{ item.detail }}
+                        {{ item.detailOptional }}
                         </div>
                     </div>
                     {% endif %}
