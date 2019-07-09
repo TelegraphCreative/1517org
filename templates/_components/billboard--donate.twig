@@ -12,10 +12,10 @@
                     {{ donate.description }}
                 </h2>
             </div>
-            <form class="billboard__action" id="donate-form" action="/donate">
-                <div class="meta-label | mb-4">Choose Amount:</div>
+            <form class="billboard__action " id="donate-form" action="/donate">
+                <div class="meta-label | mb-4 ">Choose Amount:</div>
 
-                <div class="option-group -equalize -start">
+                <div class="option-group -equalize -start ">
 
                 {% js at endBody %}
                     var submitForm = function() {
@@ -36,7 +36,7 @@
                             type="radio"
                             value="{{ amount.number }}"
                         >
-                        <span class="control__text | w-full">${{ amount.number }}</span>
+                        <span class="control__text | mb-4 text-center | sm:w-full sm:mb-0">${{ amount.number }}</span>
                     </label>
                 {% endfor %}
 
