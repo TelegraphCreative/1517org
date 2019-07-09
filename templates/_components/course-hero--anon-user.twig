@@ -1,43 +1,47 @@
 {% import '_macros/global' as global %}
 
 <div class="billboard -courses | no-print" style="background-color: {{ content.backgroundColor.getHex() }};">
-    <header class="billboard__content | container gutter">
-        <div class="billboard__content-inner | md:ml-0 mx-auto">
+    <div class="container | relative">
+        <header class="billboard__content | container gutter">
+            <div
+                class="billboard__content-inner | md:ml-0 mx-auto">
 
-            {# Header #}
-            <div class="billboard__header | md:pr-24">
-                <h4 class="billboard-title | header-base">{{ content.titleText }}</h4>
-            </div>
+                {# Header #}
+                <div class="billboard__header | md:pr-24">
+                    <h4 class="billboard-title | header-base">{{ content.titleText }}</h4>
+                </div>
 
-            {# Detail #}
-            <div class="billboard__detail | md:pr-24 | paragraphs -sm | pt-2">
-                <p>{{ content.description }}<p>
-            </div>
+                {# Detail #}
+                <div class="billboard__detail | md:pr-24 | paragraphs -sm | pt-2">
+                    <p>{{ content.description }}</p>
+                    <p></p>
+                </div>
 
-            {# Action #}
-            <div class="billboard__action | md:pr-24 | pt-4">
+                {# Action #}
+                <div class="billboard__action | md:pr-24 | pt-4">
 
-                <div class="form-base | -bronze-fields">
-                    
-                    {# Registration Form #}
-                    {% include '_components/form-register-for-course' %}
+                    <div
+                        class="form-base | -bronze-fields">
+
+                        {# Registration Form #}
+                        {% include '_components/form-register-for-course' %}
+
+                    </div>
 
                 </div>
 
-            </div>  
-
-            {# Course Badge #}
-            <div class="billboard__badge | flex justify-center md:justify-end">
-                <div class="w-full max-w-xxs ">
-                    {{ global.image( content.badge.one(), '-is3x2 -fit-cover' )}}
+                {# Course Badge #}
+                <div class="billboard__badge | flex justify-center md:justify-end">
+                    <div class="w-full max-w-xxs ">
+                        {{ global.image( content.badge.one(), '-is3x2 -fit-cover' )}}
+                    </div>
                 </div>
+
             </div>
 
-        </div>
+        </header>
 
-    </header>
-
-    <div class="billboard__media -bg" style="background:no-repeat top center/contain url({{ content.backgroundImage.one().optimize.src() }})">
+        <div class="billboard__media -bg" style="background:no-repeat top center/cover url({{ content.backgroundImage.one().optimize.src() }})"></div>
     </div>
 
 </div>
