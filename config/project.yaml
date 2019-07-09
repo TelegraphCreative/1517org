@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1562700505
+dateModified: 1562700567
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -3673,7 +3673,7 @@ matrixBlockTypes:
           removeInlineStyles: '1'
           removeEmptyTags: '1'
           removeNbsp: '1'
-          purifyHtml: '1'
+          purifyHtml: ''
           columnType: text
           availableVolumes: '*'
           availableTransforms: '*'
