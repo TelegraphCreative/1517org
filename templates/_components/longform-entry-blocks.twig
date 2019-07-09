@@ -4,66 +4,65 @@
     {% for block in blocks %}
         {% switch block.type %}
 
-        {# Article Body #}
-        {% case "articleBody" %}
+            {# Article Body #}
+            {% case "articleBody" %}
             {% include '_components/longform-blocks/article-body' %}
 
-        {# Big List - Assets #}
-        {% case "bigListAssets" %}
-            {% include '_components/longform-blocks/big-list-assets' %}        
-        {% case "bigListAssetsLinks" %}
+            {# Big List - Assets #}
+            {% case "bigListAssets"  or "bigListAssetsLinks"%}
             {% include '_components/longform-blocks/big-list-assets' %}
-        {# Syllabus #}
-        {% case "bigListSyllabus" %}
+
+            {# Syllabus #}
+            {% case "bigListSyllabus" %}
             {% include "_components/longform-blocks/big-list-syllabus" %}
-       
-        {# Button Group #}
-        {% case "buttonGroup" %}
+
+            {# Button Group #}
+            {% case "buttonGroup" %}
             {% include '_components/longform-blocks/button-group' %}
-            
-        {# Hero Image - full-bleed #}
-        {% case "heroImageFullBleed" %}
+
+            {# Hero Image - full-bleed #}
+            {% case "heroImageFullBleed" %}
             {% include '_components/longform-blocks/hero-image' %}
 
-        {# Speakers #}
+            {# Speakers #}
             {% case "speakers" %}
-                {% include '_components/longform-blocks/speakers' %}
+            {% include '_components/longform-blocks/speakers' %}
 
-        {# Entry Callout #}
-        {% case "entryCallout" %}
+            {# Entry Callout #}
+            {% case "entryCallout" %}
             {% include '_components/longform-blocks/entry-callout' %}
-            
-        {# Billboard - floated image #}
-        {% case "billboardFloatedImage" %}
+
+            {# Billboard - floated image #}
+            {% case "billboardFloatedImage" %}
             {% include '_components/longform-blocks/billboard--floated' %}
-        
-        {# Article Body #}
-        {% case "leadIn" %}
+
+            {# Article Body #}
+            {% case "leadIn" %}
             {% include '_components/longform-blocks/lead-in' %}
-        
-        {# Blockquote #}
-        {% case "blockquote" %}
+
+            {# Blockquote #}
+            {% case "blockquote" %}
             {% include '_components/longform-blocks/blockquote' %}
 
-        {# Article Image Blocks #}
-        {% case "articleImageBlocks" %}
+            {# Article Image Blocks #}
+            {% case "articleImageBlocks" %}
             {% include '_components/longform-blocks/article-image-blocks' %}
 
-        {# Image Slider #}
-        {% case "imageCarousel" or "imageSlider" %}
+            {# Image Slider #}
+            {% case "imageCarousel" or "imageSlider" %}
             {% include '_components/longform-blocks/image-slider' %}
 
-        {# Bio Cards #}
-        {% case "bioCards" %}
+            {# Bio Cards #}
+            {% case "bioCards" %}
             {% include '_components/longform-blocks/bio-cards' %}
 
-        {# Billboard - 2up #}
-        {% case "billboard2Up" %}
+            {# Billboard - 2up #}
+            {% case "billboard2Up" %}
             {% include '_components/longform-blocks/billboard--2up' %}
 
 
         {% endswitch %}
     {% endfor %}
-    
+
 
 {% endif %}

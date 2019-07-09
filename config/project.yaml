@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1562690835
+dateModified: 1562700505
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -2354,6 +2354,26 @@ matrixBlockTypes:
           availableTransforms: '*'
         contentColumnType: text
         fieldGroup: null
+      16fb8d2d-aeea-44e2-a671-96ff46501833:
+        name: Alignment
+        handle: alignment
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: 'Middle Left'
+              value: middleLeft
+              default: '1'
+            -
+              label: 'Flush Left'
+              value: flushLeft
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
       924198ca-aea8-4a0a-bf18-a44265fa46af:
         name: Image
         handle: image
@@ -2530,6 +2550,9 @@ matrixBlockTypes:
               00bc85d5-9f88-4d39-b3ba-14bd40e92346:
                 required: false
                 sortOrder: 2
+              16fb8d2d-aeea-44e2-a671-96ff46501833:
+                required: false
+                sortOrder: 7
               924198ca-aea8-4a0a-bf18-a44265fa46af:
                 required: false
                 sortOrder: 3
@@ -2610,7 +2633,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: heroes
@@ -3126,6 +3149,26 @@ matrixBlockTypes:
           columnType: text
         contentColumnType: text
         fieldGroup: null
+      561c26dd-31a8-46ee-96a1-58498d44bc81:
+        name: 'Alignment '
+        handle: alignment
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: 'Middle Left'
+              value: middleLeft
+              default: '1'
+            -
+              label: 'Flush Left'
+              value: flushLeft
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
       5dd3e62a-fc3a-45c1-a60c-c8fc1369050d:
         name: Description
         handle: description
@@ -3286,7 +3329,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: products
@@ -3313,6 +3356,9 @@ matrixBlockTypes:
               3ac774b6-2f19-444e-8d51-3b51e9e7fed1:
                 required: false
                 sortOrder: 1
+              561c26dd-31a8-46ee-96a1-58498d44bc81:
+                required: false
+                sortOrder: 7
               5dd3e62a-fc3a-45c1-a60c-c8fc1369050d:
                 required: false
                 sortOrder: 2
@@ -3391,6 +3437,26 @@ matrixBlockTypes:
               default: ''
         contentColumnType: string
         fieldGroup: null
+      5f7c5a38-6e8a-4877-9d0a-fee4343b2ed2:
+        name: Alignment
+        handle: alignment
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: 'Middle Left'
+              value: middleLeft
+              default: '1'
+            -
+              label: 'Flush Left'
+              value: flushLeft
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
       64608f29-6aec-4b4f-a997-e5b310cf37b1:
         name: Header
         handle: header
@@ -3420,7 +3486,7 @@ matrixBlockTypes:
           useSingleFolder: ''
           defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: products
-          singleUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: ''
           restrictFiles: '1'
           allowedKinds:
@@ -3568,6 +3634,9 @@ matrixBlockTypes:
               51ede75e-49a3-4cc1-998b-b2b432798657:
                 required: false
                 sortOrder: 5
+              5f7c5a38-6e8a-4877-9d0a-fee4343b2ed2:
+                required: false
+                sortOrder: 7
               64608f29-6aec-4b4f-a997-e5b310cf37b1:
                 required: false
                 sortOrder: 1
@@ -3637,13 +3706,13 @@ matrixBlockTypes:
         settings:
           minRows: ''
           maxRows: ''
-          contentTable: '{{%stc_39_block}}'
+          contentTable: '{{%stc_38_block}}'
           localizeBlocks: false
           staticField: ''
           columns:
-            224:
+            215:
               width: ''
-            225:
+            216:
               width: ''
           fieldLayout: matrix
           selectionLabel: Block
@@ -3693,15 +3762,15 @@ matrixBlockTypes:
         settings:
           minRows: ''
           maxRows: ''
-          contentTable: '{{%stc_36_list}}'
+          contentTable: '{{%stc_42_list}}'
           localizeBlocks: false
           staticField: ''
           columns:
-            212:
+            217:
               width: ''
-            213:
+            218:
               width: ''
-            214:
+            219:
               width: ''
           fieldLayout: matrix
           selectionLabel: Item
@@ -4163,7 +4232,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: heroes
@@ -4914,19 +4983,19 @@ matrixBlockTypes:
         settings:
           minRows: ''
           maxRows: ''
-          contentTable: '{{%stc_42_profilebio}}'
+          contentTable: '{{%stc_44_profilebio}}'
           localizeBlocks: false
           staticField: ''
           columns:
+            229:
+              width: ''
+            230:
+              width: ''
+            231:
+              width: ''
             232:
               width: ''
             233:
-              width: ''
-            234:
-              width: ''
-            235:
-              width: ''
-            236:
               width: ''
           fieldLayout: matrix
           selectionLabel: Bio
@@ -5211,7 +5280,7 @@ matrixBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: article
@@ -5348,17 +5417,17 @@ matrixBlockTypes:
         settings:
           minRows: '2'
           maxRows: '2'
-          contentTable: '{{%stc_43_billboard}}'
+          contentTable: '{{%stc_37_billboard}}'
           localizeBlocks: false
           staticField: ''
           columns:
-            238:
+            225:
               width: ''
-            239:
+            226:
               width: ''
-            240:
+            227:
               width: ''
-            241:
+            228:
               width: ''
           fieldLayout: matrix
           selectionLabel: Billboard
@@ -7695,7 +7764,7 @@ superTableBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: articles
@@ -8047,7 +8116,7 @@ superTableBlockTypes:
         type: craft\fields\Assets
         settings:
           useSingleFolder: '1'
-          defaultUploadLocationSource: 'volume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           defaultUploadLocationSubpath: ''
           singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
           singleUploadLocationSubpath: profiles
