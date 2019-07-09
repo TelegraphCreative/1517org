@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full bg-ivory-light relative">
+  <div class="flex w-full bg-ivory-light relative">
     <!-- class="btn -xs -media -has-icon" -->
     <a
       @click.prevent="togglePlayback"
       :class="{ 'bg-slate-dark': playing, 'bg-bronze': !playing }"
-      class="text-white h-24 w-24 relative float-left"
+      class="text-white sm:h-24 w-24 relative float-left"
       href="#"
     >
       <span class="h-6 w-6 center-xy">
@@ -12,7 +12,7 @@
         <play_icon v-else/>
       </span>
     </a>
-    <div class="ml-12 mt-8 float-left">
+    <div class="w-1/2 ml-5 mt-5 mb-5 | sm:ml-12 sm:mt-8 sm:pb-0 float-left">
       <div class="uppercase text-xs font-medium">{{ source }}</div>
       <span class>
         {{ title }}

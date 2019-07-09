@@ -1,10 +1,14 @@
 {% import '_macros/global' as global %}
 
+{# Bio Cards require an image #}
+{% if bioContent.photo|length %}
 <div class="bio-card | -hover-border -hover-links">
+    
     {# Media #}
     <div class="bio-card__media">
         {{ global.image(bioContent.photo, '-is1x1 -fit-cover bg-ivory-lightest' )}}
     </div>
+    
 
     {# Content #}
     <div class="bio-card__content">
@@ -22,3 +26,4 @@
     </div>
     
 </div>
+{% endif %}

@@ -19,7 +19,7 @@
                         <a href="{{ author.url }}">By {{ author.firstName }} {{ author.lastName }}</a>
                     </div>
                 
-                    <time class="meta-label" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
+                    <time class="meta-label" datetime="{{ item.postDate | date( 'm-d-y') }}">{{ item.postDate | date( 'm/d/y') }}</time>
 
                 </div>
             </div>

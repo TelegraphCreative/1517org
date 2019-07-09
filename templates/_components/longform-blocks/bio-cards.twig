@@ -13,12 +13,12 @@
                     shortDescription: item.shortDescription,
                     button: item.button,
                 }%}
-                {% include '_components/bio-card' with { content: bioContent } %}
+                {% include '_components/bio-card' with { bioContent: bioContent } %}
             {% endfor %}
         {% endif %}
 
         {% if block.authorBio|length %}
-            {% for item in block.profileBio %}
+            {% for item in block.authorBio %}
                 {% set bioContent = { 
                     photo: item.photo.one(),
                     fullName: item.firstName,
@@ -26,7 +26,7 @@
                     shortDescription: item.shortDescription,
                     button: item.headerAction,
                 }%}
-                {% include '_components/bio-card' with { content: bioContent } %}
+                {% include '_components/bio-card' with { bioContent: bioContent } %}
             {% endfor %}
         {% endif %}
     </div>

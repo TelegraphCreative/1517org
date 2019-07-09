@@ -34,5 +34,10 @@
             &__header {
             }
         }
+        // Sticky
+        .product-image {
+            @apply sticky;
+            top: 6.5rem;
+        }
     }
 }

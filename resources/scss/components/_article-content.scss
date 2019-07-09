@@ -33,15 +33,18 @@
     }
 
     // Lists
-    > ul,
-    > ol {
+    ul,
+    ol {
         @apply mt-5 mb-10 list-reset;
 
         li {
             @apply py-3 pl-6 border-b border-ivory-light relative;
-
+            list-style-type: none;
+        }
+        > li {
             &:before {
-                @apply absolute pseudo bg-bronze rounded-full align-y pin-l;
+                @apply absolute pseudo bg-bronze rounded-full pin-l;
+                top: 1.5rem;
                 height: 0.25rem;
                 width: 0.25rem;
             }
@@ -76,6 +79,24 @@
             padding-top: 32px;
         }
     }
+
+    // Video
+    figure {
+        position: relative;
+        overflow: hidden;
+        padding-top: 56.25%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    // RTE (redactor)
 
     // Screen
     // MD

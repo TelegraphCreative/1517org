@@ -1,0 +1,31 @@
+{% import '_macros/global' as global %}
+
+{# Pagination #}
+{% if nextUrl is defined or prevUrl is defined %}
+    <div class="pagination--static | container--sm gutter-md flex justify-center space-b">
+        
+        {# Previous #}
+        {% if prevUrl is defined %}
+            <a href="{{ prevUrl }}" class="pagination -prev | px-3">
+                {{ global.utilityIcon('arrow-left', '-md hover:text-red')}}
+            </a>
+        {% else %}
+            <button class="pagination -prev | px-3 | pointer-events-none">
+                {{ global.utilityIcon('arrow-left', '-md text-ivory-light')}}
+            </button>
+        {% endif %}
+
+        {# Next #}
+        {% if nextUrl is defined %}
+            <a href="{{ nextUrl }}" class="pagination -next | px-3">
+                {{ global.utilityIcon('arrow-right', '-md hover:text-red')}}
+            </a>
+        {% else %}
+            <button class="pagination -next | px-3 | pointer-events-none">
+                {{ global.utilityIcon('arrow-right', '-md text-ivory-light')}}
+            </button>
+        {% endif %}
+
+    </div>
+{% endif %}
+
