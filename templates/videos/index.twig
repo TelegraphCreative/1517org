@@ -7,6 +7,9 @@
 {% if pageInfo.nextUrl %}
     {% set nextUrl = url(pageInfo.nextUrl) %}
 {% endif %}
+{% if pageInfo.prevUrl %}
+    {% set prevUrl = url(pageInfo.prevUrl) %}
+{% endif %}
 
 
 {% block content %}
@@ -28,40 +31,24 @@
     {% if pageEntries|length > 0 %}
 
 
-        <div id="videos" class="page-entries | container--sm gutter-md | md:flex-grid | space-b--sm">
+        <div id="videos" class="container--sm gutter-md | md:flex-grid | space-b--sm">
             {% for entry in pageEntries %}
                 {% include '_components/content-card--video' with { content: entry, 'classes': '' } %}
             {% endfor %}
         </div>
+        {% include "_components/pagination--static" %}
 
-        {% include "_components/pagination" %}
+        {# Add inf pagination in the future (requires rewriting the Vimeo Vue Component) #}
+        {# {% include "_components/pagination" %} #}
     
     {% else %}
         
-        No Entries
+        {# No Entries #}
         <div class="text-center space-b">
             There are no Videos available right now.  
         </div>
 
     {% endif %}
     
-    
-    {# Billboard #}
-    {# {% if entry.showBillboardText %}
-        
-        <div id="advertise" class="">
-            Billboard Content
-            {% set billboardContent = { 
-                    header: entry.billboardHeader,
-                    description: entry.billboardDescription,
-                    button: entry.billboardButton,
-                    buttonStyle: entry.billboardButtonStyle,
-                    background: entry.billboardBackground,
-                }%}
-            Text Billboard - text
-            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
-        </div>
-
-    {% endif %} #}
 
 {% endblock %}
