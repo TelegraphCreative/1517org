@@ -1,9 +1,4 @@
-
-<contact_form :formmethod="'post'" :formaction="'https://formspree.io/xlogpbwm'"
-    :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" 
-    :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" 
-    :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'"
-    :signuplocation="'request-speaker-page'">
+<contact_form :formaction="'https://formspree.io/mwazeekm'" :formmethod="'post'" :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'" :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" :signuplocation="'request-speaker-page'">
 
     <template v-slot:default>
         <header class="sub-section-header | mb-10">
@@ -24,9 +19,10 @@
     </template>
 
     <template v-slot:fields>
-        
-        <input type="text" id="subject"  name="subject" value="1517 Request Speaker Form Message" class="hidden">
-        <input id="favoriteboulder" name="_gotcha" type="text">
+
+        <input class="hidden" id="subject" name="subject" type="text" value="1517 Request Speaker Form Message">
+        <input
+        id="favoriteboulder" name="_gotcha" type="text">
 
         {# Contact Form Header #}
         <header class="sub-section-header">
@@ -43,7 +39,7 @@
                 </label>
                 <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
                     {% for item in entry.requestSpeakerBookingOptions.all() %}
-                        
+
                         <option value="{{ item.fullName }}">{{ item.fullName }}</option>
 
                     {% endfor %}
@@ -118,9 +114,9 @@
                 </label>
                 <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
                     {% for item in entry.requestSpeakerTopicOptions.all() %}
-                        
+
                         <option value="{{ item.topic }}">{{ item.topic }}</option>
-                        
+
                     {% endfor %}
                 </select_box>
             </div>
@@ -132,32 +128,32 @@
                 <label class="standard-label" for="website">
                     Website
                 </label>
-                <input type="text" id="website" name="website" required/>
+                <input id="website" name="website" required type="text"/>
             </div>
         </div>
 
         {# GDPR #}
         {% if siteInfo.enableForm %}
-        
-        <div class="form-group">
-            <div class="field-group | w-full">
 
-                <label for="subscribe-to-updates" class="">
-                    <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates">
+            <div class="form-group">
+                <div class="field-group | w-full">
 
-                    <span class="control__text">Sign up for updates?</span>
-                </label>
+                    <label class="" for="subscribe-to-updates">
+                        <input id="subscribe-to-updates" name="subscribeToMailchimp" type="checkbox" value="yes">
 
+                        <span class="control__text">Sign up for updates?</span>
+                    </label>
+
+                </div>
             </div>
-        </div>
-        
+
         {% endif %}
 
         {# Submit #}
         <div class="form-submit">
-            <button type="submit" class="btn -full -red">Submit Form</button>
+            <button class="btn -full -red" type="submit">Submit Form</button>
         </div>
-    
+
     </template>
 
 </contact_form>
