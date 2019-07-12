@@ -277,7 +277,7 @@ commerce:
       templatePath: shop/_email.html
       attachPdf: false
       pdfTemplatePath: ''
-dateModified: 1562700567
+dateModified: 1562787824
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5840,6 +5840,7 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.8
+    licenseKey: SA6KJXT4POUPEXM5GS0PQGFK
   mix:
     edition: standard
     enabled: true
@@ -5848,6 +5849,7 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.11
+    licenseKey: AG9BQ0OY1QQJQ89371IWNOMU
   redactor:
     edition: standard
     enabled: true
@@ -5882,6 +5884,7 @@ plugins:
       lowerQualityRetinaImageVariants: '1'
       allowUpScaledImageVariants: ''
       autoSharpenScaledImages: '1'
+    licenseKey: VYAUOJ7IS6VHSGAOKILPBCY7
   wordsmith:
     edition: standard
     enabled: true
@@ -5890,6 +5893,7 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.8
+    licenseKey: 847IKKCF9D4IQ687QBX8ZTPV
   fieldlabels:
     edition: standard
     enabled: true
@@ -5898,6 +5902,7 @@ plugins:
     edition: pro
     enabled: true
     schemaVersion: 2.1.06
+    licenseKey: NC5F3LFSDA306MGWS6ZFAC4D
   commerce-stripe:
     edition: standard
     enabled: true
@@ -5959,6 +5964,7 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.7
+    licenseKey: WCGZ49KSCGWK2OREMY6D9L8F
   async-queue:
     edition: standard
     enabled: true
@@ -9354,16 +9360,18 @@ users:
       name: 'System Managers'
       handle: systemManagers
       permissions:
+        - performupdates
         - accessplugin-commerce
         - accessplugin-navigation
+        - accessplugin-retour
         - accessplugin-seomatic
         - accesscp
         - registerusers
         - moderateusers
         - assignuserpermissions
+        - 'assignusergroup:fcd91374-4e27-4852-96ca-86f2891be207'
         - 'assignusergroup:c341cbde-3ffe-4b7c-813a-e9f270551f4e'
         - 'assignusergroup:9515a178-46a0-489d-b51e-b5dadec44348'
-        - 'assignusergroup:fcd91374-4e27-4852-96ca-86f2891be207'
         - assignusergroups
         - administrateusers
         - editusers
@@ -9477,6 +9485,16 @@ users:
         - 'deletepeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
         - 'editpeerentrydrafts:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
         - 'editentries:f471c5f7-9cc1-46c9-b3f8-b3acfe1c0ffa'
+        - 'createentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'publishentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'deleteentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'publishpeerentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'deletepeerentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'editpeerentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'publishpeerentrydrafts:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'deletepeerentrydrafts:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'editpeerentrydrafts:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
+        - 'editentries:8059f8b3-29c7-4bbc-ada9-02b225fa73df'
         - 'publishentries:e34a0462-0725-491b-a8e5-42edcc42fd56'
         - 'publishpeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
         - 'deletepeerentrydrafts:e34a0462-0725-491b-a8e5-42edcc42fd56'
@@ -9497,10 +9515,6 @@ users:
         - 'editcategories:7f74eac0-905b-48e1-b1cc-79cb3b3dabe9'
         - 'editcategories:159851d0-e6a0-4c39-8346-d994125c7f4a'
         - 'editcategories:cc2489d2-901a-44fa-abd8-7dae85d85495'
-        - 'saveassetinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-        - 'createfoldersinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-        - 'deletefilesandfoldersinvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
-        - 'viewvolume:00cd5776-45fa-4edf-9645-ee2a9cd92708'
         - 'saveassetinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
         - 'createfoldersinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
         - 'deletefilesandfoldersinvolume:c160af80-d4b3-4032-99f1-f91b25f713d3'
@@ -9561,7 +9575,6 @@ users:
         - 'commerce-manageproducttype:f9c230d7-2875-41fa-8dcf-c539aadc45d9'
         - 'commerce-manageproducttype:4ff35716-4989-4e57-8e09-be19b8a93f91'
         - 'commerce-manageproducttype:fca3460e-8e71-49b6-8c37-bdb12241bb50'
-        - 'commerce-manageproducttype:eab58cec-6ae9-47fb-9671-d47ecd191d64'
         - commerce-manageproducts
         - commerce-capturepayment
         - commerce-refundpayment
@@ -9572,6 +9585,9 @@ users:
         - commerce-managetaxes
         - commerce-managestoresettings
         - 'blitz:cache-utility'
+        - 'retour:dashboard'
+        - 'retour:redirects'
+        - 'retour:settings'
     fcd91374-4e27-4852-96ca-86f2891be207:
       name: 'All Public Accounts'
       handle: publicAccounts
