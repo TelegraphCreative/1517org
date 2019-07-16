@@ -1,33 +1,34 @@
 {% import '_macros/global' as global %}
 
 
-
 {% set slides = block.images %}
 {% set sliderContent = [] %}
 
 {% for item in slides %}
-{# Optimize On the Fly #}
-{% set optimzedImages = craft.imageOptimize.createOptimizedImages(
-    item,
 
+    {# Optimize On the Fly #}
+    {# {% set optimized = craft.imageOptimize.createOptimizedImages(
+        item,
         [
-            {
-                'width': 576,
-                'retinaSizes': ['1'],
-                'quality': 82,
-                'format': 'auto',
-            },
             {
                 'width': 1276,
                 'retinaSizes': ['1'],
                 'quality': 82,
                 'format': 'auto',
             },
-        ]
-) %}
-{% set sliderContent = sliderContent|merge([{
-    imageUrl: optimzedImages.src
-}]) %}
+        ],
+        false
+    ) %} 
+    {% set sliderContent = sliderContent|merge([{
+        imageUrl: optimized.src
+    }]) %}
+    #}
+
+    {% set sliderContent = sliderContent|merge([{
+        imageUrl: item.url
+    }]) %}
+
+       
 {% endfor %}
 
 <image_slider :items="{{ sliderContent | json_encode }}" class="pt-12"></image_slider>
