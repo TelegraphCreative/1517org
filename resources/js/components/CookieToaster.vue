@@ -11,7 +11,7 @@
             <p>{{ description }}</p>
           </header>
           <div class="cookie-consent__action | button-group">
-            <button @click="optIn" class="btn -sm -light" v-html="optin"></button>
+            <button @click="optIn" class="btn -sm -white" v-html="optin"></button>
             <button @click="optOut" class="btn -sm -outline" v-html="optout"></button>
           </div>
         </div>
