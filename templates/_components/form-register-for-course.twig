@@ -3,7 +3,7 @@
     :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" 
     :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" 
     :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'"
-    :signuplocation="'1517-course__{{entry.url}}'">
+    :signuplocation="'1517-course__{{entry.slug}}'">
 
     <template v-slot:fields>
 
