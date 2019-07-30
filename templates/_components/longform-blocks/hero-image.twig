@@ -1,38 +1,7 @@
 {% import '_macros/global' as global %}
 
-{# Optimize On the Fly #}
-{% set optimzedImage = craft.imageOptimize.createOptimizedImages(
-    block.image.one(),
-
-        [
-            {
-                'width': 576,
-                'retinaSizes': ['1'],
-                'quality': 82,
-                'format': 'auto',
-            },
-            {
-                'width': 1276,
-                'retinaSizes': ['1'],
-                'quality': 82,
-                'format': 'auto',
-            },
-        ]
-) %}
 <div class="block--heroImageFullBleed | hero-image">
 
-    {% set classes = '-fit-cover bg-ivory-lightest' %}
-
-    {% set style = "padding-top: calc(" ~ block.image.one().height ~ " / " ~ block.image.one().width ~ " * 100%);" %}{% if block.image.one().mimeType != 'image/png' %}
-        {% set style = style ~ " background: " ~ block.image.one().optimize.colorPalette[0] %}
-    {% endif %}
-
-    <figure class="image | {{ classes }}" style="{{ style }}">
-        <img data-src="{{ optimzedImage.src() }}"
-            data-srcset="{{ optimzedImage.srcset() }}"
-            sizes="100vw"
-            class="lazyload blur-up" 
-            itemprop="image"/>
-    </figure>
+    {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
 
 </div>

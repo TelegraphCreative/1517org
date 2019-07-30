@@ -81,29 +81,11 @@
 {# Image (set sizes) #}
 {% macro imageSetRatioHero(source, classes) %}
     {% spaceless %}
-        {# Optimize On the Fly #}
-        {% set optimzedImages = craft.imageOptimize.createOptimizedImages(
-            source,
-
-                [
-                    {
-                        'width': 576,
-                        'retinaSizes': ['1'],
-                        'quality': 82,
-                        'format': 'auto',
-                    },
-                    {
-                        'width': 1276,
-                        'retinaSizes': ['1'],
-                        'quality': 82,
-                        'format': 'auto',
-                    },
-                ]
-        ) %}
+        
         {# Source #}
         {% if source|length %}
             <figure class="image{% if classes is defined %} | {{ classes }}{% endif %}">
-                <img data-src="{{ optimzedImages.src() }}" data-srcset="{{ optimzedImages.srcset() }}" sizes="100vw" class="lazyload blur-up" itemprop="image"/>
+                <img data-src="{{ source.optimize.src() }}" data-srcset="{{ source.optimize.srcset() }}" sizes="100vw" class="lazyload blur-up" itemprop="image"/>
             </figure>
 
         {% else %}
