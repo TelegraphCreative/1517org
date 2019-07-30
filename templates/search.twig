@@ -8,15 +8,15 @@
 {% set author = craft.app.request.getParam('author') %}
 
 {# full lists for drop downs #}
-{% set allSections = craft.sections.getAllSections() %}
+{% set allSections = craft.app.sections.allSections %}
 {% set sections = [] %}
 {% for section in allSections %}
     {% if section.type == 'channel' and section.handle != 'authors' %}
         {% set sections = sections|merge([section]) %}
     {% endif %}
 {% endfor %}
-{% set topics = craft.categories().group('topics').order('title asc').all() %}
-{% set authors = craft.entries.section('authors').order('firstName asc').all() %}
+{% set topics = craft.categories().group('topics').orderBy('title asc').all() %}
+{% set authors = craft.entries.section('authors').orderBy('firstName asc').all() %}
 
 {# apply sections #}
 {% set sectionFilter = format ?: sections|join(',') %}
@@ -32,7 +32,7 @@
 {% set entries = craft.entries({
     search: searchQuery,
     section: sectionFilter,
-    order: 'postDate desc',
+    orderBy: 'postDate desc',
     relatedTo: relationParams ? ['and']|merge(relationParams) : null
 }) %}
 

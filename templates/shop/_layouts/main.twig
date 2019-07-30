@@ -1,9 +1,9 @@
 {# Prevent Caching #}
-{% do craft.blitz.options({
+{# {% do craft.blitz.options({
     cachingEnabled: false,
     cacheElements: false,
     cacheElementQueries: true
-}) %}
+}) %} #}
 
 {% set firstSegment = craft.app.request.segment(1) %} 
 

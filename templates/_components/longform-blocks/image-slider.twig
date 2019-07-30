@@ -4,7 +4,7 @@
 {% set slides = block.images %}
 {% set sliderContent = [] %}
 
-{% for item in slides %}
+{% for item in slides.all() %}
 
     {# Optimize On the Fly #}
     {# {% set optimized = craft.imageOptimize.createOptimizedImages(
