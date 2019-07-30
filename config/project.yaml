@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1564500093
+dateModified: 1564517393
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -771,15 +771,15 @@ fields:
           format: ''
         -
           width: '1276'
-          useAspectRatio: '1'
+          useAspectRatio: ''
           aspectRatioX: '16'
           aspectRatioY: '9'
           retinaSizes:
             - '1'
           quality: '82'
           format: ''
-    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
     contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   44d6f3d4-bba2-41bc-b1d2-2a3adffd61c3:
     name: 'Book Type'
     handle: bookType
