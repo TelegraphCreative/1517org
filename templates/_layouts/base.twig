@@ -28,12 +28,17 @@
     </head>
     <body class="">
         <div class="site-container" id="app">
+            {% cache globally using key 'site-menu' for 2 days unless craft.retour.getHttpStatus != 200 %}
             {% include '_components/site-menu' %}
+            {% endcache %}
+
             <main class="site-main">
                 {% block content %}{% endblock %}
             </main>
 
+            {% cache globally using key 'site-footer' for 2 days unless craft.retour.getHttpStatus != 200 %}
             {% include '_components/site-footer' %}
+            {% endcache %}
             
             {% include '_components/cookie-toaster' %}
         </div>
