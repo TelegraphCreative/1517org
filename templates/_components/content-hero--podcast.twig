@@ -1,17 +1,22 @@
 {% import '_macros/global' as global %}
 
+{% set podcastShow = content.podcastShow.level(1).one() %}
+
 {# Content #}
 <article class="content-hero -article{% if classes is defined %} | {{ classes }}{% endif %}">
 
-    <div class="content-hero__container | flex-grid flex-row-reverse">
-        
+    <div
+        class="content-hero__container | flex-grid flex-row-reverse">
+
         {# Content #}
-        <div class="content-hero__content | gutter-lg py-10 space-b--md">  
-            
+        <div
+            class="content-hero__content | gutter-lg py-10 space-b--md">
+
             {# Get Category Info #}
             {% include '_components/getTopCategory' %}
-            
-            <a href="{{ content.url }}" class="block">
+
+            <a
+                href="{{ content.url }}" class="block">
                 {# Header #}
                 <div class="content-hero__header">
                     <h1 class="card-title | header-xl font-serif">
@@ -28,27 +33,33 @@
             <div class="content-hero__meta | space-t flex-grid">
 
                 <div class="w-1/2">
-                    {% for category in content.podcastShow.level(1).limit(1).all() %}
-                        <a href="{{ category.url }}" class="align-items-center">
-                            {{ global.utilityIcon('microphone', '-sm') }}
-                            <div class="meta-label | ml-3">
-                                {{ category.title }}
-                            </div>
-                        </a>
-                    {% endfor %}
+                    <a href="{{ podcastShow.url }}" class="align-items-center">
+                        {{ global.utilityIcon('microphone', '-sm') }}
+                        <div class="meta-label | ml-3">
+                            {{ podcastShow.title }}
+                        </div>
+                    </a>
                 </div>
-                
+
                 <div class="w-1/2 | text-right">
                     <time class="meta-label" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
                 </div>
-                
+
             </div>
         </div>
-        
+
         {# Media #}
-        <a href="{{ content.url }}" class="content-hero__media overflow-hidden">
-            <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ content.cardImagePodcast.one().optimize.src }}')"></div>
-        </a>
+        {# Use Podcast Show's Image unless Episode has a card image #}
+        {% set cardImage = podcastShow.cardImagePodcast.one() %}
+        {% if content.cardImagePodcast|length %}
+            {% set cardImage = content.cardImagePodcast.one() %}
+        {% endif %}
+
+        {% if cardImage|length %}
+            <a href="{{ content.url }}" class="content-hero__media overflow-hidden">
+                <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ cardImage.optimize.src }}')"></div>
+            </a>
+        {% endif %}
     </div>
 
 </article>

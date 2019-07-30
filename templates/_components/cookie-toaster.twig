@@ -1,0 +1,7 @@
+{% if siteInfo.cookieToaster.showToaster %}
+    {% do getCookie('tracking_requested') %}
+    {% if getCookie('tracking_requested')|length < 1 %}
+        <cookie_toaster :header="'{{ siteInfo.cookieToaster.header }}'" :description="'{{ siteInfo.cookieToaster.description }}'" :optin="'{{ siteInfo.cookieToaster.optInText }}'" :optout="'{{ siteInfo.cookieToaster.optOutText }}'">
+        </cookie_toaster>
+    {% endif %} 
+{% endif %}

@@ -2,6 +2,10 @@
 blockquote,
 cite {
     @apply roman font-normal m-0 p-0;
+
+    em,i {
+        @apply roman;
+    }
 }
 
 // Blockquote in Article Content
@@ -10,6 +14,7 @@ cite {
 .blockquote {
     blockquote {
         @apply relative font-serif text-red text-3lg px-6 pt-12 pb-8;
+
         p {
             @apply font-serif text-red text-3lg inline;
         }
@@ -27,10 +32,10 @@ cite {
             padding-top: 32px;
         }
 
-        &:after {
-            content: '\201D';
-            font-family: 'Lucida Grande';
-        }
+        // &:after {
+        //     content: '\201D';
+        //     font-family: 'Lucida Grande';
+        // }
     }
     cite {
         @apply relative mb-8 pl-6 meta-label text-bronze roman;
@@ -39,6 +44,7 @@ cite {
         }
     }
 }
+
 
 // md Screen
 @screen md {

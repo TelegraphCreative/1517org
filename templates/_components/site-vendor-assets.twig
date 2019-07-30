@@ -1,1 +1,12 @@
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbf5fbd904bde66"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cbf5fbd904bde66"></script>
+
+
+{# Check user preferences, add Hubspot tracking if okay #}
+{% do getCookie('tracking') %}
+{% if getCookie('tracking')|length %}
+<script>
+    // Add Tracking Code here
+    console.log('From site-vendor-assets.twig: add advanced tracking');
+</script>
+{% endif %} 

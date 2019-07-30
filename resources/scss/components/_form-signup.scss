@@ -41,4 +41,23 @@
             @apply text-white;
         }
     }
+
+    // Mods
+    &.-light {
+        .email-input {
+            @apply border-ivory-light text-ivory-light;
+
+            &:focus,
+            &:target {
+                @apply border-ivory-light;
+            }
+            &::placeholder {
+                @apply text-ivory-light opacity-100;
+            }
+        }
+
+        .submit {
+            @apply text-ivory-light;
+        }
+    }
 }

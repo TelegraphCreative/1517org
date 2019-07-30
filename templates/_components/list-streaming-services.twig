@@ -1,0 +1,11 @@
+{% import '_macros/global' as global %}
+
+<ul class="social-list -streaming-services {{ classes }} | no-print">
+    {% for link in content.all() %}
+    <li>
+        <a href="{{ link.streamingService }}" target="_blank" rel="{{ link.channel }}">
+            {{ global.utilityIcon(link.streamingIcon, '') }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

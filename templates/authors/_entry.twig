@@ -1,4 +1,4 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
 {% set authorName = entry.firstName ~ ' ' ~ entry.lastName %}
@@ -14,7 +14,7 @@
         {# Page Header Content #}
         {% set content = { 
                 title: authorName, 
-                category: 'Authors', 
+                category: 'Contributors', 
                 detail: entry.shortDescription,
                 image: entry.photo.one(),
                 action: entry.headerAction

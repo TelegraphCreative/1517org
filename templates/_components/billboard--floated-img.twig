@@ -18,8 +18,8 @@
 #}
 
 
-<div class="billboard -text {% if block.image|length %} -floated-img{% else %} -center{% endif%} | {{ block.backgroundColor }} | no-print">
-    <div class="billboard__container container">
+<div class="billboard -text | relative {% if block.image|length %} -floated-img -align-{{ block.alignment }} {% else %} -center{% endif%} | {{ block.backgroundColor }} | no-print">
+    <div class="billboard__container | relative z-10 container">
 
         {% if block.image|length %}
             <div class="billboard__media">
@@ -48,7 +48,7 @@
                 {% endif %}
 
                 {# Action #}
-                {% if block.button is defined %}
+                {% if block.button|length %}
                     <div class="billboard__action">
                         {{ global.link(block.button, block.buttonStyle)}}
                     </div>
@@ -58,4 +58,7 @@
         </header>
 
     </div>
+
+    {# Pattern #}
+    {{ global.patterns( "one", "-sage") }}
 </div>

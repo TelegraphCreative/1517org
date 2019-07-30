@@ -1,0 +1,148 @@
+{% extends "_layouts/base" %}
+{% import '_macros/global' as global %}
+
+{% set type = product.type %}
+{% set hasVariants = type == 'books' %}
+{% set variantId = craft.app.request.getParam('type') ?: product.defaultVariantId %}
+
+{% set variant = craft.variants.id(variantId).one() %}
+{% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
+{% set price = variant.price %}
+{% set salePrice = variant.salePrice %}
+
+{# {% if hasVariants %}
+    {% set variant = craft.variants.id(variantId).one() %}
+    {% set outOfStock = variant.hasUnlimitedStock == false and variant.stock <= 0 %}
+    {% set price = variant.price %}
+    {% set salePrice = variant.salePrice %}
+{% else %}
+    {% set outOfStock = product.hasUnlimitedStock == false and product.totalStock <= 0 %}
+    {% if not outOfStock %}
+        {% set price = craft.variants.id(variantId).one().price %}
+        {% set salePrice = craft.variants.id(variantId).one().salePrice %}
+    {% endif %}
+{% endif %} #}
+
+{% block content %}
+
+    {# Layout #}
+    <section class="product-detail-layout | space-menu | flex-grid">
+
+        {# Main #}
+        <article class="entry-main">
+
+            {# Nav #}
+            <nav aria-label="Browse all products in this section" class="breadcrumbs">
+                <ul class="list-reset">
+                    <li>
+                        {# bleh. url({ param: value}) not working? #}
+                        <a class="link -underline -sm " href="{{ url('shop', 'type=' ~ type) }}">
+                            Shop / {{ type }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            {# Header #}
+            <header class="entry__header" itemscope itemtype="http://schema.org/Product">
+                <h1 class="title | header-md | font-serif | mt-8" itemprop="name">
+                    {{ product.title }}
+                </h1>
+                <div class="detail | text-slate-light text-lg | mt-6" itemprop="description">
+                    {{ product.author }}
+                </div>
+                {% if not outOfStock %}
+                    <div class="price | text-slate-light text-lg | mt-2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <meta content="USD" itemprop="priceCurrency"/>
+                    {% if salePrice < price %}
+                        <span class="amount" itemprop="price"><strike>{{ price|commerceCurrency(cart.currency) }}</strike></span>
+                        <span class="amount" itemprop="price">{{ salePrice|commerceCurrency(cart.currency) }}</span>
+                    {% else %}
+                        <span class="amount" itemprop="price">{{ price|commerceCurrency(cart.currency) }}</span>
+                    {% endif %}
+                    </div>
+                {% endif %}
+
+                {# Purchase Form #}
+                <form method="POST" class="form-base -purchase | mt-6">
+                    <input type="hidden" name="action" value="commerce/cart/update-cart">
+                    {{ redirectInput('shop/cart') }}
+                    {{ csrfInput() }}
+
+                {% if hasVariants %}
+
+                    <div class="form-group -start">
+                        <div class="field-group">
+                            <select_box
+                                :opt="{ name: 'type', variant: '-md' }"
+                                :name="'purchasableId'" class="purchasableId"
+                                value="{{ variantId }}"
+                            >
+                            {% for purchasable in product.variants %}
+                                <option {% if purchasable.stock <= 0 and purchasable.hasUnlimitedStock == false %}disabled {% endif %}
+                                        value="{{ purchasable.id }}">
+                                    {{ purchasable.bookType }}
+                                </option>
+                            {% endfor %}
+                            </select_box>
+                        </div>
+                    </div>
+
+                {% else %}
+                    
+                    <input type="hidden" name="purchasableId" value="{{ variantId}}">
+
+                {% endif %}
+
+                    <div class="form-group -start">
+                    {% if not outOfStock %}
+                        <div class="field-group">
+                            <input min="1" name="qty" type="number" value="1">
+                        </div>
+                    {% endif %}
+                        <div class="field-group">
+                            {% if outOfStock %}
+                                <button class="btn -disabled -md">{{ "Out of Stock"|t }}</button>
+                            {% else %}
+                                <button type="submit" class="btn -red -md">{{ "Add to cart"|t }}</button>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </form>
+
+            </header>
+
+            {# Content Blocks #}
+            <div class="entry__blocks">
+                <div class="paragraphs -md -loose | article-content">
+                    <p>{{ product.fullDescription }}</p>
+
+                {% if product.audioBookLinks | length %}
+                    <p>The audio book version of this title is available through these retailers:</p>
+
+                    <ul>
+                        {% for link in product.audioBookLinks.all() %}
+                            <li>
+                                <a href="{{ link.audioUrl }}" target="_blank">{{ link.description }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                </div>
+            </div>
+        </article>
+
+        {# Aside #}
+        <div class="entry-aside">
+        {% if product.cardImageProduct|length %}
+            <div class="product-image">
+                {{ global.image( product.cardImageProduct.one(), '-fit-cover' )}}
+            </div>
+        {% endif %}        
+        </div>
+
+    </section>
+
+{% endblock %}

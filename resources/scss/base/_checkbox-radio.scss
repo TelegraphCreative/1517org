@@ -1,67 +1,71 @@
 //
 // Default Checkbox Styles
 //
-
+label {
+    @apply cursor-pointer;
+}
 .control {
-    @apply block relative
-    pl-6 mb-3 
+    @apply relative  
+    block
+    leading-none
     cursor-pointer;
+    // mb-3
 
     input {
-        @apply absolute 
+        @apply absolute
         opacity-0;
         z-index: -1;
     }
 
-    &__indicator {
-        @apply absolute 
-            border border-ivory-light
-            h-4 w-4;
-        top: 2px;
-        left: 0;
-    }
+    // &__indicator {
+    //     @apply absolute
+    //         border border-slate
+    //         h-4 w-4;
+    //     top: 2px;
+    //     left: 0;
+    // }
 
-    &--radio .control__indicator {
-        border-radius: 50%;
-    }
+    // &--radio .control__indicator {
+    //     border-radius: 50%;
+    // }
 
-    // Hover, Focus
-    &:hover input:not([disabled]) ~ .control__indicator,
-    &:hover input:not([disabled]):checked ~ .control__indicator,
-    input:focus ~ .control__indicator {
-        @apply border-bronze;
-    }
+    // // Hover, Focus
+    // &:hover input:not([disabled]) ~ .control__indicator,
+    // &:hover input:not([disabled]):checked ~ .control__indicator,
+    // input:focus ~ .control__indicator {
+    //     @apply border-bronze;
+    // }
 
-    // Checked
-    input:checked ~ .control__indicator,
-    input:checked:focus ~ .control__indicator {
-        @apply border-bronze bg-bronze;
-    }
+    // // Checked
+    // input:checked ~ .control__indicator,
+    // input:checked:focus ~ .control__indicator {
+    //     @apply border-bronze bg-bronze;
+    // }
 
-    // Disabled
-    input:disabled ~ .control__indicator {
-        @apply bg-ivory-light     
-        pointer-events-none;
-    }
-    &__indicator:after {
-        content: '';
-        @apply absolute hidden;
-    }
-    input:checked ~ .control__indicator:after {
-        @apply inline-block;
-    }
-    &--checkbox .control__indicator:after {
-        @apply border-white;
-        left: 5px;
-        top: 2px;
-        width: 5px;
-        height: 8px;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-    }
-    &--checkbox input:disabled ~ .control__indicator:after {
-        border-color: #7b7b7b;
-    }
+    // // Disabled
+    // input:disabled ~ .control__indicator {
+    //     @apply bg-slate-light
+    //     pointer-events-none;
+    // }
+    // &__indicator:after {
+    //     content: '';
+    //     @apply absolute hidden;
+    // }
+    // input:checked ~ .control__indicator:after {
+    //     @apply inline-block;
+    // }
+    // &--checkbox .control__indicator:after {
+    //     @apply border-white;
+    //     left: 5px;
+    //     top: 2px;
+    //     width: 5px;
+    //     height: 8px;
+    //     border-width: 0 2px 2px 0;
+    //     transform: rotate(45deg);
+    // }
+    // &--checkbox input:disabled ~ .control__indicator:after {
+    //     border-color: #7b7b7b;
+    // }
 
     // Radio Box Type
     &--radio-box {

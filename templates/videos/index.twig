@@ -1,26 +1,45 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
-{% set indexList = craft.entries.section('videos') %}
+{% set entries = craft.entries.section('videos') %}
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit) as pageInfo, pageEntries %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl) %}
+{% endif %}
+{% if pageInfo.prevUrl %}
+    {% set prevUrl = url(pageInfo.prevUrl) %}
+{% endif %}
+
 
 {% block content %}
 
     <section class="space-menu">
 
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
+        {% set pageHeaderContent = { 
+            title: entry.title, 
+            detail: entry.shortDescription,
+            action: entry.headerAction
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
 
     </section>
 
     {# Topics List #}
-    {% if indexList.count > 0 %}
+    {% if pageEntries|length > 0 %}
+
 
         <div id="videos" class="container--sm gutter-md | md:flex-grid | space-b--sm">
-            {% for entry in indexList.all() %}
-
+            {% for entry in pageEntries %}
                 {% include '_components/content-card--video' with { content: entry, 'classes': '' } %}
-
             {% endfor %}
         </div>
+        {% include "_components/pagination--static" %}
+
+        {# Add inf pagination in the future (requires rewriting the Vimeo Vue Component) #}
+        {# {% include "_components/pagination" %} #}
     
     {% else %}
         
@@ -31,22 +50,5 @@
 
     {% endif %}
     
-    {# Billboard #}
-    {# {% if entry.showBillboardText %}
-        
-        <div id="advertise" class="">
-            Billboard Content
-            {% set billboardContent = { 
-                    header: entry.billboardHeader,
-                    description: entry.billboardDescription,
-                    button: entry.billboardButton,
-                    buttonStyle: entry.billboardButtonStyle,
-                    background: entry.billboardBackground,
-                }%}
-            Text Billboard - text
-            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
-        </div>
-
-    {% endif %} #}
 
 {% endblock %}

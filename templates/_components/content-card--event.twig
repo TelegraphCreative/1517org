@@ -25,14 +25,24 @@
                     <li>
                         <a href="{{ content.url }}" class="align-items-center">
                             {{ global.utilityIcon('calendar', '-sm') }}
-                            <div class="meta-label | ml-3">{{ content.postDate | date( 'M d, Y') }}</div>
+                            <div class="meta-label | ml-3">
+                                {% if content.eventStartDate %}
+                                    {% set dates = [content.eventStartDate] %}
+                                    {% if content.eventEndDate %}
+                                        {% set dates = dates|merge([content.eventEndDate]) %}
+                                    {% endif %}
+                                    {% include "_components/dates" with { dates: dates } %}
+                                {% endif %}
+                            </div>
                         </a>
                     </li>
+
+                    {% set location = content.location.parts %}
+                    {% set cityState = location.city ~ ', ' ~ location.state %}
                     <li>
-                        {# Needs Location #}
-                        <a href="#" class="align-items-center">
+                        <a href="https://www.google.com/maps/place/{{ location.address ~ ' ' ~ cityState ~ ' ' ~ location.postcode }}" target="_blank" class="align-items-center">
                             {{ global.utilityIcon('map-pin', '-sm') }}
-                            <div class="meta-label | ml-2">Austin, TX</div>
+                            <div class="meta-label | ml-2">{{ cityState }}</div>
                         </a>
                     </li>
                 </ul>        
@@ -40,7 +50,6 @@
             
             {# Detail #}
             <div class="content-card__detail | paragraphs -xs -loose | mb-4">
-                <p>This partial is not fully integrated with dynamic content <b>(needs location, image, possibly date).</b></p>
                 {{ content.shortDescription | chop(limit=60, unit='w', append= '…') }}
             </div>
 

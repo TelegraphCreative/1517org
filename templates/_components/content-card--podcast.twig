@@ -1,6 +1,8 @@
 {# Content Card --podcast (real data) #}
 {% import '_macros/global' as global %}
 
+{% set podcastShow = content.podcastShow.level(1).one() %}
+
 {# Content #}
 <article class="content-card -topic{% if classes is defined %} | {{ classes }}{% endif %}">
 
@@ -8,7 +10,14 @@
         
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media  | no-print" >
-            {{ global.coverImage( content.cardImagePodcast.one(), '-fit-cover -hover-scale' )}}
+
+            {# Use Podcast Show's Image unless Episode has a card image #}
+            {% set cardImage = podcastShow.cardImagePodcast.one() %}
+            {% if content.cardImagePodcast|length %}
+                {% set cardImage = content.cardImagePodcast.one() %}
+            {% endif %}
+            
+            {{ global.coverImage( cardImage, '-fit-cover -hover-scale' )}}
         </a>    
         
         {# Content #}
@@ -25,15 +34,15 @@
             <div class="content-card__meta -primary mb-4 | flex-grid">
                 <ul class="items-bar">
                     <li>
-                        {% for category in content.podcastShow.level(1).limit(1).all() %}
-                            <a href="{{ category.url }}" class="align-items-center">
+                        {# {% for category in content.podcastShow.level(1).limit(1).all() %} #}
+                            <a href="{{ podcastShow.url }}" class="align-items-center">
                                 {{ global.utilityIcon('microphone', '-sm') }}
                                 <div class="meta-label | ml-3">
-                                    {{ category.title }}
+                                    {{ podcastShow.title }}
                                 </div>
                                 <time class="meta-label | ml-5" datetime="{{ content.postDate | date( 'm-d-y') }}">{{ content.postDate | date( 'm/d/y') }}</time>
                             </a>
-                        {% endfor %}
+                        {# {% endfor %} #}
                     </li>
                 </ul>        
             </div>

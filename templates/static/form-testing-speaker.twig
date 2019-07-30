@@ -1,0 +1,184 @@
+
+
+<contact_form :formmethod="'post'" :formaction="'contact-form/send'"
+    :mcid="'8a954ea73c'" :mcuser="'6ab7472048d4ea9ba49aa23e8'" :mcurl="'wearetelegraph.us5'"
+    :signuplocation="'request-speaker-page'">
+
+    <template v-slot:default>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">Subheading Here</h2>
+            <div class="paragraphs -md">
+                <p>Each of these provide a message of hope to strengthen individuals and congregations, as well as model
+                    ways of engaging the culture in a manner that is thoughtful, courageous, and Christ-centered.</p>
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:success>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">Success</h2>
+            <div class="paragraphs -md">
+                <p>Message received! Thanks for reaching out.</p>
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:fields>
+
+        {% macro errorList(errors) %}
+        {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endmacro %}
+
+        {% from _self import errorList %}
+
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="contact-form/send">
+        {{ redirectInput('contact?status=success') }}
+        <input id="favoriteboulder" name="favoriteboulder" type="text">
+        <input type="hidden" name="message[formName]" value="Contact_Form">
+        <input type="hidden" name="message[template]" value="{{ '_emails/user-confirmations/contact-form-confirmation'|hash }}">
+
+        {# Contact Form Header #}
+        <header class="sub-section-header">
+            <h2 class="title | header-sm font-serif">
+                Who do you want to book?
+            </h2>
+        </header>
+
+        {# Select Speaker #}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="speaker">
+                    Select Speaker
+                </label>
+                select box
+                <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
+                    <option value="Scott Kieth">Scott Kieth</option>
+                    <option value="Jane Smith">Jane Smith</option>
+                </select_box>
+                {% if user is defined %}
+                    <div class="helper-text -error">
+                        Example of an error
+                        {{ errorList(message.getErrors('speaker')) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {# Contact Form Header #}
+        <header class="sub-section-header">
+            <h2 class="title | header-sm font-serif">
+                Point of Contact Information
+            </h2>
+        </header>
+
+        {# Full Name #}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="firstName">
+                    First Name
+                </label>
+                <input type="text" id="firstName" name="firstName" required {%- if user.firstName is defined %} value="{{ user.firstName }}" {% endif -%}/>
+
+                <!-- For example only - For error styles add class like so: .form-group.-error -->
+                <div class="helper-text">
+                    Example of helper text
+                </div>
+                <!-- /end For example only -->
+
+                {% if user is defined %}
+                    <div class="helper-text -error">
+                        Example of an error
+                        {{ errorList(message.getErrors('firstName')) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="lastName">
+                    Last Name
+                </label>
+                <input type="text" id="lastName" name="lastName" required {%- if user.lastName is defined %} value="{{ user.lastName }}" {% endif -%}/>
+                {% if user is defined %}
+                    <div class="helper-text -error">
+                        {{ errorList(message.getErrors('lastName')) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {# Email #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label class="standard-label" for="email">
+                    Email Address
+                </label>
+                <input type="email" id="email" name="email" required {%- if user is defined %} value="{{ user.email }}" {% endif %}/>
+            </div>
+        </div>
+
+        {# Phone #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label class="standard-label" for="phone">
+                    Phone (optional)
+                </label>
+                <input type="tel" id="phone" name="phone"/>
+            </div>
+        </div>
+
+        {# Contact Form Header #}
+        <header class="sub-section-header">
+            <h2 class="title | header-sm font-serif">
+                Event Information
+            </h2>
+        </header>
+
+        {# Date/Topic #}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="speaker">
+                    Event Date
+                </label>
+                <date_picker :opt="{ name: 'date', id: 'date' }"/>
+            </div>
+            {# Topic #}
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="topic">
+                    Topic
+                </label>
+                <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
+                    <option value="Topic A">Topic A</option>
+                    <option value="Topic B">Topic B</option>
+                    <option value="Topic C">Topic C</option>
+                </select_box>
+            </div>
+        </div>
+
+        {# Website #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+                <label class="standard-label" for="website">
+                    Website
+                </label>
+                <input type="text" id="website" name="website" required/>
+            </div>
+        </div>
+
+        {# Submit #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+                <input class="btn -full -red" type="submit" value="Submit Form">
+            </div>
+        </div>
+    
+    </template>
+
+</contact_form>

@@ -1,0 +1,51 @@
+{% extends 'shop/_layouts/main' %}
+
+{% block main %}
+    {% if currentUser %}
+        {% set orders = craft.orders.customer(craft.commerce.customers.customer).isCompleted(true).all() %}
+
+        <h1 class="text-center header-md">My Orders</h1>
+
+        <hr>
+
+        {% if orders|length %}
+            <table class="w-full mb-8">
+                <thead>
+                <tr>
+                    <th>{{ "Order"|t }}</th>
+                    <th>{{ "Date"|t }}</th>
+                    <th>{{ "Total Quantity"|t }}</th>
+                    <th>{{ "Total"|t }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {# Get completed orders for the current customer.#}
+                {% for order in craft.orders.customer(craft.commerce.customers.customer).isCompleted(true).all() %}
+                    <tr>
+                        <td><a href="{{ url('shop/customer/order', { number: order.number }) }}">Order {{ order.reference }}</a></td>
+                        <td>{{ order.dateOrdered|date }}</td>
+                        <td>{{ order.totalQty }} items</td>
+                        <td>{{ order.totalPrice|commerceCurrency(cart.currency) }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="empty-index | text-center">
+                <i class="fas fa-box-open"></i>
+                <p>You don’t have any orders yet. <br />
+                <div class="mt-6">
+                    <a class="btn -md" href="{{ url('shop/products') }}">Continue shopping</a></div>
+                </p>
+            </div>
+        {% endif %}
+    {% else %}
+            <div class="empty-index | text-center">
+                <i class="fas fa-box-open"></i>
+                <p>Please sign in to view your orders.<br />
+                <div class="mt-6">
+                    <a class="btn -md" href="{{ url('shop/sign-in') }}">Sign In</a></div>
+                </p>
+            </div>
+    {% endif %}
+{% endblock %}

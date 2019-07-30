@@ -1,12 +1,7 @@
-<footer
-    class="site-footer | focus-links -light | leading-normal"
-    role="contentinfo"
->
+<footer class="site-footer | focus-links -light | leading-normal" role="contentinfo">
     <!-- Groups -->
     <div class="site-footer__groups | container gutter-md | space-t--sm">
-        <div
-            class="site-footer__groups__container | md:flex-grid | mb-10 md:mb-0"
-        >
+        <div class="site-footer__groups__container | md:flex-grid | mb-10 md:mb-0">
             {# Group #}
             <div class="site-footer__group | md:w-3/5 md:pr-10 | space-b">
                 <div aria-label="1517 Info" class="footer-about | max-w-sm">
@@ -16,15 +11,14 @@
                     </div>
                     {% endif %} 
                     {# Social #} 
-                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -light -rounded', size: '-sm' } %}
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, classes: '-inline -slate-light -rounded' } %}
                 </div>
             </div>
 
             {# Group #}
             <div class="site-footer__group | md:w-1/5">
                 <nav aria-label="1517 Primary Footer Menu" class="footer-menu">
-                    {# Menu List #} {% include "_components/list-menu" with {
-                    content: 'footerMenuL', classes: '' } %}
+                    {# Menu List #} {% include "_components/list-menu" with { content: 'footerMenuL', classes: '' } %}
                 </nav>
             </div>
 
@@ -34,8 +28,7 @@
                     aria-label="1517 Secondary Footer Menu"
                     class="footer-menu"
                 >
-                    {# Menu List #} {% include "_components/list-menu" with {
-                    content: 'footerMenuR', classes: '-grey' } %}
+                    {# Menu List #} {% include "_components/list-menu" with { content: 'footerMenuR', classes: '-grey' } %}
                 </nav>
             </div>
         </div>
@@ -45,10 +38,11 @@
     <div class="site-footer__meta | container gutter-md | space-b">
         <div class="site-footer__meta__container | md:flex-grid">
             {# Subscribe Form #}
-            <div class="footer-meta__group | md:w-3/4 ">
-                {% include "_components/static/form-signup" with { header:
-                'Subscribe to 1517 eNewsletter' } %}
-            </div>
+            {% if siteInfo.enableForm %}
+                <div class="footer-meta__group | md:w-3/4 ">
+                    {% include "_components/form-signup" with { header: 'Subscribe to 1517 eNewsletter', id: 'footer' } %}
+                </div>
+            {% endif %}
 
             {# Legal #}
 
@@ -58,7 +52,7 @@
                 <div>
                     <a href="{{ url('styleguide') }}">Privacy Policy</a>
                 </div>
-                <div>&copy; 1517 Legacy Project {{ now | date('Y') }}</div>
+                <div>&copy; 2014-{{ now | date('Y') }}, 1517</div>
                 <div>
                     All Rights Reserved.
                 </div>

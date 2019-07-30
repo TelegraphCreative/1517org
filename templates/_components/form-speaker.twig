@@ -1,0 +1,160 @@
+<contact_form :formaction="'https://formspree.io/xvdypopx'" :formmethod="'post'" :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'" :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" :signuplocation="'request-speaker-page'">
+
+
+    <template v-slot:default>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">{{ entry.formHeader.one().defaultHeader }}</h2>
+            <div class="paragraphs -md">
+                {{ entry.formHeader.one().defaultDescription }}
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:success>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">{{ entry.formHeader.one().successHeader }}</h2>
+            <div class="paragraphs -md">
+                {{ entry.formHeader.one().successDescription }}
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:fields>
+
+        <input class="hidden" id="subject" name="subject" type="text" value="1517 Request Speaker Form Message">
+        <input
+        id="favoriteboulder" name="_gotcha" type="text">
+
+        {# Contact Form Header #}
+        <header class="sub-section-header">
+            <h2 class="title | header-sm font-serif">
+                Who do you want to book?
+            </h2>
+        </header>
+
+        {# Select Speaker #}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="speaker">
+                    Select Speaker
+                </label>
+                <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
+                    {% for item in entry.requestSpeakerBookingOptions.all() %}
+
+                        <option value="{{ item.fullName }}">{{ item.fullName }}</option>
+
+                    {% endfor %}
+                </select_box>
+            </div>
+        </div>
+
+        {# Contact Form Header #}
+        <header class="sub-section-header">
+            <h2 class="title | header-sm font-serif">
+                Point of Contact Information
+            </h2>
+        </header>
+
+        {# Full Name #}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="firstName">
+                    First Name
+                </label>
+                <input type="text" id="firstName" name="firstName" {%- if user.firstName is defined %} value="{{ user.firstName }}" {% endif -%}/>
+            </div>
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="lastName">
+                    Last Name
+                </label>
+                <input type="text" id="lastName" name="lastName" {%- if user.lastName is defined %} value="{{ user.lastName }}" {% endif -%}/>
+            </div>
+        </div>
+
+        {# Email #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label class="standard-label" for="email">
+                    Email Address
+                </label>
+                <input type="email" id="email" name="_replyto" required {%- if user is defined %} value="{{ user.email }}" {% endif %}/>
+            </div>
+        </div>
+
+        {# Phone #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label class="standard-label" for="phone">
+                    Phone (optional)
+                </label>
+                <input type="tel" id="phone" name="phone" {%- if user.phone is defined %} value="{{ user.phone }}" {% endif -%}/>
+            </div>
+        </div>
+
+        {# Contact Form Header #}
+        <header class="sub-section-header">
+            <h2 class="title | header-sm font-serif">
+                Event Information
+            </h2>
+        </header>
+
+        {# Date/Topic need to switch this to just text input for v1 and extend Sprout Forms to include date picker custom field#}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="speaker">
+                    Event Date
+                </label>
+                <date_picker :opt="{ name: 'date', id: 'date' }"/>
+            </div>
+            {# Topic #}
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="topic">
+                    Topic
+                </label>
+                <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
+                    {% for item in entry.requestSpeakerTopicOptions.all() %}
+
+                        <option value="{{ item.topic }}">{{ item.topic }}</option>
+
+                    {% endfor %}
+                </select_box>
+            </div>
+        </div>
+
+        {# Website #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+                <label class="standard-label" for="website">
+                    Website
+                </label>
+                <input id="website" name="website" required type="text"/>
+            </div>
+        </div>
+
+        {# GDPR #}
+        {% if siteInfo.enableForm %}
+
+            <div class="form-group">
+                <div class="field-group | w-full">
+
+                    <label class="" for="subscribe-to-updates">
+                        <input id="subscribe-to-updates" name="subscribeToMailchimp" type="checkbox" value="yes">
+
+                        <span class="control__text">Sign up for updates?</span>
+                    </label>
+
+                </div>
+            </div>
+
+        {% endif %}
+
+        {# Submit #}
+        <div class="form-submit">
+            <button class="btn -full -red" type="submit">Submit Form</button>
+        </div>
+
+    </template>
+
+</contact_form>

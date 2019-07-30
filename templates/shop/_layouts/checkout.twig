@@ -1,0 +1,20 @@
+{# Prevent Caching #}
+{# {% do craft.blitz.options({
+    cachingEnabled: false,
+    cacheElements: false,
+    cacheElementQueries: false
+}) %} #}
+
+{% set showNav = false %}
+
+{% set shopClasses = 'checkout' %}
+
+{% extends 'shop/_layouts/main' %}
+
+{% set extraHeader %}
+    {% include 'shop/_includes/meter' %}
+{% endset %}
+
+{% block main %}
+    {% block content %}{% endblock %}
+{% endblock %}

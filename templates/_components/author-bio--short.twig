@@ -1,0 +1,10 @@
+{% import '_macros/global' as global %}
+{% if content.photo|length %}
+    <a href="{{ content.url }}" class="meta-summary__media -narrow block">
+        {{ global.image(content.photo.one(), '-is1x1 -force -fit-cover | rounded-full ')}}
+    </a>
+{% endif %}
+<div class="author-bio__detail">
+    <h6>about the contributor</h6>
+    <p>{{ content.shortDescription }}</p>
+</div>

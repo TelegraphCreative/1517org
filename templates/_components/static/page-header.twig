@@ -5,15 +5,7 @@
     Optional Content:
     - Detail
 #}
-
-{# Check for imported properties #}
-{% if classes is defined %}
-    {% set classes = classes %}
-{% else %}
-    {% set classes = '' %}
-{% endif %}
-
-<header class="page-header {{ classes }} | container--sm gutter-md | space-t space-b--sm">
+<header class="page-header{% if classes is defined %} | {{ classes }} {% endif %} | container--sm gutter-md | space-t space-b--sm">
 
     {% if content.label is defined %}
         <div class="page-header__label mb-4">
@@ -34,7 +26,13 @@
             <p>
                 {{ content.detail }}
             </p>
+            {% if content.action is defined and content.action|length %}
+            <div class="mt-8">
+                <a href="{{ content.action }}" class="btn -light">{{ content.actionText }}</a>
+            </div>
+            {% endif %}
         </div>
+        
 
     </div>
     {% endif %}

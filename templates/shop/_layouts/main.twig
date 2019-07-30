@@ -1,0 +1,109 @@
+{# Prevent Caching #}
+{# {% do craft.blitz.options({
+    cachingEnabled: false,
+    cacheElements: false,
+    cacheElementQueries: true
+}) %} #}
+
+{% set firstSegment = craft.app.request.segment(1) %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>{{ "Craft Commerce"|t }}</title>
+
+    <meta name="description" content="{{ "The example templates for Craft Commerce"|t }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="application/javascript">{% include 'shop/jquery.js' %}</script>
+    
+    {% do view.registerCssFile( mix('/css/app.css') ) %} 
+    {# <style>{% include 'example-shop/style.css' %}</style> #}
+    {% do view.registerCssFile( mix('/css/shop.css') ) %} 
+
+    {% include '_components/site-favicons' %}
+
+    {% if cart is not defined %}
+        {% set cart = craft.commerce.carts.cart %}
+    {% endif %}
+</head>
+
+
+
+<body class="{{ firstSegment }} - {% if shopClasses is defined %}{{ shopClasses }}{% endif %}">
+    <div class="site-container">
+      {% if showNav is not defined %}
+            {% set showNav = true %}
+        {% endif %}
+        
+        {% if showNav %}
+          <div id="app">
+            {% include '_components/site-menu' %}
+          </div>
+        {% endif %}
+        {% if extraHeader is defined %}
+            {{ extraHeader }}
+        {% endif %}
+
+        <main class="site-main">
+
+            {% set flashNotice = craft.app.session.getFlash('notice') %}
+
+            {% if flashNotice %}
+                <div class="bg-bronze text-white">
+                    <div class="container mx-auto px-6 py-4 | text-md">
+                        {{ flashNotice }}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% set flashError = craft.app.session.getFlash('error') %}
+
+            {% if flashError %}
+                <div class="bg-red text-white">
+                    <div class="container mx-auto px-6 py-4 | text-md">
+                        {{ flashError }}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if cart.errors|length %}
+                <div class="bg-red text-white | space-t--sm space-b">
+                    <div class="container mx-auto px-6 py-4 | text-md">
+                        {% for attribute, errors in cart.errors %}
+                            {% if loop.first %}<ul>{% endif %}
+                            {% for key, error in errors %}
+                                <li>{{ attribute }}: {{ error }}</li>
+                            {% endfor %}
+                            {% if loop.last %}</ul>{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% block body %}
+                <div class="{% if showNav %} space-menu {% endif %} ">
+                    <div class="container gutter | space-t--sm  space-b | md:min-h-push-footer">
+                    {% block main %}
+                        <h1 class="header-xl font-serif mb-8">Default Content</h1>
+                        <p>You should not see this.</p>
+                    {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </main>
+
+        {# Footer #}
+        <div id="app">
+          {% include '_components/site-footer' %}
+        </div>
+    </div>
+</body>
+
+{% do view.registerJsFile( mix('/js/app.js') ) %}
+{% include '_components/site-vendor-assets' %}
+
+</html>

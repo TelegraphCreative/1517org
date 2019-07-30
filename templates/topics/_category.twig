@@ -1,10 +1,43 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
-{% set sourceSections = ['articles', 'podcasts', 'events', 'videos', 'courses'] %}
-{% set sections = craft.entries({ section: sourceSections }) %}
-{% set indexList = sections.relatedTo(category) %}
-{% set indexCount = indexList.count %}
+{% set format = craft.app.request.getParam('format') %}
+{% set author = craft.app.request.getParam('author') %}
+
+{# full lists for drop downs #}
+{% set allSections = craft.app.sections.allSections %}
+{% set sections = [] %}
+{% for section in allSections %}
+    {% if section.type == 'channel' and section.handle != 'authors' %}
+        {% set sections = sections|merge([section]) %}
+    {% endif %}
+{% endfor %}
+{% set authors = craft.entries.section('authors').orderBy('firstName asc').all() %}
+
+{# apply sections #}
+{% set sectionFilter = format ?: sections|join(',') %}
+
+{# build out relationships #}
+{% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+{% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
+{% set relationParams = [{ targetElement: category }, authorParam]|filter %}
+
+{% set entries = craft.entries({
+    section: sectionFilter,
+    orderBy: 'postDate desc',
+    relatedTo: ['and']|merge(relationParams)
+}) %}
+
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit) as pageInfo, pageEntries %}
+{% set count = pageInfo.total %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, {
+        format: format,
+        author: author
+    }) %}
+{% endif %}
 
 {% block content %}
 
@@ -24,40 +57,35 @@
     </section>
 
     <div id="filters" class="container">
-        {# Filters #} 
-        {% include "_components/static/filters-page" with { count: indexCount }%}
+        {# Filters #}
+        {% include "_components/filters-page" %}
     </div>
 
-    <div id="related" class="container--sm gutter-md | md:flex-grid | space-b--sm">
+    <div id="related" class="page-entries container--sm gutter-md | md:flex-grid | space-b--sm">
         
+    {% if count > 0 %}
+
         {# Sections #}    
-        {% for entry in indexList.all() %}
+        {% for entry in pageEntries %}
             {# Content Card - Stacked #}
             {% include '_components/content-cards' with { content: entry } %}
         {% endfor %}
 
-    </div>
+        {% include "_components/pagination" %}
 
+    {% else %}
 
-    {# <h4>
-        {% if category.level > 1 %}
-            (part of a group, <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
-            <br>
+        {# No Entries #}
+        <div class="text-center space-b">
+        {% if format or author %}
+           There are no entries that match the filters you've selected. 
+        {% else %}
+            There are no entries for this Topic.  
         {% endif %}
-        see all <a href="/{{ firstSegment }}">{{ category.group.name }}</a>
-    </h4>
-        
-    <!-- Fetch all of the entries related to this category -->
-    {% set entries = craft.entries.relatedTo(category) %}
+        </div>
 
-    <ul>
-        {% for entry in entries.all() %}
-            <li>
-                <a href="{{ entry.url }}">
-                    {{ entry.title }} ( {{ entry.type }})
-                </a>
-            </li>
-        {% endfor %}
-    </ul> #}
+    {% endif %}
+
+    </div>
 
 {% endblock %}

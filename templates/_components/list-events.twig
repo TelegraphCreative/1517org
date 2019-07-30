@@ -8,11 +8,11 @@
 
             <div class="list-event__container | flex-grid">
                 <a
-                    class="list-event__media" href="#">
+                    class="list-event__media" href="{{ item.url }}">
                     {# Label #}
                     <h4 class="content-label -date -light -flush">
-                        <div class="content-label__mo">{{ item.postDate | date( 'M') }}</div>
-                        <div class="content-label__day">{{ item.postDate | date( 'd') }}</div>
+                        <div class="content-label__mo">{{ item.eventStartDate | date( 'M') }}</div>
+                        <div class="content-label__day">{{ item.eventStartDate | date( 'd') }}</div>
                     </h4>
 
                     <div class="md:pl-6">
@@ -21,12 +21,14 @@
                 </a>
 
                 <div class="list-event__content">
-                    <a href="#">
+                    <a href="{{ item.url }}">
                         <h3 class="header -sm font-serif | mb-2 mt-6">
                             {{ item.title }}
                         </h3>
 
-                        <div class="meta-label text-slate-light mb-2">Static, Location</div>
+                        {% set location = item.location.parts %}
+                        {% set cityState = location.city ~ ', ' ~ location.state %}
+                        <div class="meta-label text-slate-light mb-2">{{ cityState }}</div>
 
                         <div class="list-event__detail | paragraphs -xs | mb-2">
                             {{ item.shortDescription | chop(limit=40, unit='w', append= '…') }}

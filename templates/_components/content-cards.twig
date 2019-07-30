@@ -1,5 +1,4 @@
 {% import '_macros/global' as global %}
-
 {% switch content.type %}
 
     {% case "article" %}
@@ -8,7 +7,7 @@
     {% case "podcast" %}
         {% include '_components/content-card--podcast' with { content: content } %}
 
-    {% case "video" %}
+    {% case "videos" %}
         {% include '_components/content-card--video' with { content: content } %}
 
     {% case "events" %}

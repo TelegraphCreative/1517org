@@ -1,15 +1,25 @@
-{% extends "_layouts/_base" %} 
+{% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
+
+{% set topBlocks = clone(entry.contentBlocksStandard).limit(3) %}
+{% set remainingBlocks = clone(entry.contentBlocksStandard).offset(3).all() %}
+
+{% set podcastShow = entry.podcastShow.level(1).one() %}
 
 {% block content %}
 
     <section class="space-menu | space-b">
 
         {# Media Hero #}
-        {{ global.image( entry.heroImage.one(), '-fit-cover' )}}
+        {# Use Podcast Show's Image unless Episode has a card image #}
+        {% set cardImage = podcastShow.cardImagePodcast.one() %}
+        {% if entry.cardImagePodcast|length %}
+            {% set cardImage = entry.cardImagePodcast.one() %}
+        {% endif %}
+        {{ global.coverImage( cardImage, '-fit-cover -hover-scale' )}}
         
         {# Podcast Player Full #}
-        <podcast_player_full title="{{ entry.title }}" url="{{ entry.podcastLink }}" />
+        <podcast_player_full source="{{ podcastShow.title }}" title="{{ entry.title }}" url="{{ entry.podcastLink }}" />
 
     </section>
 
@@ -42,7 +52,7 @@
             <div class="entry__blocks | longform-entry-blocks -top">
 
                 {# Longform Content #}
-                {% include '_components/longform-entry-blocks--top' with { classes: '', block: entry.contentBlocksStandard.one() } %}
+                {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks } %}
 
             </div>
             
@@ -73,7 +83,7 @@
 
 
         {# Article + Aside (bottom) #}
-        {% if entry.contentBlocksStandard|length>1 %}
+        {% if remainingBlocks|length or entry.citation %}
             
             {# Content #}
             <article class="entry-main -wide">
@@ -82,10 +92,10 @@
                 <div class="entry__blocks | longform-entry-blocks">
 
                     {# Longform Content #}
-                    {% include '_components/longform-entry-blocks' with { blocks: entry.contentBlocksStandard.offset(1).all(), layoutClasses: 'narrow-block gutter-xl' } %}
+                    {% include '_components/longform-entry-blocks' with { blocks: remainingBlocks, layoutClasses: 'narrow-block gutter-xl' } %}
 
                     {# Citation #}
-                    {% if entry.citation is defined %}
+                    {% if entry.citation %}
                         <div class="narrow-block gutter-xl">
                             <div class="article-content entry-footnote">
                                 <small>{{ entry.citation }}</small>

@@ -1,4 +1,4 @@
-{% extends "_layouts/_base" %} 
+{% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
 {% set section = craft.entries.section('podcasts') %}
@@ -34,12 +34,15 @@
     {% if category.featuredPodcast|length %}
         {% set featuredSingle = '' %}
         {% set background = '' %}
+
         {% for method in category.featuredPodcast.all() %}
             {# Data based on Method #}
             {% switch method.type %}
                 
                 {# Pull Latest #}
                 {% case "pullLatest" %}
+
+
                     {% set sources = [] %}
 
                     {% for source in method.latestFrom.all() %}
@@ -47,7 +50,7 @@
                     {% endfor %}
                     {% set featuredAll = section.relatedTo(sources) %}
                     {% set featuredSingle = featuredAll[0] %}
-                
+
                 {# Pull Featured #}
                 {% case "pullFeatured" %}
 
@@ -59,10 +62,12 @@
             {% set background = method.background %}
 
         {% endfor %}
+
         <div id="featured" class="container | space-b">
 
             {# Content Card - Hero #} 
             {% include '_components/content-hero--podcast' with { content: featuredSingle, 'classes': background } %}
+            
 
         </div>
     {% endif %}
@@ -76,12 +81,11 @@
 
     {# Topics List #}
     <div id="content" class="container--sm gutter-md | space-b">
-
         {# Content Card - Podcast #} 
+        {% set entries = section.relatedTo(category) %}
         {% for entry in entries.all() %}
             {% include '_components/content-card--podcast' with { content: entry, 'classes': '' } %}
         {% endfor %}
-        
     </div>
 
     {# Subscribe Billboard  #}
@@ -95,33 +99,5 @@
         {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: subscribeContent } %}
 
     {% endif %}
-
-{# <h1>
-    {{ category.title }}
-</h1>
-<h4>
-    {% if category.level > 1 %}
-        (series of <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
-    {% endif %}
-</h4>
-
-
-<h2>Episodes</h2>
-    
-<!-- Fetch all of the entries related to this category -->
-{% set section = craft.entries.section('podcasts') %}
-{% set entries = section.relatedTo(category) %}
-
-<ul>
-    {% for entry in entries.all() %}
-        <li>
-            <a href="{{ entry.url }}">
-                {{ entry.title }}
-            </a>
-        </li>
-    {% endfor %}
-</ul> #}
-
-
 
 {% endblock %}

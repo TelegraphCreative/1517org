@@ -1,14 +1,43 @@
-{% extends "_layouts/_base" %} 
+{% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
-{% set sourceSections = ['articles', 'podcasts', 'events', 'videos', 'courses'] %}
+{% set format = craft.app.request.getParam('format') %}
+{% set author = craft.app.request.getParam('author') %}
 
-{% set sections = craft.entries({ section: sourceSections }) %}
-{% set entries = sections.relatedTo(category) %}
-{% set count = entries.count %} 
+{# full lists for drop downs #}
+{% set allSections = craft.app.sections.allSections %}
+{% set sections = [] %}
+{% for section in allSections %}
+    {% if section.type == 'channel' and section.handle != 'authors' %}
+        {% set sections = sections|merge([section]) %}
+    {% endif %}
+{% endfor %}
+{% set authors = craft.entries.section('authors').orderBy('firstName asc').all() %}
 
-{% set topics = craft.categories.group('topics') %}
-{% set relatedTopics = topics.relatedTo(entries).all() %}
+{# apply sections #}
+{% set sectionFilter = format ?: sections|join(',') %}
+
+{# build out relationships #}
+{% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+{% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
+{% set relationParams = [{ targetElement: category }, authorParam]|filter %}
+
+{% set entries = craft.entries({
+    section: sectionFilter,
+    orderBy: 'postDate desc',
+    relatedTo: ['and']|merge(relationParams)
+}) %}
+
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit) as pageInfo, pageEntries %}
+{% set count = pageInfo.total %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, {
+        format: format,
+        author: author
+    }) %}
+{% endif %}
 
 
 {% block content %} 
@@ -16,13 +45,12 @@
     <section class="space-menu ">
         {# Page Header Content #}
         {% set content = { 
-                title: category.title, 
-                category: 'Sections', 
-                detail: category.shortDescription,
-                image: category.cardImagePodcast.one(),
-                action: category.headerAction
-            }
-        %} 
+            title: category.title, 
+            category: 'Sections', 
+            detail: category.shortDescription,
+            image: category.cardImagePodcast.one(),
+            action: category.headerAction
+        } %} 
         {# Page Header - Action #}
         {% include "_components/page-header--action" with { content: content } %}
 
@@ -39,7 +67,7 @@
                 {# Pull Latest #}
                 {% case "pullLatest" %}
 
-                    {% set featuredSingle = entries.first() %}
+                    {% set featuredSingle = entries.one() %}
                 
                 {# Pull Featured #}
                 {% case "pullFeatured" %}
@@ -55,61 +83,44 @@
         <div id="featured" class="container | space-b">
 
             {# Content Hero - Switches based on Format #} 
-            {% include '_components/content-hero' with { content: featuredSingle, 'classes': background } %}
+            {% include '_components/content-heroes' with { content: featuredSingle, 'classes': background } %}
 
         </div>
     {% endif %}
     
-
-
     <div id="filters" class="container">
         {# Filters #} 
-        {% include "_components/filters-page--sections" with {topics: relatedTopics} %}
+        {% include "_components/filters-page" %}
     </div>
 
-
     {# Card List #}
-    <div id="sections" class="container--sm gutter-md | space-b">
+    <div id="sections" class="page-entries container--sm gutter-md | space-b">
 
+    {% if count > 0 %}
         
         {# Content Card - Podcast #} 
-        {% for entry in entries.all() %}
+        {% for entry in pageEntries %}
 
             {# Content Cards - Switches based on Format #} 
             {% include '_components/content-cards' with { content: entry } %}
             
         {% endfor %}
+
+        {% include "_components/pagination" %}
+
+    {% else %}
+
+        {# No Entries #}
+        <div class="text-center space-b">
+        {% if format or author %}
+           There are no entries that match the filters you've selected. 
+        {% else %}
+            There are no entries for this Section.  
+        {% endif %}
+        </div>
+        
+    {% endif %}
         
     </div>
-
-   
-
-{# <h1>
-    {{ category.title }}
-</h1>
-<h4>
-    {% if category.level > 1 %}
-        (series of <a href="{{ category.parent().url }}">{{ category.parent().title }}</a>)
-    {% endif %}
-</h4>
-
-
-<h2>Episodes</h2>
-    
-<!-- Fetch all of the entries related to this category -->
-{% set section = craft.entries.section('podcasts') %}
-{% set entries = section.relatedTo(category) %}
-
-<ul>
-    {% for entry in entries.all() %}
-        <li>
-            <a href="{{ entry.url }}">
-                {{ entry.title }}
-            </a>
-        </li>
-    {% endfor %}
-</ul> #}
-
-
 
 {% endblock %}

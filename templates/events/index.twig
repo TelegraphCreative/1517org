@@ -1,57 +1,114 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
-{% set indexList = craft.entries.section('events') %}
+
+{# filtering #}
+{% set topic = craft.app.request.getParam('topic') %}
+{% set topics = craft.categories().group('topics').orderBy('title asc').all() %}
+{% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
+{% set topicParam = topicCat ? { targetElement: topicCat } %}
+
+{% set entries = craft.entries({
+    section: 'events',
+    relatedTo: topicParam ?: null
+}) %}
+
+{% set pageLimit = 5 %}
+{% paginate entries.limit(pageLimit).orderBy('eventStartDate asc') as pageInfo, pageEntries %}
+{% set count = pageInfo.total %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, { topic: topic }) %}
+{% endif %}
 
 {% block content %}
 
     <section class="space-menu">
-
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
+        {% set pageHeaderContent = { 
+            title: entry.title, 
+            detail: entry.shortDescription,
+            action: entry.headerAction
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
 
     </section>
 
-    {# Topics List #}
-    {% if indexList.count > 0 %}
+    {# Featured  #}
+    {% if entry.featuredEvent|length %}
+    <div id="featured" class="container | space-b--sm">
+        {# Content Card - Hero #}
+        {% include '_components/content-hero--event' with { content: entry.featuredEvent.one(), classes: '-dark' } %}
+    </div>
+    {% endif %}
+
+    {# Filters #}
+    {% include "_components/filters-page" %}
+
+    {# Events List #}
+    {% if count > 0 %}
+
+        {% set numberBeforeBillboard = 3 %}
+        {% set eventsBeforeBillboard = pageEntries | slice(0,numberBeforeBillboard) %}
+        {% set eventsAfterBillboard = pageEntries | slice(numberBeforeBillboard,count) %}
         
         {# Card List #}
         <div id="events" class="container--sm gutter-md | space-b">
             
             {# Content Card - Podcast #} 
-            {% for entry in indexList.all() %}
+            {% for entry in eventsBeforeBillboard %}
 
-                {# Content Cards - Switches based on Format #} 
+                {# Content Cards #} 
                 {% include '_components/content-card--event' with { content: entry } %}
                 
             {% endfor %}
             
         </div>
-    
-    {% else %}
-        
-        {# No Entries #}
-        <div class="text-center space-b">
-            There are no Courses available right now.  
-        </div>
 
-    {% endif %}
-    
-    {# Billboard #}
-    {# {% if entry.showBillboardText %}
-        
-        <div id="advertise" class="">
-            Billboard Content
-            {% set billboardContent = { 
+        {# Billboard #}
+        {% if entry.showBillboardText %}
+
+            <div id="request-a-speaker" class="space-b">
+                {# Text Billboard #}
+                {% set billboardContent = { 
                     header: entry.billboardHeader,
                     description: entry.billboardDescription,
                     button: entry.billboardButton,
                     buttonStyle: entry.billboardButtonStyle,
                     background: entry.billboardBackground,
-                }%}
-            Text Billboard - text
-            {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+                    image: entry.image
+                } %}
+                {% include '_components/billboard--text' with { classes: '-image-left -bronze-light', content: billboardContent } %}
+            </div>
+
+        {% endif %}
+
+        {# Card List #}
+        <div id="events" class="page-entries container--sm gutter-md | space-b">
+            
+            {# Content Card - Podcast #} 
+            {% for entry in eventsAfterBillboard %}
+
+                {# Content Cards #} 
+                {% include '_components/content-card--event' with { content: entry } %}
+                
+            {% endfor %}
+            
         </div>
 
-    {% endif %} #}
+        {% include "_components/pagination" %}
+
+    {% else %}
+        
+        {# No Entries #}
+        <div class="text-center space-b">
+        {% if topic %}
+           There are no Events that match the Topic you've selected. 
+        {% else %}
+            There are no Events available right now.  
+        {% endif %}
+        </div>
+
+    {% endif %}
 
 {% endblock %}

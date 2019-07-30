@@ -102,17 +102,28 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
 
         &:after {
             content: '';
-            height: 0;
-            width: 0;
-            border-style: solid;
-            border-color: $choices-text-color transparent transparent
-                transparent;
-            border-width: 4px;
-            position: absolute;
+            background-image: url('/assets/icons/chevron-down.svg');
+            background-position: right 8px top 50%, 0 0;
+            background-size: cover;
             right: 0;
+            transform: translate(0, -50%);
             top: 50%;
-            margin-top: -2px;
-            pointer-events: none;
+            position: absolute;
+            height: 8px;
+            width: 8px;
+
+            // content: '';
+            // height: 0;
+            // width: 0;
+            // border-style: solid;
+            // border-color: $choices-text-color transparent transparent
+            //     transparent;
+            // border-width: 4px;
+            // position: absolute;
+            // right: 0;
+            // top: 50%;
+            // margin-top: -2px;
+            // pointer-events: none;
         }
     }
     &.is-open .#{$choices-selector}__item--selectable:before {
@@ -121,7 +132,6 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
 
     &.is-open .#{$choices-selector}__item--selectable:after {
         border-color: transparent transparent $choices-text-color transparent;
-        margin-top: -7.5px;
     }
     &[dir='rtl'] {
         &:after {
@@ -436,11 +446,11 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     &.-standard {
         .choices__list--dropdown,
         .choices__inner {
-            @apply bg-white border-ivory;
+            @apply bg-white border-slate-dark;
         }
         .choices__inner {
             @apply border-0 border-b
-      px-2 pb-2 pt-8
+      
       font-normal;
         }
         .choices__inner .choices__item--selectable:after {

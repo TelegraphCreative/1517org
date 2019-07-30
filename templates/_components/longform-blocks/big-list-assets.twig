@@ -1,0 +1,40 @@
+{% import '_macros/global' as global %}
+<div class="block--bigListAssets{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | space-t space-b">
+
+    <div class="big-list -assets">
+        
+        {% if block.header|length %}
+            <h3 class="header-lg font-serif | mb-5 | mb-6">{{ block.header }}</h3>
+        {% endif %}
+        
+        <ul class="list-assets -hover-effect">
+            {% for item in block.list.all() %}
+
+            <li class="list-asset | flex-grid">
+                
+                <div class="list-asset__content">
+
+                    {% if item.resource|length %}<a href="{{ item.resource.url }}" target="_blank">{% endif %}
+                        <h4 class="header-sm font-serif">{{ item.header }} </h4>
+                        {% if item.supportingCopy|length %}
+                            <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
+                        {% endif %}
+                    {% if item.resource|length %}</a>{% endif %}
+                </div>
+
+            {% if item.resource|length %}
+                <div class="list-asset__action">
+                    {% if "Url" in item.resource.type  %}
+                        {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-right', '-md' ) }}
+                    {% else %}
+                        {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
+                    {% endif %}
+                </div>
+            {% endif %}
+                
+            </li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+</div>

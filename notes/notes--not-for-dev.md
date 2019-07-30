@@ -1,17 +1,70 @@
+---- LB Hit List ----
+
+-   Misc
+    x Require - Contact Form Ext. - Contact Email Template Ext.
+    x Setup Speaker Form
+    x Fix dep warnings
+    x Add SMTP settings to .env
+    x Cleanup longform blocks
+    x Add form fields in CMS
+    x Connect Social icons
+
+-   Setup GC Structure
+    x bio cards
+    x slider
+    x entry callout
+    x billboard 2up
+    x fix bio card
+    x add forms as singles (easier to link to as entries)
+    x Setup GC Template
+
+-   Commerce
+    \_ Commerce Styles
+        - main menu: 
+            - add badge 
+        - layouts
+            - cart index
+            - customer dropdown menu when signed in
+            - customer/order
+            - customer/addresses 
+            - checkout/confirmation
+            x customer/addresses/edit
+            x checkout/payment
+            x checkout/shipping
+            x checkout/register
+            x checkout/landing
+
+-   Courses
+    \_ Setup Course Registration Form
+    \_ Groupie Plugin assigns them to a group
+    \_ Add Login / Forgot Pw page
+
+-   GDPR
+    \_ Add cookie banner and Craft Cookie plugin to setup a section of scripts only loaded with user thumbsup (forms are all compliant, nothing currently loading that isn't but the toaser is the ultimate gdpr c. thing, want to avoid questions and have a basis for adding tracking in place later)
+
 ---- Templating Notes ----
 
+-   Courses notes:
+
+*   course user signs up
+*   only notifications for are system default active your account
+*   how does that play out w/ no access to backend?
+
+
+    ---- Templating Notes ----
+
 # -Te Article Entry
+
 [x] product link
 [x] blogcast, video, or hero image
 [x] author
 [x] subscribe blog cast billboard
 
 # -Te Section
+
 [x] featured entry hero
 [x] switch statement for entry formats
 [x] filter lists
-
-
 
 # FED for Podcast Entry
 

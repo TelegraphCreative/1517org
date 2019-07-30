@@ -1,0 +1,25 @@
+{% import '_macros/global' as global %}
+
+<div class="block--entryCallouts | content-card-list | container--sm gutter-md">
+    {# Header #}
+    {% if block.headerOptional|length %}
+    <header class="sub-section-header | space-b--sm">
+        
+        
+        <h2 class="title | header-lg font-serif">
+            {{ block.headerOptional }}
+        </h2>
+        
+        {% if block.headerAction|length %}
+            {{ global.link(block.headerAction, 'link -underline -sm mt-4', 'See All')}}
+        {% endif %}
+        
+    </header>
+    {% endif %}
+
+    {# Content Cards #} 
+    {% for entry in block.entryCallout.all() %}
+        {% include '_components/content-cards' with { content: entry } %}
+    {% endfor %}
+
+</div>

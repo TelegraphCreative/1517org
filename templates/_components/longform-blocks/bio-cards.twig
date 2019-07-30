@@ -1,0 +1,33 @@
+{% import '_macros/global' as global %}
+{# Case: Bio Cards #}
+<div class="block--bioCards | container--sm gutter-md | space-t space-b">
+    {# Bio Cards #}
+    <div class="bio-cards">
+
+        {% if block.profileBio|length %}
+            {% for item in block.profileBio %}
+                {% set bioContent = { 
+                    photo: item.photo.one(),
+                    fullName: item.fullName,
+                    role: item.role,
+                    shortDescription: item.shortDescription,
+                    button: item.button,
+                }%}
+                {% include '_components/bio-card' with { bioContent: bioContent } %}
+            {% endfor %}
+        {% endif %}
+
+        {% if block.authorBio|length %}
+            {% for item in block.authorBio %}
+                {% set bioContent = { 
+                    photo: item.photo.one(),
+                    fullName: item.firstName,
+                    role: item.role,
+                    shortDescription: item.shortDescription,
+                    button: item.headerAction,
+                }%}
+                {% include '_components/bio-card' with { bioContent: bioContent } %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

@@ -19,7 +19,7 @@
 
                 {# Detail #}
                 <div class="content-card__detail | paragraphs -xs">
-                    {{ content.description }}
+                    {{ content.shortDescription }}
                 </div>
             </a>
 
@@ -27,7 +27,7 @@
 
         {# Media #}
         <a href="{{ content.url }}" class="content-card__media | no-print">
-            {{ global.image('', '-is2x1 -fit-cover -hover-scale', '/assets/placeholder/placeholder_02.jpg')}}
+            {{ global.imageSetRatio( content.cardImage.one(), '-is16x9 -fit-cover -hover-scale' )}}
         </a>
 
         {# Meta #}

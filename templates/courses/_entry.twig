@@ -1,26 +1,114 @@
-{% extends "_layouts/_base" %} 
+{% extends "_layouts/base" %} 
 {% import '_macros/global' as global %}
 
 {% block content %}
 
-  
-    {# Article + Aside (top) #}
-    <div class="entry-detail-layout | container | space-b space-menu | flex-grid">
+{% set topBlocks = clone(entry.contentBlocksCourse).limit(2) %}
+{% set courseSubscriber = false %}
 
-        {# Content #}
-        <article class="entry-main | gutter-xl">
-        
-            {# Header #}
-            <header class="entry__header">
-                <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
-            </header>
-           
+{# Check if user is signed in and if they are either an admin or  have subscribed to a course #}
+{% if currentUser %}
+{% if currentUser.admin
+    or currentUser.isInGroup('systemAdmin') 
+    or currentUser.isInGroup('contentManagers')
+    or currentUser.subscribedToCourses|length  %}
+    {% set subscribedTo = currentUser.subscribedToCourses %}
+    {% set courseSubscriber = true %}
+    {% set remainingBlocks = clone(entry.contentBlocksCourse).offset(2).all() %}
+{% endif %}
+{% endif %}
+
+
+<section class="space-menu | space-b | no-print">
+    {% if courseSubscriber %}
+    {# Signed In View:
+        - Hides `course-hero--anon` partial
+        - Shows full article #}
+
+        {% include "_components/page-hero--media" with { content: entry.articleHeroContent } %}
+
+    {% else %}
+    {# Anon User View:
+        - Shows `course-hero--anon` partial
+        - Shows first 2 blocks from entry long-form matrix field #}
+
+        {# Course Billboard #}
+        {% include "_components/course-hero--anon-user" with { content: entry.anonymousUserHeroContent.one() } %}
+
+    {% endif %}
+
+</section>
+
+{# Article + Aside  (all users get first article and aside elements #}
+<div class="entry-detail-layout | container | space-b | flex-grid">
+
+    {# Content #}
+    <article class="entry-main | gutter-xl">
+
+        {# Header #}
+        <header class="entry__header">
+            <h1 class="header-xl | font-serif">{{ entry.title }}</h1>
+            <div class="paragraphs -md">
+                {{ entry.shortDescription }}
+            </div>
+        </header>
+
+        {# Blocks #}
+        <div class="entry__blocks | longform-entry-blocks -top">
+            {# Longform Content #}
+            {% include '_components/longform-entry-blocks--top' with { classes: '', blocks: topBlocks } %}
+        </div>
+
+    </article>
+
+    {# Aside #}
+    <aside class="entry-aside">
+        {# Meta List #}
+        <ul class="meta-list">
+            <li class="display-print">
+                <time class="meta-label | text-slate-light"
+                    datetime="{{ entry.postDate | date( 'm-d-y') }}">{{ entry.postDate | date( 'M d, Y') }}</time>
+            </li>
+            <li>
+                {{ global.relatedTopics(entry.topics.all(), '') }}
+            </li>
+            <li>
+                {% include "_components/list-social" with { content: '', classes: '-inline', print: false, share: true } %}
+            </li>
+        </ul>
+
+        {# Author #}
+        {% if entry.authorLink|length %}
+            {% set authorLink = entry.authorLink.one() %}
+            <div class="meta-summary-block">
+                {% include "_components/author-bio--short" with { content: authorLink } %}
+            </div>
+        {% endif %}
+
+    </aside>
+
+    {% if courseSubscriber %}
+        {# Article + Aside (bottom) - Only signed in users get this #}
+        <article class="entry-main -wide">
+
+            {# Blocks #}
+            <div class="entry__blocks | longform-entry-blocks">
+
+                {# Longform Content #}
+                {% include '_components/longform-entry-blocks' with { blocks: remainingBlocks, layoutClasses: 'narrow-block gutter-xl' } %}
+
+            </div>
         </article>
-        
-        
-    
-    
-    </div>
+    {% endif %}
+</div>
 
+{# Related Content #}
+{% include '_components/related-content-cards' with { section: 'courses' } %}
+
+{# Subscribe Billboard #}
+{% set billboardContent = entry.blogcastSubscribeBillboard.one() %}
+{% if billboardContent|length %}
+    {% include '_components/billboard--subscribe' with { classes: '-bronze-light', content: billboardContent } %}
+{% endif %}
 
 {% endblock %}

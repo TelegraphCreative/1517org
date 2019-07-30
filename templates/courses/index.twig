@@ -1,4 +1,4 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 {% set indexList = craft.entries.section('courses') %}
 
@@ -7,7 +7,14 @@
     <section class="space-menu">
 
         {# Page Header #}
-        {% include "_components/page-header" with { content: entry } %}
+        {% set pageHeaderContent = { 
+            title: entry.title, 
+            detail: entry.shortDescription,
+            action: entry.headerAction
+            }
+        %} 
+        {% include "_components/page-header" with { content: pageHeaderContent } %}
+
 
     </section>
 
@@ -21,9 +28,7 @@
             {% for entry in indexList.all() %}
 
                 {# Content Cards - Switches based on Format #} 
-                {# {{ entry.type }} #}
                 {% include '_components/content-cards' with { content: entry } %}
-                {# {% include '_components/content-card--course' with { content: entry } %} #}
                 
             {% endfor %}
             

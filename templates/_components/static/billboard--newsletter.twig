@@ -1,0 +1,42 @@
+{% import '_macros/global' as global %}
+
+{% if siteInfo.enableForm %}
+<div class="billboard -text -bronze -center {% if classes is defined %} | {{classes}} {% endif %}| no-print">
+    <div class="billboard__container container">
+
+        <header class="billboard__content | gutter">
+            <div class="billboard__content-max">
+
+                {# Header #}
+                {% if siteInfo.subscribeHeader|length %}
+                <div class="billboard__header">
+                    <h4 class="billboard-title">{{ siteInfo.subscribeHeader }}</h4>
+                </div>
+                {% endif %}
+                
+                
+                {# Detail #}
+                {% if siteInfo.subscribeDescription|length %}
+                <div class="billboard__detail | paragraphs -sm">
+                    {{ siteInfo.subscribeDescription }}
+                </div>
+                {% endif %}
+                
+                
+                {# Action #}
+                <div class="billboard__action">
+                    
+                    {# Form #}
+                    {% include "_components/form-signup" with { classes: '-light', id: 'subscribe-billboard' } %}
+
+                    {# Social Channels #}
+                    {% include "_components/list-social" with { content: siteInfo.socialChannels, size: '-md', classes: '-inline -rounded -light | mt-8 -mb-6' } %}
+                    
+                </div>
+                
+            </div>
+        </header>
+
+    </div>
+</div>
+{% endif %}

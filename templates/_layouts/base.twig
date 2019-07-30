@@ -1,0 +1,47 @@
+{%- minify -%} 
+
+{# Segments #}
+{% set firstSegment = craft.app.request.segment(1) %} 
+{% set lastSegment = craft.app.request.segments|last %} 
+
+{# Cart #}
+{% if cart is not defined %}
+    {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{# Base Layout #}
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="utf-8" />
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+        />
+        <meta name="referrer" content="origin-when-cross-origin" />
+
+        {% do view.registerCssFile( mix('/css/app.css') ) %} 
+
+        {% include '_components/site-favicons' %}
+    </head>
+    <body class="">
+        <div class="site-container" id="app">
+            {% include '_components/site-menu' %}
+            <main class="site-main">
+                {% block content %}{% endblock %}
+            </main>
+
+            {% include '_components/site-footer' %}
+            
+            {% include '_components/cookie-toaster' %}
+        </div>
+    </body>
+
+    {% do view.registerJsFile( mix('/js/app.js') ) %}
+    {% include '_components/site-vendor-assets' %}
+    {% do view.registerCssFile( mix('/css/print.css') ) %}
+
+</html>
+{%- endminify -%}

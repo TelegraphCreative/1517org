@@ -2,13 +2,19 @@
 
 <ul class="list-podcasts | list-reset{% if classes is defined %} | {{ classes }}{% endif %}">
 
-    {% for item in content %}
+    {% for item in content.all() %}
+        {% set podcastShow = item.podcastShow.level(1).one() %}
+        {% set cardImage = podcastShow.cardImagePodcast.one() %}
+        {% if item.cardImagePodcast|length %}
+            {% set cardImage = item.cardImagePodcast.one() %}
+        {% endif %}
+    
         <li class="list-podcast | max-w-lg mx-auto">
             <div class="list-podcast__container | flex-grid">
 
                 <a href="{{ item.url }}" class="list-podcast__media">
 
-                    {{ global.image( item.cardImagePodcast.one(), '-is1x1 -fit-cover -hover-scale' )}}
+                    {{ global.image( cardImage, '-is1x1 -fit-cover -hover-scale' )}}
 
                 </a>
 

@@ -1,0 +1,22 @@
+{% set startDate = dates[0] %}
+{% if dates|length == 2 %}
+    {% set endDate = dates[1] %}
+{% endif %}
+
+{% if endDate is defined %}
+    {% set startDay = startDate | date('d') %}
+    {% set endDay = endDate | date('d') %}
+    {% set startMonth = startDate | date('M') %}
+    {% set endMonth = endDate | date('M') %}
+    {% set startYear = startDate | date('Y') %}
+    {% set endYear = endDate | date('Y') %}
+    {% if startYear != endYear %}
+        {{ startMonth ~ ' ' ~ startDay ~ ', ' ~ startYear ~ ' - ' ~ endMonth ~ ' ' ~ endDay ~ ', ' ~ endYear }}
+    {% elseif startMonth != endMonth %}
+        {{ startMonth ~ ' ' ~ startDay ~ ' - ' ~ endMonth ~ ' ' ~ endDay ~ ', ' ~ endYear }}
+    {% else %}
+        {{ startMonth ~ ' ' ~ startDay ~ ' - ' ~ endDay ~ ', ' ~ endYear }}
+    {% endif %}
+{% else %}
+    {{ startDate | date( 'M d, Y') }}
+{% endif %}

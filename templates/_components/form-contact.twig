@@ -1,0 +1,91 @@
+<contact_form :formaction="'https://formspree.io/mwazeekm'" :formmethod="'post'" :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'" :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" :signuplocation="'contact-page'">
+
+    <template v-slot:default>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">{{ entry.formHeader.one().defaultHeader }}</h2>
+            <div class="paragraphs -md">
+                {{ entry.formHeader.one().defaultDescription }}
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:success>
+        <header class="sub-section-header | mb-10">
+            <h2 class="title | header-lg font-serif">{{ entry.formHeader.one().successHeader }}</h2>
+            <div class="paragraphs -md">
+                {{ entry.formHeader.one().successDescription }}
+            </div>
+        </header>
+    </template>
+
+    <template v-slot:fields>
+
+        <input id="favoriteboulder" name="_gotcha" type="text">
+        <input
+        class="hidden" id="subject" name="subject" type="text" value="1517 Contact Form Message">
+
+        {# Full Name #}
+        <div class="form-group">
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="firstName">
+                    First Name
+                </label>
+                <input type="text" id="firstName" name="firstName" {%- if user.firstName is defined %} value="{{ user.firstName }}" {% endif -%}/>
+            </div>
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="lastName">
+                    Last Name
+                </label>
+                <input type="text" id="lastName" name="lastName" {%- if user.firstName is defined %} value="{{ user.lastName }}" {% endif -%}/>
+            </div>
+        </div>
+
+        {# Email #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label class="standard-label" for="email">
+                    Email Address
+                </label>
+                <input type="email" id="email" name="_replyto" {%- if user is defined %} value="{{ user.email }}" {% endif %}/>
+
+            </div>
+        </div>
+
+        {# Message #}
+        <div class="form-group">
+            <div class="field-group | w-full">
+
+                <label class="standard-label" for="message">
+                    Message
+                </label>
+                <textarea id="message" name="message" rows="6"></textarea>
+
+            </div>
+        </div>
+
+        {# GDPR #}
+        {% if siteInfo.enableForm %}
+
+            <div class="form-group">
+                <div class="field-group | w-full">
+
+                    <label class="" for="subscribe-to-updates">
+                        <input id="subscribe-to-updates" name="subscribeToMailchimp" type="checkbox" value="yes">
+
+                        <span class="control__text">Sign up for updates?</span>
+                    </label>
+
+                </div>
+            </div>
+
+        {% endif %}
+
+        {# Submit #}
+        <div class="form-submit">
+            <button class="btn -full -red" type="submit">Submit Form</button>
+        </div>
+
+    </template>
+
+</contact_form>

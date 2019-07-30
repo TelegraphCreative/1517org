@@ -1,16 +1,12 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
-
 
 {% block content %}
 
     {# Page Header #}
     <section class="space-menu ">
-        {% set content = { 
-                    title: 'Topics'
-                } 
-            %}
-        {% include "_components/static/page-header" with { content: content } %}
+        {% set content = { title: 'Topics' } %}
+        {% include "_components/page-header" with { content: content } %}
     </section>
 
     {# Topics List #}
@@ -21,15 +17,12 @@
         
         <ul class="menu-list -bronze -columns | w-full | links-hover--red">
             
-            {# Layout Example (static) #}
-            {# {% include "_components/static/static-topic-example" %} #}
-
             {# Categories #}
             {% nav category in group.all() %}
                 
                 {# Parents #}
                 {% if category.level == 1 and category.hasDescendants%}
-                    <h4 class="menu-list__group-name | md:w-1/3">{{ category.title }}</h4>
+                    <h4 class="menu-list__group-name">{{ category.title }}</h4>
                 {% endif %}
                 
                 {# Children #}
@@ -42,7 +35,7 @@
                 {% endif %}
 
                 {% ifchildren %}
-                    <li class="menu-list__group | md:w-1/3">
+                    <li class="menu-list__group">
 
                         <ul>{% children %}</ul>
 
@@ -55,7 +48,7 @@
             {% set singles = craft.categories.group('topics').leaves().all() %}
             
             {% if singles|length %}
-                <h4 class="menu-list__group-name | md:w-1/3">Misc</h4>
+                <h4 class="menu-list__group-name ">Misc</h4>
                 
                 {% for category in singles %}
 

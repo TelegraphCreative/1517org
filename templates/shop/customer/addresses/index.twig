@@ -1,0 +1,57 @@
+{% extends 'shop/_layouts/main' %}
+
+{% block main %}
+    {% set customer = craft.commerce.customers.customer %}
+    {% set primaryBillingAddress = customer.getPrimaryBillingAddress() %}
+    {% set primaryShippingAddress = customer.getPrimaryShippingAddress() %}
+
+    {% if customer.addresses|length %}
+        <div class="md:flex-grid justify-between items-center | space-b--sm">
+            <h1 class="header-xl font-serif">Manage your addresses</h1>
+            <a class="btn right -md md:mt-0 mt-3 " href="{{ url('shop/customer/addresses/edit') }}">Add New Address</a>
+        </div>
+
+        <div class="md:flex-grid">
+            {% for address in customer.addresses %}
+                <div class="address-card | md:flex-grow flex flex-col justify-between | md:mx-3 mb-6 p-6 pb-0 | border border-ivory-light ">
+                    {% if primaryBillingAddress and primaryBillingAddress.id == address.id %}
+                    <div class=" mb-6">
+                        <strong class="meta-label"><i class="fa fa-check text-green"></i> Primary Billing</strong>
+                    </div>
+                    {% endif %}
+                    {% if primaryShippingAddress and primaryShippingAddress.id == address.id %}
+                    <div class=" mb-6">
+                        <strong class="meta-label"><i class="fa fa-check text-green"></i> Primary Shipping</strong>
+                    </div>
+                    {% endif %}
+
+                    {% include 'shop/_includes/addresses/address' with {'address': address} %}
+                    
+                    <div class="button button-group | flex justify-center items-center pt-6 mt-6 mb-4 | border-t border-ivory-light">
+                        <a class="btn -sm" href="{{ url('shop/customer/addresses/edit') }}?addressId={{ address.id }}">Edit</a>
+                        <form method="POST" class="form--shop ">
+                            <input type="hidden" name="action" value="commerce/customer-addresses/delete">
+                            {{ csrfInput() }}
+                            <input type="hidden" name="id" value="{{ address.id }}"/>
+                            <input class="btn -outline -bronze -sm" type="submit" value="Delete"/>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h1 class="text-center">Manage your addresses</h1>
+
+        <hr>
+
+        <div class="empty-index | text-center">
+            <i class="fas fa-address-book"></i>
+            <div>
+                You don’t have any addresses yet.
+                <div class="mt-6">
+                    <a class="btn -md" href="{{ url('shop/customer/addresses/edit') }}">Add a new address</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

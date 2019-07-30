@@ -1,4 +1,4 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 
 {% block content %}
@@ -7,7 +7,7 @@
 <div id="featured" class="container | space-menu space-b">
 
     {# Content Card - Hero #}
-    {% include '_components/content-heroes' with { content: entry.featuredContentSingleSelect.one() } %}
+    {% include '_components/content-heroes' with { content: entry.featuredContentSingleSelect.one(), classes: entry.featuredContentCardColor } %}
 
 </div>
 
@@ -60,17 +60,18 @@
         button: entry.billboardButton,
         buttonStyle: entry.billboardButtonStyle,
         background: entry.billboardBackground,
+        image: false
         }%}
     
     {# Text Billboard - text #}
-    {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
+    {% include '_components/billboard--text' with { classes: '-center -basic', content: billboardContent } %}
 
 </div>
 {% endif %}
 
 
 {# Popular Content List #}
-{% if entry.popularArticles|length %}
+{% if entry.popularArticles.one().popular|length %}
 <div id="popular" class="container--sm gutter-md space-b">
     <div class="flex-grid">
         <div class="md:w-1/3 w-full">
@@ -121,7 +122,7 @@
 <div id="podcasts" class="container--sm gutter-md | space-b">
 
     {# Header #}
-    <header class="section-header | mb-12">
+    <header class="section-header | mb-12 md:mb-20">
         <h6 class="meta-label mb-2 text-yellow">Newest Episodes</h6>
         <h2 class="header-base">1517 Podcasts</h2>
     </header>
@@ -148,7 +149,7 @@
         {# Header #}
         <header class="section-header | mb-12 | md:flex-grid | items-center">
             <h6 class="header-base">Upcoming Events</h6>
-            <a href="#" class="meta-label">
+            <a href="/events" class="meta-label">
                 <div class="align-items-center">
                     <div class="pr-3">See all Events</div>
                     {{ global.utilityIcon('arrow-right', '-xs') }}

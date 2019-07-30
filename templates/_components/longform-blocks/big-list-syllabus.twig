@@ -1,0 +1,71 @@
+{% import '_macros/global' as global %}
+<div class="block--bigListSyllabus{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | space-t space-b">
+
+    <div class="big-list -syllabus">
+
+        <h3 class="header-lg text-bronze-lighter font-serif pb-6">{{ block.header }}</h3>
+
+        <ul class="list-syllabus -hover-effect">
+
+        {% for item in block.list.all() %}
+
+            {% if item.divider.contains('minimalDivider') %}
+
+                <li class="syllabus-item -break">
+                    <div class="syllabus-item__main">
+                        <h4 class="title | header-sm font-serif">{{ item.header }}</h4>
+                    </div>
+                </li>
+
+            {% else %}
+                {# For John:
+                If a LinkIt field named 'resource' is added to this List super table, the following 
+                hass been updated to accomodate links. -lindsey #}
+                <li class="syllabus-item">
+                    {% if item.resource|length %}
+                    <a href="{{ item.resource.url }}" class="syllabus-item w-full" target="_blank"></a>
+                    {% endif %}
+                    
+                    <div class="syllabus-item__main">
+                        <h4 class="title | header-sm font-serif">{{ item.header }}</h4>
+                        {% if item.description|length %}
+                        <p class="text-slate-light">{{ item.description }}</p>
+                        {% endif %}
+                    </div>
+                    {% if item.detailOptional|length %}
+                    <div class="syllabus-item__aside">
+                        <div class="time | text-md text-slate-light">
+                        {{ item.detailOptional }}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if item.resource|length %}
+                    </a>
+                    {% endif %}
+                </li>
+
+            {% endif %}
+
+        {% endfor %}
+
+        </ul>
+
+        {% if block.buttons|length %}
+            <div class="big-list__action | button-group | mt-8">
+            {% for button in block.buttons.all() %}
+                {% if loop.index == 1 %}
+                    {% set classes = 'btn  -red -md' %}
+                {% else %}
+                    {% set classes = 'link  -underline' %}                
+                {% endif %}
+            
+                {{ global.link(button.button, classes) }}
+            {% endfor %}
+            </div>
+        {% endif %}
+        
+
+    </div>
+
+</div>

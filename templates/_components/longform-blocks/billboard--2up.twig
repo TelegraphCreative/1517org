@@ -1,0 +1,15 @@
+
+
+<div class="block--billboard2up | container--sm gutter-md">
+    <div class="billboards-2up | md:flex-grid">
+
+        {% for billboard in block.billboard %}
+            
+            {# Text Billboard - text #}
+            {% include '_components/billboard--text' with { classes: '-center -card', content: billboard } %}
+            
+        {% endfor %}
+        
+
+    </div>
+</div>

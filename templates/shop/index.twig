@@ -1,0 +1,67 @@
+{# Default Commerce template just does following include #}
+{# {% include 'shop/products/index' %} #}
+
+{% extends "_layouts/base" %}
+{% import '_macros/global' as global %}
+
+{% set type = craft.app.request.getParam('type') %}
+{% set types = type ?: ['books','audio'] %}
+{% set entries = craft.products.type(types) %}
+
+{% set gridSize = 9 %}
+{% paginate entries.limit(gridSize).orderBy('postDate desc') as pageInfo, pageEntries %}
+{% set count = pageInfo.total %}
+
+{% if pageInfo.nextUrl %}
+    {% set nextUrl = url(pageInfo.nextUrl, { type: type }) %}
+{% endif %}
+
+{% block content %}
+
+    <section class="space-menu">
+        {# Page Header #}
+        {# Notes:
+            Filter by 'Product Type' #}
+        {% set content = { title: 'Shop' } %}
+        {% include "_components/page-header--filters" with { content: content, classes: '-left' } %}
+    </section>
+
+    {# Featured  #}
+    {% if entry is defined and entry.shopIndexFeature|length %}
+    <div class="container | space-b--sm" id="featured">
+        {% include "_components/billboard--floated-img" with { block: entry.shopIndexFeature.one() } %}
+    </div>
+    {% endif %}
+
+
+    {# Product List #}
+    <div class="container--sm gutter-md | space-b" id="products">
+
+    {% if count > 0 %}
+
+        <div class="page-entries flex-grid">
+            {# Product Grid #}
+            {% for product in pageEntries %}
+                {# Product Card #}
+                {% include '_components/product-card' with { content: product } %}
+            {% endfor %}
+        </div>
+
+       {% include "_components/pagination" %}
+
+    {% else %}
+        
+        {# No Entries #}
+        <div class="text-center space-b">
+        {% if type %}
+           There are no Products that match the Format you've selected. 
+        {% else %}
+            There are no Products available right now.  
+        {% endif %}
+        </div>
+
+    {% endif %}
+
+    </div>
+
+{% endblock %}

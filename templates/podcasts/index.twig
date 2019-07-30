@@ -1,4 +1,4 @@
-{% extends "_layouts/_base" %}
+{% extends "_layouts/base" %}
 {% import '_macros/global' as global %}
 {% set indexList = craft.categories.group('podcastShows').level(1) %}
 
@@ -8,7 +8,8 @@
         {# Page Header #}
         {% set pageHeaderContent = { 
             title: entry.title, 
-            detail: entry.shortDescription
+            detail: entry.shortDescription,
+            action: entry.headerAction
             }
         %} 
         {% include "_components/page-header" with { content: pageHeaderContent } %}
@@ -23,7 +24,7 @@
                 
                 {% for entry in indexList.all() %}
                     {# Content Card - Stacked #}
-                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast, coverImage: true} %}
+                    {% include '_components/content-card--basic' with { content: entry, imageSource: entry.cardImagePodcast.one(), coverImage: true} %}
                 {% endfor %}
 
             </div>
@@ -42,6 +43,7 @@
                     button: entry.billboardButton,
                     buttonStyle: entry.billboardButtonStyle,
                     background: entry.billboardBackground,
+                    image: false
                 }%}
             {# Text Billboard - text #}
             {% include '_components/billboard--text' with { classes: '-center', content: billboardContent } %}
@@ -49,18 +51,4 @@
 
     {% endif %}
 
-    {# Notes:
-    {% set group = craft.categories.group('podcastShows').level(1) %}
-
-    <ul>
-        {% for category in group.all() %}
-            <li>
-                <a href="{{ category.url }}">
-                    {{ category.title }}
-                </a>
-
-            </li>
-        {% endfor %}
-    </ul> #}
-
-    {% endblock %}
+{% endblock %}

@@ -4,92 +4,65 @@
     {% for block in blocks %}
         {% switch block.type %}
 
-        {# Article Body #}
-        {% case "articleBody" %}
-            <div class="block--articleBody | article-body{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | paragraphs -md -loose | article-content">
-                {{ block.article }}
-            </div>
+            {# Article Body #}
+            {% case "articleBody" %}
+            {% include '_components/longform-blocks/article-body' %}
 
-        {# Big List - Assets #}
-        {% case "bigListAssets" %}
-            <div class="block--bigListAssets{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | space-t space-b">
-            
-                <div class="big-list -assets">
-                    
-                    {% if block.header|length %}
-                        <h3 class="header-lg font-serif | mb-5 | mb-6">{{ block.header }}</h3>
-                    {% endif %}
-                    
-                    <ul class="list-assets -hover-effect">
-                        {% for item in block.list.all() %}
+            {# Big List - Assets #}
+            {% case "bigListAssets"  or "bigListAssetsLinks"%}
+            {% include '_components/longform-blocks/big-list-assets' %}
 
-                        <li class="list-asset | flex-grid">
-                            
-                            <div class="list-asset__content">
-                                <a href="{{ item.resource }}">
-                                    <h4 class="header-sm font-serif">{{ item.header }} </h4>
-                                    {% if item.supportingCopy|length %}
-                                        <h6 class="meta-label text-slate-light">{{ item.supportingCopy }}</h6>
-                                    {% endif %}
-                                </a>
-                            </div>
-                            
-                            <div class="list-asset__action">
-                                {{ global.iconLink( item.resource, '-md -icon-only text-slate hover:text-red', 'arrow-down', '-md' ) }}
-                            </div>
-                            
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    
-                </div>
-            </div>
-        
-       
-        {# Button Group #}
-        {% case "buttonGroup" %}
-            <div class="block--buttonGroup button-group{% if layoutClasses is defined %} | {{ layoutClasses }}{% endif %} | pt-4 pb-14">
-                {# Header #}
-                {% if block.header|length %}
-                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
-                {% endif %}
-                
-                {# Actions #}
-                <div class="button-group__actions">
-                    {% for item in block.button.all() %}
-                        {{ global.link(item.button, item.buttonStyle)}}                
-                    {% endfor %}
-                </div>
-            </div>
-        
-        {# Hero Image - full-bleed #}
-        {% case "heroImageFullBleed" %}
-            <div class="block--heroImageFullBleed | hero-image">
-                {{ global.image( block.image.one(), '-fit-cover bg-ivory-lightest' )}}
-            </div>
+            {# Syllabus #}
+            {% case "bigListSyllabus" %}
+            {% include "_components/longform-blocks/big-list-syllabus" %}
 
-        {# Entry Callout #}
-        {% case "entryCallout" %}
-            <div class="block--entryCallout | entry-callout | gutter-xl | space-t space-b--sm">
-                {# Header #}
-                {% if block.header|length %}
-                    <h3 class="header-lg font-serif mb-5 pt-10">{{ block.header }}</h3>
-                {% endif %}
+            {# Button Group #}
+            {% case "buttonGroup" %}
+            {% include '_components/longform-blocks/button-group' %}
 
-                {# Content Card - Podcast #} 
-                {% include '_components/content-card--podcast' with { content: block.entryCallout.one(), 'classes': '' } %}
-            </div>
+            {# Hero Image - full-bleed #}
+            {% case "heroImageFullBleed" %}
+            {% include '_components/longform-blocks/hero-image' %}
 
-        {# Billboard - floated image #}
-        {% case "billboardFloatedImage" %}
-            <div class="block--billboardFloatedImage | billboard-floated-image | space-t space-b">
-                {# Billboard #}
-                {% include "_components/billboard--floated-img" with { content: block } %}
-            </div>
-        
-        
+            {# Speakers #}
+            {% case "speakers" %}
+            {% include '_components/longform-blocks/speakers' %}
+
+            {# Entry Callout #}
+            {% case "entryCallout" %}
+            {% include '_components/longform-blocks/entry-callout' %}
+
+            {# Billboard - floated image #}
+            {% case "billboardFloatedImage" %}
+            {% include '_components/longform-blocks/billboard--floated' %}
+
+            {# Article Body #}
+            {% case "leadIn" %}
+            {% include '_components/longform-blocks/lead-in' %}
+
+            {# Blockquote #}
+            {% case "blockquote" %}
+            {% include '_components/longform-blocks/blockquote' %}
+
+            {# Article Image Blocks #}
+            {% case "articleImageBlocks" %}
+            {% include '_components/longform-blocks/article-image-blocks' %}
+
+            {# Image Slider #}
+            {% case "imageCarousel" or "imageSlider" %}
+            {% include '_components/longform-blocks/image-slider' %}
+
+            {# Bio Cards #}
+            {% case "bioCards" %}
+            {% include '_components/longform-blocks/bio-cards' %}
+
+            {# Billboard - 2up #}
+            {% case "billboard2Up" %}
+            {% include '_components/longform-blocks/billboard--2up' %}
+
+
         {% endswitch %}
     {% endfor %}
-    
+
 
 {% endif %}

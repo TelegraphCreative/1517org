@@ -1,0 +1,91 @@
+
+<default_form :formmethod="'post'" 
+    :mcid="'{{ siteInfo.mailchimpListSettings.one().listId }}'" 
+    :mcuser="'{{ siteInfo.mailchimpListSettings.one().userId }}'" 
+    :mcurl="'{{ siteInfo.mailchimpListSettings.one().listUrl }}'"
+    :signuplocation="'1517-course__{{entry.slug}}'">
+
+    <template v-slot:fields>
+
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="users/save-user">
+        {{ redirectInput( craft.app.request.url ) }}
+
+        {% macro errorList(errors) %}
+        {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endmacro %}
+
+        {% from _self import errorList %}
+
+        <div class="form-group">
+
+            {# 
+            Notes: Saves which Course they signed up for. Phase 1 is setup so user signs up 1x for ALL courses.
+            For Phase 2, this will be expanded so users sign up for EACH course
+            #}
+            <input id="subscribed" type="hidden" name="fields[subscribedToCourses]" required value="{{ lastSegment }}">
+
+
+            <div class="field-group | w-1/2">
+
+                <label class="standard-label" for="email">
+                    Email
+                </label>
+                <input id="register-email" type="email" name="email" required autocomplete="username" {%- if user is defined %} value="{{ user.email }}" {% endif %}>
+                {% if user is defined %}
+                <div class="helper-text -error">
+                    {{ errorList(user.getErrors('email')) }}
+                </div>
+                {% endif %}
+            </div>
+            <div class="field-group | w-1/2">
+                <label class="standard-label" for="password">
+                    Password
+                </label>
+                <input id="register-password" type="password" name="password" minlength="8" autocomplete="current-password">
+                {% if user is defined %}
+                <div class="helper-text -error">
+                    {{ errorList(user.getErrors('password')) }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+        {# GDPR: for this form, we're already asking them for consent to signup so this is just to trigger the subscribe method #}
+        {% if siteInfo.enableForm %}
+        <div class="hidden">
+            <div class="form-group">
+                <div class="field-group | w-full">
+            
+                    <label for="subscribe-to-updates" class="checkbox -small">
+                        <input type="checkbox" value="yes" name="subscribeToMailchimp" id="subscribe-to-updates" checked>
+            
+                        <span class="control__text | meta-label">Sign up for updates?</span>
+            
+                        <div class="control__indicator"></div>
+                    </label>
+            
+                </div>
+            </div>
+        </div>
+        
+        {% endif %}
+        
+        {# Submit #}
+        <div class="form-submit">
+            <button type="submit" class="btn -md -white -full">Register Now</button>
+            <div class="helper-text | pt-1">
+                Already have an account? <a href="/account/sign-in?redirect={{craft.app.request.url}}">Sign in</a>
+            </div>
+        </div>
+
+    </template>
+
+</default_form>

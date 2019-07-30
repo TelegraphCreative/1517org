@@ -143,6 +143,11 @@
         }
     }
 
+    // Disabled
+    &.-disabled {
+        @apply pointer-events-none bg-slate-light border-slate-light;
+    }
+
     // Add
     &.-add {
         @apply relative pr-10;
