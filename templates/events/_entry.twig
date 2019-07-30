@@ -13,7 +13,7 @@
 
     {# Product Bar #}
     {% if entry.paidEvent|length %}
-        {% include "_components/product-bar" with { product: entry.paidEvent.first } %}
+        {% include "_components/product-bar" with { product: entry.paidEvent.one() } %}
     {% endif %}
 
 </section>

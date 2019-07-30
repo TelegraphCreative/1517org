@@ -3,7 +3,7 @@
 
 {# filtering #}
 {% set topic = craft.app.request.getParam('topic') %}
-{% set topics = craft.categories().group('topics').order('title asc').all() %}
+{% set topics = craft.categories().group('topics').orderBy('title asc').all() %}
 {% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
 {% set topicParam = topicCat ? { targetElement: topicCat } %}
 
@@ -13,7 +13,7 @@
 }) %}
 
 {% set pageLimit = 5 %}
-{% paginate entries.limit(pageLimit).order('eventStartDate asc') as pageInfo, pageEntries %}
+{% paginate entries.limit(pageLimit).orderBy('eventStartDate asc') as pageInfo, pageEntries %}
 {% set count = pageInfo.total %}
 
 {% if pageInfo.nextUrl %}

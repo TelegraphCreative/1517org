@@ -9,7 +9,7 @@
 {% set entries = craft.products.type(types) %}
 
 {% set gridSize = 9 %}
-{% paginate entries.limit(gridSize).order('postDate desc') as pageInfo, pageEntries %}
+{% paginate entries.limit(gridSize).orderBy('postDate desc') as pageInfo, pageEntries %}
 {% set count = pageInfo.total %}
 
 {% if pageInfo.nextUrl %}

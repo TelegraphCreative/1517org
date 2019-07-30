@@ -6,12 +6,12 @@
 {% set author = craft.app.request.getParam('author') %}
 
 {# full lists for drop downs #}
-{% set topics = craft.categories().group('topics').order('title asc').all() %}
-{% set authors = craft.entries.section('authors').order('firstName asc').all() %}
+{% set topics = craft.categories().group('topics').orderBy('title asc').all() %}
+{% set authors = craft.entries.section('authors').orderBy('firstName asc').all() %}
 
 {# build out relationships #}
-{% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
-{% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+{% set topicCat = topic ? craft.categories.group('topics').id(topic).one() %}
+{% set authorCat = author ? craft.entries.section('authors').id(author).one() %}
 {% set topicParam = topicCat ? { targetElement: topicCat } %}
 {% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
 {% set relationParams = [topicParam, authorParam]|filter %}
@@ -19,7 +19,7 @@
 {# entries query #}
 {% set entries = craft.entries({
     section: 'articles',
-    order: 'postDate desc',
+    orderBy: 'postDate desc',
     relatedTo: relationParams ? ['and']|merge(relationParams) : null
 }) %}
 

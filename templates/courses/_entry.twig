@@ -33,7 +33,7 @@
         - Shows first 2 blocks from entry long-form matrix field #}
 
         {# Course Billboard #}
-        {% include "_components/course-hero--anon-user" with { content: entry.anonymousUserHeroContent.first } %}
+        {% include "_components/course-hero--anon-user" with { content: entry.anonymousUserHeroContent.one() } %}
 
     {% endif %}
 
