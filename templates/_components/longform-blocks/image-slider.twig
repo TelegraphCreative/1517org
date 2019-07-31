@@ -6,26 +6,9 @@
 
 {% for item in slides.all() %}
 
-    {# Optimize On the Fly #}
-    {# {% set optimized = craft.imageOptimize.createOptimizedImages(
-        item,
-        [
-            {
-                'width': 1276,
-                'retinaSizes': ['1'],
-                'quality': 82,
-                'format': 'auto',
-            },
-        ],
-        false
-    ) %} 
+   
     {% set sliderContent = sliderContent|merge([{
-        imageUrl: optimized.src
-    }]) %}
-    #}
-
-    {% set sliderContent = sliderContent|merge([{
-        imageUrl: item.url
+        imageUrl: item.optimize.src
     }]) %}
 
        
