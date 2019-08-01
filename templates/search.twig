@@ -2,7 +2,7 @@
 {% import '_macros/global' as global %} 
 
 {# params #}
-{% set searchQuery = craft.app.request.getParam('q') %}
+{% set searchQuery = '"' ~ craft.app.request.getParam('q') %}
 {% set format = craft.app.request.getParam('format') %}
 {% set topic = craft.app.request.getParam('topic') %}
 {% set author = craft.app.request.getParam('author') %}
