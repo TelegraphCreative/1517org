@@ -3,7 +3,7 @@
 <div class="block--billboard2up | container--sm gutter-md">
     <div class="billboards-2up | md:flex-grid">
 
-        {% for billboard in block.billboard %}
+        {% for billboard in block.billboard.all() %}
             
             {# Text Billboard - text #}
             {% include '_components/billboard--text' with { classes: '-center -card', content: billboard } %}

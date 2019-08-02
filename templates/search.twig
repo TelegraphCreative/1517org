@@ -22,8 +22,8 @@
 {% set sectionFilter = format ?: sections|join(',') %}
 
 {# build out relationships #}
-{% set topicCat = topic ? craft.categories.group('topics').id(topic).first %}
-{% set authorCat = author ? craft.entries.section('authors').id(author).first %}
+{% set topicCat = topic ? craft.categories.group('topics').id(topic).one() %}
+{% set authorCat = author ? craft.entries.section('authors').id(author).one() %}
 {% set topicParam = topicCat ? { targetElement: topicCat } %}
 {% set authorParam = authorCat ? { targetElement: authorCat, field: 'authorLink' } %}
 {% set relationParams = [topicParam, authorParam]|filter %}
