@@ -1,7 +1,7 @@
-app: '1517-production'
-ssh_url: 1517-production@deploy.us1.frbit.com
+app: '1517-develop'
+ssh_url: 1517-develop@deploy.us1.frbit.com
 ssh_path: null
-git_remote: 1517-production/master
+git_remote: 1517-develop/master
 before:
     code/up:
         - 'echo  "Script example: " $(git rev-parse HEAD)'
