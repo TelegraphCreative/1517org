@@ -5,7 +5,7 @@
     <div class="bio-cards">
 
         {% if block.profileBio|length %}
-            {% for item in block.profileBio %}
+            {% for item in block.profileBio.all() %}
                 {% set bioContent = { 
                     photo: item.photo.one(),
                     fullName: item.fullName,
@@ -18,7 +18,7 @@
         {% endif %}
 
         {% if block.authorBio|length %}
-            {% for item in block.authorBio %}
+            {% for item in block.authorBio.all() %}
                 {% set bioContent = { 
                     photo: item.photo.one(),
                     fullName: item.firstName,
