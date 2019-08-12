@@ -9,8 +9,9 @@
 {# Check if user is signed in and if they are either an admin or  have subscribed to a course #}
 {% if currentUser %}
 {% if currentUser.admin
-    or currentUser.isInGroup('systemAdmin') 
+    or currentUser.isInGroup('systemManagers') 
     or currentUser.isInGroup('contentManagers')
+    or currentUser.isInGroup('commerceManagers')
     or currentUser.subscribedToCourses|length  %}
     {% set subscribedTo = currentUser.subscribedToCourses %}
     {% set courseSubscriber = true %}
