@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1564517393
+dateModified: 1565982107
 email:
   fromEmail: lindseyb@wearetelegraph.com
   fromName: '1517'
@@ -5934,39 +5934,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.4.2
-  blitz:
-    edition: standard
-    enabled: false
-    schemaVersion: 2.0.0
-    settings:
-      cachingEnabled: ''
-      includedUriPatterns:
-        1:
-          - '*'
-      excludedUriPatterns: ''
-      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
-      cacheStorageSettings:
-        folderPath: cache/blitz
-      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
-      cachePurgerTypes:
-        - putyourlightson\blitz\drivers\purgers\CloudflarePurger
-      clearCacheAutomatically: '1'
-      clearCacheAutomaticallyForGlobals: true
-      warmCacheAutomatically: '1'
-      warmCacheAutomaticallyForGlobals: true
-      queryStringCaching: '0'
-      concurrency: '3'
-      apiKey: ''
-      cacheElements: true
-      cacheElementQueries: true
-      cacheDuration: null
-      nonCacheableElementTypes:
-        - craft\elements\GlobalSet
-        - craft\elements\MatrixBlock
-        - benf\neo\elements\Block
-      cacheControlHeader: 'public, s-maxage=0'
-      sendPoweredByHeader: true
-      outputComments: true
   cookies:
     edition: standard
     enabled: true
@@ -5995,9 +5962,26 @@ sections:
   038eaf80-f334-49e1-be95-efe0ff8a714d:
     name: Courses
     handle: courses
-    type: channel
+    type: structure
     enableVersioning: false
+    propagationMethod: all
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'courses/{slug}'
+        template: courses/_entry
+    structure:
+      uid: 968382d4-452d-41ed-b09e-c898c97963a1
+      maxLevels: 2
     entryTypes:
+      6cc4efbf-eafd-49fa-b472-732c82456726:
+        name: Quiz
+        handle: quiz
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 2
       c04241ac-83b4-4bf9-88cc-cd29a4ea3fef:
         name: Courses
         handle: courses
@@ -6074,13 +6058,6 @@ sections:
                   c6caccbe-bc27-488b-a546-9119aacebce5:
                     required: false
                     sortOrder: 1
-    siteSettings:
-      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
-        enabledByDefault: true
-        hasUrls: true
-        uriFormat: 'courses/{slug}'
-        template: courses/_entry
-    propagationMethod: all
   10cf0da7-001c-470b-983c-0e282a8e4830:
     name: Home
     handle: home
