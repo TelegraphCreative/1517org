@@ -18,7 +18,13 @@
         {# Video Player Full #}
         {% if block.vimeo and block.vimeo.valid %}
             <video_player_full
-                img-src="{{ block.vimeo.media.image }}"
+                img-src="
+                    {% if block.image is not empty %}
+                        {{ block.image.one().url }}
+                    {% else %}
+                        {{ block.vimeo.media.image }}
+                    {% endif %}
+                "
                 video-url="{{ block.vimeo.media.url }}"
                 aspect-ratio="{{ block.vimeo.media.aspectRatio }}"
             />
