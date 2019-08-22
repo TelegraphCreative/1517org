@@ -278,9 +278,9 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1565982107
+dateModified: 1566503618
 email:
-  fromEmail: lindseyb@wearetelegraph.com
+  fromEmail: info@1517.org
   fromName: '1517'
   template: ''
   transportType: craft\mail\transportadapters\Smtp
