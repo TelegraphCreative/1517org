@@ -38,7 +38,10 @@
                 <label class="standard-label" for="speaker">
                     Select Speaker
                 </label>
-                <select_box :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }">
+                <select_box
+                    :opt="{ name: 'speaker', id: 'speaker', variant: '-standard -md' }"
+                    value="{{ craft.app.request.getParam('speaker') }}"
+                >
                     {% for item in entry.requestSpeakerBookingOptions.all() %}
 
                         <option value="{{ item.fullName }}">{{ item.fullName }}</option>
@@ -113,7 +116,10 @@
                 <label class="standard-label" for="topic">
                     Topic
                 </label>
-                <select_box :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }">
+                <select_box
+                    :opt="{ name: 'topic', id: 'topic', variant: '-standard -md' }"
+                    value="{{ craft.app.request.getParam('topic') }}"
+                >
                     {% for item in entry.requestSpeakerTopicOptions.all() %}
 
                         <option value="{{ item.topic }}">{{ item.topic }}</option>
