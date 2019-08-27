@@ -278,9 +278,9 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1566501463
+dateModified: 1566920171
 email:
-  fromEmail: lindseyb@wearetelegraph.com
+  fromEmail: info@1517.org
   fromName: '1517'
   template: ''
   transportType: craft\mail\transportadapters\Smtp
@@ -4891,9 +4891,9 @@ matrixBlockTypes:
     handle: vimeoEmbed
     sortOrder: 3
     fields:
-      7550dbc1-ad8d-4463-b3dd-4d424cde01dd:
+      40d2c4f0-513e-4d3f-981b-4c0cde839012:
         name: 'Cover Image'
-        handle: image
+        handle: coverImage
         instructions: ''
         searchable: true
         translationMethod: site
@@ -4937,7 +4937,7 @@ matrixBlockTypes:
             name: Content
             sortOrder: 1
             fields:
-              7550dbc1-ad8d-4463-b3dd-4d424cde01dd:
+              40d2c4f0-513e-4d3f-981b-4c0cde839012:
                 required: false
                 sortOrder: 2
               e2675153-316a-43c5-ab7a-e7e2890aab22:
