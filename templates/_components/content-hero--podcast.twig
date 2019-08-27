@@ -57,7 +57,7 @@
 
         {% if cardImage|length %}
             <a href="{{ content.url }}" class="content-hero__media overflow-hidden">
-                <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ cardImage.optimize.src(1276) }}')"></div>
+                <div class="inline-background -hover-scale h-full w-full" style="background-image: url('{{ cardImage.url() }}')"></div>
             </a>
         {% endif %}
     </div>
