@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1566503618
+dateModified: 1566920171
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -1524,9 +1524,9 @@ fields:
       minBlocks: '1'
       maxBlocks: '1'
       contentTable: '{{%matrixcontent_articleherocontent}}'
-      localizeBlocks: false
-    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
+      propagationMethod: all
     contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
   a8051c4e-d981-43c0-9b88-413976740a0a:
     name: 'Audio Book Links'
     handle: audioBookLinks
@@ -2833,20 +2833,10 @@ matrixBlockTypes:
         fieldGroup: null
         contentColumnType: string
   3cef879b-0650-43fd-84c7-8968c0a43a40:
+    field: a4c109f4-6908-4b21-a93d-03feb588f245
     name: 'Hero Image'
     handle: heroImage
     sortOrder: 1
-    field: a4c109f4-6908-4b21-a93d-03feb588f245
-    fieldLayouts:
-      f5675b00-062c-4398-971f-731bb8ae11d4:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              2ab27cb1-2974-452c-ae75-4f4a5c74bfe8:
-                required: true
-                sortOrder: 1
     fields:
       2ab27cb1-2974-452c-ae75-4f4a5c74bfe8:
         name: Image
@@ -2873,8 +2863,19 @@ matrixBlockTypes:
           limit: '1'
           selectionLabel: Hero
           localizeRelations: false
-        fieldGroup: null
+          validateRelatedElements: ''
         contentColumnType: string
+        fieldGroup: null
+    fieldLayouts:
+      f5675b00-062c-4398-971f-731bb8ae11d4:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              2ab27cb1-2974-452c-ae75-4f4a5c74bfe8:
+                required: true
+                sortOrder: 1
   41ca84a4-660e-47b6-933d-2c5aa898152a:
     name: 'Hero Image (full-bleed)'
     handle: heroImageFullBleed
@@ -4885,21 +4886,38 @@ matrixBlockTypes:
         fieldGroup: null
         contentColumnType: string
   a89d3611-5d35-4e86-8eae-8a32b92af760:
+    field: a4c109f4-6908-4b21-a93d-03feb588f245
     name: VimeoEmbed
     handle: vimeoEmbed
     sortOrder: 3
-    field: a4c109f4-6908-4b21-a93d-03feb588f245
-    fieldLayouts:
-      7cb5cdbb-d9c3-420a-a7eb-b16d5ec7dd16:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              e2675153-316a-43c5-ab7a-e7e2890aab22:
-                required: true
-                sortOrder: 1
     fields:
+      40d2c4f0-513e-4d3f-981b-4c0cde839012:
+        name: 'Cover Image'
+        handle: coverImage
+        instructions: ''
+        searchable: true
+        translationMethod: site
+        translationKeyFormat: null
+        type: craft\fields\Assets
+        settings:
+          useSingleFolder: ''
+          defaultUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          defaultUploadLocationSubpath: ''
+          singleUploadLocationSource: 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          singleUploadLocationSubpath: ''
+          restrictFiles: ''
+          allowedKinds: null
+          sources:
+            - 'volume:c160af80-d4b3-4032-99f1-f91b25f713d3'
+          source: null
+          targetSiteId: null
+          viewMode: large
+          limit: '1'
+          selectionLabel: 'Select Cover Image'
+          localizeRelations: false
+          validateRelatedElements: ''
+        contentColumnType: string
+        fieldGroup: null
       e2675153-316a-43c5-ab7a-e7e2890aab22:
         name: 'Vimeo '
         handle: vimeo
@@ -4910,8 +4928,21 @@ matrixBlockTypes:
         type: wrav\oembed\fields\OembedField
         settings:
           url: ''
-        fieldGroup: null
         contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      7cb5cdbb-d9c3-420a-a7eb-b16d5ec7dd16:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              40d2c4f0-513e-4d3f-981b-4c0cde839012:
+                required: false
+                sortOrder: 2
+              e2675153-316a-43c5-ab7a-e7e2890aab22:
+                required: true
+                sortOrder: 1
   ab3c6185-c743-4870-b339-14ac1b51e39d:
     name: 'Big List (Syllabus)'
     handle: bigListSyllabus
@@ -5045,23 +5076,10 @@ matrixBlockTypes:
         fieldGroup: null
         contentColumnType: string
   b3c2ac3a-d520-48f2-8b6c-d0b9c3a3a94f:
+    field: a4c109f4-6908-4b21-a93d-03feb588f245
     name: 'Audio Embed'
     handle: audioEmbed
     sortOrder: 2
-    field: a4c109f4-6908-4b21-a93d-03feb588f245
-    fieldLayouts:
-      3fc2b479-5e07-46b7-acf8-9d2a4cdf7b6e:
-        tabs:
-          -
-            name: Content
-            sortOrder: 1
-            fields:
-              9491785b-8e5c-4635-b5f9-a79566f414d3:
-                required: true
-                sortOrder: 1
-              e64c816f-9619-4b00-b219-08a3a6f121ab:
-                required: true
-                sortOrder: 2
     fields:
       9491785b-8e5c-4635-b5f9-a79566f414d3:
         name: Image
@@ -5087,8 +5105,9 @@ matrixBlockTypes:
           limit: '1'
           selectionLabel: Image
           localizeRelations: false
-        fieldGroup: null
+          validateRelatedElements: ''
         contentColumnType: string
+        fieldGroup: null
       e64c816f-9619-4b00-b219-08a3a6f121ab:
         name: Audio
         handle: audio
@@ -5100,8 +5119,21 @@ matrixBlockTypes:
         settings:
           placeholder: ''
           maxLength: '255'
-        fieldGroup: null
         contentColumnType: string(255)
+        fieldGroup: null
+    fieldLayouts:
+      3fc2b479-5e07-46b7-acf8-9d2a4cdf7b6e:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              9491785b-8e5c-4635-b5f9-a79566f414d3:
+                required: true
+                sortOrder: 1
+              e64c816f-9619-4b00-b219-08a3a6f121ab:
+                required: true
+                sortOrder: 2
   c373ca18-4178-47cb-8aa3-13c1b629b77e:
     name: Blockquote
     handle: blockquote
