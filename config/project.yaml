@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1566503618
+dateModified: 1566838137
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -1576,6 +1576,23 @@ fields:
       localizeBlocks: false
     fieldGroup: 0d9ac9ee-3b17-4cf3-8207-afeb2dbe0f44
     contentColumnType: string
+  ad27147c-a0f4-4648-8653-417d89edd241:
+    name: Json
+    handle: json
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
   b01177fd-3f47-40a3-a665-91c104efbd06:
     name: 'Site Tagline'
     handle: siteTagline
@@ -5932,7 +5949,7 @@ plugins:
     schemaVersion: 1.0.0
   simplemap:
     edition: standard
-    enabled: true
+    enabled: false
     schemaVersion: 3.4.2
   cookies:
     edition: standard
@@ -5944,6 +5961,10 @@ plugins:
     schemaVersion: 3.0.7
     licenseKey: WCGZ49KSCGWK2OREMY6D9L8F
   async-queue:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  jason:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

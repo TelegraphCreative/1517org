@@ -2,6 +2,7 @@
     "require": {
         "barrelstrength/sprout-fields": "^3.2",
         "charliedev/element-map": "^1.2",
+        "chasegiunta/craft-jason": "1.0.2",
         "craftcms/aws-s3": "1.2.4",
         "craftcms/cms": "3.2.8",
         "craftcms/commerce": "2.1.10",
