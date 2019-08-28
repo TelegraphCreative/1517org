@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1566838137
+dateModified: 1566941416
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -1576,23 +1576,6 @@ fields:
       localizeBlocks: false
     fieldGroup: 0d9ac9ee-3b17-4cf3-8207-afeb2dbe0f44
     contentColumnType: string
-  ad27147c-a0f4-4648-8653-417d89edd241:
-    name: Json
-    handle: json
-    instructions: ''
-    searchable: true
-    translationMethod: none
-    translationKeyFormat: null
-    type: craft\fields\PlainText
-    settings:
-      placeholder: ''
-      code: ''
-      multiline: ''
-      initialRows: '4'
-      charLimit: ''
-      columnType: text
-    contentColumnType: text
-    fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
   b01177fd-3f47-40a3-a665-91c104efbd06:
     name: 'Site Tagline'
     handle: siteTagline
@@ -1703,6 +1686,19 @@ fields:
       allowTarget: '1'
     fieldGroup: 18fa1806-d926-4b54-a367-a29143312bbf
     contentColumnType: text
+  ba3e5333-8bfa-413f-8f12-f74283734593:
+    name: 'User Course Progress'
+    handle: userCourseProgress
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: chasegiunta\jason\fields\JasonField
+    settings:
+      readonly: '0'
+      allowRawEditing: 'true'
+    contentColumnType: text
+    fieldGroup: f679b8b7-0779-4e7f-aee4-c5222d842894
   c0cfb388-a0c1-4208-a07b-a68ff1235c50:
     name: 'Event End Date'
     handle: eventEndDate
@@ -9607,7 +9603,7 @@ users:
       name: 'All Public Accounts'
       handle: publicAccounts
   fieldLayouts:
-    5881993a-d1d3-4c83-8b31-67d56c3edeb4:
+    32050f7f-2a01-4205-8abc-57ec7d04833c:
       tabs:
         -
           name: Academy
@@ -9616,6 +9612,9 @@ users:
             9cd26aa7-1bfe-4464-be3f-89fdd535447e:
               required: false
               sortOrder: 1
+            ba3e5333-8bfa-413f-8f12-f74283734593:
+              required: false
+              sortOrder: 2
 volumes:
   0f79aa1a-f719-474a-ae2b-d2bf1a559917:
     name: 'Images - Test'
