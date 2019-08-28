@@ -1,0 +1,55 @@
+{# {% extends "_layouts/base" %}  #}
+{% import '_macros/global' as global %} 
+
+{# params #}
+{% set userId = craft.app.request.getParam('user') %}
+
+{# entries query #}
+{% set user = craft.users({
+    id: userId
+}).one() %}
+
+{% set latestQuizId = 0 %}
+{% for quizId, grade in user.userCourseProgress %}
+    {% if quizId > latestQuizId %}
+        {% set latestQuizId = quizId %}
+    {% endif %}
+{% endfor %}
+
+{% set latestQuiz = craft.entries({
+    id: latestQuizId
+}).one() %}
+
+{% block content %}
+
+    <div id="content" class="page-entries container--sm gutter-md | space-b">
+
+        <p>Latest Quiz Id: {{ latestQuizId }}</p>
+        <p>Latest Quiz Title: {{ latestQuiz.title }}</p>
+        <p>Latest Quiz Order: {{ latestQuiz.lft }}</p>
+        <p>Parent Title: {{ latestQuiz.getParent().title }}</p>
+        <p>First Title: {{ latestQuiz.getParent().getChildren()[0].title }}</p>
+        <p>Next Title: {{ latestQuiz.getNextSibling().title }}</p>
+
+        {# lft shows order in a structure #}
+        {% for item in latestQuiz.getParent().getChildren() %}
+            <p>{{ item.title }} -- {{ item.lft }}</p>
+        {% endfor %}
+
+        {# key is course entry ID, value is grade for quiz #}
+        {% set myJson = '{
+            "9870": "88.5",
+            "9959": "79"
+        }'|json_encode|raw %}
+
+        {% do user.setFieldValue('userCourseProgress', myJson) %}
+        {# save the element #}
+        {% do craft.app.getElements().saveElement(user) %}
+        {% if user.hasErrors %}
+            {# print errors via user.getErrors() #}
+            <p>Error: {{ user.getErrors() }}</p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
