@@ -1,6 +1,13 @@
 {
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./plugin1517quizzes"
+        }
+    ],
     "require": {
         "barrelstrength/sprout-fields": "^3.2",
+        "barrelstrength/sprout-forms": "3.4.2",
         "charliedev/element-map": "^1.2",
         "chasegiunta/craft-jason": "1.0.2",
         "craftcms/aws-s3": "1.2.4",
@@ -10,7 +17,6 @@
         "craftcms/redactor": "2.3.3.2",
         "elivz/craft-single-cat": "^1.2",
         "ether/simplemap": "3.6.4.2",
-        "fortrabbit/craft-copy": "1.0.0-RC5",
         "fruitstudios/linkit": "1.1.11",
         "marionnewlevant/snitch": "3.0.0",
         "misterbk/mix": "1.5.2",
@@ -20,7 +26,9 @@
         "nystudio107/craft-retour": "3.1.22",
         "nystudio107/craft-seomatic": "3.2.18",
         "ostark/craft-async-queue": "2.0.0",
+        "solspace/craft-freeform": "3.3.2",
         "spicyweb/craft-fieldlabels": "1.1.5",
+        "telegraph/plugin-1517-quizzes": "1.0.0",
         "topshelfcraft/wordsmith": "3.0.5",
         "verbb/navigation": "1.1.13",
         "verbb/super-table": "2.2.1",

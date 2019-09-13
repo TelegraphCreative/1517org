@@ -1,0 +1,40 @@
+{
+    "name": "telegraph/plugin-1517-quizzes",
+    "description": "Quiz functionality for 1517.org",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "plugin 1517 quizzes"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John Mueller",
+            "homepage": "http://cleave.co"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "telegraph\\plugin1517quizzes\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Plugin 1517 Quizzes",
+        "handle": "plugin-1517-quizzes",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "???",
+        "class": "telegraph\\plugin1517quizzes\\Plugin1517Quizzes"
+    }
+}

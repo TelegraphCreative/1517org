@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1566941416
+dateModified: 1568067382
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -5964,7 +5964,119 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  freeform:
+    edition: pro
+    enabled: true
+    schemaVersion: 3.0.4
+    settings:
+      pluginName: null
+      formTemplateDirectory: null
+      emailTemplateDirectory: null
+      emailTemplateStorage: db
+      defaultView: dashboard
+      fieldDisplayOrder: name
+      showTutorial: false
+      removeNewlines: false
+      defaultTemplates: true
+      footerScripts: false
+      scriptInsertLocation: footer
+      formSubmitDisable: false
+      freeformHoneypot: true
+      freeformHoneypotEnhancement: false
+      spamProtectionBehaviour: simulate_success
+      submissionThrottlingCount: null
+      submissionThrottlingTimeFrame: null
+      blockedEmails: null
+      blockedKeywords: null
+      blockedKeywordsError: 'Invalid Entry Data'
+      blockedEmailsError: 'Invalid Email Address'
+      showErrorsForBlockedEmails: false
+      showErrorsForBlockedKeywords: false
+      blockedIpAddresses: null
+      purgableSubmissionAgeInDays: null
+      purgableSpamAgeInDays: null
+      salesforce_client_id: null
+      salesforce_client_secret: null
+      salesforce_username: null
+      salesforce_password: null
+      spamFolderEnabled: false
+      recaptchaEnabled: false
+      recaptchaKey: null
+      recaptchaSecret: null
+      recaptchaType: v2_checkbox
+      recaptchaMinScore: 0.5
+      recaptchaBehaviour: display_error
+      renderFormHtmlInCpViews: true
+      ajaxByDefault: false
+      autoScrollToErrors: true
+      fillWithGet: false
+      formattingTemplate: flexbox.html
+  plugin-1517-quizzes:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
+  04372a4b-a75e-4557-9b91-dba31c74d562:
+    template: /freeform-demo/custom/form
+    uriParts:
+      - freeform-demo/custom/
+      -
+        - slug
+        - '[^\/]+'
+      - /success
+    uriPattern: 'freeform-demo/custom/<slug:[^\/]+>/success'
+    sortOrder: 10
+    siteUid: null
+  11bbf153-d709-497f-9205-8cd7104f3085:
+    template: /freeform-demo/bootstrap/view
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>'
+    sortOrder: 7
+    siteUid: null
+  24e52efc-3ef2-4f41-8e79-76c736b1b902:
+    template: /freeform-demo/bootstrap/view_submission
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+      - /submissions/
+      -
+        - id
+        - \d+
+      - /success
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>/submissions/<id:\d+>/success'
+    sortOrder: 2
+    siteUid: null
+  2a758c47-6865-40d9-a281-8e3eeffddfbf:
+    template: /freeform-demo/bootstrap/view_submission
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+      - /submissions/
+      -
+        - id
+        - \d+
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>/submissions/<id:\d+>'
+    sortOrder: 3
+    siteUid: null
+  a05ef3a0-10b7-4373-8915-fc548cbe0122:
+    template: /freeform-demo/bootstrap/view
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+      - /success
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>/success'
+    sortOrder: 8
+    siteUid: null
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
     uriParts:
@@ -5974,6 +6086,55 @@ routes:
         - '[^\/]+'
     uriPattern: '/events/paid/<any:[^\/]+>'
     sortOrder: 1
+    siteUid: null
+  ad71aaaf-90d3-411c-8fce-6693df2221f8:
+    template: /freeform-demo/bootstrap/edit_submission
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+      - /submissions/edit/
+      -
+        - token
+        - \w+
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>/submissions/edit/<token:\w+>'
+    sortOrder: 4
+    siteUid: null
+  ae87401d-97e9-4228-aa89-c163de73aab9:
+    template: /freeform-demo/bootstrap/submissions
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+      - /submissions
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>/submissions'
+    sortOrder: 6
+    siteUid: null
+  e825c93d-f840-4373-a704-79b905ae06d2:
+    template: /freeform-demo/bootstrap/delete_submission
+    uriParts:
+      - freeform-demo/bootstrap/
+      -
+        - slug
+        - '[^\/]+'
+      - /submissions/delete/
+      -
+        - token
+        - \w+
+    uriPattern: 'freeform-demo/bootstrap/<slug:[^\/]+>/submissions/delete/<token:\w+>'
+    sortOrder: 5
+    siteUid: null
+  e96d42d0-8215-4bd0-bb25-f063f79ccb1c:
+    template: /freeform-demo/custom/form
+    uriParts:
+      - freeform-demo/custom/
+      -
+        - slug
+        - '[^\/]+'
+    uriPattern: 'freeform-demo/custom/<slug:[^\/]+>'
+    sortOrder: 9
     siteUid: null
 sections:
   038eaf80-f334-49e1-be95-efe0ff8a714d:
@@ -7051,6 +7212,7 @@ siteGroups:
     name: '1517'
 sites:
   fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+    siteGroup: f89694aa-dd36-4e72-9426-761baa648fa7
     name: '1517'
     handle: default
     language: en-US
@@ -7058,7 +7220,6 @@ sites:
     baseUrl: '@web'
     sortOrder: 1
     primary: true
-    siteGroup: f89694aa-dd36-4e72-9426-761baa648fa7
 superTableBlockTypes:
   06631530-af07-4551-9fb3-ce4f3e49f758:
     field: 93e4144e-c517-4c83-baa5-c9e7dde122e5
