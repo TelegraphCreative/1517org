@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1566920171
+dateModified: 1573677342
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -301,6 +301,8 @@ fieldGroups:
     name: 'Billboard (Text)'
   1cd8381d-7d6a-40c0-8ee5-78474d24030d:
     name: 'Billboard (Subscribe)'
+  2f1272c2-608d-4f09-b2d3-49c0f865af79:
+    name: Donation
   4748bdfa-3553-4647-96f4-932d64fcec02:
     name: Articles
   6f4e8399-1849-4697-8f01-9b281385c7bd:
@@ -647,6 +649,20 @@ fields:
       allowTarget: '1'
     fieldGroup: 9c38350d-b6ab-4ca0-9af7-92277ed567dc
     contentColumnType: text
+  323918ef-85a8-40f0-9226-323f4bfddce0:
+    name: 'End Date'
+    handle: endDate
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Date
+    settings:
+      showDate: true
+      showTime: false
+      minuteIncrement: '30'
+    contentColumnType: datetime
+    fieldGroup: 2f1272c2-608d-4f09-b2d3-49c0f865af79
   32ad703c-9543-4366-bbf6-59dfb9b394bd:
     name: Scripture
     handle: scripture
@@ -1241,6 +1257,27 @@ fields:
       localizeRelations: false
     fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
     contentColumnType: string
+  92abc397-33f0-4c52-a242-9ea26e232025:
+    name: Embed
+    handle: embed
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\redactor\Field
+    settings:
+      redactorConfig: ''
+      purifierConfig: ''
+      cleanupHtml: true
+      removeInlineStyles: '1'
+      removeEmptyTags: '1'
+      removeNbsp: '1'
+      purifyHtml: ''
+      columnType: text
+      availableVolumes: ''
+      availableTransforms: '*'
+    contentColumnType: text
+    fieldGroup: be195220-984a-4496-a3ec-b2db4bf7dbe2
   9374cebc-45f4-45bc-9715-b0ebb71396de:
     name: 'Event Start Date'
     handle: eventStartDate
@@ -1542,6 +1579,24 @@ fields:
       localizeBlocks: false
     fieldGroup: be9d0501-091e-4361-b500-24f03019fa0b
     contentColumnType: string
+  a879b291-83f8-487c-b066-ec468302e276:
+    name: 'Amount Raised'
+    handle: amountRaised
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '0'
+      max: null
+      decimals: 0
+      size: null
+      prefix: $
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 2f1272c2-608d-4f09-b2d3-49c0f865af79
   a8ddce4c-468a-4ff3-b531-c61d499863de:
     name: Topics
     handle: topics
@@ -2205,6 +2260,24 @@ fields:
       localizeRelations: false
     fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
     contentColumnType: string
+  f8fadf84-e339-458e-80bd-bd9a279387c8:
+    name: Goal
+    handle: goal
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '0'
+      max: null
+      decimals: 0
+      size: null
+      prefix: $
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 2f1272c2-608d-4f09-b2d3-49c0f865af79
   f90d45de-3ab8-4b56-949c-4a0a47f79e59:
     name: 'Latest Events'
     handle: latestEvents
@@ -6579,6 +6652,58 @@ sections:
         uriFormat: shop
         template: shop
     propagationMethod: all
+  9cd12cb1-50c8-4947-b6f7-d797cc4abce2:
+    name: 'Donation Forms'
+    handle: donationForms
+    type: channel
+    enableVersioning: true
+    propagationMethod: all
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'donation-forms/{slug}'
+        template: donation-forms/_entry
+    entryTypes:
+      bf8ca04b-5cd2-4c09-892f-778257212543:
+        name: 'Donation Forms'
+        handle: donationForms
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          6e6bec05-cc27-4385-b2bc-6f6218eb2913:
+            tabs:
+              -
+                name: Donation
+                sortOrder: 1
+                fields:
+                  19606a2c-57c5-47a1-88b8-7ff647a9e24d:
+                    required: true
+                    sortOrder: 2
+                  323918ef-85a8-40f0-9226-323f4bfddce0:
+                    required: true
+                    sortOrder: 5
+                  4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
+                    required: true
+                    sortOrder: 1
+                  92abc397-33f0-4c52-a242-9ea26e232025:
+                    required: true
+                    sortOrder: 6
+                  a879b291-83f8-487c-b066-ec468302e276:
+                    required: true
+                    sortOrder: 4
+                  f8fadf84-e339-458e-80bd-bd9a279387c8:
+                    required: true
+                    sortOrder: 3
+              -
+                name: SEO
+                sortOrder: 2
+                fields:
+                  c6caccbe-bc27-488b-a546-9119aacebce5:
+                    required: false
+                    sortOrder: 1
   a820e5c3-2900-4e71-9dab-1daa6e72b273:
     name: Authors
     handle: authors
