@@ -1,0 +1,42 @@
+{#  --- Donation Metrics ---  #}
+
+<div class="donation-metrics | gutter space-b">
+    {#  --- Donation Metrics: Stats ---  #}
+    <div class="donation-stats">
+        <div class="donation-stats__stat">
+            <div class="donation-meter__stat-header | font-serif">${{ amountRaised }}</div>
+            <div class="donation-meter__stat-detail">Raised of ${{ amountGoal }}</div>
+        </div>
+        <div class="donation-stats__stat">
+            <div class="donation-meter__stat-header | font-serif">
+                {{ daysLeft }}
+            </div>
+            <div class="donation-meter__stat-detail">
+                Day{% if daysLeft != 1 %}s{% endif %}
+                Left
+            </div>
+        </div>
+    </div>
+
+    {#  --- Donation Metrics: Meter ---  #}
+    <div class="donation-meter">
+        <div class="donation-meter__meter">
+            <div class="donation-meter__meter__inner" style="width: {{ percentage }}%"></div>
+        </div>
+        <div class="donation-meter__label">{{ percentage }}% funded</div>
+    </div>
+
+    
+    {#  --- Donation Metrics: Description ---  #}
+    <div class="paragraphs -sm -loose text-center">
+        <p>{{ copy }}</p>
+    </div>
+</div>
+
+
+{% js %}
+    var experience = document.querySelector('.donation-meter__meter__inner')
+    setTimeout(function() {
+		experience.classList.add('-run')
+	}, 1500);
+{% endjs %}
