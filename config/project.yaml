@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1573677342
+dateModified: 1574269365
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -1051,6 +1051,18 @@ fields:
       localizeRelations: false
     fieldGroup: c8b54415-97f3-4759-8c5a-5ba6d41f9519
     contentColumnType: string
+  6fe70f45-1974-4086-b1e8-45950b7081da:
+    name: 'View Count'
+    handle: viewCount
+    instructions: ''
+    searchable: false
+    translationMethod: none
+    translationKeyFormat: null
+    type: doublesecretagency\viewcount\fields\TotalViews
+    settings:
+      viewKey: ''
+    contentColumnType: string
+    fieldGroup: 4748bdfa-3553-4647-96f4-932d64fcec02
   726e4aac-9f65-4618-b0c1-4da0e43672ee:
     name: 'First Name'
     handle: firstName
@@ -6052,6 +6064,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  view-count:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 routes:
   ab27c89e-4540-4090-90f5-59d726e23ab4:
     template: /events/
@@ -6482,6 +6498,9 @@ sections:
                   44ed3589-35f9-41e5-a842-913e07ba4354:
                     required: true
                     sortOrder: 2
+                  6fe70f45-1974-4086-b1e8-45950b7081da:
+                    required: false
+                    sortOrder: 4
                   ca88b718-b5ea-4d62-907a-b2746232ec5a:
                     required: false
                     sortOrder: 3
@@ -6912,6 +6931,9 @@ sections:
                 name: Introduction
                 sortOrder: 1
                 fields:
+                  6fe70f45-1974-4086-b1e8-45950b7081da:
+                    required: false
+                    sortOrder: 3
                   94dac0f6-ee2b-48f8-943b-ab2ab028f55f:
                     required: true
                     sortOrder: 2
