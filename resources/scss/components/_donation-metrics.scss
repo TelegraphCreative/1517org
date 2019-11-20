@@ -7,59 +7,14 @@
     max-width: 41.5rem;
     padding-top: 1.75rem;
 
-    // Meter
-    .donation-meter {
-        @apply text-slate-darkest mb-6;
-    
-        &__meter {
-            @apply
-                h-4 w-full
-                bg-ivory-lighter
-                mb-1
-                rounded-sm;
-
-            &__inner {
-                @apply
-                    relative
-                    h-full
-                    rounded-sm;
-
-                &:after {
-                    @apply
-                        absolute
-                        h-full 
-                        bg-red rounded-sm;
-                    content: '';
-                    left: 0;
-                    width: 0;
-                }
-
-                &.-run {
-                    &:after {
-                        @apply w-full timing-2 property-all;
-                        transition-duration: 1.5s
-                    }
-                }
-            }
-        }
-    
-        &__label { @apply font-medium text-sm }
-
-        @screen sm {
-            &__label { @apply text-md }
-        }
-        
-        @screen md {
-            @apply mb-8
-        }
-    }
+    @screen md { padding-top: 2rem }
     
     
     // Stats
     .donation-stats {
         @apply
             flex flex-wrap justify-around
-            -mx-1 mb-10;
+            -mx-1 mb-8;
     
         &__stat {
             @apply
@@ -94,9 +49,59 @@
         }
 
         @screen md {
+            @apply mb-10;
+
             &__stat {
                 .donation-meter__stat-header { @apply text-3xl }
             }
         }
     }
+
+
+        // Meter
+        .donation-meter {
+            @apply text-slate-darkest mb-6;
+        
+            &__meter {
+                @apply
+                    h-4 w-full
+                    bg-ivory-lighter
+                    mb-1
+                    rounded-sm;
+    
+                &__inner {
+                    @apply
+                        relative
+                        h-full
+                        rounded-sm;
+    
+                    &:after {
+                        @apply
+                            absolute pin-l
+                            h-full 
+                            bg-red rounded-sm;
+                        content: '';
+                        width: 0;
+                    }
+    
+                    &.-run {
+                        &:after {
+                            @apply w-full timing-2 property-all;
+                            transition-duration: 1.5s
+                        }
+                    }
+                }
+            }
+        
+            &__label { @apply font-medium text-sm }
+    
+            @screen sm {
+                &__label { @apply text-md }
+            }
+            
+            @screen md { @apply mb-10 }
+        }
+
+
+    .paragraphs { @apply text-slate-light mb-10 }
 }

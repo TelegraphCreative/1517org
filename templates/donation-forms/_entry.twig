@@ -6,8 +6,7 @@
 <section class="space-menu | container gutter | space-b | no-print">
 
     {% set pageHeaderContent = { 
-        title: entry.header,
-        detail: entry.fullDescription
+        title: entry.header
     } %} 
     {% include "_components/page-header" with { content: pageHeaderContent } %}
 
@@ -26,7 +25,8 @@
             percentage: percentage | number_format(0, '.', ','),
             amountRaised: entry.amountRaised | number_format(0, '.', ','),
             amountGoal: entry.goal | number_format(0, '.', ','),
-            daysLeft: daysLeft
+            daysLeft: daysLeft,
+            copy: "Your gift today enables us to proclaim the free gift of the Gospel of Christ to more people in more ways this year and for many more to come"
         }
     %}
 
