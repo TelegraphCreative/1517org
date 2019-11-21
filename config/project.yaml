@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1574289655
+dateModified: 1574290000
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -6683,7 +6683,7 @@ sections:
                     required: true
                     sortOrder: 2
                   323918ef-85a8-40f0-9226-323f4bfddce0:
-                    required: true
+                    required: false
                     sortOrder: 5
                   4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
                     required: true
