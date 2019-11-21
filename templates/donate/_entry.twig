@@ -12,12 +12,16 @@
 
     {% set percentage = entry.amountRaised / entry.goal * 100 %}
 
-    {% set daysLeft = 0 %}
-    {% set today = date('now' | date('Y/m/d')) %}
-    {% set endDate = date(entry.endDate | date('Y/m/d')) %}
-    {% if endDate > today %}
-        {% set difference = endDate.diff(today) %}
-        {% set daysLeft = difference.days %}
+    {% if entry.endDate %}
+        {% set daysLeft = 'ended' %}
+        {% set today = date('now' | date('Y/m/d')) %}
+        {% set endDate = date(entry.endDate | date('Y/m/d')) %}
+        {% if endDate > today %}
+            {% set difference = endDate.diff(today) %}
+            {% set daysLeft = difference.days %}
+        {% endif %}
+    {% else %}
+        {% set daysLeft = null %}
     {% endif %}
 
     {% include "_components/donation-metrics"
@@ -26,7 +30,7 @@
             amountRaised: entry.amountRaised | number_format(0, '.', ','),
             amountGoal: entry.goal | number_format(0, '.', ','),
             daysLeft: daysLeft,
-            copy: "Your gift today enables us to proclaim the free gift of the Gospel of Christ to more people in more ways this year and for many more to come"
+            copy: entry.fullDescription
         }
     %}
 

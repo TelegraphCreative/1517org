@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1573677342
+dateModified: 1574290000
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -6325,6 +6325,13 @@ sections:
     handle: donate
     type: single
     enableVersioning: false
+    propagationMethod: all
+    siteSettings:
+      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: donate
+        template: donate/index
     entryTypes:
       d6ea80e0-5286-41da-8315-7fafaff2fa55:
         name: Donate
@@ -6369,13 +6376,6 @@ sections:
                   c6caccbe-bc27-488b-a546-9119aacebce5:
                     required: false
                     sortOrder: 1
-    siteSettings:
-      fb77e84e-92df-43ef-bf13-af2fe58f56fe:
-        enabledByDefault: true
-        hasUrls: true
-        uriFormat: donate
-        template: donate
-    propagationMethod: all
   4cfc45f7-e2aa-4bb7-a468-bfe079a34104:
     name: 'Articles Index'
     handle: articlesIndex
@@ -6662,8 +6662,8 @@ sections:
       fb77e84e-92df-43ef-bf13-af2fe58f56fe:
         enabledByDefault: true
         hasUrls: true
-        uriFormat: 'donation-forms/{slug}'
-        template: donation-forms/_entry
+        uriFormat: 'donate/{slug}'
+        template: donate/_entry
     entryTypes:
       bf8ca04b-5cd2-4c09-892f-778257212543:
         name: 'Donation Forms'
@@ -6683,7 +6683,7 @@ sections:
                     required: true
                     sortOrder: 2
                   323918ef-85a8-40f0-9226-323f4bfddce0:
-                    required: true
+                    required: false
                     sortOrder: 5
                   4bb1630f-b655-45cf-91c1-3fd0b328ce9f:
                     required: true

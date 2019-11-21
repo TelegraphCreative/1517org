@@ -11,7 +11,10 @@
 {% set allSections = craft.app.sections.allSections %}
 {% set sections = [] %}
 {% for section in allSections %}
-    {% if section.type == 'channel' and section.handle != 'authors' %}
+    {% if section.type == 'channel'
+        and section.handle != 'authors'
+        and section.handle != 'donationForms'
+    %}
         {% set sections = sections|merge([section]) %}
     {% endif %}
 {% endfor %}
