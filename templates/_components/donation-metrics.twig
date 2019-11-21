@@ -7,15 +7,23 @@
             <div class="donation-meter__stat-header | font-serif">${{ amountRaised }}</div>
             <div class="donation-meter__stat-detail">Raised of ${{ amountGoal }}</div>
         </div>
-        <div class="donation-stats__stat">
-            <div class="donation-meter__stat-header | font-serif">
-                {{ daysLeft }}
-            </div>
-            <div class="donation-meter__stat-detail">
-                Day{% if daysLeft != 1 %}s{% endif %}
-                Left
-            </div>
-        </div>
+        {% if daysLeft != null %}
+            {% if daysLeft != 'ended' %}
+                <div class="donation-stats__stat">
+                    <div class="donation-meter__stat-header | font-serif">
+                        {{ daysLeft }}
+                    </div>
+                    <div class="donation-meter__stat-detail">
+                        Day{% if daysLeft != 1 %}s{% endif %}
+                        Left
+                    </div>
+                </div>
+            {% else %}
+                <div class="donation-stats__stat paragraphs campaign-ended">
+                    <strong>This campaign has ended</strong>
+                </div>
+            {% endif %}
+        {% endif %}
     </div>
 
     {#  --- Donation Metrics: Meter ---  #}
