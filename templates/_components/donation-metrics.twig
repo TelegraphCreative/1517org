@@ -7,15 +7,19 @@
             <div class="donation-meter__stat-header | font-serif">${{ amountRaised }}</div>
             <div class="donation-meter__stat-detail">Raised of ${{ amountGoal }}</div>
         </div>
-        {% if daysLeft != null %}
-            {% if daysLeft != 'ended' %}
+        {% if timeLeft != null %}
+            {% if timeLeft != 'ended' %}
                 <div class="donation-stats__stat">
                     <div class="donation-meter__stat-header | font-serif">
-                        {{ daysLeft }}
+                        {{ timeLeft }}
                     </div>
                     <div class="donation-meter__stat-detail">
-                        Day{% if daysLeft != 1 %}s{% endif %}
-                        Left
+                        {% if timeLeft matches '/^\\d+$/' %}
+                            Day{% if timeLeft != 1 %}s{% endif %}
+                            Left
+                        {% else %}
+                            Time Left
+                        {% endif %}
                     </div>
                 </div>
             {% else %}

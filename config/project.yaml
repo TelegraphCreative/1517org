@@ -278,7 +278,7 @@ commerce:
       color: blue
       sortOrder: 99
       default: false
-dateModified: 1574290000
+dateModified: 1575667519
 email:
   fromEmail: info@1517.org
   fromName: '1517'
@@ -650,8 +650,8 @@ fields:
     fieldGroup: 9c38350d-b6ab-4ca0-9af7-92277ed567dc
     contentColumnType: text
   323918ef-85a8-40f0-9226-323f4bfddce0:
-    name: 'End Date'
-    handle: endDate
+    name: 'End Date and Time'
+    handle: endDateTime
     instructions: ''
     searchable: false
     translationMethod: none
@@ -659,7 +659,7 @@ fields:
     type: craft\fields\Date
     settings:
       showDate: true
-      showTime: false
+      showTime: true
       minuteIncrement: '30'
     contentColumnType: datetime
     fieldGroup: 2f1272c2-608d-4f09-b2d3-49c0f865af79
@@ -9323,7 +9323,7 @@ system:
   name: '1517'
   live: true
   schemaVersion: 3.2.16
-  timeZone: America/Los_Angeles
+  timeZone: America/Chicago
 users:
   requireEmailVerification: false
   allowPublicRegistration: true
