@@ -12,16 +12,22 @@
 
     {% set percentage = entry.amountRaised / entry.goal * 100 %}
 
-    {% if entry.endDate %}
-        {% set daysLeft = 'ended' %}
-        {% set today = date('now' | date('Y/m/d')) %}
-        {% set endDate = date(entry.endDate | date('Y/m/d')) %}
-        {% if endDate > today %}
-            {% set difference = endDate.diff(today) %}
-            {% set daysLeft = difference.days %}
+    {% if entry.endDateTime %}
+        {% set timeLeft = 'ended' %}
+        {% set now = date('now' | date('Y/m/d H:i')) %}
+        {% set endDateTime = date(entry.endDateTime | date('Y/m/d H:i')) %}
+        {% if endDateTime > now %}
+            {% set difference = endDateTime.diff(now) %}
+            {% if difference | date('%a') > 0 %}
+                {% set timeLeft = difference.days %}
+            {% else %}
+                {% set hours = difference | date('%h') %}
+                {% set mins = difference | date('%i') %}
+                {% set timeLeft = (hours > 0 ? hours ~ 'h ' : '') ~ mins ~ 'm' %}
+            {% endif %}
         {% endif %}
     {% else %}
-        {% set daysLeft = null %}
+        {% set timeLeft = null %}
     {% endif %}
 
     {% include "_components/donation-metrics"
@@ -29,7 +35,7 @@
             percentage: percentage | number_format(0, '.', ','),
             amountRaised: entry.amountRaised | number_format(0, '.', ','),
             amountGoal: entry.goal | number_format(0, '.', ','),
-            daysLeft: daysLeft,
+            timeLeft: timeLeft,
             copy: entry.fullDescription
         }
     %}
