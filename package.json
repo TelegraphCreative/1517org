@@ -21,7 +21,7 @@
     "infinite-scroll": "^3.0.6",
     "laravel-mix": "^4.0.15",
     "laravel-mix-tailwind": "^0.1.0",
-    "lazysizes": "^4.1.7",
+    "lazysizes": "^5.2.1",
     "lodash": "^4.17.14",
     "moment": "^2.24.0",
     "prismjs": "^1.16.0",
